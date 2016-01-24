@@ -2,6 +2,11 @@ package com.steelzack.pencelizer;
 
 import org.fusesource.jansi.Ansi.Color;
 
+/**
+ *
+ * @author joao
+ * Manages the whole board to be rendered
+ */
 public class PencelizerManager {
 
 	private PencelizerCharacter[][] pencelizerBoard;
