@@ -17,8 +17,17 @@ public class PencelizerManager {
 	 * @param nLines
 	 * @param nColumns
 	 */
-	public PencelizerManager(int nLines, int nColumns) {
-		pencelizerBoard = new PencelizerCharacter[nLines][nColumns];
+	public PencelizerManager(int nLines) {
+		pencelizerBoard = new PencelizerCharacter[nLines][];
+	}
+	
+	/**
+	 * Adds a row to the row set with the amount of columns discovered
+	 * It used to draw and ship image
+	 * @param nColumns Number of columns necessary
+	 */
+	public void addRow(int nColumns){
+		pencelizerBoard[pencelizerBoard.length-1] = new PencelizerCharacter[nColumns];
 	}
 
 	/**
