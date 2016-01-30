@@ -6,6 +6,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.lang.Character.UnicodeBlock;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.TreeSet;
 
@@ -45,12 +46,11 @@ public class PencelizerEncodingManager {
 			public int compare(Character o1, Character o2) {
 				double fullNess1 = getCharacterFullness(o1);
 				double fullNess2 = getCharacterFullness(o2);
-				Integer comparisonResult  = (Integer)((fullNess1 < fullNess2) ? -1 : 0);
-				if(comparisonResult == 0)
-				{
+				Integer comparisonResult = (Integer) ((fullNess1 < fullNess2) ? -1 : 0);
+				if (comparisonResult == 0) {
 					comparisonResult = o1.compareTo(o2);
 				}
-				
+
 				return comparisonResult;
 			}
 		};
@@ -78,7 +78,7 @@ public class PencelizerEncodingManager {
 				}
 				// System.out.print("\n");
 			}
-			return (int)(fullNess / total * 1000);
+			return (int) (fullNess / total * 1000);
 		} else {
 			return -1;
 		}
@@ -86,5 +86,9 @@ public class PencelizerEncodingManager {
 
 	protected int getMaximumHeight() {
 		return maximumHeight;
+	}
+
+	public TreeSet<Character> getOrderedCharacters() {
+		return orderedCharacters;
 	}
 }
