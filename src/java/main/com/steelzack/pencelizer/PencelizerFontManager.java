@@ -29,4 +29,13 @@ public class PencelizerFontManager {
 	public int getCharacterWidth(char c){
 		return fontMetrics.stringWidth(new String(new char[]{c}));
 	}
+	
+	/**
+	 * Gets full height of a particular character
+	 * @param c Character
+	 * @return Width of character
+	 */
+	public int getCharacterHeight(char c){
+		return font.getSize();
+	}
 }
