@@ -9,8 +9,7 @@ import org.fusesource.jansi.AnsiConsole;
 
 /**
  *
- * @author joao
- * Manages a specific character
+ * @author joao Manages a specific character
  *
  */
 public class PencelizerCharacter {
