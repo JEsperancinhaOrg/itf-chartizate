@@ -12,6 +12,11 @@ import java.util.TreeSet;
 
 import javax.swing.JLabel;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public class PencelizerEncodingManager {
 
 	private final UnicodeBlock block;

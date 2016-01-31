@@ -1,12 +1,10 @@
 package com.steelzack.pencelizer;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
-
-import org.fusesource.jansi.Ansi.Color;
 
 import com.steelzack.pencelizer.distributions.PencelizerDistribution;
 import com.steelzack.pencelizer.distributions.PencelizerDistributionTypes;
@@ -22,13 +20,15 @@ public class PencelizerManager {
 
 	private final PencelizerDistribution distribution;
 
-	private final PencelizerCharacter[][] pencelizerBoard;
+	private final PencelizerCharacterImg[][] pencelizerBoard;
 
 	private final PencelizerFontManager fontManager;
 
 	private final PencelizerEncodingManager encodingManager;
 
 	private final PencelizerImageManager imageManager;
+
+	private String desinationImagePath;
 
 	/**
 	 * Creates Pencelizer manager by defining how many lines and columns is the
@@ -54,16 +54,17 @@ public class PencelizerManager {
 			final String fontName, //
 			final int fontSize, //
 			final UnicodeBlock block, //
-			final String imageFullPath //
+			final InputStream imageFullStream, //
+			final String destinationImagePath //
 	) throws FileNotFoundException, IOException {
-		this.pencelizerBoard = new PencelizerCharacter[nLines][];
+		this.pencelizerBoard = new PencelizerCharacterImg[nLines][];
 		this.backgroundColor = backgroundColor;
-		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
 		this.fontManager = new PencelizerFontManager(fontName, fontSize);
 		this.encodingManager = new PencelizerEncodingManager(block, fontManager);
-		encodingManager.init();
-		this.imageManager = new PencelizerImageManager(new FileInputStream(new File(imageFullPath)));
-
+		this.encodingManager.init();
+		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
+		this.imageManager = new PencelizerImageManager(imageFullStream);
+		this.desinationImagePath = destinationImagePath;
 	}
 
 	private PencelizerDistribution getDistribution(PencelizerDistributionTypes distributionType, int densityPercentage,
@@ -72,8 +73,11 @@ public class PencelizerManager {
 		case Gaussian:
 			return null; // TODO: To be implemented
 		case Linear:
-			return new PencelizerLinearDistribution(this.encodingManager.getCharacters(), densityPercentage,
-					rangePercentage);
+			return new PencelizerLinearDistribution( //
+					this.encodingManager.getCharacters(), // 
+					densityPercentage, //
+					rangePercentage //
+					);
 		case Poisson:
 			return null; // TODO: To be implemented
 		default:
@@ -82,8 +86,15 @@ public class PencelizerManager {
 		return null;
 	}
 
-	public void generateConvertedImage() {
+	public void generateConvertedImage() throws IOException {
+		final Character character = this.distribution.getCharacterFromArray();
+		final int width = fontManager.getCharacterWidth(character.charValue());
+		final int height = fontManager.getCharacterHeight(character.charValue());
+		final int averageColor = imageManager.getPartAverageColor(0, 0, width, height);
+		addRow(1);
+		setPencelizerCharacter(0, 0, width, new Color(averageColor), this.backgroundColor, character);
 
+		imageManager.saveImage(pencelizerBoard, fontManager.getFont(), this.desinationImagePath);
 	}
 
 	/**
@@ -94,7 +105,7 @@ public class PencelizerManager {
 	 *            Number of columns necessary
 	 */
 	public void addRow(int nColumns) {
-		pencelizerBoard[pencelizerBoard.length - 1] = new PencelizerCharacter[nColumns];
+		pencelizerBoard[pencelizerBoard.length - 1] = new PencelizerCharacterImg[nColumns];
 	}
 
 	/**
@@ -114,8 +125,12 @@ public class PencelizerManager {
 	 * @param character
 	 *            The chosen character
 	 */
-	public void setPencelizerCharacter(int l, int c, Color fg, Color bg, char character) {
+	public void setPencelizerCharacter(int l, int c, int width, Color fg, Color bg, char character) {
 
-		pencelizerBoard[l][c] = new PencelizerCharacter(fg, bg, character);
+		pencelizerBoard[l][c] = new PencelizerCharacterImg(fg, bg, width, character);
+	}
+
+	public static void main(String[] args) {
+
 	}
 }

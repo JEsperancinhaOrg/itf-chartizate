@@ -2,6 +2,11 @@ package com.steelzack.pencelizer.distributions;
 
 import java.util.Random;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public class PencelizerLinearDistribution extends PencelizerDistribution {
 
 	public PencelizerLinearDistribution(Character[] characters, int densityPercentage, int rangePercentage) {

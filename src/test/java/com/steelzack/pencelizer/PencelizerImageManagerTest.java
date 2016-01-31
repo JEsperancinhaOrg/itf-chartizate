@@ -6,6 +6,11 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public class PencelizerImageManagerTest {
 
 	@Test

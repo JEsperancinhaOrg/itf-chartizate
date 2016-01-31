@@ -3,12 +3,16 @@ package com.steelzack.pencelizer;
 import org.fusesource.jansi.Ansi.Color;
 import org.junit.Test;
 
-public class PencelizerCharacterTest {
+/**
+ * 
+ * @author joao
+ *
+ */
+public class PencelizerCharacterCmdTest {
 
 	@Test
 	public void testPrintToCommandLine() throws Exception {
-		final PencelizerCharacter pc = new PencelizerCharacter(Color.RED, Color.BLACK, 'a');
+		final PencelizerCharacterCmd pc = new PencelizerCharacterCmd(Color.RED, Color.BLACK, 'a');
 		pc.printToCommandLine();
 	}
-
 }

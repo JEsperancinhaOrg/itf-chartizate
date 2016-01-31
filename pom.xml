@@ -36,7 +36,7 @@
 							<archive>
 								<manifest>
 									<addClasspath>true</addClasspath>
-									<mainClass>com.steelzack.pencelizer.PencelizerCharacter</mainClass>
+									<mainClass>com.steelzack.pencelizer.PencelizerManager</mainClass>
 								</manifest>
 							</archive>
 							<descriptorRefs>
