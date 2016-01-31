@@ -16,9 +16,9 @@ import org.junit.Test;
 public class PencelizerManagerTest {
 
 	@Test
-	public void testSetPencelizerCharacter() throws Exception {
-		// TODO: Make Junit test
-	}
+		public void testAddPencelizerCharacter() throws Exception {
+			// TODO: Make Junit test
+		}
 
 	@Test
 	public void testPencelizerManager() throws Exception {
@@ -34,8 +34,8 @@ public class PencelizerManagerTest {
 				50, //
 				10, //
 				Linear, //
-				"Arial", //
-				10, //
+				"Arial", // 
+				5, //
 				UnicodeBlock.LATIN_EXTENDED_A, //
 				imageFullStream, //
 				"/tmp/test.png" //

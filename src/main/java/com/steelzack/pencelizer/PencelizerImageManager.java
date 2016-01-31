@@ -20,12 +20,16 @@ public class PencelizerImageManager {
 	private BufferedImage srcImage;
 
 	public PencelizerImageManager(InputStream io) throws IOException {
-		try {
-			BufferedImage image = ImageIO.read(io);
-			this.srcImage = image;
-		} catch (IOException ex) {
-			throw ex;
-		}
+		BufferedImage image = ImageIO.read(io);
+		this.srcImage = image;
+	}
+
+	public int getImageWidth() {
+		return this.srcImage.getWidth();
+	}
+
+	public int getImageHeight() {
+		return this.srcImage.getHeight();
 	}
 
 	public long getImageAverageColor() {
@@ -39,8 +43,8 @@ public class PencelizerImageManager {
 		double red = 0;
 		double green = 0;
 		double blue = 0;
-		for (int j = x0; j <= xn; j++) {
-			for (int k = y0; k <= yn; k++) {
+		for (int j = x0; j <= xn && j < srcImage.getWidth(); j++) {
+			for (int k = y0; k <= yn && k < srcImage.getHeight(); k++) {
 				int rgbPixel = srcImage.getRGB(j, k);
 				alpha += (rgbPixel >> 24) & 0xff;
 				red += (rgbPixel >> 16) & 0xff;
@@ -59,14 +63,24 @@ public class PencelizerImageManager {
 		return fullSum;
 	}
 
-	public void saveImage(PencelizerCharacterImg[][] pencelizerBoard, Font font, String outputFile) throws IOException {
-		PencelizerCharacterImg character = pencelizerBoard[0][0];
-		BufferedImage bImg = new BufferedImage(character.getWidth(), font.getSize(), BufferedImage.TYPE_INT_RGB);
+	public void saveImage(PencelizerCharacterImg[][] pencelizerBoard, Font font, String outputFile, int outputWidth, int outputHeight) throws IOException {
+		BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g2d = bImg.createGraphics();
 		g2d.setFont(font);
-		g2d.setColor(character.getFg());
-		g2d.drawString(character.toString(), 0, font.getSize());
+
+		int currentWidth = 0;
+		for (int i = 0; i < pencelizerBoard.length; i++) {
+			int rowLength = pencelizerBoard[i].length;
+			for (int j = 0; j < rowLength; j++) {
+				final PencelizerCharacterImg character = pencelizerBoard[i][j];
+				g2d.setColor(character.getFg());
+				g2d.drawString(character.toString(), currentWidth, font.getSize() * (i+1));
+				currentWidth += pencelizerBoard[i][j].getWidth();
+			}
+			currentWidth = 0;
+		}
 		g2d.dispose();
+	
 		if (ImageIO.write(bImg, "png", new File(outputFile))) {
 			System.out.println(outputFile + "is saved");
 		}
