@@ -7,10 +7,12 @@ public class PencelizerCharacterImg {
 	private Color fg;
 	private Color bg;
 	private char character;
+	private int width;
 
-	public PencelizerCharacterImg(final Color fg, final Color bg, final char character) {
+	public PencelizerCharacterImg(final Color fg, final Color bg, final int width, final char character) {
 		this.fg = fg;
 		this.bg = bg;
+		this.width = width;
 		this.character = character;
 	}
 
@@ -22,6 +24,10 @@ public class PencelizerCharacterImg {
 		return fg;
 	}
 
+	public int getWidth() {
+		return width;
+	}
+	
 	public char getCharacter() {
 		return character;
 	}

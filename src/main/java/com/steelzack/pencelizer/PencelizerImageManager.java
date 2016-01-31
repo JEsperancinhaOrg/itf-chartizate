@@ -1,7 +1,10 @@
 package com.steelzack.pencelizer;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -54,5 +57,18 @@ public class PencelizerImageManager {
 
 		int fullSum = new Color(mediumRed, mediumGreen, mediumBlue, mediumApha).getRGB();
 		return fullSum;
+	}
+
+	public void saveImage(PencelizerCharacterImg[][] pencelizerBoard, Font font, String outputFile) throws IOException {
+		PencelizerCharacterImg character = pencelizerBoard[0][0];
+		BufferedImage bImg = new BufferedImage(character.getWidth(), font.getSize(), BufferedImage.TYPE_INT_RGB);
+		Graphics2D g2d = bImg.createGraphics();
+		g2d.setFont(font);
+		g2d.setColor(character.getFg());
+		g2d.drawString(character.toString(), 0, font.getSize());
+		g2d.dispose();
+		if (ImageIO.write(bImg, "png", new File(outputFile))) {
+			System.out.println(outputFile + "is saved");
+		}
 	}
 }

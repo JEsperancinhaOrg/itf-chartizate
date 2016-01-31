@@ -1,5 +1,11 @@
 package com.steelzack.pencelizer;
 
+import static com.steelzack.pencelizer.distributions.PencelizerDistributionTypes.Linear;
+
+import java.awt.Color;
+import java.io.InputStream;
+import java.lang.Character.UnicodeBlock;
+
 import org.junit.Test;
 
 /**
@@ -19,4 +25,21 @@ public class PencelizerManagerTest {
 		// TODO: Make Junit test
 	}
 
+	@Test
+	public void testGenerateConvertedImage() throws Exception {
+		InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
+		final PencelizerManager manager = new PencelizerManager( //
+				1, //
+				Color.BLACK, //
+				50, //
+				10, //
+				Linear, //
+				"Arial", //
+				10, //
+				UnicodeBlock.LATIN_EXTENDED_A, //
+				imageFullStream, //
+				"/tmp/test.png" //
+		);
+		manager.generateConvertedImage();
+	}
 }
