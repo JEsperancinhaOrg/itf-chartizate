@@ -16,7 +16,7 @@ public class PencelizerEncodingManagerTest {
 		manager.init();
 		assertEquals(
 				"[Ţ, ċ, ı, Ÿ, ć, Ļ, ņ, ŋ, ų, Ŷ, Ģ, ĉ, Ċ, č, ę, Ġ, į, ĸ, Ľ, Ŀ, ŗ, Ť, Ć, Ķ, Ş, Ų, ą, ė, ġ, Ĺ, ń, ŉ, ō, Ĝ, Ą, Ĉ, Č, Į, ļ, ľ, ŀ, Ł, ň, ő, ū, ŷ, Ĳ, Ŋ, Ś, ď, ē, ě, ĝ, Ğ, ģ, ħ, ŏ, ş, ũ, ű, Ŗ, Ŝ, Š, Ū, Ĵ, Ŧ, Ō, ā, đ, ĥ, ĩ, ī, İ, ĵ, œ, ŕ, ŭ, ſ, Ā, Ď, Đ, Ę, Ņ, Ũ, Ű, Ő, ť, ż, ĕ, ğ, Ė, Ĥ, Ŕ, Ŭ, Ů, ŵ, Ŏ, Ă, ă, ĳ, ĺ, ł, Ń, Œ, Ř, ř, ś, ź, Ż, Ŵ, Ē, Ě, Ħ, Ň, ů, Ź, ž, ķ, ŝ, š, Ĩ, Ī, ĭ, ţ, Ž, Ĕ, Ĭ, ŧ]",
-				Arrays.toString(manager.getOrderedCharacters().toArray()));
+				Arrays.toString(manager.getCharacters()));
 	}
 
 	@Test
@@ -34,7 +34,7 @@ public class PencelizerEncodingManagerTest {
 				fontManager);
 		manager.init();
 		System.out.println("\n");
-		for (Character character : manager.getOrderedCharacters()) {
+		for (Character character : manager.getCharacters()) {
 			for (int i = 0; i < 100; i++) {
 				System.out.print(character + " ");
 			}

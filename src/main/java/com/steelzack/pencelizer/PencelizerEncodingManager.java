@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.lang.Character.UnicodeBlock;
 import java.util.Comparator;
+import java.util.Set;
 import java.util.TreeSet;
 
 import javax.swing.JLabel;
@@ -15,8 +16,10 @@ public class PencelizerEncodingManager {
 
 	private final UnicodeBlock block;
 
-	private TreeSet<Character> orderedCharacters = new TreeSet<Character>(getComparator());
+	private Set<Character> orderedCharacters = new TreeSet<Character>(getComparator());
 
+	private Character[] characters;
+	
 	private final PencelizerFontManager fontManager;
 
 	private int maximumHeight = 0;
@@ -38,6 +41,7 @@ public class PencelizerEncodingManager {
 				}
 			}
 		}
+		characters = orderedCharacters.toArray(new Character[0]);
 	}
 
 	private Comparator<Character> getComparator() {
@@ -87,7 +91,7 @@ public class PencelizerEncodingManager {
 		return maximumHeight;
 	}
 
-	public TreeSet<Character> getOrderedCharacters() {
-		return orderedCharacters;
+	public Character[] getCharacters() {
+		return characters;
 	}
 }

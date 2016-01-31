@@ -1,8 +1,16 @@
 package com.steelzack.pencelizer;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.Character.UnicodeBlock;
+
 import org.fusesource.jansi.Ansi.Color;
 
+import com.steelzack.pencelizer.distributions.PencelizerDistribution;
 import com.steelzack.pencelizer.distributions.PencelizerDistributionTypes;
+import com.steelzack.pencelizer.distributions.PencelizerLinearDistribution;
 
 /**
  *
@@ -10,30 +18,72 @@ import com.steelzack.pencelizer.distributions.PencelizerDistributionTypes;
  */
 public class PencelizerManager {
 
-	private Color backgroundColor;
+	private final Color backgroundColor;
 
-	private int densityPercentage;
+	private final PencelizerDistribution distribution;
 
-	private int rangePercentage;
+	private final PencelizerCharacter[][] pencelizerBoard;
 
-	private PencelizerDistributionTypes distribution;
+	private final PencelizerFontManager fontManager;
 
-	private PencelizerCharacter[][] pencelizerBoard;
+	private final PencelizerEncodingManager encodingManager;
+
+	private final PencelizerImageManager imageManager;
 
 	/**
 	 * Creates Pencelizer manager by defining how many lines and columns is the
 	 * array going to have
 	 * 
 	 * @param nLines
-	 * @param nColumns
+	 * @param backgroundColor
+	 * @param densityPercentage
+	 * @param rangePercentage
+	 * @param distributionType
+	 * @param fontName
+	 * @param fontSize
+	 * @param block
+	 * @param imageFullPath
+	 * @throws FileNotFoundException
+	 * @throws IOException
 	 */
-	public PencelizerManager(int nLines, Color backgroundColor, int densityPercentage, int rangePercentage,
-			PencelizerDistributionTypes distribution) {
+	public PencelizerManager(int nLines, //
+			final Color backgroundColor, //
+			final int densityPercentage, //
+			final int rangePercentage, //
+			final PencelizerDistributionTypes distributionType, //
+			final String fontName, //
+			final int fontSize, //
+			final UnicodeBlock block, //
+			final String imageFullPath //
+	) throws FileNotFoundException, IOException {
 		this.pencelizerBoard = new PencelizerCharacter[nLines][];
 		this.backgroundColor = backgroundColor;
-		this.densityPercentage = densityPercentage;
-		this.rangePercentage = rangePercentage;
-		this.distribution = distribution;
+		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
+		this.fontManager = new PencelizerFontManager(fontName, fontSize);
+		this.encodingManager = new PencelizerEncodingManager(block, fontManager);
+		encodingManager.init();
+		this.imageManager = new PencelizerImageManager(new FileInputStream(new File(imageFullPath)));
+
+	}
+
+	private PencelizerDistribution getDistribution(PencelizerDistributionTypes distributionType, int densityPercentage,
+			int rangePercentage) {
+		switch (distributionType) {
+		case Gaussian:
+			return null; // TODO: To be implemented
+		case Linear:
+			return new PencelizerLinearDistribution(this.encodingManager.getCharacters(), densityPercentage,
+					rangePercentage);
+		case Poisson:
+			return null; // TODO: To be implemented
+		default:
+			break;
+		}
+		return null;
+	}
+
+	public void generateConvertedImage() {
+
 	}
 
 	/**

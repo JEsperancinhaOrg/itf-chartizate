@@ -5,12 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class PencelizerFontManagerTest {
-
-	@Test
-	public void testPencelizerFontManager() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
 	@Test
 	public void testGetCharacterWidth() throws Exception {
 		final PencelizerFontManager manager = new PencelizerFontManager("Arial", 10);
