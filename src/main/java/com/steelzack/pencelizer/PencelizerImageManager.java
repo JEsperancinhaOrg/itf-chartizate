@@ -1,16 +1,18 @@
 package com.steelzack.pencelizer;
 
+import static java.lang.Math.abs;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 
 public class PencelizerImageManager {
 
 	private BufferedImage srcImage;
 
-	public PencelizerImageManager(ImageInputStream io) throws IOException {
+	public PencelizerImageManager(InputStream io) throws IOException {
 		try {
 			BufferedImage image = ImageIO.read(io);
 			this.srcImage = image;
@@ -31,6 +33,6 @@ public class PencelizerImageManager {
 			}
 		}
 
-		return (long) (fullSum / (width * height));
+		return abs((long) (fullSum / (width * height)));
 	}
 }
