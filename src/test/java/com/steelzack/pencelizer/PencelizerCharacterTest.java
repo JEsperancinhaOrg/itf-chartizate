@@ -3,6 +3,11 @@ package com.steelzack.pencelizer;
 import org.fusesource.jansi.Ansi.Color;
 import org.junit.Test;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public class PencelizerCharacterTest {
 
 	@Test

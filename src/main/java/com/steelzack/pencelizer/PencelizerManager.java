@@ -118,4 +118,8 @@ public class PencelizerManager {
 
 		pencelizerBoard[l][c] = new PencelizerCharacter(fg, bg, character);
 	}
+	
+	public static void main(String[] args) {
+		
+	}
 }

@@ -7,6 +7,11 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public class PencelizerImageManager {
 
 	private BufferedImage srcImage;

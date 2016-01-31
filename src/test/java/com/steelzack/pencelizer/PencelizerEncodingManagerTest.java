@@ -6,6 +6,11 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public class PencelizerEncodingManagerTest {
 
 	@Test

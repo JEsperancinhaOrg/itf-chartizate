@@ -1,5 +1,10 @@
 package com.steelzack.pencelizer.distributions;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public abstract class PencelizerDistribution implements IPencelizerDistribution {
 
 	protected final Character[] orderedListOfCharacters;

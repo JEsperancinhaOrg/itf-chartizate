@@ -2,6 +2,11 @@ package com.steelzack.pencelizer;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author joao
+ *
+ */
 public class PencelizerManagerTest {
 
 	@Test
