@@ -6,12 +6,12 @@ public class PencelizerManagerTest {
 
 	@Test
 	public void testSetPencelizerCharacter() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		// TODO: Make Junit test
 	}
 
 	@Test
 	public void testPencelizerManager() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		// TODO: Make Junit test
 	}
 
 }

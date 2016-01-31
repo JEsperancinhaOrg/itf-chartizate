@@ -18,6 +18,8 @@ public class PencelizerEncodingManager {
 
 	private Set<Character> orderedCharacters = new TreeSet<Character>(getComparator());
 
+	private Character[] characters;
+	
 	private final PencelizerFontManager fontManager;
 
 	private int maximumHeight = 0;
@@ -39,6 +41,7 @@ public class PencelizerEncodingManager {
 				}
 			}
 		}
+		characters = orderedCharacters.toArray(new Character[0]);
 	}
 
 	private Comparator<Character> getComparator() {
@@ -88,7 +91,7 @@ public class PencelizerEncodingManager {
 		return maximumHeight;
 	}
 
-	public Set<Character> getOrderedCharacters() {
-		return orderedCharacters;
+	public Character[] getCharacters() {
+		return characters;
 	}
 }

@@ -20,10 +20,6 @@ public class PencelizerManager {
 
 	private final Color backgroundColor;
 
-	private final int densityPercentage;
-
-	private final int rangePercentage;
-
 	private final PencelizerDistribution distribution;
 
 	private final PencelizerCharacter[][] pencelizerBoard;
@@ -62,9 +58,7 @@ public class PencelizerManager {
 	) throws FileNotFoundException, IOException {
 		this.pencelizerBoard = new PencelizerCharacter[nLines][];
 		this.backgroundColor = backgroundColor;
-		this.densityPercentage = densityPercentage;
-		this.rangePercentage = rangePercentage;
-		this.distribution = getDistribution(distributionType);
+		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
 		this.fontManager = new PencelizerFontManager(fontName, fontSize);
 		this.encodingManager = new PencelizerEncodingManager(block, fontManager);
 		encodingManager.init();
@@ -72,14 +66,18 @@ public class PencelizerManager {
 
 	}
 
-	private PencelizerDistribution getDistribution(PencelizerDistributionTypes distributionType) {
+	private PencelizerDistribution getDistribution(PencelizerDistributionTypes distributionType, int densityPercentage,
+			int rangePercentage) {
 		switch (distributionType) {
 		case Gaussian:
 			return null; // TODO: To be implemented
 		case Linear:
-			return new PencelizerLinearDistribution(this.encodingManager.getOrderedCharacters());
+			return new PencelizerLinearDistribution(this.encodingManager.getCharacters(), densityPercentage,
+					rangePercentage);
 		case Poisson:
 			return null; // TODO: To be implemented
+		default:
+			break;
 		}
 		return null;
 	}
