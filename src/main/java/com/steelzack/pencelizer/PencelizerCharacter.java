@@ -38,7 +38,7 @@ public class PencelizerCharacter {
 	 */
 	public void printToCommandLine() {
 		AnsiConsole.systemInstall();
-		System.out.println(ansi().eraseScreen().bg(backColor).fg(frontColor).a(character).reset());
+		System.out.print(ansi().eraseScreen().bg(backColor).fg(frontColor).a(character).reset());
 		AnsiConsole.systemUninstall();
 	}
 }
