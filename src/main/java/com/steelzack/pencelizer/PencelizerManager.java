@@ -1,12 +1,11 @@
 package com.steelzack.pencelizer;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.Character.UnicodeBlock;
-
-import org.fusesource.jansi.Ansi.Color;
 
 import com.steelzack.pencelizer.distributions.PencelizerDistribution;
 import com.steelzack.pencelizer.distributions.PencelizerDistributionTypes;
@@ -22,13 +21,15 @@ public class PencelizerManager {
 
 	private final PencelizerDistribution distribution;
 
-	private final PencelizerCharacter[][] pencelizerBoard;
+	private final PencelizerCharacterImg[][] pencelizerBoard;
 
 	private final PencelizerFontManager fontManager;
 
 	private final PencelizerEncodingManager encodingManager;
 
 	private final PencelizerImageManager imageManager;
+
+	private String desinationImagePath;
 
 	/**
 	 * Creates Pencelizer manager by defining how many lines and columns is the
@@ -54,16 +55,17 @@ public class PencelizerManager {
 			final String fontName, //
 			final int fontSize, //
 			final UnicodeBlock block, //
-			final String imageFullPath //
+			final String imageFullPath, //
+			final String destinationImagePath //
 	) throws FileNotFoundException, IOException {
-		this.pencelizerBoard = new PencelizerCharacter[nLines][];
+		this.pencelizerBoard = new PencelizerCharacterImg[nLines][];
 		this.backgroundColor = backgroundColor;
 		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
 		this.fontManager = new PencelizerFontManager(fontName, fontSize);
 		this.encodingManager = new PencelizerEncodingManager(block, fontManager);
 		encodingManager.init();
 		this.imageManager = new PencelizerImageManager(new FileInputStream(new File(imageFullPath)));
-
+		this.desinationImagePath = destinationImagePath;
 	}
 
 	private PencelizerDistribution getDistribution(PencelizerDistributionTypes distributionType, int densityPercentage,
@@ -83,7 +85,12 @@ public class PencelizerManager {
 	}
 
 	public void generateConvertedImage() {
-
+		final Character character = this.distribution.getCharacterFromArray();
+		final int width = fontManager.getCharacterWidth(character.charValue());
+		final int height = fontManager.getCharacterHeight(character.charValue());
+		final int averageColor = imageManager.getPartAverageColor(0, 0, width, height);
+		final PencelizerCharacterImg pCharacter = new PencelizerCharacterImg(new Color(averageColor), Color.BLACK,
+				character);
 	}
 
 	/**
@@ -94,7 +101,7 @@ public class PencelizerManager {
 	 *            Number of columns necessary
 	 */
 	public void addRow(int nColumns) {
-		pencelizerBoard[pencelizerBoard.length - 1] = new PencelizerCharacter[nColumns];
+		pencelizerBoard[pencelizerBoard.length - 1] = new PencelizerCharacterImg[nColumns];
 	}
 
 	/**
@@ -116,10 +123,10 @@ public class PencelizerManager {
 	 */
 	public void setPencelizerCharacter(int l, int c, Color fg, Color bg, char character) {
 
-		pencelizerBoard[l][c] = new PencelizerCharacter(fg, bg, character);
+		pencelizerBoard[l][c] = new PencelizerCharacterImg(fg, bg, character);
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 	}
 }

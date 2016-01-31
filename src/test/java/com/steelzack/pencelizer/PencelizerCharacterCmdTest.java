@@ -8,12 +8,11 @@ import org.junit.Test;
  * @author joao
  *
  */
-public class PencelizerCharacterTest {
+public class PencelizerCharacterCmdTest {
 
 	@Test
 	public void testPrintToCommandLine() throws Exception {
-		final PencelizerCharacter pc = new PencelizerCharacter(Color.RED, Color.BLACK, 'a');
+		final PencelizerCharacterCmd pc = new PencelizerCharacterCmd(Color.RED, Color.BLACK, 'a');
 		pc.printToCommandLine();
 	}
-
 }
