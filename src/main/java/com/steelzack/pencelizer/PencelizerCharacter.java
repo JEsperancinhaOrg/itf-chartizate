@@ -14,23 +14,41 @@ import org.fusesource.jansi.AnsiConsole;
  */
 public class PencelizerCharacter {
 
-	private Color frontColor;
-
 	private Color backColor;
 
-	private char character;
+	private final Color frontColor;
 
+	private final char character;
+
+	/**
+	 * For the main implementation, the background color isn't really necessary
+	 * 
+	 * @param frontColor
+	 *            Front color for the character
+	 * @param character
+	 *            The actual character
+	 */
+	public PencelizerCharacter(Color frontColor, char character) {
+		super();
+		this.frontColor = frontColor;
+		this.character = character;
+	}
+
+	/**
+	 * For the add on, the background color will differ
+	 * 
+	 * @param frontColor
+	 *            Front color for the character
+	 * @param backColor
+	 *            The back color for the character
+	 * @param character
+	 *            The actual character
+	 */
 	public PencelizerCharacter(Color frontColor, Color backColor, char character) {
 		super();
 		this.frontColor = frontColor;
 		this.backColor = backColor;
 		this.character = character;
-	}
-
-	// For testing purposes only
-	public static void main(String[] args) {
-		final PencelizerCharacter character = new PencelizerCharacter(YELLOW, CYAN, 'A');
-		character.printToCommandLine();
 	}
 
 	/**
