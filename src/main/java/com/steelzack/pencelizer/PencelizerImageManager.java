@@ -1,7 +1,5 @@
 package com.steelzack.pencelizer;
 
-import static java.lang.Math.abs;
-
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -40,16 +38,15 @@ public class PencelizerImageManager {
 				red += (rgbPixel >> 16) & 0xff;
 				green += (rgbPixel >> 8) & 0xff;
 				blue += (rgbPixel) & 0xff;
-
 			}
 		}
-		
+
 		int commonDenominator = (xn - x0 + 1) * (yn - y0 + 1);
 		int mediumApha = (int) (alpha / commonDenominator);
 		int mediumRed = (int) (red / commonDenominator);
 		int mediumBlue = (int) (blue / commonDenominator);
 		int mediumGreen = (int) (green / commonDenominator);
-		
+
 		int fullSum = new Color(mediumRed, mediumGreen, mediumBlue, mediumApha).getRGB();
 		return fullSum;
 	}
