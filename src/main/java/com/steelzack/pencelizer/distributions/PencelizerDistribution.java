@@ -1,7 +1,12 @@
 package com.steelzack.pencelizer.distributions;
 
+import java.util.Set;
+
 public abstract class PencelizerDistribution implements IPencelizerDistribution {
-	public PencelizerDistribution(){
-		
+
+	protected final Set<Character> orderedListOfCharacters;
+
+	public PencelizerDistribution(Set<Character> orderedListOfCharacters) {
+		this.orderedListOfCharacters = orderedListOfCharacters;
 	}
 }
