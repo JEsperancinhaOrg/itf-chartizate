@@ -19,9 +19,12 @@ public class PencelizerImageManager {
 
 	private BufferedImage srcImage;
 
+	public PencelizerImageManager() {
+		// For testing only
+	}
+
 	public PencelizerImageManager(InputStream io) throws IOException {
-		BufferedImage image = ImageIO.read(io);
-		this.srcImage = image;
+		this.srcImage = ImageIO.read(io);
 	}
 
 	public int getImageWidth() {
@@ -63,7 +66,8 @@ public class PencelizerImageManager {
 		return fullSum;
 	}
 
-	public void saveImage(PencelizerCharacterImg[][] pencelizerBoard, Font font, String outputFile, int outputWidth, int outputHeight) throws IOException {
+	protected void saveImage(PencelizerCharacterImg[][] pencelizerBoard, Font font, String outputFile, int outputWidth,
+			int outputHeight) throws IOException {
 		BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g2d = bImg.createGraphics();
 		g2d.setFont(font);
@@ -74,15 +78,15 @@ public class PencelizerImageManager {
 			for (int j = 0; j < rowLength; j++) {
 				final PencelizerCharacterImg character = pencelizerBoard[i][j];
 				g2d.setColor(character.getFg());
-				g2d.drawString(character.toString(), currentWidth, font.getSize() * (i+1));
+				g2d.drawString(character.toString(), currentWidth, font.getSize() * (i + 1));
 				currentWidth += pencelizerBoard[i][j].getWidth();
 			}
 			currentWidth = 0;
 		}
 		g2d.dispose();
-	
+
 		if (ImageIO.write(bImg, "png", new File(outputFile))) {
-			System.out.println(outputFile + "is saved");
+			System.out.println(outputFile + " is saved");
 		}
 	}
 }
