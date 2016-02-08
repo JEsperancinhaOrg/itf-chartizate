@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.steelzack.pencelizer.distributions.PencelizerDistribution;
-import com.steelzack.pencelizer.distributions.PencelizerDistributionTypes;
+import com.steelzack.pencelizer.distributions.PencelizerDistributionType;
 import com.steelzack.pencelizer.distributions.PencelizerLinearDistribution;
 
 /**
@@ -52,7 +52,7 @@ public class PencelizerManager {
 			final Color backgroundColor, //
 			final int densityPercentage, //
 			final int rangePercentage, //
-			final PencelizerDistributionTypes distributionType, //
+			final PencelizerDistributionType distributionType, //
 			final String fontName, //
 			final int fontSize, //
 			final UnicodeBlock block, //
@@ -70,7 +70,7 @@ public class PencelizerManager {
 		this.pencelizerBoard = new PencelizerCharacterImg[imageHeight / fontSize][];
 	}
 
-	private PencelizerDistribution getDistribution(PencelizerDistributionTypes distributionType, int densityPercentage,
+	private PencelizerDistribution getDistribution(PencelizerDistributionType distributionType, int densityPercentage,
 			int rangePercentage) {
 		switch (distributionType) {
 		case Gaussian:

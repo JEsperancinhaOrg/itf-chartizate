@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.steelzack.pencelizer.distributions.PencelizerDistributionType;
+
 public class PencelizerUtils {
 	private static final String[] unicodeDesignationsJava8 = new String[] { //
 			"BASIC_LATIN", //
@@ -455,8 +457,17 @@ public class PencelizerUtils {
 		}
 		return unicodeBlockList;
 	}
-	
+
 	public static List<String> getAllUniCodeBlockStringsJava7() {
 		return Arrays.asList(unicodeDesignationsJava7);
+	}
+
+	public static List<String> getAllDistributionTypes() {
+		final List<String> distributionTypes = new ArrayList<>();
+
+		for (PencelizerDistributionType type : Arrays.asList(PencelizerDistributionType.values())) {
+			distributionTypes.add(type.toString());
+		}
+		return distributionTypes;
 	}
 }

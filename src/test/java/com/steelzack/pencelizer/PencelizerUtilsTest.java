@@ -295,25 +295,25 @@ public class PencelizerUtilsTest {
 				ALCHEMICAL_SYMBOLS, //
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, //
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D, //
-//				ARABIC_EXTENDED_A, //
-//				SUNDANESE_SUPPLEMENT, //
-//				MEETEI_MAYEK_EXTENSIONS, //
-//				MEROITIC_HIEROGLYPHS, //
-//				MEROITIC_CURSIVE, //
-//				SORA_SOMPENG, //
-//				CHAKMA, //
-//				SHARADA, //
-//				TAKRI, //
-//				MIAO, //
-//				ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS //
+				// ARABIC_EXTENDED_A, //
+				// SUNDANESE_SUPPLEMENT, //
+				// MEETEI_MAYEK_EXTENSIONS, //
+				// MEROITIC_HIEROGLYPHS, //
+				// MEROITIC_CURSIVE, //
+				// SORA_SOMPENG, //
+				// CHAKMA, //
+				// SHARADA, //
+				// TAKRI, //
+				// MIAO, //
+				// ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS //
 		};
 
 		final List<UnicodeBlock> result = PencelizerUtils.getAllUniCodeBlocksJava8();
 
 		Assert.assertArrayEquals(testUnicodes, result.toArray());
 	}
+
 	@Test
-	@Ignore
 	public void testGetAllUniCodeBlocksJava7() throws Exception {
 		final UnicodeBlock[] testUnicodes = new UnicodeBlock[] { //
 				BASIC_LATIN, //
@@ -526,9 +526,23 @@ public class PencelizerUtilsTest {
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, //
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D, //
 		};
-		
+
 		final List<UnicodeBlock> result = PencelizerUtils.getAllUniCodeBlocksJava7();
-		
+
 		Assert.assertArrayEquals(testUnicodes, result.toArray());
+	}
+
+	@Test
+	public void testGetAllDistributionTypes() throws Exception {
+		final String[] testDistributions = new String[] { //
+				"Linear", //
+				"Gaussian", //
+				"Poisson", //
+				"Skellam" //
+		}; //
+
+		final List<String> result = PencelizerUtils.getAllDistributionTypes();
+
+		Assert.assertArrayEquals(testDistributions, result.toArray());
 	}
 }

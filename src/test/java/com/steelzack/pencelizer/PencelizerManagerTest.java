@@ -1,6 +1,6 @@
 package com.steelzack.pencelizer;
 
-import static com.steelzack.pencelizer.distributions.PencelizerDistributionTypes.Linear;
+import static com.steelzack.pencelizer.distributions.PencelizerDistributionType.Linear;
 
 import java.awt.Color;
 import java.io.InputStream;
