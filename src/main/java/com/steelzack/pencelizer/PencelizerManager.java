@@ -48,7 +48,7 @@ public class PencelizerManager {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public PencelizerManager(int nLines, //
+	public PencelizerManager( //
 			final Color backgroundColor, //
 			final int densityPercentage, //
 			final int rangePercentage, //
@@ -111,10 +111,11 @@ public class PencelizerManager {
 				currentImageIndexX += width;
 			}
 			addFullRow(rowIndex, pencelizerRow);
-			currentImageIndexX=0;
+			currentImageIndexX = 0;
 			rowIndex++;
 		}
-		imageManager.saveImage(pencelizerBoard, fontManager.getFont(), this.desinationImagePath, imageWidth, imageManager.getImageHeight());
+		imageManager.saveImage(pencelizerBoard, fontManager.getFont(), this.desinationImagePath, imageWidth,
+				imageManager.getImageHeight());
 	}
 
 	/**

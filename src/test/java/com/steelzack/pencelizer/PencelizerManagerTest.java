@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+	package com.steelzack.pencelizer;
 
 import static com.steelzack.pencelizer.distributions.PencelizerDistributionType.Linear;
 
@@ -29,7 +29,6 @@ public class PencelizerManagerTest {
 	public void testGenerateConvertedImage_CyanBlack() throws Exception {
 		InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 		final PencelizerManager manager = new PencelizerManager( //
-				1, //
 				Color.BLACK, //
 				50, //
 				10, //
@@ -47,7 +46,6 @@ public class PencelizerManagerTest {
 	public void testGenerateConvertedImage_RealExample1() throws Exception {
 		InputStream imageFullStream = getClass().getResourceAsStream("RealExample1.jpg");
 		final PencelizerManager manager = new PencelizerManager( //
-				1, //
 				Color.BLACK, //
 				100, //
 				100, //
