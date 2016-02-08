@@ -2,6 +2,7 @@ package com.steelzack.pencelizer;
 
 import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PencelizerUtils {
@@ -453,5 +454,9 @@ public class PencelizerUtils {
 			unicodeBlockList.add(UnicodeBlock.forName(unicodeBlock));
 		}
 		return unicodeBlockList;
+	}
+	
+	public static List<String> getAllUniCodeBlockStringsJava7() {
+		return Arrays.asList(unicodeDesignationsJava7);
 	}
 }
