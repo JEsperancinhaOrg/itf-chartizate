@@ -1,6 +1,7 @@
 package com.steelzack.pencelizer;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +25,7 @@ public class PencelizerManager {
 
 	private final PencelizerCharacterImg<?>[][] pencelizerBoard;
 
-	private final PencelizerFontManager fontManager;
+	private final PencelizerFontManager<Font> fontManager;
 
 	private final PencelizerEncodingManagerImpl encodingManager;
 
@@ -60,7 +61,7 @@ public class PencelizerManager {
 			final String destinationImagePath //
 	) throws FileNotFoundException, IOException {
 		this.backgroundColor = backgroundColor;
-		this.fontManager = new PencelizerFontManager(fontName, fontSize);
+		this.fontManager = new PencelizerFontManagerImpl(fontName, fontSize);
 		this.encodingManager = new PencelizerEncodingManagerImpl(block, fontManager);
 		this.encodingManager.init();
 		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);

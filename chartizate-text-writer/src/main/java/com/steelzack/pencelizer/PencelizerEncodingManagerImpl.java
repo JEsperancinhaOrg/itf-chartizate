@@ -25,11 +25,11 @@ public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager 
 
 	private Character[] characters;
 	
-	private final PencelizerFontManager fontManager;
+	private final PencelizerFontManager<Font> fontManager;
 
 	private int maximumHeight = 0;
 
-	public PencelizerEncodingManagerImpl(UnicodeBlock block, PencelizerFontManager fontManager) {
+	public PencelizerEncodingManagerImpl(UnicodeBlock block, PencelizerFontManager<Font> fontManager) {
 		super();
 		this.block = block;
 		this.fontManager = fontManager;
@@ -67,7 +67,6 @@ public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager 
 	/* (non-Javadoc)
 	 * @see com.steelzack.pencelizer.PencelizerEncodingManagerd#getCharacterFullness(java.lang.Character)
 	 */
-	@Override
 	public int getCharacterFullness(Character character) {
 		Font font = fontManager.getFont();
 		FontMetrics metrics = new JLabel().getFontMetrics(font);
