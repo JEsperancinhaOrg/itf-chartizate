@@ -67,7 +67,6 @@ public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager 
 	/* (non-Javadoc)
 	 * @see com.steelzack.pencelizer.PencelizerEncodingManagerd#getCharacterFullness(java.lang.Character)
 	 */
-	@Override
 	public int getCharacterFullness(Character character) {
 		Font font = fontManager.getFont();
 		FontMetrics metrics = new JLabel().getFontMetrics(font);
