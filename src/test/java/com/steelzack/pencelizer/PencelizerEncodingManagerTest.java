@@ -93,19 +93,6 @@ public class PencelizerEncodingManagerTest {
 	}
 
 	@Test
-	public void testGetCharacterFullness_Special_LastLatin() throws Exception {
-		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
-				fontManager) {
-			@Override
-			protected int getMaximumHeight() {
-				return 10;
-			}
-		};
-		assertEquals(new Integer((int) (8d / 30d * 1000)), (Integer) manager.getCharacterFullness(new Character('ſ')));
-	}
-
-	@Test
 	public void testGetCharacterFullness_Special_W() throws Exception {
 		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
 		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
