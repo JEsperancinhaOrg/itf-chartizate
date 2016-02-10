@@ -54,14 +54,14 @@ public class PencelizerImageManagerTest {
 	@Test
 	public void testSaveImage() throws Exception {
 		final PencelizerImageManager imageManager = new PencelizerImageManager();
-		final PencelizerCharacterImg[][] pencelizerBoard = new PencelizerCharacterImg[2][];
+		final PencelizerCharacterImg<?>[][] pencelizerBoard = new PencelizerCharacterImg[2][];
 		pencelizerBoard[0] = new PencelizerCharacterImg[] { //
-				new PencelizerCharacterImg(Color.GREEN, Color.BLACK, 10, 'A'), //
-				new PencelizerCharacterImg(Color.RED, Color.BLACK, 10, 'B') //
+				new PencelizerCharacterImg<Color>(Color.GREEN, Color.BLACK, 10, 'A'), //
+				new PencelizerCharacterImg<Color>(Color.RED, Color.BLACK, 10, 'B') //
 		};
 		pencelizerBoard[1] = new PencelizerCharacterImg[] { //
-				new PencelizerCharacterImg(Color.BLUE, Color.BLACK, 10, 'C'), //
-				new PencelizerCharacterImg(Color.YELLOW, Color.BLACK, 10, 'D') //
+				new PencelizerCharacterImg<Color>(Color.BLUE, Color.BLACK, 10, 'C'), //
+				new PencelizerCharacterImg<Color>(Color.YELLOW, Color.BLACK, 10, 'D') //
 		};
 		final Font font = new Font("Arial", Font.PLAIN, 10);
 		final String outputFile = "/tmp/saveImage.png";

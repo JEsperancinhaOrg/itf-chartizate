@@ -2,8 +2,8 @@ package com.steelzack.pencelizer;
 
 import static java.lang.Character.UnicodeBlock.ALCHEMICAL_SYMBOLS;
 import static java.lang.Character.UnicodeBlock.ARABIC;
-//import static java.lang.Character.UnicodeBlock.ARABIC_EXTENDED_A;
-//import static java.lang.Character.UnicodeBlock.ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS;
+import static java.lang.Character.UnicodeBlock.ARABIC_EXTENDED_A;
+import static java.lang.Character.UnicodeBlock.ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS;
 import static java.lang.Character.UnicodeBlock.ARMENIAN;
 import static java.lang.Character.UnicodeBlock.ARROWS;
 import static java.lang.Character.UnicodeBlock.BASIC_LATIN;
@@ -11,7 +11,7 @@ import static java.lang.Character.UnicodeBlock.BENGALI;
 import static java.lang.Character.UnicodeBlock.BLOCK_ELEMENTS;
 import static java.lang.Character.UnicodeBlock.BOPOMOFO;
 import static java.lang.Character.UnicodeBlock.BOX_DRAWING;
-//import static java.lang.Character.UnicodeBlock.CHAKMA;
+import static java.lang.Character.UnicodeBlock.CHAKMA;
 import static java.lang.Character.UnicodeBlock.CJK_COMPATIBILITY;
 import static java.lang.Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION;
 import static java.lang.Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C;
@@ -51,22 +51,22 @@ import static java.lang.Character.UnicodeBlock.LATIN_EXTENDED_B;
 import static java.lang.Character.UnicodeBlock.LETTERLIKE_SYMBOLS;
 import static java.lang.Character.UnicodeBlock.MALAYALAM;
 import static java.lang.Character.UnicodeBlock.MATHEMATICAL_OPERATORS;
-//import static java.lang.Character.UnicodeBlock.MEETEI_MAYEK_EXTENSIONS;
-//import static java.lang.Character.UnicodeBlock.MEROITIC_CURSIVE;
-//import static java.lang.Character.UnicodeBlock.MEROITIC_HIEROGLYPHS;
-//import static java.lang.Character.UnicodeBlock.MIAO;
+import static java.lang.Character.UnicodeBlock.MEETEI_MAYEK_EXTENSIONS;
+import static java.lang.Character.UnicodeBlock.MEROITIC_CURSIVE;
+import static java.lang.Character.UnicodeBlock.MEROITIC_HIEROGLYPHS;
+import static java.lang.Character.UnicodeBlock.MIAO;
 import static java.lang.Character.UnicodeBlock.MISCELLANEOUS_SYMBOLS;
 import static java.lang.Character.UnicodeBlock.MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS;
 import static java.lang.Character.UnicodeBlock.MISCELLANEOUS_TECHNICAL;
 import static java.lang.Character.UnicodeBlock.NUMBER_FORMS;
 import static java.lang.Character.UnicodeBlock.OPTICAL_CHARACTER_RECOGNITION;
 import static java.lang.Character.UnicodeBlock.ORIYA;
-//import static java.lang.Character.UnicodeBlock.SHARADA;
-//import static java.lang.Character.UnicodeBlock.SORA_SOMPENG;
+import static java.lang.Character.UnicodeBlock.SHARADA;
+import static java.lang.Character.UnicodeBlock.SORA_SOMPENG;
 import static java.lang.Character.UnicodeBlock.SPACING_MODIFIER_LETTERS;
-//import static java.lang.Character.UnicodeBlock.SUNDANESE_SUPPLEMENT;
+import static java.lang.Character.UnicodeBlock.SUNDANESE_SUPPLEMENT;
 import static java.lang.Character.UnicodeBlock.SUPERSCRIPTS_AND_SUBSCRIPTS;
-//import static java.lang.Character.UnicodeBlock.TAKRI;
+import static java.lang.Character.UnicodeBlock.TAKRI;
 import static java.lang.Character.UnicodeBlock.TAMIL;
 import static java.lang.Character.UnicodeBlock.TELUGU;
 import static java.lang.Character.UnicodeBlock.THAI;
@@ -295,17 +295,17 @@ public class PencelizerUtilsTest {
 				ALCHEMICAL_SYMBOLS, //
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, //
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D, //
-				// ARABIC_EXTENDED_A, //
-				// SUNDANESE_SUPPLEMENT, //
-				// MEETEI_MAYEK_EXTENSIONS, //
-				// MEROITIC_HIEROGLYPHS, //
-				// MEROITIC_CURSIVE, //
-				// SORA_SOMPENG, //
-				// CHAKMA, //
-				// SHARADA, //
-				// TAKRI, //
-				// MIAO, //
-				// ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS //
+				ARABIC_EXTENDED_A, //
+				SUNDANESE_SUPPLEMENT, //
+				MEETEI_MAYEK_EXTENSIONS, //
+				MEROITIC_HIEROGLYPHS, //
+				MEROITIC_CURSIVE, //
+				SORA_SOMPENG, //
+				CHAKMA, //
+				SHARADA, //
+				TAKRI, //
+				MIAO, //
+				ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS //
 		};
 
 		final List<UnicodeBlock> result = PencelizerUtils.getAllUniCodeBlocksJava8();

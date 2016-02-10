@@ -66,7 +66,7 @@ public class PencelizerImageManager {
 		return fullSum;
 	}
 
-	protected void saveImage(PencelizerCharacterImg[][] pencelizerBoard, Font font, String outputFile, int outputWidth,
+	protected void saveImage(PencelizerCharacterImg<?>[][] pencelizerBoard, Font font, String outputFile, int outputWidth,
 			int outputHeight) throws IOException {
 		BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g2d = bImg.createGraphics();
@@ -76,8 +76,8 @@ public class PencelizerImageManager {
 		for (int i = 0; i < pencelizerBoard.length; i++) {
 			int rowLength = pencelizerBoard[i].length;
 			for (int j = 0; j < rowLength; j++) {
-				final PencelizerCharacterImg character = pencelizerBoard[i][j];
-				g2d.setColor(character.getFg());
+				final PencelizerCharacterImg<?> character = pencelizerBoard[i][j];
+				g2d.setColor((Color)character.getFg());
 				g2d.drawString(character.toString(), currentWidth, font.getSize() * (i + 1));
 				currentWidth += pencelizerBoard[i][j].getWidth();
 			}

@@ -22,7 +22,7 @@ public class PencelizerManager {
 
 	private final PencelizerDistribution distribution;
 
-	private final PencelizerCharacterImg[][] pencelizerBoard;
+	private final PencelizerCharacterImg<?>[][] pencelizerBoard;
 
 	private final PencelizerFontManager fontManager;
 
@@ -94,7 +94,7 @@ public class PencelizerManager {
 		int currentImageIndexX = 0;
 		int rowIndex = 0;
 		while (rowIndex < pencelizerBoard.length) {
-			List<PencelizerCharacterImg> pencelizerRow = new ArrayList<>();
+			List<PencelizerCharacterImg<Color>> pencelizerRow = new ArrayList<>();
 			while (currentImageIndexX < imageWidth) {
 				final Character character = this.distribution.getCharacterFromArray();
 				final int width = fontManager.getCharacterWidth(character.charValue());
@@ -107,7 +107,7 @@ public class PencelizerManager {
 						currentImageIndexY + height //
 				);
 				pencelizerRow.add(
-						new PencelizerCharacterImg(new Color(averageColor), this.backgroundColor, width, character));
+						new PencelizerCharacterImg<Color>(new Color(averageColor), this.backgroundColor, width, character));
 				currentImageIndexX += width;
 			}
 			addFullRow(rowIndex, pencelizerRow);
@@ -125,7 +125,7 @@ public class PencelizerManager {
 	 * 
 	 * @param pencelizerRow
 	 */
-	public void addFullRow(int row, List<PencelizerCharacterImg> pencelizerRow) {
+	public void addFullRow(int row, List<PencelizerCharacterImg<Color>> pencelizerRow) {
 		pencelizerBoard[row] = pencelizerRow.toArray(new PencelizerCharacterImg[0]);
 	}
 
