@@ -1,5 +1,6 @@
 package com.steelzack.pencelizer;
 
+import java.awt.GraphicsEnvironment;
 import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -469,5 +470,10 @@ public class PencelizerUtils {
 			distributionTypes.add(type.toString());
 		}
 		return distributionTypes;
+	}
+	
+	public static List<String> getAllFontTypes()
+	{
+		return Arrays.asList(GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames());
 	}
 }

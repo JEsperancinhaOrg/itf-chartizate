@@ -545,4 +545,9 @@ public class PencelizerUtilsTest {
 
 		Assert.assertArrayEquals(testDistributions, result.toArray());
 	}
+
+	@Test
+	public void testGetAllFontTypes() throws Exception {
+		System.out.println(PencelizerUtils.getAllFontTypes());
+	}
 }
