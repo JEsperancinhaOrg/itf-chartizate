@@ -12,7 +12,7 @@ import org.junit.Test;
  * @author joao
  *
  */
-public class PencelizerEncodingManagerTest {
+public class PencelizerEncodingManagerImplTest {
 
 	/**
 	 * This test is currently ignored because the character conversion only works correctly for Java8
@@ -22,7 +22,7 @@ public class PencelizerEncodingManagerTest {
 	@Ignore
 	public void testInit_Latin() throws Exception {
 		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final PencelizerEncodingManagerImpl manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager);
 		manager.init();
 		assertEquals(
@@ -41,7 +41,7 @@ public class PencelizerEncodingManagerTest {
 	 */
 	public void testInit_Latin_Visual_Density_Test() throws Exception {
 		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final PencelizerEncodingManagerImpl manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager);
 		manager.init();
 		System.out.println("\n");
@@ -56,7 +56,7 @@ public class PencelizerEncodingManagerTest {
 	@Test
 	public void testGetCharacterFullness_H() throws Exception {
 		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -69,7 +69,7 @@ public class PencelizerEncodingManagerTest {
 	@Test
 	public void testGetCharacterFullness_Special_Z() throws Exception {
 		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -82,7 +82,7 @@ public class PencelizerEncodingManagerTest {
 	@Test
 	public void testGetCharacterFullness_Special_L() throws Exception {
 		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -95,7 +95,7 @@ public class PencelizerEncodingManagerTest {
 	@Test
 	public void testGetCharacterFullness_Special_W() throws Exception {
 		final PencelizerFontManager fontManager = new PencelizerFontManager("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManager(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {

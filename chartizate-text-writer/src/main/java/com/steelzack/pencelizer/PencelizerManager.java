@@ -26,7 +26,7 @@ public class PencelizerManager {
 
 	private final PencelizerFontManager fontManager;
 
-	private final PencelizerEncodingManager encodingManager;
+	private final PencelizerEncodingManagerImpl encodingManager;
 
 	private final PencelizerImageManager imageManager;
 
@@ -61,7 +61,7 @@ public class PencelizerManager {
 	) throws FileNotFoundException, IOException {
 		this.backgroundColor = backgroundColor;
 		this.fontManager = new PencelizerFontManager(fontName, fontSize);
-		this.encodingManager = new PencelizerEncodingManager(block, fontManager);
+		this.encodingManager = new PencelizerEncodingManagerImpl(block, fontManager);
 		this.encodingManager.init();
 		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
 		this.imageManager = new PencelizerImageManager(imageFullStream);

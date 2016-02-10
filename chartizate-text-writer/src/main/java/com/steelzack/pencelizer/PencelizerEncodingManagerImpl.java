@@ -17,7 +17,7 @@ import javax.swing.JLabel;
  * @author joao
  *
  */
-public class PencelizerEncodingManager {
+public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager {
 
 	private final UnicodeBlock block;
 
@@ -29,13 +29,13 @@ public class PencelizerEncodingManager {
 
 	private int maximumHeight = 0;
 
-	public PencelizerEncodingManager(UnicodeBlock block, PencelizerFontManager fontManager) {
+	public PencelizerEncodingManagerImpl(UnicodeBlock block, PencelizerFontManager fontManager) {
 		super();
 		this.block = block;
 		this.fontManager = fontManager;
 	}
 
-	public void init() {
+	protected void init() {
 		for (int codePoint = Character.MIN_CODE_POINT; codePoint <= Character.MAX_CODE_POINT; codePoint++) {
 			if (block == UnicodeBlock.of(codePoint)) {
 				orderedCharacters.add(((char) codePoint));
@@ -64,7 +64,11 @@ public class PencelizerEncodingManager {
 		};
 	}
 
-	protected int getCharacterFullness(Character character) {
+	/* (non-Javadoc)
+	 * @see com.steelzack.pencelizer.PencelizerEncodingManagerd#getCharacterFullness(java.lang.Character)
+	 */
+	@Override
+	public int getCharacterFullness(Character character) {
 		Font font = fontManager.getFont();
 		FontMetrics metrics = new JLabel().getFontMetrics(font);
 		int width = Math.abs(metrics.stringWidth(character.toString()));
@@ -96,7 +100,7 @@ public class PencelizerEncodingManager {
 		return maximumHeight;
 	}
 
-	public Character[] getCharacters() {
+	protected Character[] getCharacters() {
 		return characters;
 	}
 }

@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>pencelizer-text-writer</groupId>
-	<artifactId>pencelizer-text-writer</artifactId>
-	<version>0.2.0</version>
-	<name>pencelizer-text-writer</name>
+	<groupId>chartizate-text-writer</groupId>
+	<artifactId>chartizate-text-writer</artifactId>
+	<version>1.0.0</version>
+	<name>chartizate-text-writer</name>
 	<build>
 		<sourceDirectory>src/java/main</sourceDirectory>
 		<testSourceDirectory>src/java/test</testSourceDirectory>
@@ -36,7 +36,7 @@
 							<archive>
 								<manifest>
 									<addClasspath>true</addClasspath>
-									<mainClass>com.steelzack.pencelizer.PencelizerManager</mainClass>
+									<mainClass>com.steelzack.chartizate.PencelizerManager</mainClass>
 								</manifest>
 							</archive>
 							<descriptorRefs>
