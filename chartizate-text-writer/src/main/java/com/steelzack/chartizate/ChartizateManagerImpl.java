@@ -9,10 +9,7 @@ import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.steelzack.chartizate.ChartizateManagerCommon;
-import com.steelzack.chartizate.distributions.ChartizateDistribution;
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
-import com.steelzack.chartizate.distributions.PencelizerLinearDistribution;
 import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
 /**
@@ -61,25 +58,6 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	}
 
 	@Override
-	protected ChartizateDistribution getDistribution(ChartizateDistributionType distributionType, int densityPercentage,
-			int rangePercentage) {
-		switch (distributionType) {
-		case Gaussian:
-			return null; // TODO: To be implemented
-		case Linear:
-			return new PencelizerLinearDistribution( //
-					this.encodingManager.getCharacters(), //
-					densityPercentage, //
-					rangePercentage //
-			);
-		case Poisson:
-			return null; // TODO: To be implemented
-		default:
-			break;
-		}
-		return null;
-	}
-
 	public void generateConvertedImage() throws IOException {
 		final int imageWidth = imageManager.getImageWidth();
 		int currentImageIndexX = 0;
@@ -116,6 +94,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	 * 
 	 * @param pencelizerRow
 	 */
+	@Override
 	public void addFullRow(int row, List<ChartizateCharacterImg<Color>> pencelizerRow) {
 		pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
 	}

@@ -4,17 +4,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
+import java.util.List;
 
 import com.steelzack.chartizate.distributions.ChartizateDistribution;
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
+import com.steelzack.chartizate.distributions.PencelizerLinearDistribution;
 import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
-public abstract class ChartizateManagerCommon<COLOR, FONT>{
+public abstract class ChartizateManagerCommon<COLOR, FONT> {
 
 	protected final COLOR backgroundColor;
-
-	protected abstract ChartizateDistribution getDistribution(ChartizateDistributionType distributionType, int densityPercentage, int rangePercentage);
-
 	protected final ChartizateDistribution distribution;
 	protected final ChartizateCharacterImg<?>[][] pencelizerBoard;
 	protected final ChartizateFontManager<FONT> fontManager;
@@ -42,12 +41,38 @@ public abstract class ChartizateManagerCommon<COLOR, FONT>{
 		this.desinationImagePath = destinationImagePath;
 		final int imageHeight = imageManager.getImageHeight();
 		this.pencelizerBoard = new ChartizateCharacterImg[imageHeight / fontSize][];
-		
+
+	}
+
+	protected ChartizateDistribution getDistribution( //
+			ChartizateDistributionType distributionType, //
+			int densityPercentage, //
+			int rangePercentage //
+	) {
+		switch (distributionType) {
+		case Gaussian:
+			return null; // TODO: To be implemented
+		case Linear:
+			return new PencelizerLinearDistribution( //
+					this.encodingManager.getCharacters(), //
+					densityPercentage, //
+					rangePercentage //
+			);
+		case Poisson:
+			return null; // TODO: To be implemented
+		default:
+			break;
+		}
+		return null;
 	}
 
 	abstract ChartizateImageManager<FONT> createImageManager(final InputStream imageFullStream) throws IOException;
-	
+
 	abstract ChartizateEncodingManager createEncodingManager(final UnicodeBlock block);
-	
-	abstract ChartizateFontManager<FONT> createFontManager(final String fontName, final int fontSize) ;
+
+	abstract ChartizateFontManager<FONT> createFontManager(final String fontName, final int fontSize);
+
+	abstract void addFullRow(int row, List<ChartizateCharacterImg<COLOR>> pencelizerRow);
+
+	abstract void generateConvertedImage() throws IOException;
 }
