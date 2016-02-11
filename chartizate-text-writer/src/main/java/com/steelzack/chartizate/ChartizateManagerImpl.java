@@ -116,6 +116,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	 * 
 	 * @param pencelizerRow
 	 */
+	@Override
 	public void addFullRow(int row, List<ChartizateCharacterImg<Color>> pencelizerRow) {
 		pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
 	}

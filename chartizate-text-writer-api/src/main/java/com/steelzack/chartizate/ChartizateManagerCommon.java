@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
+import java.util.List;
 
 import com.steelzack.chartizate.distributions.ChartizateDistribution;
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
@@ -50,4 +51,6 @@ public abstract class ChartizateManagerCommon<COLOR, FONT>{
 	abstract ChartizateEncodingManager createEncodingManager(final UnicodeBlock block);
 	
 	abstract ChartizateFontManager<FONT> createFontManager(final String fontName, final int fontSize) ;
+
+	abstract void addFullRow(int row, List<ChartizateCharacterImg<COLOR>> pencelizerRow);
 }

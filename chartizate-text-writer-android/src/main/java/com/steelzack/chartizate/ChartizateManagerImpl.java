@@ -5,11 +5,13 @@ import android.graphics.Typeface;
 
 import com.steelzack.chartizate.distributions.ChartizateDistribution;
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
+import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
+import java.util.List;
 
 /**
  * @author joao Manages the board to be rendered
@@ -39,5 +41,10 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typefa
     @Override
     ChartizateFontManager<Typeface> createFontManager(String fontString, int fontSize) {
         return new ChartizateFontManagerImpl(fontString, fontSize);
+    }
+
+    @Override
+    void addFullRow(int row, List<ChartizateCharacterImg<Color>> pencelizerRow) {
+            pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
     }
 }
