@@ -29,7 +29,7 @@ public class PencelizerManager {
 
 	private final PencelizerEncodingManagerImpl encodingManager;
 
-	private final PencelizerImageManager imageManager;
+	private final PencelizerImageManager<Font> imageManager;
 
 	private String desinationImagePath;
 
@@ -65,7 +65,7 @@ public class PencelizerManager {
 		this.encodingManager = new PencelizerEncodingManagerImpl(block, fontManager);
 		this.encodingManager.init();
 		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
-		this.imageManager = new PencelizerImageManager(imageFullStream);
+		this.imageManager = new PencelizerImageManagerImpl(imageFullStream);
 		this.desinationImagePath = destinationImagePath;
 		final int imageHeight = imageManager.getImageHeight();
 		this.pencelizerBoard = new PencelizerCharacterImg[imageHeight / fontSize][];
@@ -115,7 +115,7 @@ public class PencelizerManager {
 			currentImageIndexX = 0;
 			rowIndex++;
 		}
-		imageManager.saveImage(pencelizerBoard, fontManager.getFont(), this.desinationImagePath, imageWidth,
+		imageManager.saveImage(pencelizerBoard, fontManager, this.desinationImagePath, imageWidth,
 				imageManager.getImageHeight());
 	}
 

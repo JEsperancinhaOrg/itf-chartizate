@@ -15,32 +15,48 @@ import javax.imageio.ImageIO;
  * @author joao
  *
  */
-public class PencelizerImageManager {
+public class PencelizerImageManagerImpl implements PencelizerImageManager<Font> {
 
 	private BufferedImage srcImage;
 
-	public PencelizerImageManager() {
-		// For testing only
+	public PencelizerImageManagerImpl() {
+		// For testing purposes only
 	}
 
-	public PencelizerImageManager(InputStream io) throws IOException {
+	public PencelizerImageManagerImpl(InputStream io) throws IOException {
 		this.srcImage = ImageIO.read(io);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageWidth()
+	 */
+	@Override
 	public int getImageWidth() {
 		return this.srcImage.getWidth();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageHeight()
+	 */
+	@Override
 	public int getImageHeight() {
 		return this.srcImage.getHeight();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageAverageColor()
+	 */
+	@Override
 	public long getImageAverageColor() {
 		final int width = srcImage.getWidth() - 1;
 		final int height = srcImage.getHeight() - 1;
 		return getPartAverageColor(0, 0, width, height);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.steelzack.pencelizer.PencelizerImageManager#getPartAverageColor(int, int, int, int)
+	 */
+	@Override
 	public int getPartAverageColor(final int x0, final int y0, final int xn, final int yn) {
 		double alpha = 0;
 		double red = 0;
@@ -66,10 +82,15 @@ public class PencelizerImageManager {
 		return fullSum;
 	}
 
-	protected void saveImage(PencelizerCharacterImg<?>[][] pencelizerBoard, Font font, String outputFile, int outputWidth,
+	/* (non-Javadoc)
+	 * @see com.steelzack.pencelizer.PencelizerImageManager#saveImage(com.steelzack.pencelizer.PencelizerCharacterImg, com.steelzack.pencelizer.PencelizerFontManager, java.lang.String, int, int)
+	 */
+	@Override
+	public void saveImage(PencelizerCharacterImg<?>[][] pencelizerBoard, PencelizerFontManager<Font> fontManager, String outputFile, int outputWidth,
 			int outputHeight) throws IOException {
-		BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
-		Graphics2D g2d = bImg.createGraphics();
+		final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
+		final Graphics2D g2d = bImg.createGraphics();
+		final Font font = fontManager.getFont();
 		g2d.setFont(font);
 
 		int currentWidth = 0;
