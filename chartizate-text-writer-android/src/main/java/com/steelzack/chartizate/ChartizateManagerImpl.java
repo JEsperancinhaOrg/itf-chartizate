@@ -24,11 +24,6 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typefa
     }
 
     @Override
-    protected ChartizateDistribution getDistribution(ChartizateDistributionType chartizateDistributionType, int i, int i1) {
-        return null;
-    }
-
-    @Override
     ChartizateImageManager<Typeface> createImageManager(InputStream inputStream) throws IOException {
         return new ChartizateImageManagerImpl(inputStream);
     }

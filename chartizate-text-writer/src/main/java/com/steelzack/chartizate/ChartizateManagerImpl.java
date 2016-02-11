@@ -60,9 +60,11 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 		);
 	}
 
-	@Override
-	protected ChartizateDistribution getDistribution(ChartizateDistributionType distributionType, int densityPercentage,
-			int rangePercentage) {
+	protected ChartizateDistribution getDistribution( //
+			ChartizateDistributionType distributionType, //
+			int densityPercentage, //
+			int rangePercentage //
+			) {
 		switch (distributionType) {
 		case Gaussian:
 			return null; // TODO: To be implemented
