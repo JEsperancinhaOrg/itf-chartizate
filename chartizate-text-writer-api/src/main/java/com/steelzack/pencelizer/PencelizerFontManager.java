@@ -1,6 +1,12 @@
 package com.steelzack.pencelizer;
 
+import java.util.List;
+
 public interface PencelizerFontManager<T> {
+
+	List<String> getAllUniCodeBlockStringsJava7();
+
+	List<String> getAllUniCodeBlockStringsJava8();
 
 	/**
 	 * Gets the width of a particular character
