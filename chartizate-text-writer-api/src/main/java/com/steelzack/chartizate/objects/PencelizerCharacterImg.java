@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate.objects;
 
 public class PencelizerCharacterImg<T> {
 

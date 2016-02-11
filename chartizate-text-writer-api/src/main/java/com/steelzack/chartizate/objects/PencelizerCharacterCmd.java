@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate.objects;
 
 import static org.fusesource.jansi.Ansi.ansi;
 

@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,6 +11,9 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.swing.JLabel;
+
+import com.steelzack.chartizate.PencelizerEncodingManager;
+import com.steelzack.chartizate.PencelizerFontManager;
 
 /**
  * 

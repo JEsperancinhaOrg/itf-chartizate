@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,6 +9,8 @@ import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.steelzack.chartizate.ChartizateManagerCommon;
+import com.steelzack.chartizate.objects.PencelizerCharacterImg;
 import com.steelzack.pencelizer.distributions.PencelizerDistribution;
 import com.steelzack.pencelizer.distributions.PencelizerDistributionType;
 import com.steelzack.pencelizer.distributions.PencelizerLinearDistribution;
@@ -17,7 +19,7 @@ import com.steelzack.pencelizer.distributions.PencelizerLinearDistribution;
  *
  * @author joao Manages the board to be rendered
  */
-public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
+public class PencelizerManagerImpl extends ChartizateManagerCommon<Color, Font> {
 
 	/**
 	 * Creates Pencelizer manager by defining how many lines and columns is the
@@ -117,20 +119,22 @@ public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
 	public void addFullRow(int row, List<PencelizerCharacterImg<Color>> pencelizerRow) {
 		pencelizerBoard[row] = pencelizerRow.toArray(new PencelizerCharacterImg[0]);
 	}
-@Override
+
+	@Override
 	protected PencelizerImageManagerImpl createImageManager(final InputStream imageFullStream) throws IOException {
 		return new PencelizerImageManagerImpl(imageFullStream);
 	}
 
-@Override
-protected PencelizerEncodingManagerImpl createEncodingManager(final UnicodeBlock block) {
+	@Override
+	protected PencelizerEncodingManagerImpl createEncodingManager(final UnicodeBlock block) {
 		return new PencelizerEncodingManagerImpl(block, fontManager);
 	}
 
-@Override
-protected PencelizerFontManagerImpl createFontManager(final String fontName, final int fontSize) {
+	@Override
+	protected PencelizerFontManagerImpl createFontManager(final String fontName, final int fontSize) {
 		return new PencelizerFontManagerImpl(fontName, fontSize);
 	}
+
 	public static void main(String[] args) {
 
 	}

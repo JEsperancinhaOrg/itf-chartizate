@@ -1,10 +1,12 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate.objects;
 
 import static org.junit.Assert.assertEquals;
 
 import java.awt.Color;
 
 import org.junit.Test;
+
+import com.steelzack.chartizate.objects.PencelizerCharacterImg;
 
 public class PencelizerCharacterImgTest {
 

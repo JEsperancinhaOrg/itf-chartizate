@@ -1,6 +1,8 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.io.IOException;
+
+import com.steelzack.chartizate.objects.PencelizerCharacterImg;
 
 public interface PencelizerImageManager<T> {
 

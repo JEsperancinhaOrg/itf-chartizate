@@ -1,7 +1,9 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate.objects;
 
 import org.fusesource.jansi.Ansi.Color;
 import org.junit.Test;
+
+import com.steelzack.chartizate.objects.PencelizerCharacterCmd;
 
 /**
  * 

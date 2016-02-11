@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+
+import com.steelzack.chartizate.PencelizerFontManager;
+import com.steelzack.chartizate.PencelizerImageManager;
+import com.steelzack.chartizate.objects.PencelizerCharacterImg;
 
 /**
  * 

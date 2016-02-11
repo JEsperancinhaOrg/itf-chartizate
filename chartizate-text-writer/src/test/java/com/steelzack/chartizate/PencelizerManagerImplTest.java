@@ -1,4 +1,4 @@
-	package com.steelzack.pencelizer;
+	package com.steelzack.chartizate;
 
 import static com.steelzack.pencelizer.distributions.PencelizerDistributionType.Linear;
 
@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
 
 import org.junit.Test;
+
+import com.steelzack.chartizate.PencelizerManagerImpl;
 
 /**
  * 

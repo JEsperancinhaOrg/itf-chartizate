@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.awt.Canvas;
 import java.awt.Font;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.steelzack.chartizate.PencelizerFontManager;
 import com.steelzack.pencelizer.distributions.PencelizerDistributionType;
 
 /**

@@ -1,10 +1,11 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
 
+import com.steelzack.chartizate.objects.PencelizerCharacterImg;
 import com.steelzack.pencelizer.distributions.PencelizerDistribution;
 import com.steelzack.pencelizer.distributions.PencelizerDistributionType;
 

@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +7,12 @@ import java.awt.Font;
 import java.io.InputStream;
 
 import org.junit.Test;
+
+import com.steelzack.chartizate.PencelizerFontManager;
+import com.steelzack.chartizate.PencelizerFontManagerImpl;
+import com.steelzack.chartizate.PencelizerImageManager;
+import com.steelzack.chartizate.PencelizerImageManagerImpl;
+import com.steelzack.chartizate.objects.PencelizerCharacterImg;
 
 /**
  * 

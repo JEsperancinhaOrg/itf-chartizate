@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import static java.lang.Character.UnicodeBlock.ALCHEMICAL_SYMBOLS;
 import static java.lang.Character.UnicodeBlock.ARABIC;
@@ -81,6 +81,9 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import com.steelzack.chartizate.PencelizerFontManager;
+import com.steelzack.chartizate.PencelizerFontManagerImpl;
 
 /**
  * 
