@@ -1,46 +1,65 @@
 package com.steelzack.chartizate;
 
+import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.widget.TextView;
 
+import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author joao Manages the prescribed font
- *
  */
 public class ChartizateFontManagerImpl implements ChartizateFontManager<Typeface> {
 
 
-	private String fontString;
-	private int fontSize;
+    private final Paint mPaint;
+    private Typeface font;
+    private int fontSize;
 
-	public ChartizateFontManagerImpl(String fontString, int fontSize) {
-		this.fontSize = fontSize;
-		this.fontString = fontString;
-	}
+    public ChartizateFontManagerImpl(String fontString, int fontSize) {
+        this.fontSize = fontSize;
+        this.font = Typeface.create(fontString, Typeface.NORMAL);
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setStrokeWidth(5);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+        mPaint.setTextSize(fontSize);
+        mPaint.setTypeface(this.font);
+    }
 
-	@Override
-	public List<String> getAllUniCodeBlockStringsJava7() {
-		return null;
-	}
+    private List<String> getAllUnicodeBlockStrings() {
+        return Arrays.asList(new String[]{ //
+                "Default", //
+                "Monospace", //
+                "Sans serif", //
+                "Serif" //
+        });
+    }
 
-	@Override
-	public List<String> getAllUniCodeBlockStringsJava8() {
-		return null;
-	}
+    @Override
+    public List<String> getAllUniCodeBlockStringsJava7() {
+        return getAllUnicodeBlockStrings();
+    }
 
-	@Override
-	public int getCharacterWidth(char c) {
-		return 0;
-	}
+    @Override
+    public List<String> getAllUniCodeBlockStringsJava8() {
+        return getAllUnicodeBlockStrings();
+    }
 
-	@Override
-	public int getCharacterHeight(char c) {
-		return 0;
-	}
+    @Override
+    public int getCharacterWidth(char c) {
+        return (int) mPaint.measureText(new char[]{c}, 0, 1);
+    }
 
-	@Override
-	public Typeface getFont() {
-		return null;
-	}
+    @Override
+    public int getCharacterHeight(char c) {
+        return fontSize;
+    }
+
+    @Override
+    public Typeface getFont() {
+        return font;
+    }
 }
