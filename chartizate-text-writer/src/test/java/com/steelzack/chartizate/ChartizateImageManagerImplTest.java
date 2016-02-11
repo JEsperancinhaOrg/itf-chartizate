@@ -8,24 +8,24 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-import com.steelzack.chartizate.PencelizerFontManager;
-import com.steelzack.chartizate.PencelizerFontManagerImpl;
-import com.steelzack.chartizate.PencelizerImageManager;
-import com.steelzack.chartizate.PencelizerImageManagerImpl;
-import com.steelzack.chartizate.objects.PencelizerCharacterImg;
+import com.steelzack.chartizate.ChartizateFontManager;
+import com.steelzack.chartizate.ChartizateFontManagerImpl;
+import com.steelzack.chartizate.ChartizateImageManager;
+import com.steelzack.chartizate.ChartizateImageManagerImpl;
+import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerImageManagerImplTest {
+public class ChartizateImageManagerImplTest {
 
 	@Test
 	public void testGetImageAverageColor_BlackGreen() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
 
-		final PencelizerImageManager<Font> imageManager = new PencelizerImageManagerImpl(io);
+		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-13788928, imageManager.getImageAverageColor());
 	}
@@ -34,7 +34,7 @@ public class PencelizerImageManagerImplTest {
 	public void testGetImageAverageColor_CyanBlack() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-		final PencelizerImageManager<Font> imageManager = new PencelizerImageManagerImpl(io);
+		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-16742778, imageManager.getImageAverageColor());
 	}
@@ -43,7 +43,7 @@ public class PencelizerImageManagerImplTest {
 	public void testGetPartAverageColor_CyanBlack00() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-		final PencelizerImageManager<Font> imageManager = new PencelizerImageManagerImpl(io);
+		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-16728129, imageManager.getPartAverageColor(0, 0, 10, 10));
 	}
@@ -52,24 +52,24 @@ public class PencelizerImageManagerImplTest {
 	public void testGetPartAverageColor_CyanBlack10() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-		final PencelizerImageManager<Font> imageManager = new PencelizerImageManagerImpl(io);
+		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-16759226, imageManager.getPartAverageColor(10, 0, 19, 10));
 	}
 
 	@Test
 	public void testSaveImage() throws Exception {
-		final PencelizerImageManager<Font> imageManager = new PencelizerImageManagerImpl();
-		final PencelizerCharacterImg<?>[][] pencelizerBoard = new PencelizerCharacterImg[2][];
-		pencelizerBoard[0] = new PencelizerCharacterImg[] { //
-				new PencelizerCharacterImg<Color>(Color.GREEN, Color.BLACK, 10, 'A'), //
-				new PencelizerCharacterImg<Color>(Color.RED, Color.BLACK, 10, 'B') //
+		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl();
+		final ChartizateCharacterImg<?>[][] pencelizerBoard = new ChartizateCharacterImg[2][];
+		pencelizerBoard[0] = new ChartizateCharacterImg[] { //
+				new ChartizateCharacterImg<Color>(Color.GREEN, Color.BLACK, 10, 'A'), //
+				new ChartizateCharacterImg<Color>(Color.RED, Color.BLACK, 10, 'B') //
 		};
-		pencelizerBoard[1] = new PencelizerCharacterImg[] { //
-				new PencelizerCharacterImg<Color>(Color.BLUE, Color.BLACK, 10, 'C'), //
-				new PencelizerCharacterImg<Color>(Color.YELLOW, Color.BLACK, 10, 'D') //
+		pencelizerBoard[1] = new ChartizateCharacterImg[] { //
+				new ChartizateCharacterImg<Color>(Color.BLUE, Color.BLACK, 10, 'C'), //
+				new ChartizateCharacterImg<Color>(Color.YELLOW, Color.BLACK, 10, 'D') //
 		};
-		final PencelizerFontManager<Font> fontManager =new PencelizerFontManagerImpl("Arial", 10);
+		final ChartizateFontManager<Font> fontManager =new ChartizateFontManagerImpl("Arial", 10);
 		
 		final String outputFile = "/tmp/saveImage.png";
 		final int outputWidth = 20;

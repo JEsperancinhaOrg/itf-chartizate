@@ -12,15 +12,15 @@ import java.util.TreeSet;
 
 import javax.swing.JLabel;
 
-import com.steelzack.chartizate.PencelizerEncodingManager;
-import com.steelzack.chartizate.PencelizerFontManager;
+import com.steelzack.chartizate.ChartizateEncodingManager;
+import com.steelzack.chartizate.ChartizateFontManager;
 
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager {
+public class ChartizateEncodingManagerImpl implements ChartizateEncodingManager {
 
 	private final UnicodeBlock block;
 
@@ -28,11 +28,11 @@ public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager 
 
 	private Character[] characters;
 	
-	private final PencelizerFontManager<Font> fontManager;
+	private final ChartizateFontManager<Font> fontManager;
 
 	private int maximumHeight = 0;
 
-	public PencelizerEncodingManagerImpl(UnicodeBlock block, PencelizerFontManager<Font> fontManager) {
+	public ChartizateEncodingManagerImpl(UnicodeBlock block, ChartizateFontManager<Font> fontManager) {
 		super();
 		this.block = block;
 		this.fontManager = fontManager;

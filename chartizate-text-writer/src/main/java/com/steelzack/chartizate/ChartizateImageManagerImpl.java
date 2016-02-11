@@ -10,24 +10,24 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-import com.steelzack.chartizate.PencelizerFontManager;
-import com.steelzack.chartizate.PencelizerImageManager;
-import com.steelzack.chartizate.objects.PencelizerCharacterImg;
+import com.steelzack.chartizate.ChartizateFontManager;
+import com.steelzack.chartizate.ChartizateImageManager;
+import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerImageManagerImpl implements PencelizerImageManager<Font> {
+public class ChartizateImageManagerImpl implements ChartizateImageManager<Font> {
 
 	private BufferedImage srcImage;
 
-	public PencelizerImageManagerImpl() {
+	public ChartizateImageManagerImpl() {
 		// For testing purposes only
 	}
 
-	public PencelizerImageManagerImpl(InputStream io) throws IOException {
+	public ChartizateImageManagerImpl(InputStream io) throws IOException {
 		this.srcImage = ImageIO.read(io);
 	}
 
@@ -90,7 +90,7 @@ public class PencelizerImageManagerImpl implements PencelizerImageManager<Font> 
 	 * @see com.steelzack.pencelizer.PencelizerImageManager#saveImage(com.steelzack.pencelizer.PencelizerCharacterImg, com.steelzack.pencelizer.PencelizerFontManager, java.lang.String, int, int)
 	 */
 	@Override
-	public void saveImage(PencelizerCharacterImg<?>[][] pencelizerBoard, PencelizerFontManager<Font> fontManager, String outputFile, int outputWidth,
+	public void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<Font> fontManager, String outputFile, int outputWidth,
 			int outputHeight) throws IOException {
 		final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
 		final Graphics2D g2d = bImg.createGraphics();
@@ -101,7 +101,7 @@ public class PencelizerImageManagerImpl implements PencelizerImageManager<Font> 
 		for (int i = 0; i < pencelizerBoard.length; i++) {
 			int rowLength = pencelizerBoard[i].length;
 			for (int j = 0; j < rowLength; j++) {
-				final PencelizerCharacterImg<?> character = pencelizerBoard[i][j];
+				final ChartizateCharacterImg<?> character = pencelizerBoard[i][j];
 				g2d.setColor((Color)character.getFg());
 				g2d.drawString(character.toString(), currentWidth, font.getSize() * (i + 1));
 				currentWidth += pencelizerBoard[i][j].getWidth();

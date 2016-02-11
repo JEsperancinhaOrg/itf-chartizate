@@ -1,6 +1,6 @@
 	package com.steelzack.chartizate;
 
-import static com.steelzack.pencelizer.distributions.PencelizerDistributionType.Linear;
+import static com.steelzack.chartizate.distributions.ChartizateDistributionType.Linear;
 
 import java.awt.Color;
 import java.io.InputStream;
@@ -8,14 +8,14 @@ import java.lang.Character.UnicodeBlock;
 
 import org.junit.Test;
 
-import com.steelzack.chartizate.PencelizerManagerImpl;
+import com.steelzack.chartizate.ChartizateManagerImpl;
 
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerManagerImplTest {
+public class ChartizateManagerImplTest {
 
 	@Test
 		public void testAddPencelizerCharacter() throws Exception {
@@ -30,7 +30,7 @@ public class PencelizerManagerImplTest {
 	@Test
 	public void testGenerateConvertedImage_CyanBlack() throws Exception {
 		InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
-		final PencelizerManagerImpl manager = new PencelizerManagerImpl( //
+		final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
 				Color.BLACK, //
 				50, //
 				10, //
@@ -47,7 +47,7 @@ public class PencelizerManagerImplTest {
 	@Test
 	public void testGenerateConvertedImage_RealExample1() throws Exception {
 		InputStream imageFullStream = getClass().getResourceAsStream("RealExample1.jpg");
-		final PencelizerManagerImpl manager = new PencelizerManagerImpl( //
+		final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
 				Color.BLACK, //
 				100, //
 				100, //

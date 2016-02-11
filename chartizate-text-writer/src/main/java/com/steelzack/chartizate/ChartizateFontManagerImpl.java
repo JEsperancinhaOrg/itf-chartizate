@@ -9,20 +9,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.steelzack.chartizate.PencelizerFontManager;
-import com.steelzack.pencelizer.distributions.PencelizerDistributionType;
+import com.steelzack.chartizate.ChartizateFontManager;
+import com.steelzack.chartizate.distributions.ChartizateDistributionType;
 
 /**
  * @author joao Manages the prescribed font
  *
  */
-public class PencelizerFontManagerImpl implements PencelizerFontManager<Font> {
+public class ChartizateFontManagerImpl implements ChartizateFontManager<Font> {
 
 	private Font font;
 
 	private FontMetrics fontMetrics;
 
-	public PencelizerFontManagerImpl(String fontName, int fontSize) {
+	public ChartizateFontManagerImpl(String fontName, int fontSize) {
 		this.font = new Font(fontName, Font.PLAIN, fontSize);
 		Canvas c = new Canvas();
 		this.fontMetrics = c.getFontMetrics(font);
@@ -513,7 +513,7 @@ public class PencelizerFontManagerImpl implements PencelizerFontManager<Font> {
 	public List<String> getAllDistributionTypes() {
 		final List<String> distributionTypes = new ArrayList<>();
 
-		for (PencelizerDistributionType type : Arrays.asList(PencelizerDistributionType.values())) {
+		for (ChartizateDistributionType type : Arrays.asList(ChartizateDistributionType.values())) {
 			distributionTypes.add(type.toString());
 		}
 		return distributionTypes;

@@ -8,17 +8,17 @@ import java.util.Arrays;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.steelzack.chartizate.PencelizerEncodingManager;
-import com.steelzack.chartizate.PencelizerEncodingManagerImpl;
-import com.steelzack.chartizate.PencelizerFontManager;
-import com.steelzack.chartizate.PencelizerFontManagerImpl;
+import com.steelzack.chartizate.ChartizateEncodingManager;
+import com.steelzack.chartizate.ChartizateEncodingManagerImpl;
+import com.steelzack.chartizate.ChartizateFontManager;
+import com.steelzack.chartizate.ChartizateFontManagerImpl;
 
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerEncodingManagerImplTest {
+public class ChartizateEncodingManagerImplTest {
 
 	/**
 	 * This test is currently ignored because the character conversion only works correctly for Java8
@@ -27,8 +27,8 @@ public class PencelizerEncodingManagerImplTest {
 	@Test
 	@Ignore
 	public void testInit_Latin() throws Exception {
-		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
-		final PencelizerEncodingManagerImpl manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+		final ChartizateEncodingManagerImpl manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager);
 		manager.init();
 		assertEquals(
@@ -46,8 +46,8 @@ public class PencelizerEncodingManagerImplTest {
 	 * @throws Exception
 	 */
 	public void testInit_Latin_Visual_Density_Test() throws Exception {
-		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
-		final PencelizerEncodingManagerImpl manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+		final ChartizateEncodingManagerImpl manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager);
 		manager.init();
 		System.out.println("\n");
@@ -61,8 +61,8 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_H() throws Exception {
-		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -74,8 +74,8 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_Special_Z() throws Exception {
-		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -87,8 +87,8 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_Special_L() throws Exception {
-		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -100,8 +100,8 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_Special_W() throws Exception {
-		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
-		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {

@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer.distributions;
+package com.steelzack.chartizate.distributions;
 
 import java.util.Random;
 
@@ -7,7 +7,7 @@ import java.util.Random;
  * @author joao
  *
  */
-public class PencelizerLinearDistribution extends PencelizerDistribution {
+public class PencelizerLinearDistribution extends ChartizateDistribution {
 
 	public PencelizerLinearDistribution(Character[] characters, int densityPercentage, int rangePercentage) {
 		super(characters, densityPercentage, rangePercentage);

@@ -3,18 +3,18 @@ package com.steelzack.chartizate.objects;
 import org.fusesource.jansi.Ansi.Color;
 import org.junit.Test;
 
-import com.steelzack.chartizate.objects.PencelizerCharacterCmd;
+import com.steelzack.chartizate.objects.ChartizateCharacterCmd;
 
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerCharacterCmdTest {
+public class ChartizateCharacterCmdTest {
 
 	@Test
 	public void testPrintToCommandLine() throws Exception {
-		final PencelizerCharacterCmd pc = new PencelizerCharacterCmd(Color.RED, Color.BLACK, 'a');
+		final ChartizateCharacterCmd pc = new ChartizateCharacterCmd(Color.RED, Color.BLACK, 'a');
 		pc.printToCommandLine();
 	}
 }

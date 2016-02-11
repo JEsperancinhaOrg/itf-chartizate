@@ -10,7 +10,7 @@ import org.fusesource.jansi.AnsiConsole;
  * @author joao Manages a specific character
  *
  */
-public class PencelizerCharacterCmd {
+public class ChartizateCharacterCmd {
 
 	private Color backColor;
 
@@ -26,7 +26,7 @@ public class PencelizerCharacterCmd {
 	 * @param character
 	 *            The actual character
 	 */
-	public PencelizerCharacterCmd(Color frontColor, char character) {
+	public ChartizateCharacterCmd(Color frontColor, char character) {
 		super();
 		this.frontColor = frontColor;
 		this.character = character;
@@ -42,7 +42,7 @@ public class PencelizerCharacterCmd {
 	 * @param character
 	 *            The actual character
 	 */
-	public PencelizerCharacterCmd(Color frontColor, Color backColor, char character) {
+	public ChartizateCharacterCmd(Color frontColor, Color backColor, char character) {
 		super();
 		this.frontColor = frontColor;
 		this.backColor = backColor;

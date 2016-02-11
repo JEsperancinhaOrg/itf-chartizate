@@ -1,6 +1,6 @@
 package com.steelzack.chartizate;
 
-public interface PencelizerEncodingManager {
+public interface ChartizateEncodingManager {
 
 	int getCharacterFullness(Character character);
 
