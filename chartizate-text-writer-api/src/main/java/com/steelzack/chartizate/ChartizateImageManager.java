@@ -1,8 +1,10 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.io.IOException;
 
-public interface PencelizerImageManager<T> {
+import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+
+public interface ChartizateImageManager<T> {
 
 	int getImageWidth();
 
@@ -12,7 +14,7 @@ public interface PencelizerImageManager<T> {
 
 	int getPartAverageColor(int x0, int y0, int xn, int yn);
 
-	void saveImage(PencelizerCharacterImg<?>[][] pencelizerBoard, PencelizerFontManager<T> fontManager,
+	void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<T> fontManager,
 			String outputFile, int outputWidth, int outputHeight) throws IOException;
 
 }

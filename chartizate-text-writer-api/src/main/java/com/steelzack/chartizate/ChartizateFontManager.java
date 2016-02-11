@@ -1,8 +1,8 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.util.List;
 
-public interface PencelizerFontManager<T> {
+public interface ChartizateFontManager<T> {
 
 	List<String> getAllUniCodeBlockStringsJava7();
 

@@ -1,13 +1,13 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate.objects;
 
-public class PencelizerCharacterImg<T> {
+public class ChartizateCharacterImg<T> {
 
 	private T fg;
 	private T bg;
 	private char character;
 	private int width;
 
-	public PencelizerCharacterImg(final T fg, final T bg, final int width, final char character) {
+	public ChartizateCharacterImg(final T fg, final T bg, final int width, final char character) {
 		this.fg = fg;
 		this.bg = bg;
 		this.width = width;

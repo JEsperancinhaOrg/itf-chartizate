@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import static java.lang.Character.UnicodeBlock.ALCHEMICAL_SYMBOLS;
 import static java.lang.Character.UnicodeBlock.ARABIC;
@@ -82,15 +82,18 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.steelzack.chartizate.ChartizateFontManager;
+import com.steelzack.chartizate.ChartizateFontManagerImpl;
+
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerFontManagerImplTest {
+public class ChartizateFontManagerImplTest {
 	@Test
 	public void testGetCharacterWidth() throws Exception {
-		final PencelizerFontManager<Font> manager = new PencelizerFontManagerImpl("Arial", 10);
+		final ChartizateFontManager<Font> manager = new ChartizateFontManagerImpl("Arial", 10);
 
 		assertEquals(6, manager.getCharacterWidth('a'));
 		assertEquals(7, manager.getCharacterWidth('A'));
@@ -322,7 +325,7 @@ public class PencelizerFontManagerImplTest {
 				MIAO, //
 				ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS //
 		};
-		final PencelizerFontManagerImpl manager = new PencelizerFontManagerImpl("Arial", 10);
+		final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
 
 		final List<UnicodeBlock> result = manager.getAllUniCodeBlocksJava8();
 
@@ -542,7 +545,7 @@ public class PencelizerFontManagerImplTest {
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, //
 				CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D, //
 		};
-		final PencelizerFontManagerImpl manager = new PencelizerFontManagerImpl("Arial", 10);
+		final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
 
 		final List<UnicodeBlock> result = manager.getAllUniCodeBlocksJava7();
 
@@ -557,7 +560,7 @@ public class PencelizerFontManagerImplTest {
 				"Poisson", //
 				"Skellam" //
 		}; //
-		final PencelizerFontManagerImpl manager = new PencelizerFontManagerImpl("Arial", 10);
+		final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
 
 		final List<String> result = manager.getAllDistributionTypes();
 
@@ -566,7 +569,7 @@ public class PencelizerFontManagerImplTest {
 
 	@Test
 	public void testGetAllFontTypes() throws Exception {
-		final PencelizerFontManagerImpl manager = new PencelizerFontManagerImpl("Arial", 10);
+		final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
 		System.out.println(manager.getAllFontTypes());
 	}
 }

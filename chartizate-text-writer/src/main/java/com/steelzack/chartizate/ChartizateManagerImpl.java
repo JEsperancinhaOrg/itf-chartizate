@@ -1,4 +1,4 @@
-package com.steelzack.pencelizer;
+package com.steelzack.chartizate;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,15 +9,17 @@ import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.steelzack.pencelizer.distributions.PencelizerDistribution;
-import com.steelzack.pencelizer.distributions.PencelizerDistributionType;
-import com.steelzack.pencelizer.distributions.PencelizerLinearDistribution;
+import com.steelzack.chartizate.ChartizateManagerCommon;
+import com.steelzack.chartizate.distributions.ChartizateDistribution;
+import com.steelzack.chartizate.distributions.ChartizateDistributionType;
+import com.steelzack.chartizate.distributions.PencelizerLinearDistribution;
+import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
 /**
  *
  * @author joao Manages the board to be rendered
  */
-public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
+public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> {
 
 	/**
 	 * Creates Pencelizer manager by defining how many lines and columns is the
@@ -35,11 +37,11 @@ public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public PencelizerManagerImpl( //
+	public ChartizateManagerImpl( //
 			final Color backgroundColor, //
 			final int densityPercentage, //
 			final int rangePercentage, //
-			final PencelizerDistributionType distributionType, //
+			final ChartizateDistributionType distributionType, //
 			final String fontName, //
 			final int fontSize, //
 			final UnicodeBlock block, //
@@ -59,7 +61,7 @@ public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
 	}
 
 	@Override
-	protected PencelizerDistribution getDistribution(PencelizerDistributionType distributionType, int densityPercentage,
+	protected ChartizateDistribution getDistribution(ChartizateDistributionType distributionType, int densityPercentage,
 			int rangePercentage) {
 		switch (distributionType) {
 		case Gaussian:
@@ -83,7 +85,7 @@ public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
 		int currentImageIndexX = 0;
 		int rowIndex = 0;
 		while (rowIndex < pencelizerBoard.length) {
-			List<PencelizerCharacterImg<Color>> pencelizerRow = new ArrayList<>();
+			List<ChartizateCharacterImg<Color>> pencelizerRow = new ArrayList<>();
 			while (currentImageIndexX < imageWidth) {
 				final Character character = this.distribution.getCharacterFromArray();
 				final int width = fontManager.getCharacterWidth(character.charValue());
@@ -95,7 +97,7 @@ public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
 						currentImageIndexX + width, //
 						currentImageIndexY + height //
 				);
-				pencelizerRow.add(new PencelizerCharacterImg<Color>(new Color(averageColor), this.backgroundColor,
+				pencelizerRow.add(new ChartizateCharacterImg<Color>(new Color(averageColor), this.backgroundColor,
 						width, character));
 				currentImageIndexX += width;
 			}
@@ -114,23 +116,25 @@ public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
 	 * 
 	 * @param pencelizerRow
 	 */
-	public void addFullRow(int row, List<PencelizerCharacterImg<Color>> pencelizerRow) {
-		pencelizerBoard[row] = pencelizerRow.toArray(new PencelizerCharacterImg[0]);
-	}
-@Override
-	protected PencelizerImageManagerImpl createImageManager(final InputStream imageFullStream) throws IOException {
-		return new PencelizerImageManagerImpl(imageFullStream);
+	public void addFullRow(int row, List<ChartizateCharacterImg<Color>> pencelizerRow) {
+		pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
 	}
 
-@Override
-protected PencelizerEncodingManagerImpl createEncodingManager(final UnicodeBlock block) {
-		return new PencelizerEncodingManagerImpl(block, fontManager);
+	@Override
+	protected ChartizateImageManagerImpl createImageManager(final InputStream imageFullStream) throws IOException {
+		return new ChartizateImageManagerImpl(imageFullStream);
 	}
 
-@Override
-protected PencelizerFontManagerImpl createFontManager(final String fontName, final int fontSize) {
-		return new PencelizerFontManagerImpl(fontName, fontSize);
+	@Override
+	protected ChartizateEncodingManagerImpl createEncodingManager(final UnicodeBlock block) {
+		return new ChartizateEncodingManagerImpl(block, fontManager);
 	}
+
+	@Override
+	protected ChartizateFontManagerImpl createFontManager(final String fontName, final int fontSize) {
+		return new ChartizateFontManagerImpl(fontName, fontSize);
+	}
+
 	public static void main(String[] args) {
 
 	}

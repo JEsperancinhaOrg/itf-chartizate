@@ -1,4 +1,4 @@
-package com.example.joaofilipesabinoesperancinha.characterizer_text_writer_android;
+package com.steelzack.chartizate;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
