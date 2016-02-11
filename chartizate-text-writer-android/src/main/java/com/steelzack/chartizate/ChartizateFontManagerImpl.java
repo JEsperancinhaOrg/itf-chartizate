@@ -11,6 +11,14 @@ import java.util.List;
 public class ChartizateFontManagerImpl implements ChartizateFontManager<Typeface> {
 
 
+	private String fontString;
+	private int fontSize;
+
+	public ChartizateFontManagerImpl(String fontString, int fontSize) {
+		this.fontSize = fontSize;
+		this.fontString = fontString;
+	}
+
 	@Override
 	public List<String> getAllUniCodeBlockStringsJava7() {
 		return null;

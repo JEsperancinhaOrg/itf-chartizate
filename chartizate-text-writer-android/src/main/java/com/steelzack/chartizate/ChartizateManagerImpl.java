@@ -12,33 +12,32 @@ import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
 
 /**
- *
  * @author joao Manages the board to be rendered
  */
 public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typeface> {
 
 
-	public ChartizateManagerImpl(Color backgroundColor, int densityPercentage, int rangePercentage, ChartizateDistributionType distributionType, String fontName, int fontSize, UnicodeBlock block, InputStream imageFullStream, String destinationImagePath) throws FileNotFoundException, IOException {
-		super(backgroundColor, densityPercentage, rangePercentage, distributionType, fontName, fontSize, block, imageFullStream, destinationImagePath);
-	}
+    public ChartizateManagerImpl(Color backgroundColor, int densityPercentage, int rangePercentage, ChartizateDistributionType distributionType, String fontName, int fontSize, UnicodeBlock block, InputStream imageFullStream, String destinationImagePath) throws FileNotFoundException, IOException {
+        super(backgroundColor, densityPercentage, rangePercentage, distributionType, fontName, fontSize, block, imageFullStream, destinationImagePath);
+    }
 
-	@Override
-	protected ChartizateDistribution getDistribution(ChartizateDistributionType chartizateDistributionType, int i, int i1) {
-		return null;
-	}
+    @Override
+    protected ChartizateDistribution getDistribution(ChartizateDistributionType chartizateDistributionType, int i, int i1) {
+        return null;
+    }
 
-	@Override
-	ChartizateImageManager<Typeface> createImageManager(InputStream inputStream) throws IOException {
-		return null;
-	}
+    @Override
+    ChartizateImageManager<Typeface> createImageManager(InputStream inputStream) throws IOException {
+        return new ChartizateImageManagerImpl(inputStream);
+    }
 
-	@Override
-	ChartizateEncodingManager createEncodingManager(UnicodeBlock unicodeBlock) {
-		return null;
-	}
+    @Override
+    ChartizateEncodingManager createEncodingManager(UnicodeBlock unicodeBlock) {
+        return new ChartizateEncodingManagerImpl(unicodeBlock);
+    }
 
-	@Override
-	ChartizateFontManager<Typeface> createFontManager(String s, int i) {
-		return null;
-	}
+    @Override
+    ChartizateFontManager<Typeface> createFontManager(String fontString, int fontSize) {
+        return new ChartizateFontManagerImpl(fontString, fontSize);
+    }
 }
