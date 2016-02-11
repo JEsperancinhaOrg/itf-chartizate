@@ -35,7 +35,7 @@ public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager 
 		this.fontManager = fontManager;
 	}
 
-	protected void init() {
+	public void init() {
 		for (int codePoint = Character.MIN_CODE_POINT; codePoint <= Character.MAX_CODE_POINT; codePoint++) {
 			if (block == UnicodeBlock.of(codePoint)) {
 				orderedCharacters.add(((char) codePoint));
@@ -99,7 +99,8 @@ public class PencelizerEncodingManagerImpl implements PencelizerEncodingManager 
 		return maximumHeight;
 	}
 
-	protected Character[] getCharacters() {
+	@Override
+	public Character[] getCharacters() {
 		return characters;
 	}
 }

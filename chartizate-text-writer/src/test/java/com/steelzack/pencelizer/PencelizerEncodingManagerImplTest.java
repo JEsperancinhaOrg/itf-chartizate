@@ -2,6 +2,7 @@ package com.steelzack.pencelizer;
 
 import static org.junit.Assert.assertEquals;
 
+import java.awt.Font;
 import java.util.Arrays;
 
 import org.junit.Ignore;
@@ -21,7 +22,7 @@ public class PencelizerEncodingManagerImplTest {
 	@Test
 	@Ignore
 	public void testInit_Latin() throws Exception {
-		final PencelizerFontManager fontManager = new PencelizerFontManagerImpl("Arial", 10);
+		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
 		final PencelizerEncodingManagerImpl manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager);
 		manager.init();
@@ -40,7 +41,7 @@ public class PencelizerEncodingManagerImplTest {
 	 * @throws Exception
 	 */
 	public void testInit_Latin_Visual_Density_Test() throws Exception {
-		final PencelizerFontManager fontManager = new PencelizerFontManagerImpl("Arial", 10);
+		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
 		final PencelizerEncodingManagerImpl manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager);
 		manager.init();
@@ -55,7 +56,7 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_H() throws Exception {
-		final PencelizerFontManager fontManager = new PencelizerFontManagerImpl("Arial", 10);
+		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
 		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
@@ -68,7 +69,7 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_Special_Z() throws Exception {
-		final PencelizerFontManager fontManager = new PencelizerFontManagerImpl("Arial", 10);
+		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
 		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
@@ -81,7 +82,7 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_Special_L() throws Exception {
-		final PencelizerFontManager fontManager = new PencelizerFontManagerImpl("Arial", 10);
+		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
 		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
@@ -94,7 +95,7 @@ public class PencelizerEncodingManagerImplTest {
 
 	@Test
 	public void testGetCharacterFullness_Special_W() throws Exception {
-		final PencelizerFontManager fontManager = new PencelizerFontManagerImpl("Arial", 10);
+		final PencelizerFontManager<Font> fontManager = new PencelizerFontManagerImpl("Arial", 10);
 		final PencelizerEncodingManager manager = new PencelizerEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
