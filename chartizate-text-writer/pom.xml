@@ -3,12 +3,30 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>chartizate</groupId>
 	<artifactId>chartizate-text-writer</artifactId>
-	<version>1.0.0</version>
+	<version>${chartize.version}</version>
 	<name>chartizate-text-writer</name>
 	<build>
 		<sourceDirectory>src/java/main</sourceDirectory>
 		<testSourceDirectory>src/java/test</testSourceDirectory>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<urls>
+								<url>file:///${basedir}/../project.properties</url>
+							</urls>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
@@ -66,7 +84,7 @@
 		<dependency>
 			<groupId>chartizate</groupId>
 			<artifactId>chartizate-text-writer-api</artifactId>
-			<version>0.0.0</version>
+			<version>${chartize.version}</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
