@@ -3,8 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>chartizate</groupId>
 	<artifactId>chartizate-text-writer</artifactId>
-	<version>${chartize.version}</version>
-	<name>chartizate-text-writer</name>
+	<version>1.0.0</version>
 	<build>
 		<sourceDirectory>src/java/main</sourceDirectory>
 		<testSourceDirectory>src/java/test</testSourceDirectory>
@@ -84,7 +83,7 @@
 		<dependency>
 			<groupId>chartizate</groupId>
 			<artifactId>chartizate-text-writer-api</artifactId>
-			<version>${chartize.version}</version>
+			<version>LATEST</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
