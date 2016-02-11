@@ -73,4 +73,6 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
 	abstract ChartizateFontManager<FONT> createFontManager(final String fontName, final int fontSize);
 
 	abstract void addFullRow(int row, List<ChartizateCharacterImg<COLOR>> pencelizerRow);
+
+	abstract void generateConvertedImage() throws IOException;
 }

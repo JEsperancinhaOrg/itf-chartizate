@@ -42,4 +42,9 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typefa
     void addFullRow(int row, List<ChartizateCharacterImg<Color>> pencelizerRow) {
             pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
     }
+
+    @Override
+    void generateConvertedImage() throws IOException {
+
+    }
 }
