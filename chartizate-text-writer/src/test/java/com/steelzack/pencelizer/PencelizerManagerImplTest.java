@@ -13,7 +13,7 @@ import org.junit.Test;
  * @author joao
  *
  */
-public class PencelizerManagerTest {
+public class PencelizerManagerImplTest {
 
 	@Test
 		public void testAddPencelizerCharacter() throws Exception {
@@ -28,7 +28,7 @@ public class PencelizerManagerTest {
 	@Test
 	public void testGenerateConvertedImage_CyanBlack() throws Exception {
 		InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
-		final PencelizerManager manager = new PencelizerManager( //
+		final PencelizerManagerImpl manager = new PencelizerManagerImpl( //
 				Color.BLACK, //
 				50, //
 				10, //
@@ -45,7 +45,7 @@ public class PencelizerManagerTest {
 	@Test
 	public void testGenerateConvertedImage_RealExample1() throws Exception {
 		InputStream imageFullStream = getClass().getResourceAsStream("RealExample1.jpg");
-		final PencelizerManager manager = new PencelizerManager( //
+		final PencelizerManagerImpl manager = new PencelizerManagerImpl( //
 				Color.BLACK, //
 				100, //
 				100, //

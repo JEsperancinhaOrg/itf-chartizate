@@ -15,23 +15,9 @@ import com.steelzack.pencelizer.distributions.PencelizerLinearDistribution;
 
 /**
  *
- * @author joao Manages the whole board to be rendered
+ * @author joao Manages the board to be rendered
  */
-public class PencelizerManager {
-
-	private final Color backgroundColor;
-
-	private final PencelizerDistribution distribution;
-
-	private final PencelizerCharacterImg<?>[][] pencelizerBoard;
-
-	private final PencelizerFontManager<Font> fontManager;
-
-	private final PencelizerEncodingManagerImpl encodingManager;
-
-	private final PencelizerImageManager<Font> imageManager;
-
-	private String desinationImagePath;
+public class PencelizerManagerImpl extends ChartizateManagerCommon<Color,Font> {
 
 	/**
 	 * Creates Pencelizer manager by defining how many lines and columns is the
@@ -49,7 +35,7 @@ public class PencelizerManager {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public PencelizerManager( //
+	public PencelizerManagerImpl( //
 			final Color backgroundColor, //
 			final int densityPercentage, //
 			final int rangePercentage, //
@@ -60,18 +46,20 @@ public class PencelizerManager {
 			final InputStream imageFullStream, //
 			final String destinationImagePath //
 	) throws FileNotFoundException, IOException {
-		this.backgroundColor = backgroundColor;
-		this.fontManager = new PencelizerFontManagerImpl(fontName, fontSize);
-		this.encodingManager = new PencelizerEncodingManagerImpl(block, fontManager);
-		this.encodingManager.init();
-		this.distribution = getDistribution(distributionType, densityPercentage, rangePercentage);
-		this.imageManager = new PencelizerImageManagerImpl(imageFullStream);
-		this.desinationImagePath = destinationImagePath;
-		final int imageHeight = imageManager.getImageHeight();
-		this.pencelizerBoard = new PencelizerCharacterImg[imageHeight / fontSize][];
+		super(backgroundColor, //
+				densityPercentage, //
+				rangePercentage, //
+				distributionType, //
+				fontName, //
+				fontSize, //
+				block, //
+				imageFullStream, //
+				destinationImagePath //
+		);
 	}
 
-	private PencelizerDistribution getDistribution(PencelizerDistributionType distributionType, int densityPercentage,
+	@Override
+	protected PencelizerDistribution getDistribution(PencelizerDistributionType distributionType, int densityPercentage,
 			int rangePercentage) {
 		switch (distributionType) {
 		case Gaussian:
@@ -107,8 +95,8 @@ public class PencelizerManager {
 						currentImageIndexX + width, //
 						currentImageIndexY + height //
 				);
-				pencelizerRow.add(
-						new PencelizerCharacterImg<Color>(new Color(averageColor), this.backgroundColor, width, character));
+				pencelizerRow.add(new PencelizerCharacterImg<Color>(new Color(averageColor), this.backgroundColor,
+						width, character));
 				currentImageIndexX += width;
 			}
 			addFullRow(rowIndex, pencelizerRow);
@@ -129,7 +117,20 @@ public class PencelizerManager {
 	public void addFullRow(int row, List<PencelizerCharacterImg<Color>> pencelizerRow) {
 		pencelizerBoard[row] = pencelizerRow.toArray(new PencelizerCharacterImg[0]);
 	}
+@Override
+	protected PencelizerImageManagerImpl createImageManager(final InputStream imageFullStream) throws IOException {
+		return new PencelizerImageManagerImpl(imageFullStream);
+	}
 
+@Override
+protected PencelizerEncodingManagerImpl createEncodingManager(final UnicodeBlock block) {
+		return new PencelizerEncodingManagerImpl(block, fontManager);
+	}
+
+@Override
+protected PencelizerFontManagerImpl createFontManager(final String fontName, final int fontSize) {
+		return new PencelizerFontManagerImpl(fontName, fontSize);
+	}
 	public static void main(String[] args) {
 
 	}
