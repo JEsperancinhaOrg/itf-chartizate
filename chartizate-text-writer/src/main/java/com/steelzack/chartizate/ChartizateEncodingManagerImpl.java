@@ -56,7 +56,7 @@ public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Fon
 					fullNess += bi.getRGB(i, j) != 0 ? 1d : 0d;
 				}
 			}
-			return (int) (fullNess / total * 1000);
+			return computeFullness(fullNess, total);
 		} else {
 			return -1;
 		}

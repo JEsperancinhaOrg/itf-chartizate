@@ -18,13 +18,27 @@ public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Typ
     @Override
     public int getCharacterFullness(Character character) {
         final int fontSize = fontManager.getFontSize();
-        final Bitmap bitmap = Bitmap.createBitmap(fontSize, fontSize, Bitmap.Config.ARGB_8888);
+        final Bitmap bitmap = Bitmap.createBitmap(fontSize, fontSize, Bitmap.Config.RGB_565);
         final Canvas canvas = new Canvas(bitmap);
         final Paint paint = new Paint();
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.WHITE);
         paint.setTextSize(fontSize);
-        canvas.drawText(character.toString(), 0, 0, paint);
-        return 0;
+        paint.setTypeface(fontManager.getFont());
+        canvas.drawPaint(paint);
+        paint.setColor(Color.BLACK);
+        canvas.drawText(character.toString(), 0, fontSize, paint);
+        final int width = fontManager.getCharacterWidth(character);
+        final int fullPixels = width * fontSize;
+        int numberOfOnes = 0;
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < fontSize; j++) {
+                if(bitmap.getPixel(i,j) == Color.BLACK)
+                {
+                    numberOfOnes++;
+                }
+            }
+        }
+        return computeFullness(numberOfOnes, fullPixels);
     }
 
     @Override

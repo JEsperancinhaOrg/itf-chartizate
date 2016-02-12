@@ -20,7 +20,7 @@ public class ChartizateFontManagerImpl implements ChartizateFontManager<Typeface
 
     public ChartizateFontManagerImpl(String fontString, int fontSize) {
         this.fontSize = fontSize;
-        this.font = Typeface.create(fontString, Typeface.NORMAL);
+        this.font = Typeface.create(fontString.toUpperCase(), Typeface.NORMAL);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(5);
