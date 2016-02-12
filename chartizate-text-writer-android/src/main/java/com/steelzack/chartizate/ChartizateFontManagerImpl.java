@@ -62,4 +62,9 @@ public class ChartizateFontManagerImpl implements ChartizateFontManager<Typeface
     public Typeface getFont() {
         return font;
     }
+
+    @Override
+    public int getFontSize() {
+        return fontSize;
+    }
 }
