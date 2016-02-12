@@ -28,6 +28,10 @@ public abstract class ChartizateEncodingManager<FONT> {
 
 	abstract Character[] getCharacters();
 	
+	protected int computeFullness(double fullNess, double total) {
+		return (int) (fullNess / total * 1000);
+	}
+	
 	private Comparator<Character> getComparator() {
 		return new Comparator<Character>() {
 			public int compare(Character o1, Character o2) {

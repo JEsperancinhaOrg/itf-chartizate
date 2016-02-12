@@ -30,7 +30,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typefa
 
     @Override
     ChartizateEncodingManager createEncodingManager(UnicodeBlock unicodeBlock) {
-        return new ChartizateEncodingManagerImpl(unicodeBlock);
+        return new ChartizateEncodingManagerImpl(unicodeBlock, fontManager);
     }
 
     @Override
