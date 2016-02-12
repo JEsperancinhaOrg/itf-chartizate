@@ -6,36 +6,18 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.lang.Character.UnicodeBlock;
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.swing.JLabel;
-
-import com.steelzack.chartizate.ChartizateEncodingManager;
-import com.steelzack.chartizate.ChartizateFontManager;
 
 /**
  * 
  * @author joao
  *
  */
-public class ChartizateEncodingManagerImpl implements ChartizateEncodingManager {
-
-	private final UnicodeBlock block;
-
-	private Set<Character> orderedCharacters = new TreeSet<Character>(getComparator());
-
-	private Character[] characters;
-	
-	private final ChartizateFontManager<Font> fontManager;
-
-	private int maximumHeight = 0;
+public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Font> {
 
 	public ChartizateEncodingManagerImpl(UnicodeBlock block, ChartizateFontManager<Font> fontManager) {
-		super();
-		this.block = block;
-		this.fontManager = fontManager;
+		super(block, fontManager);
 	}
 
 	public void init() {
@@ -52,21 +34,6 @@ public class ChartizateEncodingManagerImpl implements ChartizateEncodingManager 
 		characters = orderedCharacters.toArray(new Character[0]);
 	}
 
-	private Comparator<Character> getComparator() {
-		return new Comparator<Character>() {
-			public int compare(Character o1, Character o2) {
-				double fullNess1 = getCharacterFullness(o1);
-				double fullNess2 = getCharacterFullness(o2);
-				Integer comparisonResult = (Integer) ((fullNess1 < fullNess2) ? -1 : 0);
-				if (comparisonResult == 0) {
-					comparisonResult = o1.compareTo(o2);
-				}
-
-				return comparisonResult;
-			}
-		};
-	}
-
 	/* (non-Javadoc)
 	 * @see com.steelzack.pencelizer.PencelizerEncodingManagerd#getCharacterFullness(java.lang.Character)
 	 */
@@ -76,21 +43,18 @@ public class ChartizateEncodingManagerImpl implements ChartizateEncodingManager 
 		int width = Math.abs(metrics.stringWidth(character.toString()));
 		int height = metrics.getMaxAscent();
 		if (width > 0) {
-			BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-			Graphics2D g2d = bi.createGraphics();
+			final BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+			final Graphics2D g2d = bi.createGraphics();
 			g2d.setFont(font);
 			g2d.setColor(Color.black);
 			g2d.drawString(character.toString(), 0, height);
 			g2d.dispose();
 			double total = getMaximumHeight() * width;
 			double fullNess = 0;
-			// System.out.println(height);
 			for (int j = 0; j < height; j++) {
 				for (int i = 0; i < width; i++) {
 					fullNess += bi.getRGB(i, j) != 0 ? 1d : 0d;
-					// System.out.print(bi.getRGB(i, j) != 0 ? "1" : "0");
 				}
-				// System.out.print("\n");
 			}
 			return (int) (fullNess / total * 1000);
 		} else {

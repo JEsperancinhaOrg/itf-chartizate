@@ -62,7 +62,7 @@ public class ChartizateEncodingManagerImplTest {
 	@Test
 	public void testGetCharacterFullness_H() throws Exception {
 		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
-		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -75,7 +75,7 @@ public class ChartizateEncodingManagerImplTest {
 	@Test
 	public void testGetCharacterFullness_Special_Z() throws Exception {
 		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
-		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -88,7 +88,7 @@ public class ChartizateEncodingManagerImplTest {
 	@Test
 	public void testGetCharacterFullness_Special_L() throws Exception {
 		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
-		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {
@@ -101,7 +101,7 @@ public class ChartizateEncodingManagerImplTest {
 	@Test
 	public void testGetCharacterFullness_Special_W() throws Exception {
 		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
-		final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
+		final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A,
 				fontManager) {
 			@Override
 			protected int getMaximumHeight() {

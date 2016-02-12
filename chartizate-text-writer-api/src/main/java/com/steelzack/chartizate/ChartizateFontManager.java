@@ -27,4 +27,6 @@ public interface ChartizateFontManager<T> {
 	int getCharacterHeight(char c);
 
 	T getFont();
+	
+	int getFontSize();
 }

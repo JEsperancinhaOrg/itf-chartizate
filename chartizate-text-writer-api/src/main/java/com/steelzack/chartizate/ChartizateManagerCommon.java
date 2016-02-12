@@ -17,7 +17,7 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
 	protected final ChartizateDistribution distribution;
 	protected final ChartizateCharacterImg<?>[][] pencelizerBoard;
 	protected final ChartizateFontManager<FONT> fontManager;
-	protected final ChartizateEncodingManager encodingManager;
+	protected final ChartizateEncodingManager<FONT> encodingManager;
 	protected final ChartizateImageManager<FONT> imageManager;
 	protected String desinationImagePath;
 
@@ -68,7 +68,7 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
 
 	abstract ChartizateImageManager<FONT> createImageManager(final InputStream imageFullStream) throws IOException;
 
-	abstract ChartizateEncodingManager createEncodingManager(final UnicodeBlock block);
+	abstract ChartizateEncodingManager<FONT> createEncodingManager(final UnicodeBlock block);
 
 	abstract ChartizateFontManager<FONT> createFontManager(final String fontName, final int fontSize);
 

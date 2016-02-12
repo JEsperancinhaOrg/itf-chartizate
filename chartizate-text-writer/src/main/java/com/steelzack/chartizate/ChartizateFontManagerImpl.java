@@ -532,4 +532,9 @@ public class ChartizateFontManagerImpl implements ChartizateFontManager<Font> {
 	public List<String> getAllUniCodeBlockStringsJava8() {
 		return Arrays.asList(unicodeDesignationsJava8);
 	}
+
+	@Override
+	public int getFontSize() {
+		return font.getSize();
+	}
 }
