@@ -1,9 +1,7 @@
 package com.steelzack.chartizate;
 
-import android.graphics.Color;
 import android.graphics.Typeface;
 
-import com.steelzack.chartizate.distributions.ChartizateDistribution;
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
 import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 

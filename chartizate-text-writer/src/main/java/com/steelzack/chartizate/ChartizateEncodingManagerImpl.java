@@ -20,20 +20,6 @@ public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Fon
 		super(block, fontManager);
 	}
 
-	public void init() {
-		for (int codePoint = Character.MIN_CODE_POINT; codePoint <= Character.MAX_CODE_POINT; codePoint++) {
-			if (block == UnicodeBlock.of(codePoint)) {
-				orderedCharacters.add(((char) codePoint));
-
-				int height = fontManager.getCharacterHeight((char) codePoint);
-				if (height > maximumHeight) {
-					maximumHeight = height;
-				}
-			}
-		}
-		characters = orderedCharacters.toArray(new Character[0]);
-	}
-
 	/* (non-Javadoc)
 	 * @see com.steelzack.pencelizer.PencelizerEncodingManagerd#getCharacterFullness(java.lang.Character)
 	 */
