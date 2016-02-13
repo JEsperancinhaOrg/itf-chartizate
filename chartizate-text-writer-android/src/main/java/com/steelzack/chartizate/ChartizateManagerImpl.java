@@ -24,6 +24,11 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typefa
     }
 
     @Override
+    Color createColor(int i) {
+        return Color
+    }
+
+    @Override
     ChartizateImageManager<Typeface> createImageManager(InputStream inputStream) throws IOException {
         return new ChartizateImageManagerImpl(inputStream);
     }
@@ -41,10 +46,5 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typefa
     @Override
     void addFullRow(int row, List<ChartizateCharacterImg<Color>> pencelizerRow) {
             pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
-    }
-
-    @Override
-    void generateConvertedImage() throws IOException {
-
     }
 }
