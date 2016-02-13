@@ -1,29 +1,62 @@
 package com.steelzack.chartizate;
 
-import junit.framework.TestCase;
+import android.app.Application;
+import android.graphics.Color;
+import android.test.ApplicationTestCase;
+
+import com.example.joaofilipesabinoesperancinha.characterizer_text_writer_android.R;
+import com.steelzack.chartizate.distributions.ChartizateDistributionType;
+
+import org.junit.Test;
+
+import java.io.InputStream;
 
 /**
  * Created by joaofilipesabinoesperancinha on 11-02-16.
  */
-public class ChartizateManagerImplTest extends TestCase {
-
-    public void testCreateImageManager() throws Exception {
-
+public class ChartizateManagerImplTest extends ApplicationTestCase<Application> {
+    public ChartizateManagerImplTest() {
+        super(Application.class);
     }
 
-    public void testCreateEncodingManager() throws Exception {
 
+    @Test
+    public void testGenerateConvertedImage_CyanBlack() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.pencelizercyanblack);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                50, //
+                10, //
+                ChartizateDistributionType.Linear, //
+                "Arial", //
+                5, //
+                Character.UnicodeBlock.LATIN_EXTENDED_A, //
+                imageFullStream, //
+                "/tmp/testCyanBlue.png" //
+        );
+        manager.generateConvertedImage();
     }
 
-    public void testCreateFontManager() throws Exception {
+    @Test
+    public void testGenerateConvertedImage_RealExample1() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
 
-    }
+        assertNotNull(imageFullStream);
 
-    public void testAddFullRow() throws Exception {
-
-    }
-
-    public void testGenerateConvertedImage() throws Exception {
-
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.LATIN_EXTENDED_A, //
+                imageFullStream, //
+                "/tmp/testRealExample1.png" //
+        );
+        manager.generateConvertedImage();
     }
 }

@@ -42,12 +42,7 @@ public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Typ
     }
 
     @Override
-    public void init() {
-
-    }
-
-    @Override
     public Character[] getCharacters() {
-        return new Character[0];
+        return characters;
     }
 }
