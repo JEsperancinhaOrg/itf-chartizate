@@ -55,38 +55,6 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.steelzack.pencelizer.PencelizerImageManager#getPartAverageColor(int,
-	 * int, int, int)
-	 */
-	@Override
-	public Color getPartAverageColor(final int x0, final int y0, final int xn, final int yn) {
-		double alpha = 0;
-		double red = 0;
-		double green = 0;
-		double blue = 0;
-		for (int j = x0; j <= xn && j < srcImage.getWidth(); j++) {
-			for (int k = y0; k <= yn && k < srcImage.getHeight(); k++) {
-				int rgbPixel = srcImage.getRGB(j, k);
-				alpha += (rgbPixel >> 24) & 0xff;
-				red += (rgbPixel >> 16) & 0xff;
-				green += (rgbPixel >> 8) & 0xff;
-				blue += (rgbPixel) & 0xff;
-			}
-		}
-
-		int commonDenominator = (xn - x0 + 1) * (yn - y0 + 1);
-		int mediumApha = (int) (alpha / commonDenominator);
-		int mediumRed = (int) (red / commonDenominator);
-		int mediumBlue = (int) (blue / commonDenominator);
-		int mediumGreen = (int) (green / commonDenominator);
-
-		return new Color(mediumRed, mediumGreen, mediumBlue, mediumApha);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
 	 * com.steelzack.pencelizer.PencelizerImageManager#saveImage(com.steelzack.
 	 * pencelizer.PencelizerCharacterImg,
 	 * com.steelzack.pencelizer.PencelizerFontManager, java.lang.String, int,
@@ -116,5 +84,15 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
 		if (ImageIO.write(bImg, "png", new File(outputFile))) {
 			System.out.println(outputFile + " is saved");
 		}
+	}
+	
+	@Override
+	public int getImagePixelRGB(int j, int k) {
+		return srcImage.getRGB(j, k);
+	}
+	
+	@Override
+	public Color createColor(int mediumApha, int mediumRed, int mediumBlue, int mediumGreen) {
+		return new Color(mediumRed, mediumGreen, mediumBlue, mediumApha);
 	}
 }
