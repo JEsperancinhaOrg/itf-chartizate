@@ -6,14 +6,14 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.steelzack.chartizate.distributions.PencelizerLinearDistribution;
+import com.steelzack.chartizate.distributions.ChartizateLinearDistribution;
 
 /**
  * 
  * @author joao
  *
  */
-public class PencelizerLinearDistributionTest {
+public class ChartizateLinearDistributionTest {
 
 	@Test
 	public void testGetCharacterFromArray() throws Exception {
@@ -30,7 +30,7 @@ public class PencelizerLinearDistributionTest {
 				new Character('j'), //
 				new Character('k') //
 		};
-		final PencelizerLinearDistribution distribution = new PencelizerLinearDistribution(characters, 50, 10);
+		final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(characters, 50, 10);
 
 		char result = distribution.getCharacterFromArray().charValue();
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.steelzack.chartizate.distributions.ChartizateDistribution;
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
-import com.steelzack.chartizate.distributions.PencelizerLinearDistribution;
+import com.steelzack.chartizate.distributions.ChartizateLinearDistribution;
 import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
 public abstract class ChartizateManagerCommon<COLOR, FONT> {
@@ -54,7 +54,7 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
 		case Gaussian:
 			return null; // TODO: To be implemented
 		case Linear:
-			return new PencelizerLinearDistribution( //
+			return new ChartizateLinearDistribution( //
 					this.encodingManager.getCharacters(), //
 					densityPercentage, //
 					rangePercentage //

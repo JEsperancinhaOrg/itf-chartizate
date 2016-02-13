@@ -11,11 +11,11 @@ public abstract class ChartizateEncodingManager<FONT> {
 	protected Set<Character> orderedCharacters = new TreeSet<Character>(getComparator());
 
 	protected Character[] characters;
-	
+
 	protected final ChartizateFontManager<FONT> fontManager;
 
 	protected int maximumHeight = 0;
-	
+
 	public ChartizateEncodingManager(UnicodeBlock block, ChartizateFontManager<FONT> fontManager) {
 		super();
 		this.block = block;
@@ -24,14 +24,12 @@ public abstract class ChartizateEncodingManager<FONT> {
 
 	abstract int getCharacterFullness(Character character);
 
-	abstract void init();
-
 	abstract Character[] getCharacters();
-	
+
 	protected int computeFullness(double fullNess, double total) {
 		return (int) (fullNess / total * 1000);
 	}
-	
+
 	private Comparator<Character> getComparator() {
 		return new Comparator<Character>() {
 			public int compare(Character o1, Character o2) {
@@ -45,4 +43,19 @@ public abstract class ChartizateEncodingManager<FONT> {
 				return comparisonResult;
 			}
 		};
-	}}
+	}
+
+	public void init() {
+		for (int codePoint = Character.MIN_CODE_POINT; codePoint <= Character.MAX_CODE_POINT; codePoint++) {
+			if (block == UnicodeBlock.of(codePoint)) {
+				orderedCharacters.add(((char) codePoint));
+
+				int height = fontManager.getCharacterHeight((char) codePoint);
+				if (height > maximumHeight) {
+					maximumHeight = height;
+				}
+			}
+		}
+		characters = orderedCharacters.toArray(new Character[0]);
+	} //
+}

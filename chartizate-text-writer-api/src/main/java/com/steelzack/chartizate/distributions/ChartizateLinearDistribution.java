@@ -7,9 +7,9 @@ import java.util.Random;
  * @author joao
  *
  */
-public class PencelizerLinearDistribution extends ChartizateDistribution {
+public class ChartizateLinearDistribution extends ChartizateDistribution {
 
-	public PencelizerLinearDistribution(Character[] characters, int densityPercentage, int rangePercentage) {
+	public ChartizateLinearDistribution(Character[] characters, int densityPercentage, int rangePercentage) {
 		super(characters, densityPercentage, rangePercentage);
 	}
 
