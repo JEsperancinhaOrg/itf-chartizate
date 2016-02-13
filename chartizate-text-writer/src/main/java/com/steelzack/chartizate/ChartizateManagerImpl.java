@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
@@ -55,36 +54,6 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 				imageFullStream, //
 				destinationImagePath //
 		);
-	}
-
-	@Override
-	public void generateConvertedImage() throws IOException {
-		final int imageWidth = imageManager.getImageWidth();
-		int currentImageIndexX = 0;
-		int rowIndex = 0;
-		while (rowIndex < pencelizerBoard.length) {
-			List<ChartizateCharacterImg<Color>> pencelizerRow = new ArrayList<>();
-			while (currentImageIndexX < imageWidth) {
-				final Character character = this.distribution.getCharacterFromArray();
-				final int width = fontManager.getCharacterWidth(character.charValue());
-				final int height = fontManager.getCharacterHeight(character.charValue());
-				int currentImageIndexY = rowIndex * height;
-				final int averageColor = imageManager.getPartAverageColor( //
-						currentImageIndexX, //
-						currentImageIndexY, //
-						currentImageIndexX + width, //
-						currentImageIndexY + height //
-				);
-				pencelizerRow.add(new ChartizateCharacterImg<Color>(new Color(averageColor), this.backgroundColor,
-						width, character));
-				currentImageIndexX += width;
-			}
-			addFullRow(rowIndex, pencelizerRow);
-			currentImageIndexX = 0;
-			rowIndex++;
-		}
-		imageManager.saveImage(pencelizerBoard, fontManager, this.desinationImagePath, imageWidth,
-				imageManager.getImageHeight());
 	}
 
 	/**
