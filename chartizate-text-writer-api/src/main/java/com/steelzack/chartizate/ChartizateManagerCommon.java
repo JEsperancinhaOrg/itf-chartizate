@@ -19,7 +19,7 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
 	protected final ChartizateCharacterImg<?>[][] pencelizerBoard;
 	protected final ChartizateFontManager<FONT> fontManager;
 	protected final ChartizateEncodingManager<FONT> encodingManager;
-	protected final ChartizateImageManager<FONT> imageManager;
+	protected final ChartizateImageManager<COLOR, FONT> imageManager;
 	protected String desinationImagePath;
 
 	public ChartizateManagerCommon( //
@@ -78,13 +78,13 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
 				final int width = fontManager.getCharacterWidth(character.charValue());
 				final int height = fontManager.getCharacterHeight(character.charValue());
 				int currentImageIndexY = rowIndex * height;
-				final int averageColor = imageManager.getPartAverageColor( //
+				final COLOR averageColor = imageManager.getPartAverageColor( //
 						currentImageIndexX, //
 						currentImageIndexY, //
 						currentImageIndexX + width, //
 						currentImageIndexY + height //
 				);
-				pencelizerRow.add(new ChartizateCharacterImg<COLOR>(createColor(averageColor), this.backgroundColor,
+				pencelizerRow.add(new ChartizateCharacterImg<COLOR>(averageColor, this.backgroundColor,
 						width, character));
 				currentImageIndexX += width;
 			}
@@ -95,10 +95,8 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
 		imageManager.saveImage(pencelizerBoard, fontManager, this.desinationImagePath, imageWidth,
 				imageManager.getImageHeight());
 	}
-
-	abstract COLOR createColor(final int averageColor);
-
-	abstract ChartizateImageManager<FONT> createImageManager(final InputStream imageFullStream) throws IOException;
+	
+	abstract ChartizateImageManager<COLOR, FONT> createImageManager(final InputStream imageFullStream) throws IOException;
 
 	abstract ChartizateEncodingManager<FONT> createEncodingManager(final UnicodeBlock block);
 

@@ -24,12 +24,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Typefa
     }
 
     @Override
-    Color createColor(int i) {
-        return Color
-    }
-
-    @Override
-    ChartizateImageManager<Typeface> createImageManager(InputStream inputStream) throws IOException {
+    ChartizateImageManager<Color, Typeface> createImageManager(InputStream inputStream) throws IOException {
         return new ChartizateImageManagerImpl(inputStream);
     }
 

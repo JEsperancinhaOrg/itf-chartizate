@@ -4,17 +4,20 @@ import java.io.IOException;
 
 import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
-public interface ChartizateImageManager<T> {
+public abstract class ChartizateImageManager<COLOR, FONT> {
 
-	int getImageWidth();
+	abstract int getImageWidth();
 
-	int getImageHeight();
+	abstract int getImageHeight();
 
-	long getImageAverageColor();
+	abstract COLOR getPartAverageColor(int x0, int y0, int xn, int yn);
 
-	int getPartAverageColor(int x0, int y0, int xn, int yn);
-
-	void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<T> fontManager,
+	abstract void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<FONT> fontManager,
 			String outputFile, int outputWidth, int outputHeight) throws IOException;
 
+	public COLOR getImageAverageColor() {
+		final int width = getImageWidth() - 1;
+		final int height = getImageHeight() - 1;
+		return getPartAverageColor(0, 0, width, height);
+	}
 }

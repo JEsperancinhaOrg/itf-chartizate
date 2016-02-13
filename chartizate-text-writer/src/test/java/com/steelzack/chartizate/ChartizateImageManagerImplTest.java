@@ -25,7 +25,7 @@ public class ChartizateImageManagerImplTest {
 	public void testGetImageAverageColor_BlackGreen() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
 
-		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
+		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-13788928, imageManager.getImageAverageColor());
 	}
@@ -34,7 +34,7 @@ public class ChartizateImageManagerImplTest {
 	public void testGetImageAverageColor_CyanBlack() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
+		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-16742778, imageManager.getImageAverageColor());
 	}
@@ -43,7 +43,7 @@ public class ChartizateImageManagerImplTest {
 	public void testGetPartAverageColor_CyanBlack00() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
+		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-16728129, imageManager.getPartAverageColor(0, 0, 10, 10));
 	}
@@ -52,14 +52,14 @@ public class ChartizateImageManagerImplTest {
 	public void testGetPartAverageColor_CyanBlack10() throws Exception {
 		InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl(io);
+		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
 		assertEquals(-16759226, imageManager.getPartAverageColor(10, 0, 19, 10));
 	}
 
 	@Test
 	public void testSaveImage() throws Exception {
-		final ChartizateImageManager<Font> imageManager = new ChartizateImageManagerImpl();
+		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl();
 		final ChartizateCharacterImg<?>[][] pencelizerBoard = new ChartizateCharacterImg[2][];
 		pencelizerBoard[0] = new ChartizateCharacterImg[] { //
 				new ChartizateCharacterImg<Color>(Color.GREEN, Color.BLACK, 10, 'A'), //
@@ -69,8 +69,8 @@ public class ChartizateImageManagerImplTest {
 				new ChartizateCharacterImg<Color>(Color.BLUE, Color.BLACK, 10, 'C'), //
 				new ChartizateCharacterImg<Color>(Color.YELLOW, Color.BLACK, 10, 'D') //
 		};
-		final ChartizateFontManager<Font> fontManager =new ChartizateFontManagerImpl("Arial", 10);
-		
+		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+
 		final String outputFile = "/tmp/saveImage.png";
 		final int outputWidth = 20;
 		final int outputHeight = 20;

@@ -19,7 +19,7 @@ import com.steelzack.chartizate.objects.ChartizateCharacterImg;
  * @author joao
  *
  */
-public class ChartizateImageManagerImpl implements ChartizateImageManager<Font> {
+public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Font> {
 
 	private BufferedImage srcImage;
 
@@ -31,7 +31,9 @@ public class ChartizateImageManagerImpl implements ChartizateImageManager<Font> 
 		this.srcImage = ImageIO.read(io);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageWidth()
 	 */
 	@Override
@@ -39,7 +41,9 @@ public class ChartizateImageManagerImpl implements ChartizateImageManager<Font> 
 		return this.srcImage.getWidth();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageHeight()
 	 */
 	@Override
@@ -47,21 +51,15 @@ public class ChartizateImageManagerImpl implements ChartizateImageManager<Font> 
 		return this.srcImage.getHeight();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageAverageColor()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.steelzack.pencelizer.PencelizerImageManager#getPartAverageColor(int,
+	 * int, int, int)
 	 */
 	@Override
-	public long getImageAverageColor() {
-		final int width = srcImage.getWidth() - 1;
-		final int height = srcImage.getHeight() - 1;
-		return getPartAverageColor(0, 0, width, height);
-	}
-
-	/* (non-Javadoc)
-	 * @see com.steelzack.pencelizer.PencelizerImageManager#getPartAverageColor(int, int, int, int)
-	 */
-	@Override
-	public int getPartAverageColor(final int x0, final int y0, final int xn, final int yn) {
+	public Color getPartAverageColor(final int x0, final int y0, final int xn, final int yn) {
 		double alpha = 0;
 		double red = 0;
 		double green = 0;
@@ -82,16 +80,21 @@ public class ChartizateImageManagerImpl implements ChartizateImageManager<Font> 
 		int mediumBlue = (int) (blue / commonDenominator);
 		int mediumGreen = (int) (green / commonDenominator);
 
-		int fullSum = new Color(mediumRed, mediumGreen, mediumBlue, mediumApha).getRGB();
-		return fullSum;
+		return new Color(mediumRed, mediumGreen, mediumBlue, mediumApha);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.steelzack.pencelizer.PencelizerImageManager#saveImage(com.steelzack.pencelizer.PencelizerCharacterImg, com.steelzack.pencelizer.PencelizerFontManager, java.lang.String, int, int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.steelzack.pencelizer.PencelizerImageManager#saveImage(com.steelzack.
+	 * pencelizer.PencelizerCharacterImg,
+	 * com.steelzack.pencelizer.PencelizerFontManager, java.lang.String, int,
+	 * int)
 	 */
 	@Override
-	public void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<Font> fontManager, String outputFile, int outputWidth,
-			int outputHeight) throws IOException {
+	public void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<Font> fontManager,
+			String outputFile, int outputWidth, int outputHeight) throws IOException {
 		final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
 		final Graphics2D g2d = bImg.createGraphics();
 		final Font font = fontManager.getFont();
@@ -102,7 +105,7 @@ public class ChartizateImageManagerImpl implements ChartizateImageManager<Font> 
 			int rowLength = pencelizerBoard[i].length;
 			for (int j = 0; j < rowLength; j++) {
 				final ChartizateCharacterImg<?> character = pencelizerBoard[i][j];
-				g2d.setColor((Color)character.getFg());
+				g2d.setColor((Color) character.getFg());
 				g2d.drawString(character.toString(), currentWidth, font.getSize() * (i + 1));
 				currentWidth += pencelizerBoard[i][j].getWidth();
 			}

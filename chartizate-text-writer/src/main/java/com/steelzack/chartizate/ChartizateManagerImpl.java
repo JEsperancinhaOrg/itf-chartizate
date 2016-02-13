@@ -83,11 +83,6 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 		return new ChartizateFontManagerImpl(fontName, fontSize);
 	}
 
-	@Override
-	protected Color createColor(final int averageColor) {
-		return new Color(averageColor);
-	}
-	
 	public static void main(String[] args) {
 
 	}
