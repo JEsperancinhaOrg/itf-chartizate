@@ -2,9 +2,7 @@ package com.steelzack.chartizate;
 
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.widget.TextView;
 
-import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 

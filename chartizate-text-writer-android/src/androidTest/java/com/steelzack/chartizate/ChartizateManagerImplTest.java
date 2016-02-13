@@ -9,6 +9,7 @@ import com.steelzack.chartizate.distributions.ChartizateDistributionType;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.io.InputStream;
 
 /**
@@ -35,7 +36,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 5, //
                 Character.UnicodeBlock.LATIN_EXTENDED_A, //
                 imageFullStream, //
-                "/tmp/testCyanBlue.png" //
+                new File(getContext().getCacheDir().getAbsolutePath(), "testCyanBlue.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
@@ -55,7 +56,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.LATIN_EXTENDED_A, //
                 imageFullStream, //
-                "/tmp/testRealExample1.png" //
+                new File(getContext().getCacheDir(),"testRealExample1.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
