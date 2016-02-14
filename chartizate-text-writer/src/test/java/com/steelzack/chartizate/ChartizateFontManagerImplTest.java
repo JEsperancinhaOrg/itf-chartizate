@@ -560,9 +560,8 @@ public class ChartizateFontManagerImplTest {
 				"Poisson", //
 				"Skellam" //
 		}; //
-		final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
 
-		final List<String> result = manager.getAllDistributionTypes();
+		final List<String> result = ChartizateFontManagerImpl.getAllDistributionTypes();
 
 		Assert.assertArrayEquals(testDistributions, result.toArray());
 	}
