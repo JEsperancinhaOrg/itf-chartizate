@@ -297,7 +297,7 @@ public class ChartizateFontManagerImpl extends ChartizateFontManager<Font> {
 		return unicodeBlockList;
 	}
 
-	public List<String> getAllFontTypes() {
+	public static List<String> getAllFontTypes() {
 		return Arrays.asList(GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames());
 	}
 

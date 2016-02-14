@@ -253,5 +253,5 @@ public abstract class  ChartizateFontManager<T> {
 
 	abstract T getFont();
 	
-	abstract int getFontSize();
+	abstract int getFontSize();	
 }
