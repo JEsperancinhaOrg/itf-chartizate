@@ -27,7 +27,7 @@ public class ChartizateFontManagerImpl extends ChartizateFontManager<Typeface> {
         mPaint.setTypeface(this.font);
     }
 
-    private List<String> getAllUnicodeBlockStrings() {
+    public static List<String> getAllFontTypes() {
         return Arrays.asList(new String[]{ //
                 "Default", //
                 "Monospace", //

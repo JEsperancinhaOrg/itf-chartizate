@@ -568,7 +568,6 @@ public class ChartizateFontManagerImplTest {
 
 	@Test
 	public void testGetAllFontTypes() throws Exception {
-		final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
-		System.out.println(manager.getAllFontTypes());
+		System.out.println(ChartizateFontManagerImpl.getAllFontTypes());
 	}
 }
