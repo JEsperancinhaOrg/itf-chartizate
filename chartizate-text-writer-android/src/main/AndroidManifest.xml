@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.joaofilipesabinoesperancinha.characterizer_text_writer_android">
+    package="com.steelzack.chartizate">
 
     <application
         android:allowBackup="true"

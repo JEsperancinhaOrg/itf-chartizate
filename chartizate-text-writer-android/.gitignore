@@ -82,3 +82,6 @@ proguard/
 # Android Studio captures folder
 captures/
 
+# Setup file for publishing
+local.properties
+

@@ -4,7 +4,6 @@ import android.app.Application;
 import android.graphics.Color;
 import android.test.ApplicationTestCase;
 
-import com.example.joaofilipesabinoesperancinha.characterizer_text_writer_android.R;
 import com.steelzack.chartizate.distributions.ChartizateDistributionType;
 
 import org.junit.Test;

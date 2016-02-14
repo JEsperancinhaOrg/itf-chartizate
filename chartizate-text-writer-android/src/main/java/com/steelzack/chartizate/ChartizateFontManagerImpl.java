@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author joao Manages the prescribed font
  */
-public class ChartizateFontManagerImpl implements ChartizateFontManager<Typeface> {
+public class ChartizateFontManagerImpl extends ChartizateFontManager<Typeface> {
 
 
     private final Paint mPaint;
@@ -34,16 +34,6 @@ public class ChartizateFontManagerImpl implements ChartizateFontManager<Typeface
                 "Sans serif", //
                 "Serif" //
         });
-    }
-
-    @Override
-    public List<String> getAllUniCodeBlockStringsJava7() {
-        return getAllUnicodeBlockStrings();
-    }
-
-    @Override
-    public List<String> getAllUniCodeBlockStringsJava8() {
-        return getAllUnicodeBlockStrings();
     }
 
     @Override
