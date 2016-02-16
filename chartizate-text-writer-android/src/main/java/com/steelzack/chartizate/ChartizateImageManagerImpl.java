@@ -66,10 +66,9 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
         final Bitmap bitmap = Bitmap.createBitmap(outputWidth, outputHeight, Bitmap.Config.RGB_565);
         final Canvas canvas = new Canvas(bitmap);
         final Paint paint = new Paint();
-        paint.setColor(Color.WHITE);
         paint.setTextSize(chartizateFontManager.getFontSize());
         paint.setTypeface(chartizateFontManager.getFont());
-        paint.setColor(Color.BLACK);
+        paint.setColor(((ChartizateCharacterImg<Integer>) chartizateCharacterImgs[0][0]).getBg());
         canvas.drawPaint(paint);
 
         int currentWidth = 0;
