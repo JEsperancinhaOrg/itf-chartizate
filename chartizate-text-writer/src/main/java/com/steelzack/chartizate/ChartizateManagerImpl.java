@@ -82,7 +82,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	protected ChartizateFontManagerImpl createFontManager(final String fontName, final int fontSize) {
 		return new ChartizateFontManagerImpl(fontName, fontSize);
 	}
-
+	
 	public static void main(String[] args) {
 
 	}

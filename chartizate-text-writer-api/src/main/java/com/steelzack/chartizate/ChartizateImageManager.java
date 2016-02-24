@@ -18,7 +18,7 @@ public abstract class ChartizateImageManager<COLOR, FONT> {
 		final int height = getImageHeight() - 1;
 		return getPartAverageColor(0, 0, width, height);
 	}
-	
+
 	public COLOR getPartAverageColor(final int x0, final int y0, final int xn, final int yn) {
 		double alpha = 0;
 		double red = 0;
@@ -27,10 +27,10 @@ public abstract class ChartizateImageManager<COLOR, FONT> {
 		for (int j = x0; j <= xn && j < getImageWidth(); j++) {
 			for (int k = y0; k <= yn && k < getImageHeight(); k++) {
 				int rgbPixel = getImagePixelRGB(j, k);
-				alpha += (rgbPixel >> 24) & 0xff;
-				red += (rgbPixel >> 16) & 0xff;
-				green += (rgbPixel >> 8) & 0xff;
-				blue += (rgbPixel) & 0xff;
+				alpha += getAlpha(rgbPixel);
+				red += getRed(rgbPixel);
+				green += getGreen(rgbPixel);
+				blue += getBlue(rgbPixel);
 			}
 		}
 
@@ -40,10 +40,18 @@ public abstract class ChartizateImageManager<COLOR, FONT> {
 		int mediumBlue = (int) (blue / commonDenominator);
 		int mediumGreen = (int) (green / commonDenominator);
 
-		return createColor(mediumApha, mediumRed, mediumBlue, mediumGreen);
+		return createColor(mediumApha, mediumRed, mediumGreen, mediumBlue);
 	}
+
+	abstract int getBlue(int rgbPixel);
+
+	abstract int getGreen(int rgbPixel);
+
+	abstract int getRed(int rgbPixel);
+
+	abstract int getAlpha(int rgbPixel);
 
 	abstract int getImagePixelRGB(int j, int k);
 
-	abstract COLOR createColor(int mediumApha, int mediumRed, int mediumBlue, int mediumGreen);
+	abstract COLOR createColor(int mediumApha, int mediumRed, int mediumGreen, int mediumBlue);
 }
