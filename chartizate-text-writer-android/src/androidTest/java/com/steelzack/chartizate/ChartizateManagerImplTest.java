@@ -79,4 +79,139 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
         );
         manager.generateConvertedImage();
     }
+
+
+    @Test
+    public void testGenerateConvertedImage_Latin_realexample2() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.LATIN_EXTENDED_A, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testrealexample2Latin.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
+    @Test
+    public void testGenerateConvertedImage_Arabic_realexample2() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.ARABIC, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testrealexample2Arabic.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
+    @Test
+    public void testGenerateConvertedImage_Hebrew_realexample2() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.HEBREW, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testrealexample2Hebrew.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
+    @Test
+    public void testGenerateConvertedImage_Syriac_realexample2() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.SYRIAC, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testrealexample2Syriac.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
+    @Test
+    public void testGenerateConvertedImage__Samaritan_realexample2() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.SAMARITAN, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testrealexample2Samaritan.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
+    @Test
+    public void testGenerateConvertedImage_Mandaic_realexample2() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.MANDAIC, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testrealexample2Mandaic.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
+    @Test
+    public void testGenerateConvertedImage_Thaana_realexample2() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                100, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.THAANA, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testrealexample2Thaana.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
 }
