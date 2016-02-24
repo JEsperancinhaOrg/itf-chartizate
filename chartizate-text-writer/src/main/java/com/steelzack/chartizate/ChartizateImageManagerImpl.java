@@ -92,7 +92,27 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
 	}
 	
 	@Override
-	public Color createColor(int mediumApha, int mediumRed, int mediumBlue, int mediumGreen) {
+	public Color createColor(int mediumApha, int mediumRed, int mediumGreen, int mediumBlue) {
 		return new Color(mediumRed, mediumGreen, mediumBlue, mediumApha);
+	}
+	
+	@Override
+	protected int getBlue(int rgbPixel) {
+		return (rgbPixel) & 0xff;
+	}
+
+	@Override
+	protected int getGreen(int rgbPixel) {
+		return (rgbPixel >> 8) & 0xff;
+	}
+
+	@Override
+	protected int getRed(int rgbPixel) {
+		return (rgbPixel >> 16) & 0xff;
+	}
+
+	@Override
+	protected int getAlpha(int rgbPixel) {
+		return (rgbPixel >> 24) & 0xff;
 	}
 }

@@ -25,7 +25,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     public ChartizateImageManagerImpl(final InputStream inputStream) {
         this.inputStream = inputStream;
         final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        options.inPreferredConfig = Bitmap.Config.ALPHA_8;
         try {
             bitmap = BitmapFactory.decodeStream(inputStream, null, options);
         } catch (Exception e) {
@@ -88,5 +88,25 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
         if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) { //
             Log.i("File", outputFile + " is saved");
         }
+    }
+
+    @Override
+    int getBlue(int color) {
+        return Color.blue(color);
+    }
+
+    @Override
+    int getGreen(int color) {
+        return Color.green(color);
+    }
+
+    @Override
+    int getRed(int color) {
+        return Color.red(color);
+    }
+
+    @Override
+    int getAlpha(int color) {
+        return Color.alpha(color);
     }
 }
