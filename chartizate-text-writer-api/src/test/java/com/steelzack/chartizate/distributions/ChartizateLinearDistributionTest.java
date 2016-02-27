@@ -36,4 +36,30 @@ public class ChartizateLinearDistributionTest {
 
 		assertThat(result, anyOf(equalTo('e'), equalTo('f')));
 	}
+	
+	@Test
+	public void testGetCharacterFromArray_DensityFail1() throws Exception {
+		final Character[] characters = new Character[] { //
+				new Character('a'), //
+				new Character('b'), //
+				new Character('c'), //
+				new Character('d'), //
+				new Character('e'), //
+				new Character('f'), //
+				new Character('g'), //
+				new Character('h'), //
+				new Character('i'), //
+				new Character('j'), //
+				new Character('k') //
+		};
+		final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution( //
+				characters, //
+				1, //
+				10 //
+		);
+
+		char result = distribution.getCharacterFromArray().charValue();
+
+		assertThat(result, equalTo('a'));
+	}
 }

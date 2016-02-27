@@ -214,4 +214,24 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
         );
         manager.generateConvertedImage();
     }
+
+    @Test
+    public void testGenerateConvertedImage_RealExample1_DensityFail1() throws Exception {
+        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl( //
+                Color.BLACK, //
+                1, //
+                100, //
+                ChartizateDistributionType.Linear, //
+                "Times New Roman", //
+                20, //
+                Character.UnicodeBlock.LATIN_EXTENDED_A, //
+                imageFullStream, //
+                new File(getContext().getCacheDir(),"testRealExample1.png").getAbsolutePath() //
+        );
+        manager.generateConvertedImage();
+    }
 }
