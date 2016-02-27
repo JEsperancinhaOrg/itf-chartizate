@@ -7,12 +7,12 @@
 		<connection>scm:git:https://github.com/jesperancinha/lib-chartizate-sz.git</connection>
 		<developerConnection>scm:git:git@github.com:jesperancinha/lib-chartizate-sz.git</developerConnection>
 		<url>https://github.com/jesperancinha/lib-chartizate-sz</url>
-		<tag>chartizate-text-writer-api-1.1.4</tag>
+		<tag>1.1.4</tag>
 	</scm>
 	<distributionManagement>
 		<repository>
 			<id>bintray</id>
-			<url>https://api.bintray.com/maven/chartizate/chartizate-text-writer-api/1.1.4</url>
+			<url>https://api.bintray.com/maven/jesperancinha/maven/chartizate/;publish=1;</url>
 		</repository>
 	</distributionManagement>
 	<profiles>
