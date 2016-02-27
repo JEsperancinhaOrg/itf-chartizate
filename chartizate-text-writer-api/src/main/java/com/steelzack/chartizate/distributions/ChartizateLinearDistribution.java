@@ -17,7 +17,10 @@ public class ChartizateLinearDistribution extends ChartizateDistribution {
 		final int determinedPosition = getDeterminedPosition();
 		final int range = getRange();
 		final Random random = new Random();
-		final int selectedIndex = (random.nextInt(range) - range / 2) + determinedPosition;
+		int selectedIndex = (random.nextInt(range) - range / 2) + determinedPosition;
+		if (selectedIndex < 0) {
+			selectedIndex = 0;
+		}
 		if (selectedIndex < orderedListOfCharacters.length) {
 			return orderedListOfCharacters[selectedIndex];
 		} else if (selectedIndex < 0) {

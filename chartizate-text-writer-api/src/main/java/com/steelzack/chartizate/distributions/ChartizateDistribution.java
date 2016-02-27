@@ -21,7 +21,7 @@ public abstract class ChartizateDistribution  {
 	}
 
 	protected int getDeterminedPosition() {
-		return (int) (((double) densityPercentage) / 100 * orderedListOfCharacters.length);
+		return (int) (Math.ceil((double)(densityPercentage * orderedListOfCharacters.length) / 100)) - 1;
 	}
 
 	protected int getRange() {
