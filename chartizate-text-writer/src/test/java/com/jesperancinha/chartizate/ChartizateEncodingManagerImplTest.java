@@ -86,7 +86,7 @@ public class ChartizateEncodingManagerImplTest {
 			}
 		};
 		final int zSpecial = manager.getCharacterFullness('ž');
-		assertThat(zSpecial).isAnyOf(600, 280);
+		assertThat(zSpecial).isAnyOf(600, 280, 260);
 	}
 
 	@Test
