@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,8 +8,8 @@ import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
 import java.util.List;
 
-import com.steelzack.chartizate.distributions.ChartizateDistributionType;
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 /**
  *

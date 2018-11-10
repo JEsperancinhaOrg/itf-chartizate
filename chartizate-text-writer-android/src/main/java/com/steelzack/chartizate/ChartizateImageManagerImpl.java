@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.Log;
 
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

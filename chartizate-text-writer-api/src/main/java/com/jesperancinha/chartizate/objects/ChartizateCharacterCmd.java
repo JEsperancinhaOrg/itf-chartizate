@@ -1,4 +1,4 @@
-package com.steelzack.chartizate.objects;
+package com.jesperancinha.chartizate.objects;
 
 import static org.fusesource.jansi.Ansi.ansi;
 

@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,10 +7,10 @@ import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.steelzack.chartizate.distributions.ChartizateDistribution;
-import com.steelzack.chartizate.distributions.ChartizateDistributionType;
-import com.steelzack.chartizate.distributions.ChartizateLinearDistribution;
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+import com.jesperancinha.chartizate.distributions.ChartizateDistribution;
+import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
+import com.jesperancinha.chartizate.distributions.ChartizateLinearDistribution;
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 public abstract class ChartizateManagerCommon<COLOR, FONT> {
 

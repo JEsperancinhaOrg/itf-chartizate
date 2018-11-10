@@ -1,6 +1,6 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
-import static com.steelzack.chartizate.distributions.ChartizateDistributionType.Linear;
+import static com.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear;
 import static org.junit.Assert.assertNotNull;
 
 import java.awt.Color;

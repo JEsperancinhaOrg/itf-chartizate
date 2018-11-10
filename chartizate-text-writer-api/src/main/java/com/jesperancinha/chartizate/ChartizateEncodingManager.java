@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import java.lang.Character.UnicodeBlock;
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

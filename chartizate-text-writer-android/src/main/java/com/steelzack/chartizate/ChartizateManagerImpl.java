@@ -1,9 +1,9 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import android.graphics.Typeface;
 
-import com.steelzack.chartizate.distributions.ChartizateDistributionType;
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

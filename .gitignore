@@ -15,4 +15,14 @@ hs_err_pid*
 **/target
 
 **/.DS_Store
-**/pom.xml.versionsBackup 
+**/pom.xml.versionsBackup
+
+### Eclipse
+.project
+.classpath
+.settings
+gen
+
+## Intellij
+.idea
+*.iml

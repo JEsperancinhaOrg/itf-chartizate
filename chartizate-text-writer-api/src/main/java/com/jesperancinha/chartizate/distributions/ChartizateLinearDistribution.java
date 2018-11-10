@@ -1,4 +1,4 @@
-package com.steelzack.chartizate.distributions;
+package com.jesperancinha.chartizate.distributions;
 
 import java.util.Random;
 

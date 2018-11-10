@@ -1,12 +1,10 @@
-package com.steelzack.chartizate.objects;
+package com.jesperancinha.chartizate.objects;
 
 import static org.junit.Assert.assertEquals;
 
 import java.awt.Color;
 
 import org.junit.Test;
-
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
 
 public class ChartizateCharacterImgTest {
 

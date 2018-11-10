@@ -53,7 +53,7 @@
 							<archive>
 								<manifest>
 									<addClasspath>true</addClasspath>
-									<mainClass>com.steelzack.chartizate.PencelizerManager</mainClass>
+									<mainClass>com.jesperancinha.chartizate.PencelizerManager</mainClass>
 								</manifest>
 							</archive>
 							<descriptorRefs>

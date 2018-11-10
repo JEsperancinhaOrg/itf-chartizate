@@ -1,10 +1,10 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.steelzack.chartizate.distributions.ChartizateDistributionType;
+import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 
 public abstract class  ChartizateFontManager<T> {
 

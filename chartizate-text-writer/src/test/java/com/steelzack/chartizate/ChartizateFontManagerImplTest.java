@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import static java.lang.Character.UnicodeBlock.ALCHEMICAL_SYMBOLS;
 import static java.lang.Character.UnicodeBlock.ARABIC;
@@ -82,8 +82,8 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.steelzack.chartizate.ChartizateFontManager;
-import com.steelzack.chartizate.ChartizateFontManagerImpl;
+import com.jesperancinha.chartizate.ChartizateFontManager;
+import com.jesperancinha.chartizate.ChartizateFontManagerImpl;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,11 +8,11 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-import com.steelzack.chartizate.ChartizateFontManager;
-import com.steelzack.chartizate.ChartizateFontManagerImpl;
-import com.steelzack.chartizate.ChartizateImageManager;
-import com.steelzack.chartizate.ChartizateImageManagerImpl;
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+import com.jesperancinha.chartizate.ChartizateFontManager;
+import com.jesperancinha.chartizate.ChartizateFontManagerImpl;
+import com.jesperancinha.chartizate.ChartizateImageManager;
+import com.jesperancinha.chartizate.ChartizateImageManagerImpl;
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 /**
  * 

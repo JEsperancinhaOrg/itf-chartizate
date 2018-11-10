@@ -1,12 +1,10 @@
-package com.steelzack.chartizate.distributions;
+package com.jesperancinha.chartizate.distributions;
 
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
-
-import com.steelzack.chartizate.distributions.ChartizateLinearDistribution;
 
 /**
  * 

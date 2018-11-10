@@ -1,10 +1,10 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import android.app.Application;
 import android.graphics.Color;
 import android.test.ApplicationTestCase;
 
-import com.steelzack.chartizate.distributions.ChartizateDistributionType;
+import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 
 import org.junit.Test;
 

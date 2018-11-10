@@ -1,8 +1,8 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import java.io.IOException;
 
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 public abstract class ChartizateImageManager<COLOR, FONT> {
 

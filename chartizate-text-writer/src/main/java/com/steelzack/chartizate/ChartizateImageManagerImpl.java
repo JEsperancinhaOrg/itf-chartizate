@@ -1,4 +1,4 @@
-package com.steelzack.chartizate;
+package com.jesperancinha.chartizate;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,9 +10,9 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-import com.steelzack.chartizate.ChartizateFontManager;
-import com.steelzack.chartizate.ChartizateImageManager;
-import com.steelzack.chartizate.objects.ChartizateCharacterImg;
+import com.jesperancinha.chartizate.ChartizateFontManager;
+import com.jesperancinha.chartizate.ChartizateImageManager;
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 /**
  * 
