@@ -1,7 +1,6 @@
 package com.jesperancinha.chartizate;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +11,6 @@ import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 /**
- *
  * @author joao Manages the board to be rendered
  */
 public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> {
@@ -20,7 +18,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	/**
 	 * Creates Pencelizer manager by defining how many lines and columns is the
 	 * array going to have
-	 * 
+	 *
 	 * @param nLines
 	 * @param backgroundColor
 	 * @param densityPercentage
@@ -60,7 +58,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	 * Sets row in position with a background color and a foreground color.
 	 * Foreground color refers to the color of the character itself Background
 	 * color refers to the background color in the cell of the character
-	 * 
+	 *
 	 * @param pencelizerRow
 	 */
 	@Override
@@ -69,7 +67,8 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	}
 
 	@Override
-	protected ChartizateImageManagerImpl createImageManager(final InputStream imageFullStream) throws IOException {
+	protected ChartizateImageManagerImpl createImageManager(
+			final InputStream imageFullStream) throws IOException {
 		return new ChartizateImageManagerImpl(imageFullStream);
 	}
 
@@ -82,7 +81,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
 	protected ChartizateFontManagerImpl createFontManager(final String fontName, final int fontSize) {
 		return new ChartizateFontManagerImpl(fontName, fontSize);
 	}
-	
+
 	public static void main(String[] args) {
 
 	}

@@ -74,7 +74,7 @@ import static java.lang.Character.UnicodeBlock.TIBETAN;
 import static java.lang.Character.UnicodeBlock.TRANSPORT_AND_MAP_SYMBOLS;
 import static org.junit.Assert.assertEquals;
 
-import java.awt.Font;
+import java.awt.*;
 import java.lang.Character.UnicodeBlock;
 import java.util.List;
 
@@ -82,27 +82,22 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.jesperancinha.chartizate.ChartizateFontManager;
-import com.jesperancinha.chartizate.ChartizateFontManagerImpl;
-
 /**
- * 
  * @author joao
- *
  */
 public class ChartizateFontManagerImplTest {
 	@Test
-	public void testGetCharacterWidth() throws Exception {
+	public void testGetCharacterWidth() {
 		final ChartizateFontManager<Font> manager = new ChartizateFontManagerImpl("Arial", 10);
 
 		assertEquals(6, manager.getCharacterWidth('a'));
 		assertEquals(7, manager.getCharacterWidth('A'));
 
 	}
-	
+
 	@Test
 	@Ignore
-	public void testGetAllUniCodeBlocksJava8() throws Exception {
+	public void testGetAllUniCodeBlocksJava8() {
 		final UnicodeBlock[] testUnicodes = new UnicodeBlock[] { //
 				BASIC_LATIN, //
 				LATIN_1_SUPPLEMENT, //
@@ -333,7 +328,7 @@ public class ChartizateFontManagerImplTest {
 	}
 
 	@Test
-	public void testGetAllUniCodeBlocksJava7() throws Exception {
+	public void testGetAllUniCodeBlocksJava7() {
 		final UnicodeBlock[] testUnicodes = new UnicodeBlock[] { //
 				BASIC_LATIN, //
 				LATIN_1_SUPPLEMENT, //
@@ -553,7 +548,7 @@ public class ChartizateFontManagerImplTest {
 	}
 
 	@Test
-	public void testGetAllDistributionTypes() throws Exception {
+	public void testGetAllDistributionTypes() {
 		final String[] testDistributions = new String[] { //
 				"Linear", //
 				"Gaussian", //
@@ -567,7 +562,7 @@ public class ChartizateFontManagerImplTest {
 	}
 
 	@Test
-	public void testGetAllFontTypes() throws Exception {
+	public void testGetAllFontTypes() {
 		System.out.println(ChartizateFontManagerImpl.getAllFontTypes());
 	}
 }

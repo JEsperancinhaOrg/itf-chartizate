@@ -4,6 +4,11 @@
 	<groupId>chartizate</groupId>
 	<artifactId>chartizate</artifactId>
 	<version>1.1.4</version>
+	<properties>
+		<junit-jupiter-engine.version>5.3.1</junit-jupiter-engine.version>
+		<guava.version>27.0-jre</guava.version>
+		<truth.version>0.42</truth.version>
+	</properties>
 	<packaging>pom</packaging>
 	<build>
 		<plugins>	
@@ -17,6 +22,26 @@
 			</plugin>
 		</plugins>
 	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>${junit-jupiter-engine.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.truth</groupId>
+				<artifactId>truth</artifactId>
+				<version>${truth.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<modules>
 		<module>chartizate-text-writer-api</module>
 		<module>chartizate-text-writer</module>

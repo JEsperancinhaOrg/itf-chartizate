@@ -1,23 +1,15 @@
 package com.jesperancinha.chartizate;
 
-import static org.junit.Assert.assertEquals;
+import static com.google.common.truth.Truth.assertThat;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.io.InputStream;
 
+import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 import org.junit.Test;
 
-import com.jesperancinha.chartizate.ChartizateFontManager;
-import com.jesperancinha.chartizate.ChartizateFontManagerImpl;
-import com.jesperancinha.chartizate.ChartizateImageManager;
-import com.jesperancinha.chartizate.ChartizateImageManagerImpl;
-import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
-
 /**
- * 
  * @author joao
- *
  */
 public class ChartizateImageManagerImplTest {
 
@@ -27,7 +19,10 @@ public class ChartizateImageManagerImplTest {
 
 		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
-		assertEquals(-13788928, imageManager.getImageAverageColor());
+		final Color imageAverageColor = imageManager.getImageAverageColor();
+		assertThat(imageAverageColor.getRed()).isEqualTo(45);
+		assertThat(imageAverageColor.getGreen()).isEqualTo(153);
+		assertThat(imageAverageColor.getBlue()).isEqualTo(0);
 	}
 
 	@Test
@@ -36,7 +31,10 @@ public class ChartizateImageManagerImplTest {
 
 		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
-		assertEquals(-16742778, imageManager.getImageAverageColor());
+		final Color imageAverageColor = imageManager.getImageAverageColor();
+		assertThat(imageAverageColor.getRed()).isEqualTo(0);
+		assertThat(imageAverageColor.getGreen()).isEqualTo(134);
+		assertThat(imageAverageColor.getBlue()).isEqualTo(134);
 	}
 
 	@Test
@@ -45,7 +43,12 @@ public class ChartizateImageManagerImplTest {
 
 		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
-		assertEquals(-16728129, imageManager.getPartAverageColor(0, 0, 10, 10));
+		final Color partAverageColor = imageManager.getPartAverageColor(0, 0, 10, 10);
+
+		assertThat(partAverageColor.getRed()).isEqualTo(0);
+		assertThat(partAverageColor.getGreen()).isEqualTo(191);
+		assertThat(partAverageColor.getBlue()).isEqualTo(191);
+
 	}
 
 	@Test
@@ -54,7 +57,10 @@ public class ChartizateImageManagerImplTest {
 
 		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 
-		assertEquals(-16759226, imageManager.getPartAverageColor(10, 0, 19, 10));
+		final Color partAverageColor = imageManager.getPartAverageColor(10, 0, 19, 10);
+		assertThat(partAverageColor.getRed()).isEqualTo(0);
+		assertThat(partAverageColor.getGreen()).isEqualTo(70);
+		assertThat(partAverageColor.getBlue()).isEqualTo(70);
 	}
 
 	@Test
@@ -62,12 +68,12 @@ public class ChartizateImageManagerImplTest {
 		final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl();
 		final ChartizateCharacterImg<?>[][] pencelizerBoard = new ChartizateCharacterImg[2][];
 		pencelizerBoard[0] = new ChartizateCharacterImg[] { //
-				new ChartizateCharacterImg<Color>(Color.GREEN, Color.BLACK, 10, 'A'), //
-				new ChartizateCharacterImg<Color>(Color.RED, Color.BLACK, 10, 'B') //
+				new ChartizateCharacterImg<>(Color.GREEN, Color.BLACK, 10, 'A'), //
+				new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B') //
 		};
 		pencelizerBoard[1] = new ChartizateCharacterImg[] { //
-				new ChartizateCharacterImg<Color>(Color.BLUE, Color.BLACK, 10, 'C'), //
-				new ChartizateCharacterImg<Color>(Color.YELLOW, Color.BLACK, 10, 'D') //
+				new ChartizateCharacterImg<>(Color.BLUE, Color.BLACK, 10, 'C'), //
+				new ChartizateCharacterImg<>(Color.YELLOW, Color.BLACK, 10, 'D') //
 		};
 		final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
 
