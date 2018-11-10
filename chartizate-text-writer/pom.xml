@@ -5,8 +5,6 @@
 	<artifactId>chartizate-text-writer</artifactId>
 	<version>1.1.4</version>
 	<build>
-		<sourceDirectory>src/java/main</sourceDirectory>
-		<testSourceDirectory>src/java/test</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -83,7 +81,7 @@
 		<dependency>
 			<groupId>chartizate</groupId>
 			<artifactId>chartizate-text-writer-api</artifactId>
-			<version>LATEST</version>
+			<version>1.1.4</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
