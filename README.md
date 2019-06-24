@@ -1,7 +1,7 @@
 # ITF Chartizate
 ---
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c9be2ce71963451ea9f0bc7c9c10bc36)](https://www.codacy.com/app/jofisaes/lib-chartizate-sz?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/lib-chartizate-sz&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/b7b478f0-0065-40ca-b1d9-0b286b599661)](https://codebeat.co/projects/github-com-jesperancinha-lib-chartizate-sz-master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1ccef42562a4e338846f103c7549955)](https://www.codacy.com/app/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/itf-chartizate&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/38f795d1-c092-4aac-976d-ec193651cd49)](https://codebeat.co/projects/github-com-jesperancinha-itf-chartizate-master)
 [![CircleCI](https://circleci.com/gh/jesperancinha/lib-chartizate-sz.svg?style=svg)](https://circleci.com/gh/jesperancinha/lib-chartizate-sz)
 [![Build Status](https://travis-ci.org/jesperancinha/lib-chartizate-sz.svg?branch=master)](https://travis-ci.org/jesperancinha/lib-chartizate-sz)
 
