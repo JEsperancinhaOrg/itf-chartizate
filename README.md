@@ -2,8 +2,8 @@
 ---
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1ccef42562a4e338846f103c7549955)](https://www.codacy.com/app/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/itf-chartizate&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/38f795d1-c092-4aac-976d-ec193651cd49)](https://codebeat.co/projects/github-com-jesperancinha-itf-chartizate-master)
-[![CircleCI](https://circleci.com/gh/jesperancinha/itf-chartizate.svg?style=svg)](https://circleci.com/gh/jesperancinha/lib-chartizate-sz)
-[![Build Status](https://travis-ci.org/jesperancinha/itf-chartizate.svg?branch=master)](https://travis-ci.org/jesperancinha/lib-chartizate-sz)
+[![CircleCI](https://circleci.com/gh/jesperancinha/itf-chartizate.svg?style=svg)](https://circleci.com/gh/jesperancinha/itf-chartizate)
+[![Build Status](https://travis-ci.org/jesperancinha/itf-chartizate.svg?branch=master)](https://travis-ci.org/jesperancinha/itf-chartizate)
 
 ---
 ## Description
