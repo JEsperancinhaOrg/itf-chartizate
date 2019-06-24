@@ -71,6 +71,17 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
     }
 
     public void generateConvertedImage() throws IOException {
+        BufferedImage bufferedImage = createBufferedImage();
+        if (ImageIO.write(bufferedImage, "png", new File(this.destinationImagePath))) {
+            logger.info(this.destinationImagePath + " is saved");
+        }
+    }
+
+    public BufferedImage generateConvertedImageStream() throws IOException {
+        return this.createBufferedImage();
+    }
+
+    private BufferedImage createBufferedImage() throws IOException {
         final int imageWidth = imageManager.getImageWidth();
         int currentImageIndexX = 0;
         int rowIndex = 0;
@@ -95,12 +106,8 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
             currentImageIndexX = 0;
             rowIndex++;
         }
-        BufferedImage bufferedImage = imageManager.saveImage(chartizateBoard, fontManager, this.destinationImagePath, imageWidth,
+        return imageManager.saveImage(chartizateBoard, fontManager, this.destinationImagePath, imageWidth,
                 imageManager.getImageHeight());
-
-        if (ImageIO.write(bufferedImage, "png", new File(this.destinationImagePath))) {
-            logger.info(this.destinationImagePath + " is saved");
-        }
     }
 
     abstract ChartizateImageManager<COLOR, FONT> createImageManager(final InputStream imageFullStream) throws IOException;
@@ -110,6 +117,4 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
     abstract ChartizateFontManager<FONT> createFontManager(final String fontName, final int fontSize);
 
     abstract void addFullRow(int row, List<ChartizateCharacterImg<COLOR>> pencelizerRow);
-
-    abstract void generateConvertedImageStream() throws IOException;
 }

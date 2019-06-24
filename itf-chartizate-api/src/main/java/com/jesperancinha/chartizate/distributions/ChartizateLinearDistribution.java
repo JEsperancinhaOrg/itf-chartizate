@@ -18,8 +18,6 @@ public class ChartizateLinearDistribution extends ChartizateDistribution {
 		}
 		if (selectedIndex < orderedListOfCharacters.length) {
 			return orderedListOfCharacters[selectedIndex];
-		} else if (selectedIndex < 0) {
-			return orderedListOfCharacters[0];
 		} else {
 			return orderedListOfCharacters[orderedListOfCharacters.length - 1];
 		}

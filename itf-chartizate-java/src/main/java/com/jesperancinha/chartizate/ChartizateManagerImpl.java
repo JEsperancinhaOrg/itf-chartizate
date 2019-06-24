@@ -64,11 +64,6 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
     }
 
     @Override
-    void generateConvertedImageStream() throws IOException {
-        this.generateConvertedImage();
-    }
-
-    @Override
     protected ChartizateImageManagerImpl createImageManager(
             final InputStream imageFullStream) throws IOException {
         return new ChartizateImageManagerImpl(imageFullStream);
