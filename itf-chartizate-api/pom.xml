@@ -5,7 +5,7 @@
     <artifactId>itf-chartizate-api</artifactId>
 
     <parent>
-        <groupId>itf-chartizate</groupId>
+        <groupId>jesperancinha</groupId>
         <artifactId>itf-chartizate</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>${revision}</version>
