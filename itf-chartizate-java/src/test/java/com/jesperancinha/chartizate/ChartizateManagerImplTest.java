@@ -12,6 +12,26 @@ import static org.junit.Assert.assertNotNull;
 public class ChartizateManagerImplTest {
 
     @Test
+    public void testGenerateConvertedImageStream_CyanBlack() throws Exception {
+        final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
+
+        assertNotNull(imageFullStream);
+
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
+                Color.BLACK,
+                50,
+                10,
+                Linear,
+                "Arial",
+                5,
+                UnicodeBlock.LATIN_EXTENDED_A,
+                imageFullStream,
+                "/tmp/testCyanBlue.png"
+        );
+        manager.generateConvertedImageStream();
+    }
+
+    @Test
     public void testGenerateConvertedImage_CyanBlack() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 

@@ -1,5 +1,6 @@
 package com.jesperancinha.chartizate;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
@@ -10,8 +11,8 @@ public abstract class ChartizateImageManager<COLOR, FONT> {
 
 	abstract int getImageHeight();
 
-	abstract void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<FONT> fontManager,
-			String outputFile, int outputWidth, int outputHeight) throws IOException;
+	abstract BufferedImage saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<FONT> fontManager,
+									 String outputFile, int outputWidth, int outputHeight) throws IOException;
 
 	public COLOR getImageAverageColor() {
 		final int width = getImageWidth() - 1;

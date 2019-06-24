@@ -2,11 +2,6 @@ package com.jesperancinha.chartizate.distributions;
 
 import java.util.Random;
 
-/**
- * 
- * @author joao
- *
- */
 public class ChartizateLinearDistribution extends ChartizateDistribution {
 
 	public ChartizateLinearDistribution(Character[] characters, int densityPercentage, int rangePercentage) {

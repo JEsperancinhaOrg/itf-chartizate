@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>itf-chartizate-api</artifactId>
+
     <parent>
         <groupId>itf-chartizate</groupId>
         <artifactId>itf-chartizate</artifactId>
@@ -13,7 +14,7 @@
         <connection>scm:git:https://github.com/jesperancinha/lib-chartizate-sz.git</connection>
         <developerConnection>scm:git:git@github.com:jesperancinha/lib-chartizate-sz.git</developerConnection>
         <url>https://github.com/jesperancinha/lib-chartizate-sz</url>
-        <tag>2.0.0</tag>
+        <tag>${revision}</tag>
     </scm>
     <distributionManagement>
         <repository>
@@ -46,7 +47,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>properties-maven-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>${properties-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>initialize</phase>
@@ -63,15 +64,15 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven-compiler-plugin.source}</source>
+                    <target>${maven-compiler-plugin.target}</target>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.4.1</version>
+                <version>${maven-release-plugin.version}</version>
                 <configuration>
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
@@ -91,25 +92,18 @@
         <dependency>
             <groupId>org.im4java</groupId>
             <artifactId>im4java</artifactId>
-            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
         </dependency>
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.fusesource.jansi</groupId>
-                <artifactId>jansi</artifactId>
-                <version>1.11</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>

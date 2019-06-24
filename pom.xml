@@ -16,7 +16,9 @@
         <maven-compiler-plugin.source>11</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>11</maven-compiler-plugin.target>
         <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-release-plugin.version>2.4.1</maven-release-plugin.version>
         <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
+        <junit.version>4.12</junit.version>
     </properties>
     <packaging>pom</packaging>
     <build>
@@ -49,6 +51,11 @@
                 <groupId>org.fusesource.jansi</groupId>
                 <artifactId>jansi</artifactId>
                 <version>${jansi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
