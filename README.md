@@ -14,18 +14,18 @@ ITF comes from image train filters and the idea is to use this library in many o
 ---
 #### Deprecated
 
-The following are libraries available in JFrog. I am not maintaining them anymore because of the major refactoring I had to do to support my other project [Image train filters](https://github.com/jesperancinha/image-train-filters-scala). You can find the releases in this repo and also in JFrog. The coming versions will be more stable and though out to the general public.
+The following are libraries available in JFrog. I am not maintaining them anymore because of the major refactoring I had to do to support my other project [Image train filters](https://github.com/jesperancinha/image-train-filters-scala). You can find the releases in this repo and also in JFrog. The coming versions will be more stable and thought out to the general public.
 
 ## chartizate-text-writer-api
 
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/chartizate-text-writer-api/images/download.svg) ](https://bintray.com/jesperancinha/maven/chartizate-text-writer-api/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/chartizate-text-writer-api/images/download.svg)](https://bintray.com/jesperancinha/maven/chartizate-text-writer-api/_latestVersion)
 
 ## chartizate-text-writer-android
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/chartizate-text-writer-android/images/download.svg) ](https://bintray.com/jesperancinha/maven/chartizate-text-writer-android/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/chartizate-text-writer-android/images/download.svg)](https://bintray.com/jesperancinha/maven/chartizate-text-writer-android/_latestVersion)
 
 ---
 ```
-Copyright 2016-2017 João Esperancinha
+Copyright 2016-2019 João Esperancinha
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

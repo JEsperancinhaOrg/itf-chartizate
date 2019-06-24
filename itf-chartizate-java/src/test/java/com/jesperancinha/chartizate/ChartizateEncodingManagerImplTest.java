@@ -2,8 +2,6 @@ package com.jesperancinha.chartizate;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -16,12 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class ChartizateEncodingManagerImplTest {
 
-    private static Logger logger = LoggerFactory.getLogger(ChartizateEncodingManagerImplTest.class);
-
     /**
      * This test is currently ignored because the character conversion only works correctly for Java8
-     *
-     * @
      */
     @Test
     @Ignore

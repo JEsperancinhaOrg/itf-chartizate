@@ -9,20 +9,12 @@ import java.lang.Character.UnicodeBlock;
 
 import javax.swing.JLabel;
 
-/**
- * 
- * @author joao
- *
- */
 public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Font> {
 
-	public ChartizateEncodingManagerImpl(UnicodeBlock block, ChartizateFontManager<Font> fontManager) {
+	ChartizateEncodingManagerImpl(UnicodeBlock block, ChartizateFontManager<Font> fontManager) {
 		super(block, fontManager);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.steelzack.pencelizer.PencelizerEncodingManagerd#getCharacterFullness(java.lang.Character)
-	 */
 	public int getCharacterFullness(Character character) {
 		Font font = fontManager.getFont();
 		FontMetrics metrics = new JLabel().getFontMetrics(font);

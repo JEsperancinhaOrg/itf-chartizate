@@ -14,52 +14,28 @@ import com.jesperancinha.chartizate.ChartizateFontManager;
 import com.jesperancinha.chartizate.ChartizateImageManager;
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
-/**
- * 
- * @author joao
- *
- */
 public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Font> {
 
 	private BufferedImage srcImage;
 
-	public ChartizateImageManagerImpl() {
+	ChartizateImageManagerImpl() {
 		// For testing purposes only
 	}
 
-	public ChartizateImageManagerImpl(InputStream io) throws IOException {
+	ChartizateImageManagerImpl(InputStream io) throws IOException {
 		this.srcImage = ImageIO.read(io);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageWidth()
-	 */
 	@Override
 	public int getImageWidth() {
 		return this.srcImage.getWidth();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.steelzack.pencelizer.PencelizerImageManager#getImageHeight()
-	 */
 	@Override
 	public int getImageHeight() {
 		return this.srcImage.getHeight();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.steelzack.pencelizer.PencelizerImageManager#saveImage(com.steelzack.
-	 * pencelizer.PencelizerCharacterImg,
-	 * com.steelzack.pencelizer.PencelizerFontManager, java.lang.String, int,
-	 * int)
-	 */
 	@Override
 	public void saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<Font> fontManager,
 			String outputFile, int outputWidth, int outputHeight) throws IOException {
