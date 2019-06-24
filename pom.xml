@@ -10,6 +10,12 @@
         <url>https://github.com/jesperancinha/itf-chartizate</url>
         <tag>${revision}</tag>
     </scm>
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <url>https://api.bintray.com/maven/jesperancinha/maven/itf-chartizate/;publish=1;</url>
+        </repository>
+    </distributionManagement>
     <properties>
         <revision>2.0.0-SNAPSHOT</revision>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
