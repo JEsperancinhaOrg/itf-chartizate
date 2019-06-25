@@ -11,6 +11,11 @@
 This is an image to char coder, with a spin off to the current available ones
 ITF comes from image train filters and the idea is to use this library in many other projects. However the idea was to create a train of filters where each wagon would transform the image. It should work much like the chain of responsibility pattern.
 
+## Tools
+
+$ git push --delete origin 2.0.0  
+$ git tag --delete 2.0.0
+
 ---
 #### Deprecated
 
@@ -18,10 +23,11 @@ The following are libraries available in JFrog. I am not maintaining them anymor
 
 ## chartizate-text-writer-api
 
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/chartizate-text-writer-api/images/download.svg)](https://bintray.com/jesperancinha/maven/chartizate-text-writer-api/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-java/images/download.svg?version=1.1.4) ](https://bintray.com/jesperancinha/maven/itf-chartizate-java/1.1.4/link)
 
 ## chartizate-text-writer-android
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/chartizate-text-writer-android/images/download.svg)](https://bintray.com/jesperancinha/maven/chartizate-text-writer-android/_latestVersion)
+
+[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg?version=1.1.4) ](https://bintray.com/jesperancinha/maven/itf-chartizate-android/1.1.4/link)
 
 ---
 ```

@@ -12,12 +12,13 @@
     </scm>
     <distributionManagement>
         <repository>
-            <id>bintray</id>
-            <url>https://api.bintray.com/maven/jesperancinha/maven/itf-chartizate/;publish=1;</url>
+            <id>bintray-jesperancinha-itf</id>
+            <name>jesperancinha-itf</name>
+            <url>https://api.bintray.com/maven/jesperancinha/itf/itf-chartizate/;publish=1</url>
         </repository>
     </distributionManagement>
     <properties>
-        <revision>2.0.0-SNAPSHOT</revision>
+        <revision>2.0.0</revision>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-compiler-plugin.source>11</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>11</maven-compiler-plugin.target>

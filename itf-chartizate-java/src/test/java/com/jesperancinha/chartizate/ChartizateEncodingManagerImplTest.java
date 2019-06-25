@@ -9,26 +9,7 @@ import java.util.Arrays;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author joao
- */
 public class ChartizateEncodingManagerImplTest {
-
-    /**
-     * This test is currently ignored because the character conversion only works correctly for Java8
-     */
-    @Test
-    @Ignore
-    public void testInit_Latin() {
-        final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
-        final ChartizateEncodingManagerImpl manager = new ChartizateEncodingManagerImpl(
-                Character.UnicodeBlock.LATIN_EXTENDED_A,
-                fontManager);
-        manager.init();
-        assertEquals(
-                "[Ţ, ċ, ı, Ÿ, ć, Ļ, ņ, ŋ, ų, Ŷ, Ģ, ĉ, Ċ, č, ę, Ġ, į, ĸ, Ľ, Ŀ, ŗ, Ť, Ć, Ķ, Ş, Ų, ą, ė, ġ, Ĺ, ń, ŉ, ō, Ĝ, Ą, Ĉ, Č, Į, ļ, ľ, ŀ, Ł, ň, ő, ū, ŷ, Ĳ, Ŋ, Ś, ē, ě, ĝ, Ğ, ģ, ħ, ŏ, ş, ũ, ű, Ŗ, Ŝ, Š, Ū, Ĵ, Ŧ, Ō, ā, ď, đ, ĥ, ĩ, ī, İ, ĵ, œ, ŕ, ŭ, ſ, Ā, Ď, Đ, Ę, Ņ, Ũ, Ű, Ő, ż, ĕ, ğ, Ė, Ĥ, Ŕ, Ŭ, Ů, ŵ, Ŏ, Ă, ă, ĳ, ĺ, ł, Ń, Œ, Ř, ř, ś, ť, ź, Ż, Ŵ, Ē, Ě, Ħ, Ň, ů, Ź, ž, ķ, ŝ, š, Ĩ, Ī, ĭ, ţ, Ž, Ĕ, Ĭ, ŧ]",
-                Arrays.toString(manager.getCharacters()));
-    }
 
     /**
      * NOTE: It tests dot density for each code point. It does not reflect human
