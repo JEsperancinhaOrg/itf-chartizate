@@ -5,6 +5,11 @@
 [![CircleCI](https://circleci.com/gh/jesperancinha/itf-chartizate.svg?style=svg)](https://circleci.com/gh/jesperancinha/itf-chartizate)
 [![Build Status](https://travis-ci.org/jesperancinha/itf-chartizate.svg?branch=master)](https://travis-ci.org/jesperancinha/itf-chartizate)
 
+Api  
+[ ![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)  
+Java  
+[ ![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-java/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-java/_latestVersion)
+
 ---
 ## Description
 

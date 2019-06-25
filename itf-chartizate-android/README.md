@@ -1,18 +1,24 @@
-# chartizate-text-writer-android
+# ITF chartizate android
 
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/chartizate-text-writer-android/images/download.svg) ](https://bintray.com/jesperancinha/maven/chartizate-text-writer-android/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-android/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-android/_latestVersion)
 
+---
+Deprecated
+
+[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg) ](https://bintray.com/jesperancinha/maven/itf-chartizate-android/_latestVersion)
+
+---
 ## Description
 
 The aim of this library is to transform an image into a character filled data that still represents the original image
 
 From
 
-![realexample1.png](https://raw.githubusercontent.com/jesperancinha/lib-chartizate-sz/master/chartizate-text-writer-android/src/main/res/raw/realexample1.jpg)
+![realexample1.png](https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg)
 
 To
 
-![realexample1expected.png](https://raw.githubusercontent.com/jesperancinha/lib-chartizate-sz/master/chartizate-text-writer-android/src/main/res/raw/realexample1expected.png)
+![realexample1expected.png](https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png)
 
 
 ## License
