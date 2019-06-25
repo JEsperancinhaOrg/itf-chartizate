@@ -1,7 +1,6 @@
 language: java
 jdk:
   - openjdk11
-
 script:
   - cp settings.xml ~/.m2/settings.xml
   - mvn clean install
