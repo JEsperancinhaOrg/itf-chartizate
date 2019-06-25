@@ -28,7 +28,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
      * @throws FileNotFoundException
      * @throws IOException
      */
-    ChartizateManagerImpl(
+    public ChartizateManagerImpl(
             final Color backgroundColor,
             final int densityPercentage,
             final int rangePercentage,
@@ -65,7 +65,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
      * @throws FileNotFoundException
      * @throws IOException
      */
-    ChartizateManagerImpl(
+    public ChartizateManagerImpl(
             final Color backgroundColor,
             final int densityPercentage,
             final int rangePercentage,
