@@ -50,6 +50,42 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
                 destinationImagePath
         );
     }
+    /**
+     * Creates Pencelizer manager by defining how many lines and columns is the
+     * array going to have
+     *
+     * @param backgroundColor
+     * @param densityPercentage
+     * @param rangePercentage
+     * @param distributionType
+     * @param fontName
+     * @param fontSize
+     * @param block
+     * @param imageFullStream
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    ChartizateManagerImpl(
+            final Color backgroundColor,
+            final int densityPercentage,
+            final int rangePercentage,
+            final ChartizateDistributionType distributionType,
+            final String fontName,
+            final int fontSize,
+            final UnicodeBlock block,
+            final InputStream imageFullStream
+    ) throws FileNotFoundException, IOException {
+        super(backgroundColor,
+                densityPercentage,
+                rangePercentage,
+                distributionType,
+                fontName,
+                fontSize,
+                block,
+                imageFullStream,
+                null
+        );
+    }
 
     /**
      * Sets row in position with a background color and a foreground color.
