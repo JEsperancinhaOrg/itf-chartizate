@@ -14,11 +14,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ChartizateManagerImplTest {
 
     @Test
+    public void testGenerateConvertedImageStream_CustomColor() throws Exception {
+        final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
+        assertThat(imageFullStream).isNotNull();
+        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
+                new Color(15280682),
+                50,
+                10,
+                Linear,
+                "Arial",
+                5,
+                UnicodeBlock.LATIN_EXTENDED_A,
+                imageFullStream,
+                "/tmp/testCyanCustom.png"
+        );
+
+        manager.generateConvertedImage();
+    }
+
+    @Test
     public void testGenerateConvertedImageStream_CyanBlack() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
+                Color.BLUE,
                 50,
                 10,
                 Linear,
@@ -29,9 +48,7 @@ public class ChartizateManagerImplTest {
                 "/tmp/testCyanBlue.png"
         );
 
-        BufferedImage bufferedImage = manager.generateConvertedImageStream();
-
-        assertThat(bufferedImage).isNotNull();
+        manager.generateConvertedImage();
     }
 
     @Test
@@ -172,7 +189,7 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
+                Color.RED,
                 100,
                 100,
                 Linear,

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jesperancinha.itf</groupId>
     <artifactId>itf-chartizate</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <scm>
         <connection>scm:git:https://github.com/jesperancinha/itf-chartizate.git</connection>
         <developerConnection>scm:git:git@github.com:jesperancinha/itf-chartizate.git</developerConnection>
@@ -18,7 +18,7 @@
         </repository>
     </distributionManagement>
     <properties>
-        <revision>3.0.0</revision>
+        <revision>3.0.1</revision>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-compiler-plugin.source>11</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>11</maven-compiler-plugin.target>

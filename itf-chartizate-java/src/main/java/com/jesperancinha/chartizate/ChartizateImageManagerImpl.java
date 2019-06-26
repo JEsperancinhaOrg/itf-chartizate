@@ -1,8 +1,6 @@
 package com.jesperancinha.chartizate;
 
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -34,7 +32,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
 
     @Override
     public BufferedImage saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<Font> fontManager,
-                                   String outputFile, int outputWidth, int outputHeight) throws IOException {
+                                   String outputFile, int outputWidth, int outputHeight) {
         final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
         final Graphics2D g2d = bImg.createGraphics();
         final Font font = fontManager.getFont();
@@ -45,8 +43,12 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
             int rowLength = pencelizerBoard[i].length;
             for (int j = 0; j < rowLength; j++) {
                 final ChartizateCharacterImg<?> character = pencelizerBoard[i][j];
+                g2d.setBackground((Color) character.getBg());
+                int x = currentWidth;
+                int y = font.getSize() * (i + 1);
+                g2d.clearRect(x, y - font.getSize(), character.getWidth(), font.getSize() * 2);
                 g2d.setColor((Color) character.getFg());
-                g2d.drawString(character.toString(), currentWidth, font.getSize() * (i + 1));
+                g2d.drawString(character.toString(), x, y);
                 currentWidth += pencelizerBoard[i][j].getWidth();
             }
             currentWidth = 0;
