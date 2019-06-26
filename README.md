@@ -35,6 +35,9 @@ The following are libraries available in JFrog. I am not maintaining them anymor
 [ ![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg?version=1.1.4) ](https://bintray.com/jesperancinha/maven/itf-chartizate-android/1.1.4/link)
 
 ---
+
+## License
+
 ```
 Copyright 2016-2019 João Esperancinha
 
@@ -51,10 +54,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-### Location:
+## About me
 
-[GitHub location](https://github.com/jesperancinha/lib-chartizate-sz)
-
-* Twitter [@jofisaes](https://twitter.com/jofisaes)
-* GitHub [jesperancinha](https://github.com/jesperancinha) 
-
+-   Twitter [@jofisaes](https://twitter.com/jofisaes)
+-   GitHub [jesperancinha](https://github.com/jesperancinha)
+-   Free Code Camp [jofisaes](https://www.freecodecamp.org/jofisaes)
+-   Hackerrank [jofisaes](https://www.hackerrank.com/jofisaes)
+-   Acclaim Badges [joao-esperancinha](https://www.youracclaim.com/users/joao-esperancinha/badges)
+-   Home Page [joaofilipesabinoesperancinha](http://joaofilipesabinoesperancinha.nl)
