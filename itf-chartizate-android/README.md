@@ -24,7 +24,7 @@ To
 ## License
 
 ```
-Copyright 2016-2017 Steelzack
+Copyright 2016-2019 João Esperancinha
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -39,3 +39,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+## About me
+
+-   Twitter [@jofisaes](https://twitter.com/jofisaes)
+-   GitHub [jesperancinha](https://github.com/jesperancinha)
+-   Free Code Camp [jofisaes](https://www.freecodecamp.org/jofisaes)
+-   Hackerrank [jofisaes](https://www.hackerrank.com/jofisaes)
+-   Acclaim Badges [joao-esperancinha](https://www.youracclaim.com/users/joao-esperancinha/badges)
+-   Home Page [joaofilipesabinoesperancinha](http://joaofilipesabinoesperancinha.nl)
