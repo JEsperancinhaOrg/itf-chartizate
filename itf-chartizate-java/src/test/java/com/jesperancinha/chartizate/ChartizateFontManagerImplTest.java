@@ -1,6 +1,5 @@
 package com.jesperancinha.chartizate;
 
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -8,7 +7,10 @@ import java.awt.*;
 import java.lang.Character.UnicodeBlock;
 import java.util.List;
 
+import static com.jesperancinha.chartizate.ChartizatUnicodes.getAllUniCodeBlocksJava;
+import static com.jesperancinha.chartizate.ChartizatUnicodes.getAllUniCodeBlocksJava7;
 import static java.lang.Character.UnicodeBlock.*;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -249,11 +251,10 @@ public class ChartizateFontManagerImplTest {
                 MIAO,
                 ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS
         };
-        final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
 
-        final List<UnicodeBlock> result = manager.getAllUniCodeBlocksJava8();
+        final List<UnicodeBlock> result = getAllUniCodeBlocksJava();
 
-        Assert.assertArrayEquals(testUnicodes, result.toArray());
+        assertArrayEquals(testUnicodes, result.toArray());
     }
 
     @Test
@@ -469,11 +470,10 @@ public class ChartizateFontManagerImplTest {
                 CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C,
                 CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D,
         };
-        final ChartizateFontManagerImpl manager = new ChartizateFontManagerImpl("Arial", 10);
 
-        final List<UnicodeBlock> result = manager.getAllUniCodeBlocksJava7();
+        final List<UnicodeBlock> result = getAllUniCodeBlocksJava7();
 
-        Assert.assertArrayEquals(testUnicodes, result.toArray());
+        assertArrayEquals(testUnicodes, result.toArray());
     }
 
     @Test
@@ -487,7 +487,7 @@ public class ChartizateFontManagerImplTest {
 
         final List<String> result = ChartizateFontManagerImpl.getAllDistributionTypes();
 
-        Assert.assertArrayEquals(testDistributions, result.toArray());
+        assertArrayEquals(testDistributions, result.toArray());
     }
 
     @Test
