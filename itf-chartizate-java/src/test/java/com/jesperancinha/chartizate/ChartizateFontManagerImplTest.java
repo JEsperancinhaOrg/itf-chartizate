@@ -7,8 +7,8 @@ import java.awt.*;
 import java.lang.Character.UnicodeBlock;
 import java.util.List;
 
-import static com.jesperancinha.chartizate.ChartizatUnicodes.getAllUniCodeBlocksJava;
-import static com.jesperancinha.chartizate.ChartizatUnicodes.getAllUniCodeBlocksJava7;
+import static com.jesperancinha.chartizate.ChartizateUnicodes.getAllUniCodeBlocksJava;
+import static com.jesperancinha.chartizate.ChartizateUnicodes.getAllUniCodeBlocksJava7;
 import static java.lang.Character.UnicodeBlock.*;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

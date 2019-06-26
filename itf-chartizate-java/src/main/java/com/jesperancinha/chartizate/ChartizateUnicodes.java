@@ -3,7 +3,7 @@ package com.jesperancinha.chartizate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChartizatUnicodes {
+public class ChartizateUnicodes {
 
     /**
      * Gets a list of all acceptable unicodes for chartizate.
