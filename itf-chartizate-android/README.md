@@ -10,16 +10,7 @@ Deprecated
 ---
 ## Description
 
-The aim of this library is to transform an image into a character filled data that still represents the original image
-
-From
-
-![realexample1.png](https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg)
-
-To
-
-![realexample1expected.png](https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png)
-
+ITF library for android
 
 ## License
 

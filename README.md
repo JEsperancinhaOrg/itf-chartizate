@@ -16,6 +16,13 @@ Java
 This is an image to char coder, with a spin off to the current available ones
 ITF comes from image train filters and the idea is to use this library in many other projects. However the idea was to create a train of filters where each wagon would transform the image. It should work much like the chain of responsibility pattern.
 
+Example:  
+From: <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" alt="" data-canonical-src="https://raw.githubushttps://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" width="250" height="250" /> 
+To:
+<img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" width="250" height="250" />
+
+
+
 ## Tools
 
 $ git push --delete origin 2.0.0  
