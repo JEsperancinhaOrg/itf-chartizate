@@ -2,12 +2,20 @@ package com.jesperancinha.chartizate;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ChartizateFontsTest {
 
+    /**
+     * The number of available fonts will change per Java distribution. This is why we test that we do get a list and that it has at least one element
+     */
     @Test
     void getAllAvailableFonts() {
-        assertThat(ChartizateFonts.getAllAvailableFonts()).hasSize(251);
+        List<String> allAvailableFonts = ChartizateFonts.getAllAvailableFonts();
+        assertThat(allAvailableFonts).isNotNull();
+        assertThat(allAvailableFonts).isNotEmpty();
+        assertThat(allAvailableFonts).hasAtLeastOneElementOfType(String.class);
     }
 }
