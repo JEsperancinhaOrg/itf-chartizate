@@ -50,6 +50,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
                 destinationImagePath
         );
     }
+
     /**
      * Creates Pencelizer manager by defining how many lines and columns is the
      * array going to have

@@ -3,7 +3,6 @@ package com.jesperancinha.chartizate;
 import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class ChartizateFontManager<T> {

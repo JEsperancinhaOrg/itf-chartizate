@@ -19,11 +19,10 @@ import java.util.List;
 public abstract class ChartizateManagerCommon<COLOR, FONT> {
 
     private static Logger logger = LoggerFactory.getLogger(ChartizateManagerCommon.class);
-
-    private final COLOR backgroundColor;
-    private final ChartizateDistribution distribution;
     protected final ChartizateCharacterImg<?>[][] chartizateBoard;
     protected final ChartizateFontManager<FONT> fontManager;
+    private final COLOR backgroundColor;
+    private final ChartizateDistribution distribution;
     private final ChartizateEncodingManager<FONT> encodingManager;
     private final ChartizateImageManager<COLOR, FONT> imageManager;
     private String destinationImagePath;

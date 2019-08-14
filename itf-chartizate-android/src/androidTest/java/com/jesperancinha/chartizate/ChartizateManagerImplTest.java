@@ -3,9 +3,7 @@ package com.jesperancinha.chartizate;
 import android.app.Application;
 import android.graphics.Color;
 import android.test.ApplicationTestCase;
-
 import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
-
 import org.junit.Test;
 
 import java.io.File;
@@ -55,7 +53,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.LATIN_EXTENDED_A, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testRealExample1.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testRealExample1.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
@@ -75,7 +73,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.LATIN_EXTENDED_A, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testRealExample1Red.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testRealExample1Red.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
@@ -96,10 +94,11 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.LATIN_EXTENDED_A, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testrealexample2Latin.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testrealexample2Latin.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
+
     @Test
     public void testGenerateConvertedImage_Arabic_realexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
@@ -115,10 +114,11 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.ARABIC, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testrealexample2Arabic.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testrealexample2Arabic.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
+
     @Test
     public void testGenerateConvertedImage_Hebrew_realexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
@@ -134,10 +134,11 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.HEBREW, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testrealexample2Hebrew.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testrealexample2Hebrew.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
+
     @Test
     public void testGenerateConvertedImage_Syriac_realexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
@@ -153,10 +154,11 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.SYRIAC, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testrealexample2Syriac.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testrealexample2Syriac.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
+
     @Test
     public void testGenerateConvertedImage__Samaritan_realexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
@@ -172,10 +174,11 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.SAMARITAN, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testrealexample2Samaritan.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testrealexample2Samaritan.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
+
     @Test
     public void testGenerateConvertedImage_Mandaic_realexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
@@ -191,10 +194,11 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.MANDAIC, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testrealexample2Mandaic.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testrealexample2Mandaic.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
+
     @Test
     public void testGenerateConvertedImage_Thaana_realexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
@@ -210,7 +214,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.THAANA, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testrealexample2Thaana.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testrealexample2Thaana.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }
@@ -230,7 +234,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
                 20, //
                 Character.UnicodeBlock.LATIN_EXTENDED_A, //
                 imageFullStream, //
-                new File(getContext().getCacheDir(),"testRealExample1.png").getAbsolutePath() //
+                new File(getContext().getCacheDir(), "testRealExample1.png").getAbsolutePath() //
         );
         manager.generateConvertedImage();
     }

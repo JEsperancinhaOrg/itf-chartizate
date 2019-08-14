@@ -1,8 +1,6 @@
 package com.jesperancinha.chartizate;
 
 import java.awt.*;
-import java.lang.Character.UnicodeBlock;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,6 +16,10 @@ public class ChartizateFontManagerImpl extends ChartizateFontManager<Font> {
         this.fontMetrics = c.getFontMetrics(font);
     }
 
+    static List<String> getAllFontTypes() {
+        return Arrays.asList(GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames());
+    }
+
     @Override
     public int getCharacterWidth(char c) {
         return fontMetrics.stringWidth(new String(new char[]{c}));
@@ -31,10 +33,6 @@ public class ChartizateFontManagerImpl extends ChartizateFontManager<Font> {
     @Override
     public Font getFont() {
         return font;
-    }
-
-    static List<String> getAllFontTypes() {
-        return Arrays.asList(GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames());
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.jesperancinha.chartizate;
 
 import android.graphics.Typeface;
-
 import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
@@ -38,6 +37,6 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Type
 
     @Override
     void addFullRow(int row, List<ChartizateCharacterImg<Integer>> pencelizerRow) {
-            pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
+        pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
     }
 }

@@ -1,11 +1,11 @@
 # ITF chartizate android
 
-[ ![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-android/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-android/_latestVersion)
+[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-android/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-android/_latestVersion)
 
 ---
 Deprecated
 
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg) ](https://bintray.com/jesperancinha/maven/itf-chartizate-android/_latestVersion)
+[![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg) ](https://bintray.com/jesperancinha/maven/itf-chartizate-android/_latestVersion)
 
 ---
 ## Description
@@ -14,7 +14,7 @@ ITF library for android
 
 ## License
 
-```
+```text
 Copyright 2016-2019 João Esperancinha
 
 Licensed under the Apache License, Version 2.0 (the "License");

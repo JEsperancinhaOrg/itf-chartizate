@@ -1,63 +1,61 @@
 package com.jesperancinha.chartizate.distributions;
 
+import org.junit.Test;
+
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Test;
-
 /**
- * 
  * @author joao
- *
  */
 public class ChartizateLinearDistributionTest {
 
-	@Test
-	public void testGetCharacterFromArray() throws Exception {
-		final Character[] characters = new Character[] { //
-				new Character('a'), //
-				new Character('b'), //
-				new Character('c'), //
-				new Character('d'), //
-				new Character('e'), //
-				new Character('f'), //
-				new Character('g'), //
-				new Character('h'), //
-				new Character('i'), //
-				new Character('j'), //
-				new Character('k') //
-		};
-		final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(characters, 50, 10);
+    @Test
+    public void testGetCharacterFromArray() throws Exception {
+        final Character[] characters = new Character[]{ //
+                new Character('a'), //
+                new Character('b'), //
+                new Character('c'), //
+                new Character('d'), //
+                new Character('e'), //
+                new Character('f'), //
+                new Character('g'), //
+                new Character('h'), //
+                new Character('i'), //
+                new Character('j'), //
+                new Character('k') //
+        };
+        final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(characters, 50, 10);
 
-		char result = distribution.getCharacterFromArray().charValue();
+        char result = distribution.getCharacterFromArray().charValue();
 
-		assertThat(result, anyOf(equalTo('e'), equalTo('f')));
-	}
-	
-	@Test
-	public void testGetCharacterFromArray_DensityFail1() throws Exception {
-		final Character[] characters = new Character[] { //
-				new Character('a'), //
-				new Character('b'), //
-				new Character('c'), //
-				new Character('d'), //
-				new Character('e'), //
-				new Character('f'), //
-				new Character('g'), //
-				new Character('h'), //
-				new Character('i'), //
-				new Character('j'), //
-				new Character('k') //
-		};
-		final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution( //
-				characters, //
-				1, //
-				10 //
-		);
+        assertThat(result, anyOf(equalTo('e'), equalTo('f')));
+    }
 
-		char result = distribution.getCharacterFromArray().charValue();
+    @Test
+    public void testGetCharacterFromArray_DensityFail1() throws Exception {
+        final Character[] characters = new Character[]{ //
+                new Character('a'), //
+                new Character('b'), //
+                new Character('c'), //
+                new Character('d'), //
+                new Character('e'), //
+                new Character('f'), //
+                new Character('g'), //
+                new Character('h'), //
+                new Character('i'), //
+                new Character('j'), //
+                new Character('k') //
+        };
+        final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution( //
+                characters, //
+                1, //
+                10 //
+        );
 
-		assertThat(result, equalTo('a'));
-	}
+        char result = distribution.getCharacterFromArray().charValue();
+
+        assertThat(result, equalTo('a'));
+    }
 }

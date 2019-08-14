@@ -6,9 +6,9 @@
 [![Build Status](https://travis-ci.org/jesperancinha/itf-chartizate.svg?branch=master)](https://travis-ci.org/jesperancinha/itf-chartizate)
 
 Api  
-[ ![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)  
+[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)  
 Java  
-[ ![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-java/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-java/_latestVersion)
+[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-java/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-java/_latestVersion)
 
 ---
 ## Description
@@ -21,31 +21,32 @@ From: <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/m
 To:
 <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" width="250" height="250" />
 
-
-
 ## Tools
 
 $ git push --delete origin 2.0.0  
 $ git tag --delete 2.0.0
 
 ---
-#### Deprecated
+
+---
+
+### Deprecated
 
 The following are libraries available in JFrog. I am not maintaining them anymore because of the major refactoring I had to do to support my other project [Image train filters](https://github.com/jesperancinha/image-train-filters-scala). You can find the releases in this repo and also in JFrog. The coming versions will be more stable and thought out to the general public.
 
 ## chartizate-text-writer-api
 
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-java/images/download.svg?version=1.1.4) ](https://bintray.com/jesperancinha/maven/itf-chartizate-java/1.1.4/link)
+[![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-java/images/download.svg?version=1.1.4)](https://bintray.com/jesperancinha/maven/itf-chartizate-java/1.1.4/link)
 
 ## chartizate-text-writer-android
 
-[ ![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg?version=1.1.4) ](https://bintray.com/jesperancinha/maven/itf-chartizate-android/1.1.4/link)
+[![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg?version=1.1.4)](https://bintray.com/jesperancinha/maven/itf-chartizate-android/1.1.4/link)
 
 ---
 
 ## License
 
-```
+```text
 Copyright 2016-2019 João Esperancinha
 
 Licensed under the Apache License, Version 2.0 (the "License");

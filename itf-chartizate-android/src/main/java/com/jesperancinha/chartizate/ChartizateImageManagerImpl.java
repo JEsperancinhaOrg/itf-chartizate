@@ -1,13 +1,7 @@
 package com.jesperancinha.chartizate;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Typeface;
+import android.graphics.*;
 import android.util.Log;
-
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.FileOutputStream;

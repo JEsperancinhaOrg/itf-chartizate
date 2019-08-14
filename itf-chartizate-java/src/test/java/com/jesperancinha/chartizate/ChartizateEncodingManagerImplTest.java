@@ -1,13 +1,10 @@
 package com.jesperancinha.chartizate;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.awt.*;
-import java.util.Arrays;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ChartizateEncodingManagerImplTest {
 
