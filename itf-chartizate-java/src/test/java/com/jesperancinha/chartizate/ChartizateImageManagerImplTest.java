@@ -12,7 +12,7 @@ import static com.google.common.truth.Truth.assertThat;
 public class ChartizateImageManagerImplTest {
 
     @Test
-    public void testGetImageAverageColor_BlackGreen() throws Exception {
+    public void testGetImageAverageColorBlackGreen() throws Exception {
         final InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
 
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
@@ -24,7 +24,7 @@ public class ChartizateImageManagerImplTest {
     }
 
     @Test
-    public void testGetImageAverageColor_CyanBlack() throws Exception {
+    public void testGetImageAverageColorCyanBlack() throws Exception {
         InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
@@ -36,7 +36,7 @@ public class ChartizateImageManagerImplTest {
     }
 
     @Test
-    public void testGetPartAverageColor_CyanBlack00() throws Exception {
+    public void testGetPartAverageColorCyanBlack00() throws Exception {
         InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
@@ -50,7 +50,7 @@ public class ChartizateImageManagerImplTest {
     }
 
     @Test
-    public void testGetPartAverageColor_CyanBlack10() throws Exception {
+    public void testGetPartAverageColorCyanBlack10() throws Exception {
         InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);

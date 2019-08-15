@@ -1,11 +1,11 @@
 # ITF Chartizate API
  
-[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)
+[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)
 
 ---
 Deprecated
 
-[![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-java/images/download.svg) ](https://bintray.com/jesperancinha/maven/itf-chartizate-java/_latestVersion)
+[![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-java/images/download.svg)](https://bintray.com/jesperancinha/maven/itf-chartizate-java/_latestVersion)
 
 ## Description
 

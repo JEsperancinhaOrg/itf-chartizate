@@ -1,5 +1,6 @@
 package com.jesperancinha.chartizate;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.jesperancinha.chartizate.distributions.ChartizateDistribution;
 import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import com.jesperancinha.chartizate.distributions.ChartizateLinearDistribution;
@@ -64,9 +65,9 @@ public abstract class ChartizateManagerCommon<C, F, B> {
                 );
             case Gaussian:
             case Poisson:
+            default:
                 return null; //TODO: To be implemented
         }
-        return null;
     }
 
     public void generateConvertedImage() throws IOException {
@@ -109,11 +110,15 @@ public abstract class ChartizateManagerCommon<C, F, B> {
                 imageManager.getImageHeight());
     }
 
+    @VisibleForTesting
     abstract ChartizateImageManager<C, F, B> createImageManager(final InputStream imageFullStream) throws IOException;
 
+    @VisibleForTesting
     abstract ChartizateEncodingManager<F> createEncodingManager(final UnicodeBlock block);
 
+    @VisibleForTesting
     abstract ChartizateFontManager<F> createFontManager(final String fontName, final int fontSize);
 
+    @VisibleForTesting
     abstract void addFullRow(int row, List<ChartizateCharacterImg<C>> chartizateRow);
 }

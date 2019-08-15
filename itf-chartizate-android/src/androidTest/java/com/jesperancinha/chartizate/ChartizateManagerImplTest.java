@@ -19,7 +19,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
 
 
     @Test
-    public void testGenerateConvertedImage_CyanBlack() throws Exception {
+    public void testGenerateConvertedImageCyanBlack() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.pencelizercyanblack);
 
         assertNotNull(imageFullStream);
@@ -39,7 +39,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_RealExample1() throws Exception {
+    public void testGenerateConvertedImageRealExample1() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
 
         assertNotNull(imageFullStream);
@@ -59,7 +59,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_RealExample1_Red() throws Exception {
+    public void testGenerateConvertedImageRealExample1Red() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
 
         assertNotNull(imageFullStream);
@@ -80,7 +80,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
 
 
     @Test
-    public void testGenerateConvertedImage_Latin_realexample2() throws Exception {
+    public void testGenerateConvertedImageLatinRealexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
 
         assertNotNull(imageFullStream);
@@ -100,7 +100,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_Arabic_realexample2() throws Exception {
+    public void testGenerateConvertedImageArabicRealexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
 
         assertNotNull(imageFullStream);
@@ -120,7 +120,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_Hebrew_realexample2() throws Exception {
+    public void testGenerateConvertedImageHebrewRealexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
 
         assertNotNull(imageFullStream);
@@ -140,7 +140,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_Syriac_realexample2() throws Exception {
+    public void testGenerateConvertedImageSyriacRealexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
 
         assertNotNull(imageFullStream);
@@ -160,7 +160,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage__Samaritan_realexample2() throws Exception {
+    public void testGenerateConvertedImageSamaritanRealexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
 
         assertNotNull(imageFullStream);
@@ -180,7 +180,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_Mandaic_realexample2() throws Exception {
+    public void testGenerateConvertedImageMandaicRealexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
 
         assertNotNull(imageFullStream);
@@ -200,7 +200,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_Thaana_realexample2() throws Exception {
+    public void testGenerateConvertedImageThaanaRealexample2() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
 
         assertNotNull(imageFullStream);
@@ -220,7 +220,7 @@ public class ChartizateManagerImplTest extends ApplicationTestCase<Application> 
     }
 
     @Test
-    public void testGenerateConvertedImage_RealExample1_DensityFail1() throws Exception {
+    public void testGenerateConvertedImageRealExample1DensityFail1() throws Exception {
         final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
 
         assertNotNull(imageFullStream);

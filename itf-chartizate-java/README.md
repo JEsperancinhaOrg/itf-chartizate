@@ -1,12 +1,12 @@
 # ITF Chartizate Java
 
-[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-java/images/download.svg) ](https://bintray.com/jesperancinha/itf/itf-chartizate-java/_latestVersion)
+[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-java/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-java/_latestVersion)
 
 This is the implementation of the algorithm using java.awt
 
 ## License
 
-```
+```text
 Copyright 2016-2019 João Esperancinha
 
 Licensed under the Apache License, Version 2.0 (the "License");
