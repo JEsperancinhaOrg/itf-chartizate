@@ -1,10 +1,9 @@
 package com.jesperancinha.chartizate;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import com.google.common.annotations.VisibleForTesting;
 
 public abstract class ChartizateImageManager<C, F, B> {
 
@@ -16,7 +15,7 @@ public abstract class ChartizateImageManager<C, F, B> {
 
     @VisibleForTesting
     abstract B saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
-                                     String outputFile, int outputWidth, int outputHeight) throws IOException;
+                         String outputFile, int outputWidth, int outputHeight) throws IOException;
 
     public C getImageAverageColor() {
         final int width = getImageWidth() - 1;
