@@ -11,13 +11,11 @@ import java.io.InputStream;
 /**
  * @author joao
  */
-public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface> {
+public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface, Object> {
 
-    private final InputStream inputStream;
     private Bitmap bitmap;
 
     public ChartizateImageManagerImpl(final InputStream inputStream) {
-        this.inputStream = inputStream;
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.ALPHA_8;
         try {
@@ -49,7 +47,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     }
 
     @Override
-    public void saveImage( //
+    public Object saveImage( //
                            ChartizateCharacterImg<?>[][] chartizateCharacterImgs, //
                            ChartizateFontManager<Typeface> chartizateFontManager, //
                            String outputFile, //
@@ -82,6 +80,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
         if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) { //
             Log.i("File", outputFile + " is saved");
         }
+        return bitmap;
     }
 
     @Override

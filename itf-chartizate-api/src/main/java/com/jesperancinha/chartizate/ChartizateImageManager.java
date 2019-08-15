@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import com.google.common.annotations.VisibleForTesting;
 
-public abstract class ChartizateImageManager<C, F> {
+public abstract class ChartizateImageManager<C, F, B> {
 
     @VisibleForTesting
     abstract int getImageWidth();
@@ -15,7 +15,7 @@ public abstract class ChartizateImageManager<C, F> {
     abstract int getImageHeight();
 
     @VisibleForTesting
-    abstract BufferedImage saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
+    abstract B saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
                                      String outputFile, int outputWidth, int outputHeight) throws IOException;
 
     public C getImageAverageColor() {

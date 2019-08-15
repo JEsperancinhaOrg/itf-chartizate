@@ -16,7 +16,7 @@ import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ChartizateManagerCommon<C, F> {
+public abstract class ChartizateManagerCommon<C, F, B> {
 
     private static Logger logger = LoggerFactory.getLogger(ChartizateManagerCommon.class);
     protected final ChartizateCharacterImg<?>[][] chartizateBoard;
@@ -24,7 +24,7 @@ public abstract class ChartizateManagerCommon<C, F> {
     private final C backgroundC;
     private final ChartizateDistribution distribution;
     private final ChartizateEncodingManager<F> encodingManager;
-    private final ChartizateImageManager<C, F> imageManager;
+    private final ChartizateImageManager<C, F, B> imageManager;
     private String destinationImagePath;
 
     public ChartizateManagerCommon(
@@ -70,17 +70,17 @@ public abstract class ChartizateManagerCommon<C, F> {
     }
 
     public void generateConvertedImage() throws IOException {
-        BufferedImage bufferedImage = createBufferedImage();
-        if (ImageIO.write(bufferedImage, "png", new File(this.destinationImagePath))) {
+        B bufferedImage = createBufferedImage();
+        if (ImageIO.write((BufferedImage) bufferedImage, "png", new File(this.destinationImagePath))) {
             logger.info(this.destinationImagePath + " is saved");
         }
     }
 
-    public BufferedImage generateConvertedImageStream() throws IOException {
+    public B generateConvertedImageStream() throws IOException {
         return this.createBufferedImage();
     }
 
-    private BufferedImage createBufferedImage() throws IOException {
+    private B createBufferedImage() throws IOException {
         final int imageWidth = imageManager.getImageWidth();
         int currentImageIndexX = 0;
         int rowIndex = 0;
@@ -109,7 +109,7 @@ public abstract class ChartizateManagerCommon<C, F> {
                 imageManager.getImageHeight());
     }
 
-    abstract ChartizateImageManager<C, F> createImageManager(final InputStream imageFullStream) throws IOException;
+    abstract ChartizateImageManager<C, F, B> createImageManager(final InputStream imageFullStream) throws IOException;
 
     abstract ChartizateEncodingManager<F> createEncodingManager(final UnicodeBlock block);
 

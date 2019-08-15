@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Font> {
+public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Font, BufferedImage> {
 
     private BufferedImage srcImage;
 

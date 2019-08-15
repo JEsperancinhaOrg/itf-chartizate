@@ -4,13 +4,14 @@ import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
 import java.util.List;
 
-public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> {
+public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font, BufferedImage> {
 
     /**
      * Creates Pencelizer manager by defining how many lines and columns is the

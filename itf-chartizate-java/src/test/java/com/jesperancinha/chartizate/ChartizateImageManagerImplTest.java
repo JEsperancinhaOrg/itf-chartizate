@@ -4,6 +4,7 @@ import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 import org.junit.Test;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.InputStream;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -14,7 +15,7 @@ public class ChartizateImageManagerImplTest {
     public void testGetImageAverageColor_BlackGreen() throws Exception {
         final InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
 
-        final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
 
         final Color imageAverageColor = imageManager.getImageAverageColor();
         assertThat(imageAverageColor.getRed()).isEqualTo(45);
@@ -26,7 +27,7 @@ public class ChartizateImageManagerImplTest {
     public void testGetImageAverageColor_CyanBlack() throws Exception {
         InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-        final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
 
         final Color imageAverageColor = imageManager.getImageAverageColor();
         assertThat(imageAverageColor.getRed()).isEqualTo(0);
@@ -38,7 +39,7 @@ public class ChartizateImageManagerImplTest {
     public void testGetPartAverageColor_CyanBlack00() throws Exception {
         InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-        final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
 
         final Color partAverageColor = imageManager.getPartAverageColor(0, 0, 10, 10);
 
@@ -52,7 +53,7 @@ public class ChartizateImageManagerImplTest {
     public void testGetPartAverageColor_CyanBlack10() throws Exception {
         InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
 
-        final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
 
         final Color partAverageColor = imageManager.getPartAverageColor(10, 0, 19, 10);
         assertThat(partAverageColor.getRed()).isEqualTo(0);
@@ -62,7 +63,7 @@ public class ChartizateImageManagerImplTest {
 
     @Test
     public void testSaveImage() throws Exception {
-        final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl();
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl();
         final ChartizateCharacterImg<?>[][] pencelizerBoard = new ChartizateCharacterImg[2][];
         pencelizerBoard[0] = new ChartizateCharacterImg[]{ //
                 new ChartizateCharacterImg<>(Color.GREEN, Color.BLACK, 10, 'A'), //
