@@ -8,14 +8,11 @@ import java.io.InputStream;
 
 import static com.google.common.truth.Truth.assertThat;
 
-/**
- * @author joao
- */
 public class ChartizateImageManagerImplTest {
 
     @Test
     public void testGetImageAverageColor_BlackGreen() throws Exception {
-        InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
+        final InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
 
         final ChartizateImageManager<Color, Font> imageManager = new ChartizateImageManagerImpl(io);
 

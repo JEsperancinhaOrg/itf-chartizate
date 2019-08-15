@@ -1,28 +1,32 @@
 package com.jesperancinha.chartizate;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import java.lang.Character.UnicodeBlock;
 import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
-abstract class ChartizateEncodingManager<FONT> {
-    final ChartizateFontManager<FONT> fontManager;
+abstract class ChartizateEncodingManager<F> {
+    protected final ChartizateFontManager<F> fontManager;
     private final UnicodeBlock block;
-    Character[] characters;
-    int maximumHeight = 0;
+    protected Character[] characters;
+    protected int maximumHeight = 0;
     private Set<Character> orderedCharacters = new TreeSet<>(getComparator());
 
-    ChartizateEncodingManager(UnicodeBlock block, ChartizateFontManager<FONT> fontManager) {
+    ChartizateEncodingManager(UnicodeBlock block, ChartizateFontManager<F> fontManager) {
         super();
         this.block = block;
         this.fontManager = fontManager;
     }
 
+    @VisibleForTesting
     abstract int getCharacterFullness(Character character);
 
+    @VisibleForTesting
     abstract Character[] getCharacters();
 
-    int computeFullness(double fullNess, double total) {
+    protected int computeFullness(double fullNess, double total) {
         return (int) (fullNess / total * 1000);
     }
 

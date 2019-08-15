@@ -1,5 +1,6 @@
 package com.jesperancinha.chartizate;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public abstract class ChartizateFontManager<T> {
      * @param c Character
      * @return Width of character
      */
+    @VisibleForTesting
     abstract int getCharacterWidth(char c);
 
     /**
@@ -30,9 +32,12 @@ public abstract class ChartizateFontManager<T> {
      * @param c Character
      * @return Width of character
      */
+    @VisibleForTesting
     abstract int getCharacterHeight(char c);
 
+    @VisibleForTesting
     abstract T getFont();
 
+    @VisibleForTesting
     abstract int getFontSize();
 }

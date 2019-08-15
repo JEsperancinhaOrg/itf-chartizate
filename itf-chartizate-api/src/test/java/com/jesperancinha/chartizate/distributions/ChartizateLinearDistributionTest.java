@@ -13,48 +13,25 @@ public class ChartizateLinearDistributionTest {
 
     @Test
     public void testGetCharacterFromArray() throws Exception {
-        final Character[] characters = new Character[]{ //
-                new Character('a'), //
-                new Character('b'), //
-                new Character('c'), //
-                new Character('d'), //
-                new Character('e'), //
-                new Character('f'), //
-                new Character('g'), //
-                new Character('h'), //
-                new Character('i'), //
-                new Character('j'), //
-                new Character('k') //
-        };
+        final Character[] characters =
+                new Character[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'};
         final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(characters, 50, 10);
 
-        char result = distribution.getCharacterFromArray().charValue();
+        char result = distribution.getCharacterFromArray();
 
         assertThat(result, anyOf(equalTo('e'), equalTo('f')));
     }
 
     @Test
     public void testGetCharacterFromArray_DensityFail1() throws Exception {
-        final Character[] characters = new Character[]{ //
-                new Character('a'), //
-                new Character('b'), //
-                new Character('c'), //
-                new Character('d'), //
-                new Character('e'), //
-                new Character('f'), //
-                new Character('g'), //
-                new Character('h'), //
-                new Character('i'), //
-                new Character('j'), //
-                new Character('k') //
-        };
-        final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution( //
-                characters, //
-                1, //
-                10 //
+        final Character[] characters = new Character[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'};
+        final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(
+                characters,
+                1,
+                10
         );
 
-        char result = distribution.getCharacterFromArray().charValue();
+        char result = distribution.getCharacterFromArray();
 
         assertThat(result, equalTo('a'));
     }

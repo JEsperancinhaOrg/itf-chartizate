@@ -93,11 +93,11 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font> 
      * Foreground color refers to the color of the character itself Background
      * color refers to the background color in the cell of the character
      *
-     * @param chartizateCharacterImgs
+     * @param chartizateRow
      */
     @Override
-    public void addFullRow(int row, List<ChartizateCharacterImg<Color>> chartizateCharacterImgs) {
-        chartizateBoard[row] = chartizateCharacterImgs.toArray(new ChartizateCharacterImg[0]);
+    public void addFullRow(int row, List<ChartizateCharacterImg<Color>> chartizateRow) {
+        chartizateBoard[row] = chartizateRow.toArray(new ChartizateCharacterImg[0]);
     }
 
     @Override

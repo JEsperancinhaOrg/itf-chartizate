@@ -16,19 +16,19 @@ import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ChartizateManagerCommon<COLOR, FONT> {
+public abstract class ChartizateManagerCommon<C, F> {
 
     private static Logger logger = LoggerFactory.getLogger(ChartizateManagerCommon.class);
     protected final ChartizateCharacterImg<?>[][] chartizateBoard;
-    protected final ChartizateFontManager<FONT> fontManager;
-    private final COLOR backgroundColor;
+    protected final ChartizateFontManager<F> fontManager;
+    private final C backgroundC;
     private final ChartizateDistribution distribution;
-    private final ChartizateEncodingManager<FONT> encodingManager;
-    private final ChartizateImageManager<COLOR, FONT> imageManager;
+    private final ChartizateEncodingManager<F> encodingManager;
+    private final ChartizateImageManager<C, F> imageManager;
     private String destinationImagePath;
 
     public ChartizateManagerCommon(
-            final COLOR backgroundColor,
+            final C backgroundC,
             final int densityPercentage,
             final int rangePercentage,
             final ChartizateDistributionType distributionType,
@@ -38,7 +38,7 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
             final InputStream imageFullStream,
             final String destinationImagePath
     ) throws IOException {
-        this.backgroundColor = backgroundColor;
+        this.backgroundC = backgroundC;
         this.fontManager = createFontManager(fontName, fontSize);
         this.encodingManager = createEncodingManager(block);
         this.encodingManager.init();
@@ -85,23 +85,23 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
         int currentImageIndexX = 0;
         int rowIndex = 0;
         while (rowIndex < chartizateBoard.length) {
-            List<ChartizateCharacterImg<COLOR>> pencelizerRow = new ArrayList<>();
+            List<ChartizateCharacterImg<C>> chartizateRow = new ArrayList<>();
             while (currentImageIndexX < imageWidth) {
                 final Character character = this.distribution.getCharacterFromArray();
                 final int width = fontManager.getCharacterWidth(character);
                 final int height = fontManager.getCharacterHeight(character);
                 int currentImageIndexY = rowIndex * height;
-                final COLOR averageColor = imageManager.getPartAverageColor(
+                final C averageC = imageManager.getPartAverageColor(
                         currentImageIndexX,
                         currentImageIndexY,
                         currentImageIndexX + width,
                         currentImageIndexY + height
                 );
-                pencelizerRow.add(new ChartizateCharacterImg<>(averageColor, this.backgroundColor,
+                chartizateRow.add(new ChartizateCharacterImg<>(averageC, this.backgroundC,
                         width, character));
                 currentImageIndexX += width;
             }
-            addFullRow(rowIndex, pencelizerRow);
+            addFullRow(rowIndex, chartizateRow);
             currentImageIndexX = 0;
             rowIndex++;
         }
@@ -109,11 +109,11 @@ public abstract class ChartizateManagerCommon<COLOR, FONT> {
                 imageManager.getImageHeight());
     }
 
-    abstract ChartizateImageManager<COLOR, FONT> createImageManager(final InputStream imageFullStream) throws IOException;
+    abstract ChartizateImageManager<C, F> createImageManager(final InputStream imageFullStream) throws IOException;
 
-    abstract ChartizateEncodingManager<FONT> createEncodingManager(final UnicodeBlock block);
+    abstract ChartizateEncodingManager<F> createEncodingManager(final UnicodeBlock block);
 
-    abstract ChartizateFontManager<FONT> createFontManager(final String fontName, final int fontSize);
+    abstract ChartizateFontManager<F> createFontManager(final String fontName, final int fontSize);
 
-    abstract void addFullRow(int row, List<ChartizateCharacterImg<COLOR>> pencelizerRow);
+    abstract void addFullRow(int row, List<ChartizateCharacterImg<C>> chartizateRow);
 }

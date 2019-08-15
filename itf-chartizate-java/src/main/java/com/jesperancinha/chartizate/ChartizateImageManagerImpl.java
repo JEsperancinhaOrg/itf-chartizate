@@ -1,5 +1,6 @@
 package com.jesperancinha.chartizate;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import javax.imageio.ImageIO;
@@ -12,25 +13,24 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
 
     private BufferedImage srcImage;
 
+    @VisibleForTesting
     ChartizateImageManagerImpl() {
         // For testing purposes only
     }
 
+    @VisibleForTesting
     ChartizateImageManagerImpl(InputStream io) throws IOException {
         this.srcImage = ImageIO.read(io);
     }
 
-    @Override
     public int getImageWidth() {
         return this.srcImage.getWidth();
     }
 
-    @Override
     public int getImageHeight() {
         return this.srcImage.getHeight();
     }
 
-    @Override
     public BufferedImage saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<Font> fontManager,
                                    String outputFile, int outputWidth, int outputHeight) {
         final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
