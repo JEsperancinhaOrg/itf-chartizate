@@ -26,3 +26,13 @@ gen
 ## Intellij
 .idea
 *.iml
+
+/local.properties
+
+# Generated files
+bin/
+gen/
+
+# Gradle files
+.gradle/
+build/
