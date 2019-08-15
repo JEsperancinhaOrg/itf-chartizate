@@ -31,7 +31,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
     }
 
     @Override
-    public BufferedImage saveImage(ChartizateCharacterImg<?>[][] pencelizerBoard, ChartizateFontManager<Font> fontManager,
+    public BufferedImage saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<Font> fontManager,
                                    String outputFile, int outputWidth, int outputHeight) {
         final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
         final Graphics2D g2d = bImg.createGraphics();
@@ -39,17 +39,17 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
         g2d.setFont(font);
 
         int currentWidth = 0;
-        for (int i = 0; i < pencelizerBoard.length; i++) {
-            int rowLength = pencelizerBoard[i].length;
+        for (int i = 0; i < chartizateCharacterImage.length; i++) {
+            int rowLength = chartizateCharacterImage[i].length;
             for (int j = 0; j < rowLength; j++) {
-                final ChartizateCharacterImg<?> character = pencelizerBoard[i][j];
+                final ChartizateCharacterImg<?> character = chartizateCharacterImage[i][j];
                 g2d.setBackground((Color) character.getBg());
                 int x = currentWidth;
                 int y = font.getSize() * (i + 1);
                 g2d.clearRect(x, y - font.getSize(), character.getWidth(), font.getSize() * 2);
                 g2d.setColor((Color) character.getFg());
                 g2d.drawString(character.toString(), x, y);
-                currentWidth += pencelizerBoard[i][j].getWidth();
+                currentWidth += chartizateCharacterImage[i][j].getWidth();
             }
             currentWidth = 0;
         }

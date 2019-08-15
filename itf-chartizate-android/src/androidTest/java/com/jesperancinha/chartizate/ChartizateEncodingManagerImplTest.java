@@ -16,11 +16,4 @@ public class ChartizateEncodingManagerImplTest extends TestCase {
         assertEquals(300, encodingManager.getCharacterFullness('0'));
     }
 
-    public void testInit() throws Exception {
-
-    }
-
-    public void testGetCharacters() throws Exception {
-
-    }
 }
