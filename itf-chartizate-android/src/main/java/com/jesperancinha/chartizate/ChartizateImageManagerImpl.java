@@ -37,7 +37,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     }
 
     @Override
-    int getImagePixelRGB(int x, int y) {
+    public int getImagePixelRGB(int x, int y) {
         return bitmap.getPixel(x, y);
     }
 

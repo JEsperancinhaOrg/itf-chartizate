@@ -12,7 +12,7 @@ import java.lang.Character.UnicodeBlock;
 import java.util.List;
 
 /**
- * @author joao Manages the board to be rendered
+ * Manages the board to be rendered
  */
 public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Typeface, Bitmap> {
 
@@ -22,17 +22,17 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Type
     }
 
     @Override
-    ChartizateImageManager<Integer, Typeface, Bitmap> createImageManager(InputStream inputStream) throws IOException {
+    public ChartizateImageManager<Integer, Typeface, Bitmap> createImageManager(InputStream inputStream) throws IOException {
         return new ChartizateImageManagerImpl(inputStream);
     }
 
     @Override
-    ChartizateEncodingManager createEncodingManager(UnicodeBlock unicodeBlock) {
+    public ChartizateEncodingManager createEncodingManager(UnicodeBlock unicodeBlock) {
         return new ChartizateEncodingManagerImpl(unicodeBlock, fontManager);
     }
 
     @Override
-    ChartizateFontManager<Typeface> createFontManager(String fontString, int fontSize) {
+    public ChartizateFontManager<Typeface> createFontManager(String fontString, int fontSize) {
         return new ChartizateFontManagerImpl(fontString, fontSize);
     }
 
