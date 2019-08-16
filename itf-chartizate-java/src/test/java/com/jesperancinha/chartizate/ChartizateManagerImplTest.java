@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ChartizateManagerImplTest {
 
     @Test
-    public void testGenerateConvertedImageStream_CustomColor() throws Exception {
+    public void testGenerateConvertedImageStreamCustomColor() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -32,7 +32,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImageStream_CyanBlack() throws Exception {
+    public void testGenerateConvertedImageStreamCyanBlack() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -51,7 +51,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage_CyanBlack() throws Exception {
+    public void testGenerateConvertedImageCyanBlack() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -70,7 +70,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage_Latin_RealExample2() throws Exception {
+    public void testGenerateConvertedImageLatinRealExample2() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
 
         assertThat(imageFullStream).isNotNull();
@@ -90,7 +90,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage_Arabic_RealExample2() throws Exception {
+    public void testGenerateConvertedImageArabicRealExample2() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -109,7 +109,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage_Hebrew_RealExample2() throws Exception {
+    public void testGenerateConvertedImageHebrewRealExample2() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -127,7 +127,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage_Syriac_RealExample2() throws Exception {
+    public void testGenerateConvertedImageSyriacRealExample2() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -146,7 +146,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage__Samaritan_RealExample2() throws Exception {
+    public void testGenerateConvertedImageSamaritanRealExample2() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -165,7 +165,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage_Mandaic_RealExample2() throws Exception {
+    public void testGenerateConvertedImageMandaicRealExample2() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
@@ -184,7 +184,7 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
-    public void testGenerateConvertedImage_Thaana_RealExample2() throws Exception {
+    public void testGenerateConvertedImageThaanaRealExample2() throws Exception {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(

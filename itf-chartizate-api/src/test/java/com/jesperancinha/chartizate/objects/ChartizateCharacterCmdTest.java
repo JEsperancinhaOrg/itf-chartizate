@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class ChartizateCharacterCmdTest {
 
-    @Test
+    @Test(expected = Test.None.class)
     public void testPrintToCommandLine() throws Exception {
         final ChartizateCharacterCmd pc = new ChartizateCharacterCmd(Color.RED, Color.BLACK, 'a');
         pc.printToCommandLine();

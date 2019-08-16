@@ -1,5 +1,6 @@
 package com.jesperancinha.chartizate;
 
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * @author joao Manages the board to be rendered
  */
-public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Typeface> {
+public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Typeface, Bitmap> {
 
 
     public ChartizateManagerImpl(Integer backgroundColor, int densityPercentage, int rangePercentage, ChartizateDistributionType distributionType, String fontName, int fontSize, UnicodeBlock block, InputStream imageFullStream, String destinationImagePath) throws FileNotFoundException, IOException {
@@ -21,7 +22,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Type
     }
 
     @Override
-    ChartizateImageManager<Integer, Typeface> createImageManager(InputStream inputStream) throws IOException {
+    ChartizateImageManager<Integer, Typeface, Bitmap> createImageManager(InputStream inputStream) throws IOException {
         return new ChartizateImageManagerImpl(inputStream);
     }
 
@@ -37,6 +38,6 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Type
 
     @Override
     void addFullRow(int row, List<ChartizateCharacterImg<Integer>> pencelizerRow) {
-        pencelizerBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
+        chartizateBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
     }
 }
