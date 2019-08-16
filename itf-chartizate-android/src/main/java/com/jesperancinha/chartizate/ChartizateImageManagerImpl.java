@@ -42,17 +42,17 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     }
 
     @Override
-    Integer createColor(int alpha, int red, int green, int blue) {
+    public Integer createColor(int alpha, int red, int green, int blue) {
         return Color.argb(alpha, red, green, blue);
     }
 
     @Override
     public Object saveImage( //
-                           ChartizateCharacterImg<?>[][] chartizateCharacterImgs, //
-                           ChartizateFontManager<Typeface> chartizateFontManager, //
-                           String outputFile, //
-                           int outputWidth, //
-                           int outputHeight //
+                             ChartizateCharacterImg<?>[][] chartizateCharacterImgs, //
+                             ChartizateFontManager<Typeface> chartizateFontManager, //
+                             String outputFile, //
+                             int outputWidth, //
+                             int outputHeight //
     ) throws IOException {
 
         final Bitmap bitmap = Bitmap.createBitmap(outputWidth, outputHeight, Bitmap.Config.RGB_565);
@@ -84,22 +84,22 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     }
 
     @Override
-    int getBlue(int color) {
+    public int getBlue(int color) {
         return Color.blue(color);
     }
 
     @Override
-    int getGreen(int color) {
+    public int getGreen(int color) {
         return Color.green(color);
     }
 
     @Override
-    int getRed(int color) {
+    public int getRed(int color) {
         return Color.red(color);
     }
 
     @Override
-    int getAlpha(int color) {
+    public int getAlpha(int color) {
         return Color.alpha(color);
     }
 }

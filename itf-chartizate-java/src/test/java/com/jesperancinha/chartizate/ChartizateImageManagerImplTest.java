@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.InputStream;
 
 import static com.google.common.truth.Truth.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 public class ChartizateImageManagerImplTest {
 
@@ -78,6 +79,6 @@ public class ChartizateImageManagerImplTest {
         final String outputFile = "/tmp/saveImage.png";
         final int outputWidth = 20;
         final int outputHeight = 20;
-        imageManager.saveImage(pencelizerBoard, fontManager, outputFile, outputWidth, outputHeight);
+        assertDoesNotThrow(() -> imageManager.saveImage(pencelizerBoard, fontManager, outputFile, outputWidth, outputHeight));
     }
 }

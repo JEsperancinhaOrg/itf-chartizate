@@ -37,7 +37,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Type
     }
 
     @Override
-    void addFullRow(int row, List<ChartizateCharacterImg<Integer>> pencelizerRow) {
+    public void addFullRow(int row, List<ChartizateCharacterImg<Integer>> pencelizerRow) {
         chartizateBoard[row] = pencelizerRow.toArray(new ChartizateCharacterImg[0]);
     }
 }

@@ -43,6 +43,7 @@ abstract class ChartizateEncodingManager<F> {
         };
     }
 
+    @VisibleForTesting
     void init() {
         for (int codePoint = Character.MIN_CODE_POINT; codePoint <= Character.MAX_CODE_POINT; codePoint++) {
             if (block == UnicodeBlock.of(codePoint)) {

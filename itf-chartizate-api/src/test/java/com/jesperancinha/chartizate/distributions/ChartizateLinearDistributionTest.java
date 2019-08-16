@@ -23,7 +23,7 @@ public class ChartizateLinearDistributionTest {
     }
 
     @Test
-    public void testGetCharacterFromArray_DensityFail1() throws Exception {
+    public void testGetCharacterFromArrayDensityFail1() throws Exception {
         final Character[] characters = new Character[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'};
         final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(
                 characters,

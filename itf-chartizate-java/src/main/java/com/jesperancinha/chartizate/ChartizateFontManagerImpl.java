@@ -1,5 +1,7 @@
 package com.jesperancinha.chartizate;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +18,7 @@ public class ChartizateFontManagerImpl extends ChartizateFontManager<Font> {
         this.fontMetrics = c.getFontMetrics(font);
     }
 
+    @VisibleForTesting
     static List<String> getAllFontTypes() {
         return Arrays.asList(GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames());
     }
