@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.steelzack.chartizate">
+          package="org.jesperancinha.chartizate">
 
     <application
             android:allowBackup="true"

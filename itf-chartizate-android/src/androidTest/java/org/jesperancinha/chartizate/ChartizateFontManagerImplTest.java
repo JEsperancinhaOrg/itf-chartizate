@@ -1,4 +1,4 @@
-package com.jesperancinha.chartizate;
+package org.jesperancinha.chartizate;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;

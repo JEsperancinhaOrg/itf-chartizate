@@ -1,4 +1,4 @@
-package com.jesperancinha.chartizate;
+package org.jesperancinha.chartizate;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;

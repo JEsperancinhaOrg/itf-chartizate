@@ -1,4 +1,4 @@
-package com.jesperancinha.chartizate;
+package org.jesperancinha.chartizate;
 
 import android.app.Application;
 import android.graphics.Color;
@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.InputStream;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by joaofilipesabinoesperancinha on 11-02-16.
