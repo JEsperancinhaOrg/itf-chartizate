@@ -26,6 +26,10 @@ To:
 $ git push --delete origin 2.0.0  
 $ git tag --delete 2.0.0
 
+## References
+
+*   [How to Upload an Open-Source Java Library to Maven Central](https://www.freecodecamp.org/news/how-to-upload-an-open-source-java-library-to-maven-central-cac7ce2f57c/)
+
 ---
 
 ---
