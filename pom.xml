@@ -1,7 +1,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jesperancinha.itf</groupId>
+    <groupId>org.jesperancinha</groupId>
     <artifactId>itf-chartizate</artifactId>
     <version>4.0.0</version>
     <scm>
@@ -60,7 +60,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jesperancinha.itf</groupId>
+                <groupId>org.jesperancinha</groupId>
                 <artifactId>itf-chartizate-api</artifactId>
                 <version>${revision}</version>
             </dependency>

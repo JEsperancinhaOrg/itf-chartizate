@@ -4,7 +4,7 @@
     <artifactId>itf-chartizate-java</artifactId>
     <packaging>jar</packaging>
     <parent>
-        <groupId>org.jesperancinha.itf</groupId>
+        <groupId>org.jesperancinha</groupId>
         <artifactId>itf-chartizate</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>4.0.0</version>
@@ -145,7 +145,7 @@
             <artifactId>jansi</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jesperancinha.itf</groupId>
+            <groupId>org.jesperancinha</groupId>
             <artifactId>itf-chartizate-api</artifactId>
         </dependency>
         <dependency>
