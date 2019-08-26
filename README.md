@@ -12,13 +12,10 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/itf-chartizate.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/itf-chartizate.svg)](#)
 
-Api  
-[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)  
-Java  
-[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-java/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-java/_latestVersion)
-
 ---
 ## Description
+
+Soon in maven central...
 
 This is an image to char coder, with a spin off to the current available ones
 ITF comes from image train filters and the idea is to use this library in many other projects. However the idea was to create a train of filters where each wagon would transform the image. It should work much like the chain of responsibility pattern.
@@ -53,12 +50,14 @@ The following are libraries available in JFrog. I am not maintaining them anymor
 
 ## chartizate-text-writer-api
 
-[![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-java/images/download.svg?version=1.1.4)](https://bintray.com/jesperancinha/maven/itf-chartizate-java/1.1.4/link)
+[![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-java/images/download.svg?version=1.1.4)](https://bintray.com/jesperancinha/maven/itf-chartizate-java/1.1.4/link) 
+[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)  
+
 
 ## chartizate-text-writer-android
 
 [![Download](https://api.bintray.com/packages/jesperancinha/maven/itf-chartizate-android/images/download.svg?version=1.1.4)](https://bintray.com/jesperancinha/maven/itf-chartizate-android/1.1.4/link)
-
+[![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-java/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-java/_latestVersion)
 ---
 
 ## License
