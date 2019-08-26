@@ -1,9 +1,16 @@
 # ITF Chartizate
 ---
+[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=ITF%20Chartizate&color=informational)](https://github.com/jesperancinha/itf-chartizate)
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1ccef42562a4e338846f103c7549955)](https://www.codacy.com/app/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/itf-chartizate&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/38f795d1-c092-4aac-976d-ec193651cd49)](https://codebeat.co/projects/github-com-jesperancinha-itf-chartizate-master)
 [![CircleCI](https://circleci.com/gh/jesperancinha/itf-chartizate.svg?style=svg)](https://circleci.com/gh/jesperancinha/itf-chartizate)
 [![Build Status](https://travis-ci.org/jesperancinha/itf-chartizate.svg?branch=master)](https://travis-ci.org/jesperancinha/itf-chartizate)
+[![codebeat badge](https://codebeat.co/badges/38f795d1-c092-4aac-976d-ec193651cd49)](https://codebeat.co/projects/github-com-jesperancinha-itf-chartizate-master)
+[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/itf-chartizate?branch=master)](https://bettercodehub.com/)
+
+[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/itf-chartizate.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/itf-chartizate.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/itf-chartizate.svg)](#)
 
 Api  
 [![Download](https://api.bintray.com/packages/jesperancinha/itf/itf-chartizate-api/images/download.svg)](https://bintray.com/jesperancinha/itf/itf-chartizate-api/_latestVersion)  
