@@ -2,7 +2,7 @@ package org.jesperancinha.chartizate;
 
 import android.graphics.*;
 import android.util.Log;
-import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
+import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.io.InputStream;
 /**
  * @author joao
  */
-public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface, Object> {
+public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface, Bitmap> {
 
     private Bitmap bitmap;
 
@@ -47,7 +47,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     }
 
     @Override
-    public Object saveImage( //
+    public Bitmap saveImage( //
                              ChartizateCharacterImg<?>[][] chartizateCharacterImgs, //
                              ChartizateFontManager<Typeface> chartizateFontManager, //
                              String outputFile, //

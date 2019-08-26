@@ -2,8 +2,7 @@ package org.jesperancinha.chartizate;
 
 import android.app.Application;
 import android.graphics.Color;
-import android.test.ApplicationTestCase;
-import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
+import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.junit.Test;
 
 import java.io.File;

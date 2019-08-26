@@ -2,8 +2,9 @@ package org.jesperancinha.chartizate;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import com.jesperancinha.chartizate.distributions.ChartizateDistributionType;
-import com.jesperancinha.chartizate.objects.ChartizateCharacterImg;
+
+import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
+import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Type
     }
 
     @Override
-    public ChartizateImageManager<Integer, Typeface, Bitmap> createImageManager(InputStream inputStream) throws IOException {
+    public ChartizateImageManager<Integer, Typeface, Bitmap> createImageManager(InputStream inputStream) {
         return new ChartizateImageManagerImpl(inputStream);
     }
 

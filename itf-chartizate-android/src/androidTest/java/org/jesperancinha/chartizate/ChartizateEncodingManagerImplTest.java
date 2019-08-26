@@ -7,7 +7,7 @@ import junit.framework.TestCase;
  */
 public class ChartizateEncodingManagerImplTest extends TestCase {
 
-    public void testGetCharacterFullness() throws Exception {
+    public void testGetCharacterFullness() {
         final ChartizateFontManagerImpl fontManager = new ChartizateFontManagerImpl("Default", 10);
         final ChartizateEncodingManagerImpl encodingManager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A, fontManager);
 

@@ -33,12 +33,18 @@ To:
 $ git push --delete origin 2.0.0  
 $ git tag --delete 2.0.0
 
+```text
+export GPG_TTY=$(tty)
+gpg --keyserver hkp://keyserver.ubuntu.com --send-keys <your GPG key>
+```
+
 ## References
 
 *   [How to Upload an Open-Source Java Library to Maven Central](https://www.freecodecamp.org/news/how-to-upload-an-open-source-java-library-to-maven-central-cac7ce2f57c/)
+*   [Nexus Sonatype](https://oss.sonatype.org/#welcome)
+*   [Working with PGP Signatures](https://central.sonatype.org/pages/working-with-pgp-signatures.html)
 
 ---
-
 ---
 
 ### Deprecated
