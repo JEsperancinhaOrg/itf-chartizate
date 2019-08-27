@@ -236,7 +236,6 @@ public class ChartizateUnicodes {
      *
      * @return A list of all unicodes currently accepted in the latest version of the chartizate libraries
      */
-    @VisibleForTesting
     static List<Character.UnicodeBlock> getAllUniCodeBlocksJava() {
         final List<Character.UnicodeBlock> unicodeBlockList = new ArrayList<>();
         for (final String unicodeBlock : unicodeDesignationsJava) {

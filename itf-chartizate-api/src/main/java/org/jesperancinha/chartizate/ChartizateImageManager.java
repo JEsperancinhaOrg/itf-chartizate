@@ -1,19 +1,15 @@
 package org.jesperancinha.chartizate;
 
-import com.google.common.annotations.VisibleForTesting;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.IOException;
 
 public abstract class ChartizateImageManager<C, F, B> {
 
-    @VisibleForTesting
     abstract int getImageWidth();
 
-    @VisibleForTesting
     abstract int getImageHeight();
 
-    @VisibleForTesting
     abstract B saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
                          String outputFile, int outputWidth, int outputHeight) throws IOException;
 
@@ -47,21 +43,15 @@ public abstract class ChartizateImageManager<C, F, B> {
         return createColor(mediumApha, mediumRed, mediumGreen, mediumBlue);
     }
 
-    @VisibleForTesting
     abstract int getBlue(int rgbPixel);
 
-    @VisibleForTesting
     abstract int getGreen(int rgbPixel);
 
-    @VisibleForTesting
     abstract int getRed(int rgbPixel);
 
-    @VisibleForTesting
     abstract int getAlpha(int rgbPixel);
 
-    @VisibleForTesting
     abstract int getImagePixelRGB(int j, int k);
 
-    @VisibleForTesting
     abstract C createColor(int mediumApha, int mediumRed, int mediumGreen, int mediumBlue);
 }

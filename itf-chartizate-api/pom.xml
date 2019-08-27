@@ -3,12 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>itf-chartizate-api</artifactId>
     <name>Chartizate API</name>
+    <properties>
+        <maven-compiler-plugin-api.source>1.8</maven-compiler-plugin-api.source>
+        <maven-compiler-plugin-api.target>1.8</maven-compiler-plugin-api.target>
+        <maven-compiler-plugin.compilerVersion>1.8</maven-compiler-plugin.compilerVersion>
+    </properties>
     <packaging>jar</packaging>
     <parent>
         <groupId>org.jesperancinha.itf</groupId>
         <artifactId>itf-chartizate</artifactId>
         <!--suppress MavenPropertyInParent -->
-        <version>4.0.0</version>
+        <version>4.0.1-SNAPSHOT</version>
     </parent>
     <description>This is the API library to be used as an interface to be implemented by ITF libraries.</description>
     <url>https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-api</url>
@@ -84,6 +89,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <source>${maven-compiler-plugin-api.source}</source>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -126,10 +134,21 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${maven-compiler-plugin.source}</source>
-                    <target>${maven-compiler-plugin.target}</target>
+                    <source>${maven-compiler-plugin-api.source}</source>
+                    <target>${maven-compiler-plugin-api.target}</target>
                     <encoding>UTF-8</encoding>
-                </configuration>
+                        <compilerVersion>${maven-compiler-plugin.compilerVersion}</compilerVersion>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok-maven-plugin</artifactId>
+                                <version>${lombok-maven-plugin.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                        <compilerArgs>
+                            <arg>-Aproject=${groupId}/${artifactId}</arg>
+                        </compilerArgs>
+                    </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
@@ -152,24 +171,17 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.im4java</groupId>
-            <artifactId>im4java</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
         </dependency>
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

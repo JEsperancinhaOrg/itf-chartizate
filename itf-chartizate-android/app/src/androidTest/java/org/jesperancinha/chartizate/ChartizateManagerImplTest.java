@@ -1,29 +1,46 @@
 package org.jesperancinha.chartizate;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.support.test.runner.AndroidJUnit4;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+
+import androidx.test.runner.AndroidJUnit4;
 
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 
-import static android.support.test.InstrumentationRegistry.getContext;
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Created by joaofilipesabinoesperancinha on 11-02-16.
- */
 @RunWith(AndroidJUnit4.class)
 public class ChartizateManagerImplTest {
 
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
+
+    private File targetFile;
+
+    @Before
+    public void setUp() throws IOException {
+        targetFile = folder.newFile();
+    }
+
     @Test
     public void testGenerateConvertedImageCyanBlack() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.pencelizercyanblack);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.chartizatecyanblack);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream).isNotNull();
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -34,16 +51,16 @@ public class ChartizateManagerImplTest {
                 5,
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 imageFullStream,
-                new File(getContext().getCacheDir().getAbsolutePath(), "testCyanBlue.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageRealExample1() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample1);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -54,16 +71,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testRealExample1.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageRealExample1Red() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample1);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.RED,
@@ -74,7 +91,7 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testRealExample1Red.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
@@ -82,9 +99,9 @@ public class ChartizateManagerImplTest {
 
     @Test
     public void testGenerateConvertedImageLatinRealexample2() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -95,16 +112,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testrealexample2Latin.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageArabicRealexample2() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -115,16 +132,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.ARABIC,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testrealexample2Arabic.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageHebrewRealexample2() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -135,16 +152,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.HEBREW,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testrealexample2Hebrew.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageSyriacRealexample2() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -155,16 +172,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.SYRIAC,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testrealexample2Syriac.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageSamaritanRealexample2() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -175,16 +192,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.SAMARITAN,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testrealexample2Samaritan.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageMandaicRealexample2() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -195,16 +212,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.MANDAIC,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testrealexample2Mandaic.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageThaanaRealexample2() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample2);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -215,16 +232,16 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.THAANA,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testrealexample2Thaana.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
     }
 
     @Test
     public void testGenerateConvertedImageRealExample1DensityFail1() throws Exception {
-        final InputStream imageFullStream = getContext().getResources().openRawResource(R.raw.realexample1);
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample1);
 
-        assertNotNull(imageFullStream);
+        assertThat(imageFullStream);
 
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
                 Color.BLACK,
@@ -235,8 +252,19 @@ public class ChartizateManagerImplTest {
                 20,
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 imageFullStream,
-                new File(getContext().getCacheDir(), "testRealExample1.png").getAbsolutePath()
+                targetFile.getAbsolutePath()
         );
         manager.generateConvertedImage();
+    }
+
+    private ByteArrayInputStream getByteArrayInputStreamFromResource(int resource) {
+        final Context appContext = androidx.test.InstrumentationRegistry.getTargetContext();
+        final Drawable drawable = appContext.getDrawable(resource);
+        assertThat(drawable).isNotNull();
+        final Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+        final ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, bos);
+        final byte[] bitmapdata = bos.toByteArray();
+        return new ByteArrayInputStream(bitmapdata);
     }
 }

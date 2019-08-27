@@ -1,9 +1,9 @@
 package org.jesperancinha.chartizate.objects;
 
-import static org.fusesource.jansi.Ansi.ansi;
-
 import org.fusesource.jansi.Ansi.Color;
 import org.fusesource.jansi.AnsiConsole;
+
+import static org.fusesource.jansi.Ansi.ansi;
 
 /**
  * @author joao Manages a specific character

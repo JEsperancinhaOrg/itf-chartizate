@@ -1,7 +1,5 @@
 package org.jesperancinha.chartizate;
 
-import com.google.common.annotations.VisibleForTesting;
-
 import java.lang.Character.UnicodeBlock;
 import java.util.Comparator;
 import java.util.Set;
@@ -20,10 +18,8 @@ abstract class ChartizateEncodingManager<F> {
         this.fontManager = fontManager;
     }
 
-    @VisibleForTesting
     abstract int getCharacterFullness(Character character);
 
-    @VisibleForTesting
     abstract Character[] getCharacters();
 
     protected int computeFullness(double fullNess, double total) {
@@ -43,7 +39,6 @@ abstract class ChartizateEncodingManager<F> {
         };
     }
 
-    @VisibleForTesting
     void init() {
         for (int codePoint = Character.MIN_CODE_POINT; codePoint <= Character.MAX_CODE_POINT; codePoint++) {
             if (block == UnicodeBlock.of(codePoint)) {
@@ -56,5 +51,5 @@ abstract class ChartizateEncodingManager<F> {
             }
         }
         characters = orderedCharacters.toArray(new Character[0]);
-    } //
+    }
 }

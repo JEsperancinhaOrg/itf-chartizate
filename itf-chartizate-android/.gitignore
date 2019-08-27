@@ -2,6 +2,7 @@
 .gradle
 /local.properties
 /.idea/workspace.xml
+/.idea/caches
 /.idea/libraries
 .DS_Store
 /build
@@ -43,8 +44,11 @@ cat: cat: No such file or directory
 *.iml
 .gradle
 /local.properties
+/.idea/modules.xml
 /.idea/workspace.xml
 /.idea/libraries
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
 .DS_Store
 /build
 /captures
@@ -92,3 +96,4 @@ local.properties
 .idea/vcs.xml
 chartizate-text-writer-android.iml
 
+.externalNativeBuild

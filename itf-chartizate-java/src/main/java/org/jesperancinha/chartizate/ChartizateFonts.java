@@ -17,7 +17,6 @@ class ChartizateFonts {
      *
      * @return List of all available Fonts
      */
-    @VisibleForTesting
     static List<String> getAllAvailableFonts() {
         return Arrays.asList(GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames());
     }

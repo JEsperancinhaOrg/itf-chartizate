@@ -12,8 +12,8 @@ public class ChartizateEncodingManagerImplTest extends TestCase {
         final ChartizateEncodingManagerImpl encodingManager = new ChartizateEncodingManagerImpl(Character.UnicodeBlock.LATIN_EXTENDED_A, fontManager);
 
         assertEquals(33, encodingManager.getCharacterFullness('.'));
-        assertEquals(342, encodingManager.getCharacterFullness('O'));
-        assertEquals(300, encodingManager.getCharacterFullness('0'));
+        assertEquals(228, encodingManager.getCharacterFullness('O'));
+        assertEquals(216, encodingManager.getCharacterFullness('0'));
     }
 
 }

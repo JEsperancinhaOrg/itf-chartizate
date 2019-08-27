@@ -1,83 +1,29 @@
-apply plugin: 'com.android.library'
-
-group = 'org.jesperancinha.itf'
-version = '4.0.0'
-
-dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'junit:junit:4.12'
-    implementation 'org.jesperancinha.itf:itf-chartizate-api:4.0.0'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-}
-
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
-        jcenter()
         google()
+        jcenter()
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath 'org.jesperancinha.itf:itf-chartizate-api:4.0.0'
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
-
-repositories {
-    mavenCentral()
-}
-
-android {
-    compileSdkVersion 29
-
-    defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "2.0.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_11
-    }
-}
-
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
-
-task generateJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath()
-            .join(File.pathSeparator))
-}
-
-task generateJavadocsJar(type: Jar) {
-    from generateJavadocs.destinationDir
-    classifier 'javadoc'
-}
-
-generateJavadocsJar.dependsOn generateJavadocs
-
 
 allprojects {
     repositories {
-        jcenter()
         mavenLocal()
+        mavenCentral()
         google()
+        jcenter()
+
     }
 }
 
-artifacts {
-    archives generateJavadocsJar
-    archives generateSourcesJar
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

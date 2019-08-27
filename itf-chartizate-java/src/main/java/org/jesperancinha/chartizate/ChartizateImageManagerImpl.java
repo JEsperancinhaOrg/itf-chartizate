@@ -1,24 +1,21 @@
 package org.jesperancinha.chartizate;
 
-import com.google.common.annotations.VisibleForTesting;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import javax.imageio.ImageIO;
 
 public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Font, BufferedImage> {
 
     private BufferedImage srcImage;
 
-    @VisibleForTesting
     ChartizateImageManagerImpl() {
         // For testing purposes only
     }
 
-    @VisibleForTesting
     ChartizateImageManagerImpl(InputStream io) throws IOException {
         this.srcImage = ImageIO.read(io);
     }

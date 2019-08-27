@@ -1,34 +1,34 @@
 package org.jesperancinha.chartizate.objects;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ChartizateCharacterImgTest {
 
     @Test
     public void testGetBg() throws Exception {
         final ChartizateCharacterImg<Color> character = new ChartizateCharacterImg<>(null, Color.BLACK, 0, ' ');
-        assertEquals(Color.BLACK, character.getBg());
+        assertThat(character.getBg()).isEqualTo(Color.BLACK);
     }
 
     @Test
     public void testGetFg() throws Exception {
         final ChartizateCharacterImg<Color> character = new ChartizateCharacterImg<>(Color.BLACK, null, 0, ' ');
-        assertEquals(Color.BLACK, character.getFg());
+        assertThat(character.getFg()).isEqualTo(Color.BLACK);
     }
 
     @Test
     public void testGetCharacter() throws Exception {
         final ChartizateCharacterImg<Color> character = new ChartizateCharacterImg<>(Color.BLACK, null, 0, ' ');
-        assertEquals(' ', character.getCharacter());
+        assertThat(character.getCharacter()).isEqualTo(' ');
     }
 
     @Test
     public void testGetWidth() throws Exception {
         final ChartizateCharacterImg<Color> character = new ChartizateCharacterImg<>(null, null, 500, ' ');
-        assertEquals(500, character.getWidth());
+        assertThat(character.getWidth()).isEqualTo(500);
     }
 }
