@@ -1,23 +1,23 @@
 package org.jesperancinha.chartizate;
 
-import android.app.Application;
 import android.graphics.Color;
+import android.support.test.runner.AndroidJUnit4;
+
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.io.InputStream;
 
+import static android.support.test.InstrumentationRegistry.getContext;
 import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by joaofilipesabinoesperancinha on 11-02-16.
  */
-public class ChartizateManagerImplTest extends ApplicationTestCase<Application> {
-    public ChartizateManagerImplTest() {
-        super(Application.class);
-    }
-
+@RunWith(AndroidJUnit4.class)
+public class ChartizateManagerImplTest {
 
     @Test
     public void testGenerateConvertedImageCyanBlack() throws Exception {

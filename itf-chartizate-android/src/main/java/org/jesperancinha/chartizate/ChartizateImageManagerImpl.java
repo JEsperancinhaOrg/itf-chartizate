@@ -78,7 +78,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
 
         final FileOutputStream out = new FileOutputStream(outputFile);
         if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) {
-            Log.i("File", outputFile + " is saved");
+            Log.i("File", outputFile.concat(" is saved"));
         }
         return bitmap;
     }
