@@ -36,6 +36,7 @@ gpg --keyserver hkp://keyserver.ubuntu.com --send-keys <your GPG key>
 
 ## References
 
+*   [Sign and publish on Maven Central a Project with the new maven-publish Gradle plugin](https://medium.com/@nmauti/sign-and-publish-on-maven-central-a-project-with-the-new-maven-publish-gradle-plugin-22a72a4bfd4b)
 *   [How to Upload an Open-Source Java Library to Maven Central](https://www.freecodecamp.org/news/how-to-upload-an-open-source-java-library-to-maven-central-cac7ce2f57c/)
 *   [Nexus Sonatype](https://oss.sonatype.org/#welcome)
 *   [Working with PGP Signatures](https://central.sonatype.org/pages/working-with-pgp-signatures.html)
