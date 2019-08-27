@@ -3,12 +3,29 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>itf-chartizate-java</artifactId>
     <packaging>jar</packaging>
+    <name>Chartizate Java Implementation</name>
     <parent>
         <groupId>org.jesperancinha.itf</groupId>
         <artifactId>itf-chartizate</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>4.0.0</version>
     </parent>
+    <description>This is the API library to be used as an interface to be implemented by ITF libraries.</description>
+    <url>https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-api</url>
+    <licenses>
+        <license>
+            <name>Apache License</name>
+            <url>https://opensource.org/licenses/Apache-2.0</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>João Filipe Sabino Esperancinha</name>
+            <email>jofisaes@gmail.com</email>
+            <organization>jesperancinha.org</organization>
+            <organizationUrl>http://joaofilipesabinoesperancinha.nl/</organizationUrl>
+        </developer>
+    </developers>
     <scm>
         <connection>scm:git:https://github.com/jesperancinha/itf-chartizate-java.git</connection>
         <developerConnection>scm:git:git@github.com:jesperancinha/itf-chartizate-java.git</developerConnection>
@@ -16,10 +33,13 @@
         <tag>${revision}</tag>
     </scm>
     <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <id>bintray-jesperancinha-itf</id>
-            <name>jesperancinha-itf</name>
-            <url>https://api.bintray.com/maven/jesperancinha/itf/itf-chartizate-java/;publish=1</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
     <profiles>
@@ -28,23 +48,15 @@
             <build>
                 <plugins>
                     <plugin>
-                        <artifactId>maven-source-plugin</artifactId>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
                         <executions>
                             <execution>
-                                <id>attach-sources</id>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
                                 <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
+                                    <goal>sign</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -56,12 +68,40 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${maven-release-plugin.version}</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
                 </configuration>
             </plugin>
             <plugin>
@@ -92,41 +132,21 @@
                 </configuration>
             </plugin>
             <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+                <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.version}</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-executable-jar-with-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <addClasspath>true</addClasspath>
-                                    <mainClass>com.jesperancinha.chartizate.PencelizerManager</mainClass>
-                                </manifest>
-                            </archive>
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

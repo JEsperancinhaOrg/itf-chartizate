@@ -2,6 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>itf-chartizate-api</artifactId>
+    <name>Chartizate API</name>
     <packaging>jar</packaging>
     <parent>
         <groupId>org.jesperancinha.itf</groupId>
@@ -32,11 +33,6 @@
         <tag>${revision}</tag>
     </scm>
     <distributionManagement>
-        <!--        <repository>-->
-        <!--            <id>bintray-jesperancinha-itf</id>-->
-        <!--            <name>jesperancinha-itf</name>-->
-        <!--            <url>https://api.bintray.com/maven/jesperancinha/itf/itf-chartizate-api/;publish=1</url>-->
-        <!--        </repository>-->
         <snapshotRepository>
             <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -46,7 +42,6 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
     <profiles>
         <profile>
             <id>release</id>

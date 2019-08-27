@@ -28,11 +28,11 @@ public class ChartizateFontManagerImpl extends ChartizateFontManager<Typeface> {
     }
 
     public static List<String> getAllFontTypes() {
-        return Arrays.asList(new String[]{ //
-                "Default", //
-                "Monospace", //
-                "Sans serif", //
-                "Serif" //
+        return Arrays.asList(new String[]{
+                "Default",
+                "Monospace",
+                "Sans serif",
+                "Serif"
         });
     }
 

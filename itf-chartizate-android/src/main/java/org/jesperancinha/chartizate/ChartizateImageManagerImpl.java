@@ -47,12 +47,12 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     }
 
     @Override
-    public Bitmap saveImage( //
-                             ChartizateCharacterImg<?>[][] chartizateCharacterImgs, //
-                             ChartizateFontManager<Typeface> chartizateFontManager, //
-                             String outputFile, //
-                             int outputWidth, //
-                             int outputHeight //
+    public Bitmap saveImage(
+                             ChartizateCharacterImg<?>[][] chartizateCharacterImgs,
+                             ChartizateFontManager<Typeface> chartizateFontManager,
+                             String outputFile,
+                             int outputWidth,
+                             int outputHeight
     ) throws IOException {
 
         final Bitmap bitmap = Bitmap.createBitmap(outputWidth, outputHeight, Bitmap.Config.RGB_565);
@@ -77,7 +77,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
 
 
         final FileOutputStream out = new FileOutputStream(outputFile);
-        if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) { //
+        if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) {
             Log.i("File", outputFile + " is saved");
         }
         return bitmap;

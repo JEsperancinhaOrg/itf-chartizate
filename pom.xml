@@ -3,18 +3,38 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jesperancinha.itf</groupId>
     <artifactId>itf-chartizate</artifactId>
+    <name>Chartizate parent POM</name>
     <version>4.0.0</version>
+    <description>Parent pom of the chartizate libraries.</description>
+    <url>https://github.com/jesperancinha/itf-chartizate</url>
+    <licenses>
+        <license>
+            <name>Apache License</name>
+            <url>https://opensource.org/licenses/Apache-2.0</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>João Filipe Sabino Esperancinha</name>
+            <email>jofisaes@gmail.com</email>
+            <organization>jesperancinha.org</organization>
+            <organizationUrl>http://joaofilipesabinoesperancinha.nl/</organizationUrl>
+        </developer>
+    </developers>
     <scm>
         <connection>scm:git:https://github.com/jesperancinha/itf-chartizate.git</connection>
         <developerConnection>scm:git:git@github.com:jesperancinha/itf-chartizate.git</developerConnection>
         <url>https://github.com/jesperancinha/itf-chartizate</url>
-        <tag>${revision}</tag>
+        <tag>4.0.0</tag>
     </scm>
     <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <id>bintray-jesperancinha-itf</id>
-            <name>jesperancinha-itf</name>
-            <url>https://api.bintray.com/maven/jesperancinha/itf/itf-chartizate/;publish=1</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
     <properties>
@@ -41,14 +61,84 @@
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     </properties>
     <packaging>pom</packaging>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${maven-compiler-plugin.source}</source>
                     <target>${maven-compiler-plugin.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+                <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
             <plugin>
@@ -117,7 +207,6 @@
         </dependencies>
     </dependencyManagement>
     <modules>
-        <module>itf-chartizate-api</module>
         <module>itf-chartizate-java</module>
     </modules>
 </project>
