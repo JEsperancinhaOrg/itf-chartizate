@@ -1,6 +1,6 @@
 # ITF Chartizate Java
 
-![Maven Central](https://img.shields.io/maven-central/v/org.jesperancinha.itf/itf-chartizate-java)
+[![Maven Central](https://img.shields.io/maven-central/v/org.jesperancinha.itf/itf-chartizate-java)](https://search.maven.org/search?q=a:itf-chartizate-java)
 
 ## Description
 
