@@ -1,5 +1,0 @@
-<server>
-    <id>bintray</id>
-    <username>{bintray-user}</username>
-    <password>{bintray-api-key}</password>
-</server>

@@ -12,6 +12,23 @@ Deprecated
 
 ITF library for android
 
+## Buid
+
+```text
+./gradlew assemble -x signArchives
+
+./gradlew uploadArchives
+```
+
+## gradle.properties
+
+```text
+signing.keyId=<keyId>
+signing.password=<password>
+ 
+sonatypeUsername=<username>
+sonatypePassword=<password>
+```
 ## License
 
 ```text

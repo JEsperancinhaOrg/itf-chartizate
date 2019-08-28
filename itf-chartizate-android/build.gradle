@@ -1,4 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
 buildscript {
     repositories {
         mavenLocal()
@@ -24,6 +28,82 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier "javadoc"
+    from javadoc.destinationDir
+}
+
+task sourceJar(type: Jar) {
+    classifier "sources"
+    from sourceSets.main.allJava
+}
+
+group = 'org.jesperancinha.itf'
+archivesBaseName = 'itf-chartizate-android'
+version = '4.1.0'
+
+
+
+artifacts {
+    archives sourceJar, javadocJar
+}
+
+// Build, sign, and upload
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+            // Sign POM
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            // Destination
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            // Add required metadata to POM
+            pom.project {
+                description 'Chartizate for Android'
+                name 'Chartizate Android Implementation'
+                url 'https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-android'
+                organization {
+                    name 'João Esperancinha'
+                    url 'http://joaofilipesabinoesperancinha.nl/'
+                }
+                issueManagement {
+                    system 'GitHub'
+                    url 'https://github.com/jesperancinha/itf-chartizate/issues'
+                }
+                licenses {
+                    license {
+                        name 'Apache License 2.0'
+                        url 'https://github.com/jesperancinha/itf-chartizate/blob/master/itf-chartizate-android/LICENSE'
+                        distribution 'repo'
+                    }
+                }
+                scm {
+                    connection 'scm:git:https://github.com/jesperancinha/itf-chartizate.git'
+                    developerConnection 'scm:git:https://github.com/jesperancinha/itf-chartizate.git'
+                    url 'https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-android'
+                    tag '4.1.0'
+                }
+                developers {
+                    developer {
+                        name 'João Filipe Sabino Esperancinha'
+                        email 'jofisaes@gmail.com'
+                        organization 'jesperancinha.org'
+                        organizationUrl 'http://joaofilipesabinoesperancinha.nl/'
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign configurations.archives
+
 }

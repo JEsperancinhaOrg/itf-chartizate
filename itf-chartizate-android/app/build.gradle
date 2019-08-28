@@ -35,7 +35,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'junit:junit:4.12'
     implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'org.jesperancinha.itf:itf-chartizate-api:4.0.1-SNAPSHOT'
+    implementation 'org.jesperancinha.itf:itf-chartizate-api:4.1.0'
     androidTestImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.5.1'
     androidTestImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
     androidTestImplementation 'androidx.test:runner:1.2.0'

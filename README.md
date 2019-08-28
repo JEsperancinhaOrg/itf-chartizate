@@ -32,10 +32,12 @@ $ git tag --delete 2.0.0
 ```text
 export GPG_TTY=$(tty)
 gpg --keyserver hkp://keyserver.ubuntu.com --send-keys <your GPG key>
+gpg --list-keys
 ```
 
 ## References
 
+*   [Publish a Java Project to Maven Central with Gradle](http://weibeld.net/java/publish-to-maven-central.html)
 *   [Sign and publish on Maven Central a Project with the new maven-publish Gradle plugin](https://medium.com/@nmauti/sign-and-publish-on-maven-central-a-project-with-the-new-maven-publish-gradle-plugin-22a72a4bfd4b)
 *   [How to Upload an Open-Source Java Library to Maven Central](https://www.freecodecamp.org/news/how-to-upload-an-open-source-java-library-to-maven-central-cac7ce2f57c/)
 *   [Nexus Sonatype](https://oss.sonatype.org/#welcome)
