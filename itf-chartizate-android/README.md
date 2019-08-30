@@ -15,9 +15,11 @@ ITF library for android
 ## Buid
 
 ```text
+gpg --keyring secring.gpg --export-secret-keys > ~/.gnupg/secring.gpg
+
 ./gradlew assemble -x signArchives
 
-./gradlew uploadArchives
+./gradlew assemble -x signArchives uploadArchives
 ```
 
 ## gradle.properties

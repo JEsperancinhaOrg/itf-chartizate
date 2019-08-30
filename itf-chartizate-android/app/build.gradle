@@ -1,4 +1,19 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'maven'
+    id 'maven-publish'
+    id 'signing'
+    id 'com.android.application'
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        jcenter()
+
+    }
+}
 
 android {
     compileSdkVersion 29
@@ -43,4 +58,109 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+}
+
+// build a jar with source files
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+}
+
+// build a jar with javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+if (project.hasProperty("signing.keyId")) {
+    signing {
+        sign configurations.archives
+    }
+}
+
+group = 'org.jesperancinha'
+version = '4.1.0'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'itf-chartizate-android'
+//             from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                description = 'Chartizate for Android'
+                name = 'Chartizate Android Implementation'
+                url = 'https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-android'
+                organization {
+                    name = 'João Esperancinha'
+                    url = 'http://joaofilipesabinoesperancinha.nl/'
+                }
+                issueManagement {
+                    system = 'GitHub'
+                    url = 'https://github.com/jesperancinha/itf-chartizate/issues'
+                }
+                licenses {
+                    license {
+                        name = 'Apache License 2.0'
+                        url = 'https://github.com/jesperancinha/itf-chartizate/blob/master/itf-chartizate-android/LICENSE'
+                        distribution = 'repo'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/jesperancinha/itf-chartizate.git'
+                    developerConnection = 'scm:git:https://github.com/jesperancinha/itf-chartizate.git'
+                    url = 'https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-android'
+                    tag = '4.1.0'
+                }
+                developers {
+                    developer {
+                        name = 'João Filipe Sabino Esperancinha'
+                        email = 'jofisaes@gmail.com'
+                        organization = 'jesperancinha.org'
+                        organizationUrl = 'http://joaofilipesabinoesperancinha.nl/'
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            // change URLs to point to your repos, e.g. http://my.org/repo
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username = sonatypeUsername
+                password = sonatypePassword
+            }
+        }
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+        }
+    }
 }
