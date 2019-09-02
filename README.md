@@ -30,13 +30,16 @@ $ git push --delete origin 2.0.0
 $ git tag --delete 2.0.0
 
 ```text
-export GPG_TTY=$(tty)
 gpg --keyserver hkp://keyserver.ubuntu.com --send-keys <your GPG key>
 gpg --list-keys
+export GPG_TTY=$(tty)
+mvn clean deploy -Prelease
+mvn nexus-staging:release  -Prelease
 ```
 
 ## References
-
+*   [Publish java library to JFrog Bintray and OSS Sonatype with Gradle](https://medium.com/@rosolko/publish-java-library-to-jfrog-bintray-and-sonatype-with-gradle-1a3ebd5b8be8)
+*   [Enjoy Bintray and use it as pain-free gateway to Maven Central](https://blog.bintray.com/2014/02/11/bintray-as-pain-free-gateway-to-maven-central/)
 *   [Android Library Publishing Maven Artifacts via gradle](https://gist.github.com/danielesegato/3ea6f99c968ce0b795c5390844ad4ff7)
 *   [Gradle generate javadoc for Android](https://gist.github.com/kibotu/994c9cc65fe623b76b76fedfac74b34b)
 *   [A Complete Guide to Create and Publish an Android Library to Maven Central](https://medium.com/@zubairehman.work/a-complete-guide-to-create-and-publish-an-android-library-to-maven-central-6eef186a42f5)

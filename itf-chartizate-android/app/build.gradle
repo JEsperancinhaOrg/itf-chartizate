@@ -1,8 +1,8 @@
 plugins {
+    id 'com.android.application'
     id 'maven'
     id 'maven-publish'
     id 'signing'
-    id 'com.android.application'
 }
 
 allprojects {
@@ -60,107 +60,123 @@ dependencies {
     })
 }
 
-// build a jar with source files
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
+def isReleaseBuild() {
+    return !VERSION_NAME.contains("SNAPSHOT");
 }
 
-task javadoc(type: Javadoc) {
-    failOnError false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-// build a jar with javadoc
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-if (project.hasProperty("signing.keyId")) {
-    signing {
-        sign configurations.archives
+def getReleaseRepositoryUrl() {
+    println "Reading Maven repository Release URL from gradle.properties 'RELEASE_REPOSITORY_URL'"
+    if (hasProperty('RELEASE_REPOSITORY_URL')) {
+        return RELEASE_REPOSITORY_URL;
     }
+    throw new InvalidUserDataException("RELEASE_REPOSITORY_URL is not defined");
 }
 
-group = 'org.jesperancinha'
-version = '4.1.0'
+def getSnapshotRepositoryUrl() {
+    println "Reading Maven repository Snapshot URL from gradle.properties 'SNAPSHOT_REPOSITORY_URL'"
+    if (hasProperty('SNAPSHOT_REPOSITORY_URL')) {
+        return SNAPSHOT_REPOSITORY_URL;
+    }
+    throw new InvalidUserDataException("SNAPSHOT_REPOSITORY_URL is not defined");
+}
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'itf-chartizate-android'
-//             from components.java
-            artifact sourcesJar
-            artifact javadocJar
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
+def getRepositoryUsername() {
+    println "Reading Maven repository username from gradle.properties 'mavenRepositoryUsername'"
+    if (hasProperty('mavenRepositoryUsername')) {
+        return mavenRepositoryUsername;
+    }
+    throw new InvalidUserDataException("mavenRepositoryUsername is not defined, check your user ~/.gradle/gradle.properties file");
+}
+
+def getRepositoryPassword() {
+    println "Reading Maven repository password from gradle.properties 'mavenRepositoryPassword'"
+    if (hasProperty('mavenRepositoryPassword')) {
+        return mavenRepositoryPassword;
+    }
+    throw new InvalidUserDataException("mavenRepositoryPassword is not defined, check your user ~/.gradle/gradle.properties file");
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+signing {
+    required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+    sign publishing.publications
+}
+
+afterEvaluate { project ->
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+                pom.groupId = GROUP
+                pom.artifactId = POM_ARTIFACT_ID
+                pom.version = VERSION_NAME
+
+                repository(url: getReleaseRepositoryUrl()) {
+                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
                 }
-                usage('java-runtime') {
-                    fromResolutionResult()
+                snapshotRepository(url: getSnapshotRepositoryUrl()) {
+                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
                 }
-            }
-            pom {
-                description = 'Chartizate for Android'
-                name = 'Chartizate Android Implementation'
-                url = 'https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-android'
-                organization {
-                    name = 'João Esperancinha'
-                    url = 'http://joaofilipesabinoesperancinha.nl/'
-                }
-                issueManagement {
-                    system = 'GitHub'
-                    url = 'https://github.com/jesperancinha/itf-chartizate/issues'
-                }
-                licenses {
-                    license {
-                        name = 'Apache License 2.0'
-                        url = 'https://github.com/jesperancinha/itf-chartizate/blob/master/itf-chartizate-android/LICENSE'
-                        distribution = 'repo'
+
+                pom.project {
+                    name POM_NAME
+                    packaging POM_PACKAGING
+                    description POM_DESCRIPTION
+                    url POM_URL
+
+                    scm {
+                        url POM_SCM_URL
+                        connection POM_SCM_CONNECTION
+                        developerConnection POM_SCM_DEV_CONNECTION
+                    }
+
+                    licenses {
+                        license {
+                            name POM_LICENCE_NAME
+                            url POM_LICENCE_URL
+                            distribution POM_LICENCE_DIST
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id POM_DEVELOPER_ID
+                            name POM_DEVELOPER_NAME
+                        }
                     }
                 }
-                scm {
-                    connection = 'scm:git:https://github.com/jesperancinha/itf-chartizate.git'
-                    developerConnection = 'scm:git:https://github.com/jesperancinha/itf-chartizate.git'
-                    url = 'https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-android'
-                    tag = '4.1.0'
-                }
-                developers {
-                    developer {
-                        name = 'João Filipe Sabino Esperancinha'
-                        email = 'jofisaes@gmail.com'
-                        organization = 'jesperancinha.org'
-                        organizationUrl = 'http://joaofilipesabinoesperancinha.nl/'
-                    }
-                }
             }
         }
     }
-    repositories {
-        maven {
-            // change URLs to point to your repos, e.g. http://my.org/repo
-            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            credentials {
-                username = sonatypeUsername
-                password = sonatypePassword
-            }
-        }
-    }
-}
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-        }
+    task androidJavadocs(type: Javadoc) {
+        // execute only if I'm publishing on maven
+        onlyIf { gradle.taskGraph.hasTask(uploadArchives) }
+
+        // all the sources of the current module
+//        source = android.sourceSets.main.java.srcDirs
+        // the Android SDK classpath
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        // all the dependencies classpaths
+        classpath += configurations.compile
+    }
+
+    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+        classifier = 'javadoc'
+        from androidJavadocs.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        from android.sourceSets.main.java.sourceFiles
+    }
+
+    artifacts {
+        archives androidSourcesJar, androidJavadocsJar
     }
 }
