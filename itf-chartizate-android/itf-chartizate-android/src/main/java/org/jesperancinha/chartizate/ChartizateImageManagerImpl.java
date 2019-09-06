@@ -48,11 +48,11 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
 
     @Override
     public Bitmap saveImage(
-                             ChartizateCharacterImg<?>[][] chartizateCharacterImgs,
-                             ChartizateFontManager<Typeface> chartizateFontManager,
-                             String outputFile,
-                             int outputWidth,
-                             int outputHeight
+            ChartizateCharacterImg<?>[][] chartizateCharacterImgs,
+            ChartizateFontManager<Typeface> chartizateFontManager,
+            String outputFile,
+            int outputWidth,
+            int outputHeight
     ) throws IOException {
 
         final Bitmap bitmap = Bitmap.createBitmap(outputWidth, outputHeight, Bitmap.Config.RGB_565);

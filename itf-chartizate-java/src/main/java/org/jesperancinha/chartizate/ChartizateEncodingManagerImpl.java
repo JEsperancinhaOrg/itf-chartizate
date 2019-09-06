@@ -1,9 +1,9 @@
 package org.jesperancinha.chartizate;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.lang.Character.UnicodeBlock;
-import javax.swing.*;
 
 public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Font> {
 

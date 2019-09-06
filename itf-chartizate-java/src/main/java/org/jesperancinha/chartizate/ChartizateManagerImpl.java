@@ -30,25 +30,25 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font, 
      * @throws IOException
      */
     public ChartizateManagerImpl(
-        final Color backgroundColor,
-        final int densityPercentage,
-        final int rangePercentage,
-        final ChartizateDistributionType distributionType,
-        final String fontName,
-        final int fontSize,
-        final UnicodeBlock block,
-        final InputStream imageFullStream,
-        final String destinationImagePath
+            final Color backgroundColor,
+            final int densityPercentage,
+            final int rangePercentage,
+            final ChartizateDistributionType distributionType,
+            final String fontName,
+            final int fontSize,
+            final UnicodeBlock block,
+            final InputStream imageFullStream,
+            final String destinationImagePath
     ) throws FileNotFoundException, IOException {
         super(backgroundColor,
-            densityPercentage,
-            rangePercentage,
-            distributionType,
-            fontName,
-            fontSize,
-            block,
-            imageFullStream,
-            destinationImagePath
+                densityPercentage,
+                rangePercentage,
+                distributionType,
+                fontName,
+                fontSize,
+                block,
+                imageFullStream,
+                destinationImagePath
         );
     }
 
@@ -68,24 +68,24 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font, 
      * @throws IOException
      */
     public ChartizateManagerImpl(
-        final Color backgroundColor,
-        final int densityPercentage,
-        final int rangePercentage,
-        final ChartizateDistributionType distributionType,
-        final String fontName,
-        final int fontSize,
-        final UnicodeBlock block,
-        final InputStream imageFullStream
+            final Color backgroundColor,
+            final int densityPercentage,
+            final int rangePercentage,
+            final ChartizateDistributionType distributionType,
+            final String fontName,
+            final int fontSize,
+            final UnicodeBlock block,
+            final InputStream imageFullStream
     ) throws FileNotFoundException, IOException {
         super(backgroundColor,
-            densityPercentage,
-            rangePercentage,
-            distributionType,
-            fontName,
-            fontSize,
-            block,
-            imageFullStream,
-            null
+                densityPercentage,
+                rangePercentage,
+                distributionType,
+                fontName,
+                fontSize,
+                block,
+                imageFullStream,
+                null
         );
     }
 
@@ -103,7 +103,7 @@ public class ChartizateManagerImpl extends ChartizateManagerCommon<Color, Font, 
 
     @Override
     protected ChartizateImageManagerImpl createImageManager(
-        final InputStream imageFullStream) throws IOException {
+            final InputStream imageFullStream) throws IOException {
         return new ChartizateImageManagerImpl(imageFullStream);
     }
 

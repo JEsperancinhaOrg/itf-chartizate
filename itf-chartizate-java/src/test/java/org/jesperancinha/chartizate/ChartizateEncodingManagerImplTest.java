@@ -1,10 +1,10 @@
 package org.jesperancinha.chartizate;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import org.junit.Test;
 
 import java.awt.*;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class ChartizateEncodingManagerImplTest {
 
@@ -20,8 +20,8 @@ public class ChartizateEncodingManagerImplTest {
     public void testInit_Latin_Visual_Density_Test() {
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManagerImpl manager = new ChartizateEncodingManagerImpl(
-            Character.UnicodeBlock.LATIN_EXTENDED_A,
-            fontManager);
+                Character.UnicodeBlock.LATIN_EXTENDED_A,
+                fontManager);
         manager.init();
         assertThat(manager.getCharacters()).isNotNull();
         assertThat(manager.getCharacters()).isNotEmpty();
@@ -31,8 +31,8 @@ public class ChartizateEncodingManagerImplTest {
     public void testGetCharacterFullness_H() {
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
-            Character.UnicodeBlock.LATIN_EXTENDED_A,
-            fontManager) {
+                Character.UnicodeBlock.LATIN_EXTENDED_A,
+                fontManager) {
             @Override
             protected int getMaximumHeight() {
                 return 10;
@@ -47,8 +47,8 @@ public class ChartizateEncodingManagerImplTest {
     public void testGetCharacterFullness_Special_Z() {
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
-            Character.UnicodeBlock.LATIN_EXTENDED_A,
-            fontManager) {
+                Character.UnicodeBlock.LATIN_EXTENDED_A,
+                fontManager) {
             @Override
             protected int getMaximumHeight() {
                 return 10;
@@ -62,8 +62,8 @@ public class ChartizateEncodingManagerImplTest {
     public void testGetCharacterFullness_Special_L() {
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
-            Character.UnicodeBlock.LATIN_EXTENDED_A,
-            fontManager) {
+                Character.UnicodeBlock.LATIN_EXTENDED_A,
+                fontManager) {
             @Override
             protected int getMaximumHeight() {
                 return 10;
@@ -77,8 +77,8 @@ public class ChartizateEncodingManagerImplTest {
     public void testGetCharacterFullness_Special_W() {
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
-            Character.UnicodeBlock.LATIN_EXTENDED_A,
-            fontManager) {
+                Character.UnicodeBlock.LATIN_EXTENDED_A,
+                fontManager) {
             @Override
             protected int getMaximumHeight() {
                 return 10;

@@ -1,13 +1,13 @@
 package org.jesperancinha.chartizate;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear;
-
 import org.junit.Test;
 
 import java.awt.*;
 import java.io.InputStream;
 import java.lang.Character.UnicodeBlock;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear;
 
 
 public class ChartizateManagerImplTest {
@@ -17,15 +17,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            new Color(15280682),
-            50,
-            10,
-            Linear,
-            "Arial",
-            5,
-            UnicodeBlock.LATIN_EXTENDED_A,
-            imageFullStream,
-            "/tmp/testCyanCustom.png"
+                new Color(15280682),
+                50,
+                10,
+                Linear,
+                "Arial",
+                5,
+                UnicodeBlock.LATIN_EXTENDED_A,
+                imageFullStream,
+                "/tmp/testCyanCustom.png"
         );
 
         manager.generateConvertedImage();
@@ -36,15 +36,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLUE,
-            50,
-            10,
-            Linear,
-            "Arial",
-            5,
-            UnicodeBlock.LATIN_EXTENDED_A,
-            imageFullStream,
-            "/tmp/testCyanBlue.png"
+                Color.BLUE,
+                50,
+                10,
+                Linear,
+                "Arial",
+                5,
+                UnicodeBlock.LATIN_EXTENDED_A,
+                imageFullStream,
+                "/tmp/testCyanBlue.png"
         );
 
         manager.generateConvertedImage();
@@ -55,15 +55,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("pencelizerCyanBlack.png");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLACK,
-            50,
-            10,
-            Linear,
-            "Arial",
-            5,
-            UnicodeBlock.LATIN_EXTENDED_A,
-            imageFullStream,
-            "/tmp/testCyanBlue.png"
+                Color.BLACK,
+                50,
+                10,
+                Linear,
+                "Arial",
+                5,
+                UnicodeBlock.LATIN_EXTENDED_A,
+                imageFullStream,
+                "/tmp/testCyanBlue.png"
         );
 
         manager.generateConvertedImage();
@@ -75,15 +75,15 @@ public class ChartizateManagerImplTest {
 
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLACK,
-            100,
-            100,
-            Linear,
-            "Times New Roman",
-            20,
-            UnicodeBlock.LATIN_EXTENDED_A,
-            imageFullStream,
-            "/tmp/testRealExample2Latin.png"
+                Color.BLACK,
+                100,
+                100,
+                Linear,
+                "Times New Roman",
+                20,
+                UnicodeBlock.LATIN_EXTENDED_A,
+                imageFullStream,
+                "/tmp/testRealExample2Latin.png"
         );
 
         manager.generateConvertedImage();
@@ -94,15 +94,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLACK,
-            100,
-            100,
-            Linear,
-            "Times New Roman",
-            20,
-            UnicodeBlock.ARABIC,
-            imageFullStream,
-            "/tmp/testRealExample2Arabic.png"
+                Color.BLACK,
+                100,
+                100,
+                Linear,
+                "Times New Roman",
+                20,
+                UnicodeBlock.ARABIC,
+                imageFullStream,
+                "/tmp/testRealExample2Arabic.png"
         );
 
         manager.generateConvertedImage();
@@ -113,15 +113,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLACK,
-            100,
-            100,
-            Linear,
-            "Times New Roman",
-            20,
-            UnicodeBlock.HEBREW,
-            imageFullStream,
-            "/tmp/testRealExample2Hebrew.png"
+                Color.BLACK,
+                100,
+                100,
+                Linear,
+                "Times New Roman",
+                20,
+                UnicodeBlock.HEBREW,
+                imageFullStream,
+                "/tmp/testRealExample2Hebrew.png"
         );
         manager.generateConvertedImage();
     }
@@ -131,15 +131,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLACK,
-            100,
-            100,
-            Linear,
-            "Times New Roman",
-            20,
-            UnicodeBlock.SYRIAC,
-            imageFullStream,
-            "/tmp/testRealExample2Syriac.png"
+                Color.BLACK,
+                100,
+                100,
+                Linear,
+                "Times New Roman",
+                20,
+                UnicodeBlock.SYRIAC,
+                imageFullStream,
+                "/tmp/testRealExample2Syriac.png"
         );
 
         manager.generateConvertedImage();
@@ -150,15 +150,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLACK,
-            100,
-            100,
-            Linear,
-            "Times New Roman",
-            20,
-            UnicodeBlock.SAMARITAN,
-            imageFullStream,
-            "/tmp/testRealExample2Samaritan.png"
+                Color.BLACK,
+                100,
+                100,
+                Linear,
+                "Times New Roman",
+                20,
+                UnicodeBlock.SAMARITAN,
+                imageFullStream,
+                "/tmp/testRealExample2Samaritan.png"
         );
 
         manager.generateConvertedImage();
@@ -169,15 +169,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.BLACK,
-            100,
-            100,
-            Linear,
-            "Times New Roman",
-            20,
-            UnicodeBlock.MANDAIC,
-            imageFullStream,
-            "/tmp/testRealExample2Mandaic.png"
+                Color.BLACK,
+                100,
+                100,
+                Linear,
+                "Times New Roman",
+                20,
+                UnicodeBlock.MANDAIC,
+                imageFullStream,
+                "/tmp/testRealExample2Mandaic.png"
         );
 
         manager.generateConvertedImage();
@@ -188,15 +188,15 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getClass().getResourceAsStream("RealExample2.jpg");
         assertThat(imageFullStream).isNotNull();
         final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-            Color.RED,
-            100,
-            100,
-            Linear,
-            "Times New Roman",
-            20,
-            UnicodeBlock.THAANA,
-            imageFullStream,
-            "/tmp/testRealExample2Thaana.png"
+                Color.RED,
+                100,
+                100,
+                Linear,
+                "Times New Roman",
+                20,
+                UnicodeBlock.THAANA,
+                imageFullStream,
+                "/tmp/testRealExample2Thaana.png"
         );
 
         manager.generateConvertedImage();

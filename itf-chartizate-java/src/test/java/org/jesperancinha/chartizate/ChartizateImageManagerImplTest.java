@@ -1,14 +1,14 @@
 package org.jesperancinha.chartizate;
 
-import static com.google.common.truth.Truth.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 import org.junit.Test;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
+
+import static com.google.common.truth.Truth.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 public class ChartizateImageManagerImplTest {
 
@@ -67,12 +67,12 @@ public class ChartizateImageManagerImplTest {
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl();
         final ChartizateCharacterImg<?>[][] pencelizerBoard = new ChartizateCharacterImg[2][];
         pencelizerBoard[0] = new ChartizateCharacterImg[]{ //
-            new ChartizateCharacterImg<>(Color.GREEN, Color.BLACK, 10, 'A'), //
-            new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B') //
+                new ChartizateCharacterImg<>(Color.GREEN, Color.BLACK, 10, 'A'), //
+                new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B') //
         };
         pencelizerBoard[1] = new ChartizateCharacterImg[]{ //
-            new ChartizateCharacterImg<>(Color.BLUE, Color.BLACK, 10, 'C'), //
-            new ChartizateCharacterImg<>(Color.YELLOW, Color.BLACK, 10, 'D') //
+                new ChartizateCharacterImg<>(Color.BLUE, Color.BLACK, 10, 'C'), //
+                new ChartizateCharacterImg<>(Color.YELLOW, Color.BLACK, 10, 'D') //
         };
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
 

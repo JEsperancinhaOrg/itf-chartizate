@@ -2,7 +2,6 @@ package org.jesperancinha.chartizate;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 

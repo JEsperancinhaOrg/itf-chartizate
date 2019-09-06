@@ -137,18 +137,18 @@
                     <source>${maven-compiler-plugin-api.source}</source>
                     <target>${maven-compiler-plugin-api.target}</target>
                     <encoding>UTF-8</encoding>
-                        <compilerVersion>${maven-compiler-plugin.compilerVersion}</compilerVersion>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok-maven-plugin</artifactId>
-                                <version>${lombok-maven-plugin.version}</version>
-                            </path>
-                        </annotationProcessorPaths>
-                        <compilerArgs>
-                            <arg>-Aproject=${groupId}/${artifactId}</arg>
-                        </compilerArgs>
-                    </configuration>
+                    <compilerVersion>${maven-compiler-plugin.compilerVersion}</compilerVersion>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-maven-plugin</artifactId>
+                            <version>${lombok-maven-plugin.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <arg>-Aproject=${groupId}/${artifactId}</arg>
+                    </compilerArgs>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>

@@ -1,15 +1,15 @@
 package org.jesperancinha.chartizate;
 
-import static java.lang.Character.UnicodeBlock.BASIC_LATIN;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.jesperancinha.chartizate.ChartizateUnicodes.getAllUniCodeBlocksJava;
-import static org.junit.Assert.assertArrayEquals;
-
 import org.junit.Test;
 
 import java.awt.*;
 import java.lang.Character.UnicodeBlock;
 import java.util.List;
+
+import static java.lang.Character.UnicodeBlock.BASIC_LATIN;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.jesperancinha.chartizate.ChartizateUnicodes.getAllUniCodeBlocksJava;
+import static org.junit.Assert.assertArrayEquals;
 
 public class ChartizateFontManagerImplTest {
 
@@ -24,7 +24,7 @@ public class ChartizateFontManagerImplTest {
     @Test
     public void testGetAllUniCodeBlocks() {
         final UnicodeBlock[] testUnicodes = new UnicodeBlock[]{
-            BASIC_LATIN,
+                BASIC_LATIN,
         };
 
         final List<UnicodeBlock> result = getAllUniCodeBlocksJava();
@@ -36,10 +36,10 @@ public class ChartizateFontManagerImplTest {
     @Test
     public void testGetAllDistributionTypes() {
         final String[] testDistributions = new String[]{
-            "Linear",
-            "Gaussian",
-            "Poisson",
-            "Skellam"
+                "Linear",
+                "Gaussian",
+                "Poisson",
+                "Skellam"
         };
 
         final List<String> result = ChartizateFontManagerImpl.getAllDistributionTypes();

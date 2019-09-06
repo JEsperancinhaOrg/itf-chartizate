@@ -5,9 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-
 import androidx.test.runner.AndroidJUnit4;
-
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.junit.Before;
 import org.junit.Rule;
