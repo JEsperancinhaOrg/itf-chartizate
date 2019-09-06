@@ -20,10 +20,11 @@ This is an image to char coder, with a spin off to the current available ones
 ITF comes from image train filters and the idea is to use this library in many other projects. However the idea was to create a train of filters where each wagon would transform the image. It should work much like the chain of responsibility pattern.
 
 Example:  
-From: <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" alt="" data-canonical-src="https://raw.githubushttps://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" width="250" height="250" /> 
+From: <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/itf-chartizate-android/src/main/res/raw/realexample1.jpg" alt="" data-canonical-src="https://raw.githubushttps://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" width="250" height="250" /> 
 To:
-<img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" width="250" height="250" />
+<img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/itf-chartizate-android/src/main/res/raw//realexample1expected.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" width="250" height="250" />
 
+NOTE: Although [itf-chartizate-java](./itf-chartizate-java/README.md) is built with Java 11, modularization still hasn't been done because [itf-chartizate-api](./itf-chartizate-api/README.md) was built with Java 8. In turn this had to be done in order to support Android in [itf-chartizate-android](./itf-chartizate-android/README.md).
 ## Tools
 
 $ git push --delete origin 2.0.0  
@@ -39,6 +40,7 @@ mvn nexus-staging:release  -Prelease
 
 ## References
 
+*   [Definitive Guide To Java 12](https://blog.codefx.org/java/java-12-guide/)
 *   [Publish AAR to jCenter and Maven Central](https://gist.github.com/lopspower/6f62fe1492726d848d6d)
 *   [Publishing Android Library to Bintray with Gradle + Buddy.Works](https://medium.com/camerakit/publishing-android-library-to-bintray-with-gradle-buddy-works-dd50cbd03df5)
 *   [How to distribute your own Android library through jCenter and Maven Central from Android Studio](https://inthecheesefactory.com/blog/how-to-upload-library-to-jcenter-maven-central-as-dependency/en)
