@@ -2,6 +2,7 @@ package org.jesperancinha.chartizate;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
@@ -17,7 +18,7 @@ import java.util.List;
 public class ChartizateManagerImpl extends ChartizateManagerCommon<Integer, Typeface, Bitmap> {
 
 
-    public ChartizateManagerImpl(Integer backgroundColor, int densityPercentage, int rangePercentage, ChartizateDistributionType distributionType, String fontName, int fontSize, UnicodeBlock block, InputStream imageFullStream, String destinationImagePath) throws FileNotFoundException, IOException {
+    public ChartizateManagerImpl(Integer backgroundColor, int densityPercentage, int rangePercentage, ChartizateDistributionType distributionType, String fontName, int fontSize, UnicodeBlock block, InputStream imageFullStream, String destinationImagePath) throws IOException {
         super(backgroundColor, densityPercentage, rangePercentage, distributionType, fontName, fontSize, block, imageFullStream, destinationImagePath);
     }
 

@@ -44,7 +44,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'junit:junit:4.12'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'org.jesperancinha.itf:itf-chartizate-api:4.1.0'
     androidTestImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.5.1'
     androidTestImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
@@ -97,7 +97,7 @@ install {
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
+    archiveClassifier.set("sources")
 }
 
 task javadoc(type: Javadoc) {
@@ -107,11 +107,11 @@ task javadoc(type: Javadoc) {
 
 afterEvaluate {
     javadoc.classpath += files(android.libraryVariants.collect { variant ->
-        variant.javaCompile.classpath.files
+        variant.javaCompileProvider.get().classpath.files
     })
 }
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
+    archiveClassifier.set("javadoc")
     from javadoc.destinationDir
 }
 artifacts {
