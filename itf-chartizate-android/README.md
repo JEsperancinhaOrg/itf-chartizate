@@ -6,7 +6,11 @@
 ## Description
 
 ITF library for android
+## Gradle
 
+```text
+implementation 'org.jesperancinha.itf:itf-chartizate-android:4.1.0'
+```
 ## Maven
 
 ```xml
