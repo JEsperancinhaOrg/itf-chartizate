@@ -13,7 +13,7 @@
         <groupId>org.jesperancinha.itf</groupId>
         <artifactId>itf-chartizate</artifactId>
         <!--suppress MavenPropertyInParent -->
-        <version>4.2.0-SNAPSHOT</version>
+        <version>4.1.1</version>
     </parent>
     <description>This is the API library to be used as an interface to be implemented by ITF libraries.</description>
     <url>https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-api</url>
