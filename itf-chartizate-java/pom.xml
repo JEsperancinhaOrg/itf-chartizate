@@ -27,7 +27,7 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:https://github.com/jesperancinha/itf-chartizate-java.git</connection>
+        <connection>scm:git:git@github.com:jesperancinha/itf-chartizate-java.git</connection>
         <developerConnection>scm:git:git@github.com:jesperancinha/itf-chartizate-java.git</developerConnection>
         <url>https://github.com/jesperancinha/itf-chartizate-java</url>
         <tag>${revision}</tag>
