@@ -45,7 +45,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'junit:junit:4.12'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'org.jesperancinha.itf:itf-chartizate-api:4.1.1'
+    implementation 'org.jesperancinha.itf:itf-chartizate-api:4.1.2'
     androidTestImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.5.1'
     androidTestImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
     androidTestImplementation 'androidx.test:runner:1.2.0'
@@ -58,7 +58,7 @@ def siteUrl = 'https://github.com/jesperancinha/itf-chartizate'
 def gitUrl = 'https://github.com/jesperancinha/itf-chartizate.git'
 
 group = "org.jesperancinha.itf"
-version = "4.1.1"
+version = "4.1.2"
 
 
 install {
