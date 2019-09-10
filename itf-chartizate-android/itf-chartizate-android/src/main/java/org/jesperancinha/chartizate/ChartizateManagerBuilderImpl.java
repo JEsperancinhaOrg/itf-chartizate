@@ -67,7 +67,7 @@ public class ChartizateManagerBuilderImpl extends ChartizateManagerBuilderAbstra
         return this;
     }
 
-    public ChartizateManagerBuilderImpl imageFullStream(InputStream imageFullStream) throws IOException {
+    public ChartizateManagerBuilderImpl imageFullStream(InputStream imageFullStream) {
         this.imageFullStream = imageFullStream;
         return this;
     }

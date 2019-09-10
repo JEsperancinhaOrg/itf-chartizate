@@ -3,6 +3,7 @@ package org.jesperancinha.chartizate;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
@@ -33,6 +34,10 @@ import static org.jesperancinha.chartizate.distributions.ChartizateDistributionT
 @RunWith(AndroidJUnit4.class)
 public class ChartizateManagerImplTest {
 
+    private static final String TIMES_NEW_ROMAN = "Times New Roman";
+
+    private static final String ARIAL = "Arial";
+
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
 
@@ -47,19 +52,21 @@ public class ChartizateManagerImplTest {
     public void testGenerateConvertedImageStreamCustomColor() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.chartizatecyanblack);
         assertThat(imageFullStream).isNotNull();
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(15280682)
                 .densityPercentage(50)
                 .rangePercentage(10)
                 .distributionType(Linear)
-                .fontName("Arial")
+                .fontName(ARIAL)
                 .fontSize(5)
                 .block(LATIN_EXTENDED_A)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+       final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -67,19 +74,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.chartizatecyanblack);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLUE)
                 .densityPercentage(50)
                 .rangePercentage(10)
                 .distributionType(Linear)
-                .fontName("Arial")
+                .fontName(ARIAL)
                 .fontSize(5)
                 .block(LATIN_EXTENDED_A)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -87,19 +96,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.chartizatecyanblack);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLACK)
                 .densityPercentage(50)
                 .rangePercentage(10)
                 .distributionType(Linear)
-                .fontName("Arial")
+                .fontName(ARIAL)
                 .fontSize(5)
                 .block(LATIN_EXTENDED_A)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -108,19 +119,21 @@ public class ChartizateManagerImplTest {
 
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLACK)
                 .densityPercentage(100)
                 .rangePercentage(100)
                 .distributionType(Linear)
-                .fontName("Times New Roman")
+                .fontName(TIMES_NEW_ROMAN)
                 .fontSize(5)
                 .block(LATIN_EXTENDED_A)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -128,19 +141,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLACK)
                 .densityPercentage(100)
                 .rangePercentage(100)
                 .distributionType(Linear)
-                .fontName("Times New Roman")
+                .fontName(TIMES_NEW_ROMAN)
                 .fontSize(5)
                 .block(ARABIC)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -148,18 +163,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLACK)
                 .densityPercentage(100)
                 .rangePercentage(100)
                 .distributionType(Linear)
-                .fontName("Times New Roman")
+                .fontName(TIMES_NEW_ROMAN)
                 .fontSize(20)
                 .block(HEBREW)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
-        manager.generateConvertedImage();
+
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -167,19 +185,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLACK)
                 .densityPercentage(100)
                 .rangePercentage(100)
                 .distributionType(Linear)
-                .fontName("Times New Roman")
+                .fontName(TIMES_NEW_ROMAN)
                 .fontSize(20)
                 .block(SYRIAC)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -187,19 +207,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLACK)
                 .densityPercentage(100)
                 .rangePercentage(100)
                 .distributionType(Linear)
-                .fontName("Times New Roman")
+                .fontName(TIMES_NEW_ROMAN)
                 .fontSize(20)
                 .block(SAMARITAN)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -207,19 +229,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.BLACK)
                 .densityPercentage(100)
                 .rangePercentage(100)
                 .distributionType(Linear)
-                .fontName("Times New Roman")
+                .fontName(TIMES_NEW_ROMAN)
                 .fontSize(20)
                 .block(MANDAIC)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     @Test
@@ -227,19 +251,21 @@ public class ChartizateManagerImplTest {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+        final ChartizateManager<Integer, Typeface, Bitmap> manager = new ChartizateManagerBuilderImpl()
                 .backgroundColor(Color.RED)
                 .densityPercentage(100)
                 .rangePercentage(100)
                 .distributionType(Linear)
-                .fontName("Times New Roman")
+                .fontName(TIMES_NEW_ROMAN)
                 .fontSize(20)
                 .block(THAANA)
                 .imageFullStream(imageFullStream)
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-        manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
+
+        assertThat(generateConvertedImage).isNotNull();
     }
 
     private ByteArrayInputStream getByteArrayInputStreamFromResource(int resource) {

@@ -12,11 +12,13 @@ import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface, Bitmap> {
 
+    private final Bitmap targetBitmap;
+    private final Canvas canvas;
+    private final Paint paint;
     private Bitmap bitmap;
     private final String outputFile;
 
@@ -30,6 +32,10 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
             e.printStackTrace();
         }
         this.outputFile = outputFile;
+        this.targetBitmap = Bitmap.createBitmap(getImageWidth(), getImageHeight()
+                , Bitmap.Config.RGB_565);
+        this.canvas = new Canvas(targetBitmap);
+        this.paint = new Paint();
     }
 
     @Override
@@ -55,20 +61,13 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     @Override
     public Bitmap generateBufferedImage(
             ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs,
-            ChartizateFontManager<Typeface> chartizateFontManager
-    ) throws IOException {
-        final Bitmap bitmap = Bitmap.createBitmap(getImageWidth(), getImageHeight()
-                , Bitmap.Config.RGB_565);
-        final Canvas canvas = new Canvas(bitmap);
-        final Paint paint = new Paint();
+            ChartizateFontManager<Typeface> chartizateFontManager) {
         paint.setTextSize(chartizateFontManager.getFontSize());
         paint.setTypeface(chartizateFontManager.getFont());
         paint.setColor(chartizateCharacterImgs[0][0].getBg());
         canvas.drawPaint(paint);
-        int currentWidth = 0;
-        renderRows(chartizateCharacterImgs, chartizateFontManager, canvas, paint, currentWidth);
-        saveBitmap(bitmap);
-        return bitmap;
+        renderRows(chartizateCharacterImgs, chartizateFontManager);
+        return targetBitmap;
     }
 
     @Override
@@ -79,14 +78,14 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
         }
     }
 
-    private void renderRows(ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs, ChartizateFontManager<Typeface> chartizateFontManager, Canvas canvas, Paint paint, int currentWidth) {
+    private void renderRows(ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs, ChartizateFontManager<Typeface> chartizateFontManager) {
         for (int i = 0; i < chartizateCharacterImgs.length; i++) {
             int rowLength = chartizateCharacterImgs[i].length;
-            renderRow(chartizateCharacterImgs[i], (float) (chartizateFontManager.getFontSize() * (i + 1)), canvas, paint, rowLength);
+            renderRow(chartizateCharacterImgs[i], (float) (chartizateFontManager.getFontSize() * (i + 1)), rowLength);
         }
     }
 
-    private void renderRow(ChartizateCharacterImg<Integer>[] row, float y, Canvas canvas, Paint paint, int rowLength) {
+    private void renderRow(ChartizateCharacterImg<Integer>[] row, float y, int rowLength) {
         int currentWidth = 0;
         for (int j = 0; j < rowLength; j++) {
             final ChartizateCharacterImg<Integer> character = row[j];

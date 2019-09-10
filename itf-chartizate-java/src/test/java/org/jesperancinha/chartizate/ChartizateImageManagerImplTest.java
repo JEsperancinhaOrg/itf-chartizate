@@ -34,7 +34,7 @@ public class ChartizateImageManagerImplTest {
 
     @Test
     public void testGetImageAverageColorBlackGreen() throws Exception {
-        final InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
+        final InputStream io = getClass().getResourceAsStream("ChartizateBlackGreen.png");
 
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
 
