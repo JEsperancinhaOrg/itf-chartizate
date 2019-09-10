@@ -13,10 +13,11 @@ matrix:
         - export GRADLE_HOME=$PWD/gradle-5.6.2
         - export PATH=$GRADLE_HOME/bin:$PATH
         - gradle -v
-        - sudo add-apt-repository ppa:linuxuprising/java -y
-        - sudo apt-get update
-        - sudo apt-get install oracle-java11-installer-local
-        - sudo apt-get install oracle-java11-set-default-local
+        - curl -s "https://get.sdkman.io" | bash
+        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - sdk version
+        - sdk install java 11.0.4-zulu
+        - sdk use java 11.0.4-zulu
       script:
         - mvn clean install -DskipTests
         - cd itf-chartizate-android
