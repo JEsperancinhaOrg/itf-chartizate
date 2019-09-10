@@ -2,8 +2,10 @@ language: java
 jdk:
   - openjdk11
 script:
+  - add-apt-repository ppa:cwchien/gradle
+  - apt-get update
+  - apt upgrade gradle
   - mvn clean install
   - cd itf-chartizate-android
-  - brew upgrade gradle
   - gradle clean build
 
