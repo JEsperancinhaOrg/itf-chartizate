@@ -14,6 +14,7 @@ matrix:
         - export PATH=$GRADLE_HOME/bin:$PATH
         - gradle -v
       script:
+        - mvn clean install -DskipTests
         - cd itf-chartizate-android
         - touch local.properties
         - gradle clean build
