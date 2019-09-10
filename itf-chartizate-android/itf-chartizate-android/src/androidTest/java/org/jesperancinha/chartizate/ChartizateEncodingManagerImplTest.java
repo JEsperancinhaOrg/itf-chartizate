@@ -1,11 +1,6 @@
-package org.jesperancinha.chartizate.android;
+package org.jesperancinha.chartizate;
 
 import junit.framework.TestCase;
-
-import org.jesperancinha.chartizate.ChartizateEncodingManager;
-import org.jesperancinha.chartizate.ChartizateEncodingManagerImpl;
-import org.jesperancinha.chartizate.ChartizateFontManager;
-import org.jesperancinha.chartizate.ChartizateFontManagerImpl;
 
 /**
  * Created by joaofilipesabinoesperancinha on 11-02-16.

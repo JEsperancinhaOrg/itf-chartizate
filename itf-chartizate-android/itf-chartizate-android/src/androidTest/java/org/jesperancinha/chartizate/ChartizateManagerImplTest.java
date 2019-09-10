@@ -1,4 +1,4 @@
-package org.jesperancinha.chartizate.android;
+package org.jesperancinha.chartizate;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,9 +9,6 @@ import android.graphics.drawable.Drawable;
 
 import androidx.test.runner.AndroidJUnit4;
 
-import org.jesperancinha.chartizate.ChartizateManager;
-import org.jesperancinha.chartizate.ChartizateManagerBuilderImpl;
-import org.jesperancinha.chartizate.R;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -67,7 +64,7 @@ public class ChartizateManagerImplTest {
                 .destinationImagePath(targetFile.getAbsolutePath())
                 .build();
 
-       final Bitmap generateConvertedImage = manager.generateConvertedImage();
+        final Bitmap generateConvertedImage = manager.generateConvertedImage();
 
         assertThat(generateConvertedImage).isNotNull();
     }

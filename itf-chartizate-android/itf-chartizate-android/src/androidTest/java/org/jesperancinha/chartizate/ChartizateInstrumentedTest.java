@@ -1,4 +1,4 @@
-package org.jesperancinha.chartizate.android;
+package org.jesperancinha.chartizate;
 
 import android.content.Context;
 
