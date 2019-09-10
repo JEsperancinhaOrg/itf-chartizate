@@ -15,6 +15,7 @@ matrix:
         - gradle -v
       script:
         - cd itf-chartizate-android
+        - touch local.properties
         - gradle clean build
     - language: java
       jdk:
