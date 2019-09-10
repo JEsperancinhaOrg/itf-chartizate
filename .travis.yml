@@ -2,7 +2,7 @@ language: java
 jdk:
   - openjdk11
 script:
-  - sudo add-apt-repository ppa:cwchien/gradle
+  - sudo add-apt-repository -y  ppa:cwchien/gradle
   - sudo apt-get update
   - sudo apt upgrade gradle
   - mvn clean install
