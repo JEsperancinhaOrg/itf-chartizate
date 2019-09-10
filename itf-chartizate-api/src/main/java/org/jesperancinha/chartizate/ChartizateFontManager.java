@@ -22,7 +22,7 @@ public abstract class ChartizateFontManager<T> {
      * @param c Character
      * @return Width of character
      */
-    abstract int getCharacterWidth(char c);
+    public abstract int getCharacterWidth(char c);
 
     /**
      * Gets full height of a particular character
@@ -30,9 +30,9 @@ public abstract class ChartizateFontManager<T> {
      * @param c Character
      * @return Width of character
      */
-    abstract int getCharacterHeight(char c);
+    public abstract int getCharacterHeight(char c);
 
-    abstract T getFont();
+    public abstract T getFont();
 
-    abstract int getFontSize();
+    public abstract int getFontSize();
 }

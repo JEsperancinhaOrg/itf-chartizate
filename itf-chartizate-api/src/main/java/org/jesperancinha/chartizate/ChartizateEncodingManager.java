@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
-abstract class ChartizateEncodingManager<F> {
+public abstract class ChartizateEncodingManager<F> {
     protected final ChartizateFontManager<F> fontManager;
     private final UnicodeBlock block;
     protected Character[] characters;
@@ -18,9 +18,9 @@ abstract class ChartizateEncodingManager<F> {
         this.fontManager = fontManager;
     }
 
-    abstract int getCharacterFullness(Character character);
+    public abstract int getCharacterFullness(Character character);
 
-    abstract Character[] getCharacters();
+    public abstract Character[] getCharacters();
 
     protected int computeFullness(double fullNess, double total) {
         return (int) (fullNess / total * 1000);

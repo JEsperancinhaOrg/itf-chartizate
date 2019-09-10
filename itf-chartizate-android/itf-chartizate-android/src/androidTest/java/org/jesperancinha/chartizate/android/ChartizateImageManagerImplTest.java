@@ -1,4 +1,4 @@
-package org.jesperancinha.chartizate;
+package org.jesperancinha.chartizate.android;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,6 +9,11 @@ import android.graphics.drawable.Drawable;
 
 import androidx.test.runner.AndroidJUnit4;
 
+import org.jesperancinha.chartizate.ChartizateFontManager;
+import org.jesperancinha.chartizate.ChartizateFontManagerImpl;
+import org.jesperancinha.chartizate.ChartizateImageManager;
+import org.jesperancinha.chartizate.ChartizateImageManagerImpl;
+import org.jesperancinha.chartizate.R;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 import org.junit.Before;
 import org.junit.Rule;

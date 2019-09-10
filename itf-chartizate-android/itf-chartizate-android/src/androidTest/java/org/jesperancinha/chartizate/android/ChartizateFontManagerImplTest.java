@@ -1,7 +1,10 @@
-package org.jesperancinha.chartizate;
+package org.jesperancinha.chartizate.android;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
+
+import org.jesperancinha.chartizate.ChartizateFontManager;
+import org.jesperancinha.chartizate.ChartizateFontManagerImpl;
 
 public class ChartizateFontManagerImplTest extends TestCase {
 
