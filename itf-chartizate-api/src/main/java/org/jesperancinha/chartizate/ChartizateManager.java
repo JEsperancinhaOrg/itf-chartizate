@@ -56,8 +56,7 @@ public class ChartizateManager<C, F, B> {
             currentImageIndexX = 0;
             rowIndex++;
         }
-        return imageManager.generateBufferedImage(chartizateBoard, fontManager, imageWidth,
-                imageManager.getImageHeight());
+        return imageManager.generateBufferedImage(chartizateBoard, fontManager);
     }
 
 

@@ -1,23 +1,24 @@
 package org.jesperancinha.chartizate;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+@Slf4j
 public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Font, BufferedImage> {
 
     private BufferedImage srcImage;
+    private final String outputFile;
 
-    ChartizateImageManagerImpl() {
-        // For testing purposes only
-    }
-
-    ChartizateImageManagerImpl(InputStream io) throws IOException {
+    public ChartizateImageManagerImpl(InputStream io, String outputFile) throws IOException {
         this.srcImage = ImageIO.read(io);
+        this.outputFile = outputFile;
     }
 
     public int getImageWidth() {
@@ -28,9 +29,8 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
         return this.srcImage.getHeight();
     }
 
-    public BufferedImage generateBufferedImage(ChartizateCharacterImg<Color>[][] chartizateCharacterImage, ChartizateFontManager<Font> fontManager,
-                                               int outputWidth, int outputHeight) {
-        final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
+    public BufferedImage generateBufferedImage(ChartizateCharacterImg<Color>[][] chartizateCharacterImage, ChartizateFontManager<Font> fontManager) {
+        final BufferedImage bImg = new BufferedImage(getImageWidth(), getImageHeight(), BufferedImage.TYPE_INT_RGB);
         final Graphics2D g2d = bImg.createGraphics();
         final Font font = fontManager.getFont();
         g2d.setFont(font);
@@ -56,6 +56,12 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
     }
 
     @Override
+    public void saveBitmap(BufferedImage bufferedImage) throws IOException {
+        ImageIO.write(bufferedImage, "png", new File(this.outputFile));
+        log.trace("File {} {}", this.outputFile, " is saved");
+    }
+
+    @Override
     public int getImagePixelRGB(int j, int k) {
         return srcImage.getRGB(j, k);
     }
@@ -66,22 +72,22 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
     }
 
     @Override
-    protected int getBlue(int rgbPixel) {
+    public int getBlue(int rgbPixel) {
         return (rgbPixel) & 0xff;
     }
 
     @Override
-    protected int getGreen(int rgbPixel) {
+    public int getGreen(int rgbPixel) {
         return (rgbPixel >> 8) & 0xff;
     }
 
     @Override
-    protected int getRed(int rgbPixel) {
+    public int getRed(int rgbPixel) {
         return (rgbPixel >> 16) & 0xff;
     }
 
     @Override
-    protected int getAlpha(int rgbPixel) {
+    public int getAlpha(int rgbPixel) {
         return (rgbPixel >> 24) & 0xff;
     }
 }

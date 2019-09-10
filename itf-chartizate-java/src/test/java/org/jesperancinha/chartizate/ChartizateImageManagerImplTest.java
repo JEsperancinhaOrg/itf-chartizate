@@ -1,22 +1,42 @@
 package org.jesperancinha.chartizate;
 
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.rules.TemporaryFolder;
+import org.junit.runner.RunWith;
+import org.mockito.exceptions.base.MockitoException;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
+@ExtendWith(MockitoExtension.class)
 public class ChartizateImageManagerImplTest {
+
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
+
+    private File targetFile;
+
+    @Before
+    public void setUp() throws IOException {
+        targetFile = folder.newFile();
+    }
 
     @Test
     public void testGetImageAverageColorBlackGreen() throws Exception {
         final InputStream io = getClass().getResourceAsStream("pencelizerBlackGreen.png");
 
-        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
 
         final Color imageAverageColor = imageManager.getImageAverageColor();
         assertThat(imageAverageColor.getRed()).isEqualTo(45);
@@ -26,9 +46,9 @@ public class ChartizateImageManagerImplTest {
 
     @Test
     public void testGetImageAverageColorCyanBlack() throws Exception {
-        InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
+        final InputStream io = getClass().getResourceAsStream("ChartizateCyanBlack.png");
 
-        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
 
         final Color imageAverageColor = imageManager.getImageAverageColor();
         assertThat(imageAverageColor.getRed()).isEqualTo(0);
@@ -38,9 +58,9 @@ public class ChartizateImageManagerImplTest {
 
     @Test
     public void testGetPartAverageColorCyanBlack00() throws Exception {
-        InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
+        final InputStream io = getClass().getResourceAsStream("ChartizateCyanBlack.png");
 
-        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
 
         final Color partAverageColor = imageManager.getPartAverageColor(0, 0, 10, 10);
 
@@ -52,9 +72,9 @@ public class ChartizateImageManagerImplTest {
 
     @Test
     public void testGetPartAverageColorCyanBlack10() throws Exception {
-        InputStream io = getClass().getResourceAsStream("pencelizerCyanBlack.png");
+        final InputStream io = getClass().getResourceAsStream("ChartizateCyanBlack.png");
 
-        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io);
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
 
         final Color partAverageColor = imageManager.getPartAverageColor(10, 0, 19, 10);
         assertThat(partAverageColor.getRed()).isEqualTo(0);
@@ -64,21 +84,22 @@ public class ChartizateImageManagerImplTest {
 
     @Test
     public void testSaveImage() throws Exception {
-        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl();
+        final InputStream io = getClass().getResourceAsStream("ChartizateCyanBlack.png");
+        final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
         final ChartizateCharacterImg<Color>[][] chartizateCharacterImgs = new ChartizateCharacterImg[2][];
-        chartizateCharacterImgs[0] = new ChartizateCharacterImg[]{ //
-                new ChartizateCharacterImg<>(Color.GREEN, Color.BLACK, 10, 'A'), //
-                new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B') //
+        chartizateCharacterImgs[0] = new ChartizateCharacterImg[]{
+                new ChartizateCharacterImg<>(Color.GREEN, Color.RED, 10, 'A'),
+                new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B')
         };
-        chartizateCharacterImgs[1] = new ChartizateCharacterImg[]{ //
-                new ChartizateCharacterImg<>(Color.BLUE, Color.BLACK, 10, 'C'), //
-                new ChartizateCharacterImg<>(Color.YELLOW, Color.BLACK, 10, 'D') //
+        chartizateCharacterImgs[1] = new ChartizateCharacterImg[]{
+                new ChartizateCharacterImg<>(Color.BLUE, Color.YELLOW, 10, 'C'),
+                new ChartizateCharacterImg<>(Color.YELLOW, Color.GREEN, 10, 'D')
         };
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
 
-        final String outputFile = "/tmp/saveImage.png";
-        final int outputWidth = 20;
-        final int outputHeight = 20;
-        assertDoesNotThrow(() -> imageManager.generateBufferedImage(chartizateCharacterImgs, fontManager, outputWidth, outputHeight));
+        assertDoesNotThrow(() -> {
+            final BufferedImage bufferedImage = imageManager.generateBufferedImage(chartizateCharacterImgs, fontManager);
+            imageManager.saveBitmap(bufferedImage);
+        });
     }
 }

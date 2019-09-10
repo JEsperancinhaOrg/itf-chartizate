@@ -10,13 +10,11 @@ import android.util.Log;
 
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * @author joao
- */
 public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface, Bitmap> {
 
     private Bitmap bitmap;
@@ -57,11 +55,10 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     @Override
     public Bitmap generateBufferedImage(
             ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs,
-            ChartizateFontManager<Typeface> chartizateFontManager,
-            int outputWidth,
-            int outputHeight
+            ChartizateFontManager<Typeface> chartizateFontManager
     ) throws IOException {
-        final Bitmap bitmap = Bitmap.createBitmap(outputWidth, outputHeight, Bitmap.Config.RGB_565);
+        final Bitmap bitmap = Bitmap.createBitmap(getImageWidth(), getImageHeight()
+                , Bitmap.Config.RGB_565);
         final Canvas canvas = new Canvas(bitmap);
         final Paint paint = new Paint();
         paint.setTextSize(chartizateFontManager.getFontSize());
@@ -70,11 +67,16 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
         canvas.drawPaint(paint);
         int currentWidth = 0;
         renderRows(chartizateCharacterImgs, chartizateFontManager, canvas, paint, currentWidth);
+        saveBitmap(bitmap);
+        return bitmap;
+    }
+
+    @Override
+    public void saveBitmap(Bitmap bitmap) throws FileNotFoundException {
         final FileOutputStream out = new FileOutputStream(this.outputFile);
         if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) {
             Log.i("File", this.outputFile.concat(" is saved"));
         }
-        return bitmap;
     }
 
     private void renderRows(ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs, ChartizateFontManager<Typeface> chartizateFontManager, Canvas canvas, Paint paint, int currentWidth) {

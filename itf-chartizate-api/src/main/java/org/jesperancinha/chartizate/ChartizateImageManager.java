@@ -2,16 +2,10 @@ package org.jesperancinha.chartizate;
 
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public abstract class ChartizateImageManager<C, F, B> {
-
-    abstract int getImageWidth();
-
-    abstract int getImageHeight();
-
-    abstract B generateBufferedImage(ChartizateCharacterImg<C>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
-                                     int outputWidth, int outputHeight) throws IOException;
 
     public C getImageAverageColor() {
         final int width = getImageWidth() - 1;
@@ -43,15 +37,23 @@ public abstract class ChartizateImageManager<C, F, B> {
         return createColor(mediumApha, mediumRed, mediumGreen, mediumBlue);
     }
 
-    abstract int getBlue(int rgbPixel);
+    public abstract int getBlue(int rgbPixel);
 
-    abstract int getGreen(int rgbPixel);
+    public abstract int getGreen(int rgbPixel);
 
-    abstract int getRed(int rgbPixel);
+    public abstract int getRed(int rgbPixel);
 
-    abstract int getAlpha(int rgbPixel);
+    public abstract int getAlpha(int rgbPixel);
 
-    abstract int getImagePixelRGB(int j, int k);
+    public abstract void saveBitmap(B bufferedImage) throws IOException;
 
-    abstract C createColor(int mediumApha, int mediumRed, int mediumGreen, int mediumBlue);
+    public abstract int getImagePixelRGB(int j, int k);
+
+    public abstract C createColor(int mediumApha, int mediumRed, int mediumGreen, int mediumBlue);
+
+    public abstract int getImageWidth();
+
+    public  abstract int getImageHeight();
+
+    public abstract B generateBufferedImage(ChartizateCharacterImg<C>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager) throws IOException;
 }
