@@ -32,47 +32,56 @@ public class ChartizateManagerBuilderImpl extends ChartizateManagerBuilderAbstra
         return new ChartizateFontManagerImpl(fontString, fontSize);
     }
 
-    public ChartizateManagerBuilderImpl backgroundColor(Integer backgroundColor) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> backgroundColor(Integer backgroundColor) {
         this.withBackground(backgroundColor);
         return this;
     }
 
-    public ChartizateManagerBuilderImpl densityPercentage(int densityPercentage) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> densityPercentage(int densityPercentage) {
         this.densityPercentage = densityPercentage;
         return this;
     }
 
-    public ChartizateManagerBuilderImpl rangePercentage(int rangePercentage) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> rangePercentage(int rangePercentage) {
         this.rangePercentage = rangePercentage;
         return this;
     }
 
-    public ChartizateManagerBuilderImpl distributionType(ChartizateDistributionType distributionType) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> distributionType(ChartizateDistributionType distributionType) {
         this.distributionType = distributionType;
         return this;
     }
 
-    public ChartizateManagerBuilderImpl fontName(String fontName) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> fontName(String fontName) {
         this.fontName = fontName;
         return this;
     }
 
-    public ChartizateManagerBuilderImpl fontSize(int fontSize) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> fontSize(int fontSize) {
         this.withFontManager(this.fontName, fontSize);
         return this;
     }
 
-    public ChartizateManagerBuilderImpl block(Character.UnicodeBlock block) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> block(Character.UnicodeBlock block) {
         this.withEncodingManager(block);
         return this;
     }
 
-    public ChartizateManagerBuilderImpl imageFullStream(InputStream imageFullStream) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> imageFullStream(InputStream imageFullStream) {
         this.imageFullStream = imageFullStream;
         return this;
     }
 
-    public ChartizateManagerBuilderImpl destinationImagePath(String destinationImagePath) {
+    @Override
+    public ChartizateManagerBuilderAbstract<Integer, Typeface, Bitmap> destinationImagePath(String destinationImagePath) {
         this.withDestinationPath(destinationImagePath);
         return this;
     }

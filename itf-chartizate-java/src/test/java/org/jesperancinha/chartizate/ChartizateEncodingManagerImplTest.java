@@ -19,7 +19,7 @@ public class ChartizateEncodingManagerImplTest {
     @Test
     public void testInit_Latin_Visual_Density_Test() {
         final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
-        final ChartizateEncodingManagerImpl manager = new ChartizateEncodingManagerImpl(
+        final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 fontManager);
         manager.init();

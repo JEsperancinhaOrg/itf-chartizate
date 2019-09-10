@@ -2,7 +2,6 @@ package org.jesperancinha.chartizate;
 
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public abstract class ChartizateImageManager<C, F, B> {
@@ -53,7 +52,7 @@ public abstract class ChartizateImageManager<C, F, B> {
 
     public abstract int getImageWidth();
 
-    public  abstract int getImageHeight();
+    public abstract int getImageHeight();
 
     public abstract B generateBufferedImage(ChartizateCharacterImg<C>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager) throws IOException;
 }

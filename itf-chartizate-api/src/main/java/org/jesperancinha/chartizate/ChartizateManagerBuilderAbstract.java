@@ -5,6 +5,7 @@ import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.jesperancinha.chartizate.distributions.ChartizateLinearDistribution;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -78,4 +79,24 @@ public abstract class ChartizateManagerBuilderAbstract<C, F, B> {
                 return null; //TODO: To be implemented
         }
     }
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> backgroundColor(C backgroundColor);
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> densityPercentage(int densityPercentage);
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> rangePercentage(int rangePercentage);
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> distributionType(ChartizateDistributionType distributionType);
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> fontName(String fontName);
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> fontSize(int fontSize);
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> block(Character.UnicodeBlock block);
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> imageFullStream(InputStream imageFullStream) throws IOException;
+
+    public abstract ChartizateManagerBuilderAbstract<C, F, B> destinationImagePath(String destinationImagePath);
+
+    public abstract ChartizateManager<C, F, B> build() throws IOException;
 }
