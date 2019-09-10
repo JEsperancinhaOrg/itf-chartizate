@@ -4,5 +4,6 @@ jdk:
 script:
   - mvn clean install
   - cd itf-chartizate-android
+  - brew upgrade gradle
   - gradle clean build
 
