@@ -65,7 +65,7 @@ public class ChartizateImageManagerImplTest {
     @Test
     public void testSaveImage() throws Exception {
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl();
-        final ChartizateCharacterImg<?>[][] chartizateCharacterImgs = new ChartizateCharacterImg[2][];
+        final ChartizateCharacterImg<Color>[][] chartizateCharacterImgs = new ChartizateCharacterImg[2][];
         chartizateCharacterImgs[0] = new ChartizateCharacterImg[]{ //
                 new ChartizateCharacterImg<>(Color.GREEN, Color.BLACK, 10, 'A'), //
                 new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B') //

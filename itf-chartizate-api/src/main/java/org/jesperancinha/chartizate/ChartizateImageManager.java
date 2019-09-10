@@ -10,7 +10,7 @@ public abstract class ChartizateImageManager<C, F, B> {
 
     abstract int getImageHeight();
 
-    abstract B generateBufferedImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
+    abstract B generateBufferedImage(ChartizateCharacterImg<C>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
                                      int outputWidth, int outputHeight) throws IOException;
 
     public C getImageAverageColor() {

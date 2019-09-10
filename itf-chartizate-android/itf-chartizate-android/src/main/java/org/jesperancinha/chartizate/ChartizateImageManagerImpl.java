@@ -56,35 +56,42 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
 
     @Override
     public Bitmap generateBufferedImage(
-            ChartizateCharacterImg<?>[][] chartizateCharacterImgs,
+            ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs,
             ChartizateFontManager<Typeface> chartizateFontManager,
             int outputWidth,
             int outputHeight
     ) throws IOException {
-
         final Bitmap bitmap = Bitmap.createBitmap(outputWidth, outputHeight, Bitmap.Config.RGB_565);
         final Canvas canvas = new Canvas(bitmap);
         final Paint paint = new Paint();
         paint.setTextSize(chartizateFontManager.getFontSize());
         paint.setTypeface(chartizateFontManager.getFont());
-        paint.setColor(((ChartizateCharacterImg<Integer>) chartizateCharacterImgs[0][0]).getBg());
+        paint.setColor(chartizateCharacterImgs[0][0].getBg());
         canvas.drawPaint(paint);
         int currentWidth = 0;
-        for (int i = 0; i < chartizateCharacterImgs.length; i++) {
-            int rowLength = chartizateCharacterImgs[i].length;
-            for (int j = 0; j < rowLength; j++) {
-                final ChartizateCharacterImg<Integer> character = (ChartizateCharacterImg<Integer>) chartizateCharacterImgs[i][j];
-                paint.setColor(character.getFg());
-                canvas.drawText(character.toString(), (float) currentWidth, (float) (chartizateFontManager.getFontSize() * (i + 1)), paint);
-                currentWidth += chartizateCharacterImgs[i][j].getWidth();
-            }
-            currentWidth = 0;
-        }
+        renderRows(chartizateCharacterImgs, chartizateFontManager, canvas, paint, currentWidth);
         final FileOutputStream out = new FileOutputStream(this.outputFile);
         if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) {
             Log.i("File", this.outputFile.concat(" is saved"));
         }
         return bitmap;
+    }
+
+    private void renderRows(ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs, ChartizateFontManager<Typeface> chartizateFontManager, Canvas canvas, Paint paint, int currentWidth) {
+        for (int i = 0; i < chartizateCharacterImgs.length; i++) {
+            int rowLength = chartizateCharacterImgs[i].length;
+            renderRow(chartizateCharacterImgs[i], (float) (chartizateFontManager.getFontSize() * (i + 1)), canvas, paint, rowLength);
+        }
+    }
+
+    private void renderRow(ChartizateCharacterImg<Integer>[] row, float y, Canvas canvas, Paint paint, int rowLength) {
+        int currentWidth = 0;
+        for (int j = 0; j < rowLength; j++) {
+            final ChartizateCharacterImg<Integer> character = row[j];
+            paint.setColor(character.getFg());
+            canvas.drawText(character.toString(), (float) currentWidth, y, paint);
+            currentWidth += row[j].getWidth();
+        }
     }
 
     @Override

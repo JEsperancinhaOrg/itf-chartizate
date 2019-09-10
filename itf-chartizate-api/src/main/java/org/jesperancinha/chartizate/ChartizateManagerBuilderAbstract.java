@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public abstract class ChartizateManagerBuilderAbstract<C, F, B> {
-    protected ChartizateCharacterImg<?>[][] chartizateBoard;
+    protected ChartizateCharacterImg<C>[][] chartizateBoard;
     protected ChartizateFontManager<F> fontManager;
     protected C background;
     protected ChartizateDistribution distribution;

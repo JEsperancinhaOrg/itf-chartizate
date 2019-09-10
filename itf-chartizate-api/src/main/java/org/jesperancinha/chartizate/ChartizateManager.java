@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 public class ChartizateManager<C, F, B> {
 
-    protected final ChartizateCharacterImg<?>[][] chartizateBoard;
+    protected final ChartizateCharacterImg<C>[][] chartizateBoard;
     protected final ChartizateFontManager<F> fontManager;
     private final C background;
     private final ChartizateDistribution distribution;
