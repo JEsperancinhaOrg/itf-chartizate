@@ -28,8 +28,8 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Fo
         return this.srcImage.getHeight();
     }
 
-    public BufferedImage saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<Font> fontManager,
-                                   String outputFile, int outputWidth, int outputHeight) {
+    public BufferedImage generateBufferedImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<Font> fontManager,
+                                               int outputWidth, int outputHeight) {
         final BufferedImage bImg = new BufferedImage(outputWidth, outputHeight, BufferedImage.TYPE_INT_RGB);
         final Graphics2D g2d = bImg.createGraphics();
         final Font font = fontManager.getFont();

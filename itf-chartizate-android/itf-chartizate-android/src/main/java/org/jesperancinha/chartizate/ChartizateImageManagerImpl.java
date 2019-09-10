@@ -20,8 +20,9 @@ import java.io.InputStream;
 public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface, Bitmap> {
 
     private Bitmap bitmap;
+    private final String outputFile;
 
-    public ChartizateImageManagerImpl(final InputStream inputStream) {
+    public ChartizateImageManagerImpl(final InputStream inputStream, String outputFile) {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.ALPHA_8;
         try {
@@ -30,6 +31,7 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
             bitmap = null;
             e.printStackTrace();
         }
+        this.outputFile = outputFile;
     }
 
     @Override
@@ -53,10 +55,9 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
     }
 
     @Override
-    public Bitmap saveImage(
+    public Bitmap generateBufferedImage(
             ChartizateCharacterImg<?>[][] chartizateCharacterImgs,
             ChartizateFontManager<Typeface> chartizateFontManager,
-            String outputFile,
             int outputWidth,
             int outputHeight
     ) throws IOException {
@@ -68,7 +69,6 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
         paint.setTypeface(chartizateFontManager.getFont());
         paint.setColor(((ChartizateCharacterImg<Integer>) chartizateCharacterImgs[0][0]).getBg());
         canvas.drawPaint(paint);
-
         int currentWidth = 0;
         for (int i = 0; i < chartizateCharacterImgs.length; i++) {
             int rowLength = chartizateCharacterImgs[i].length;
@@ -80,11 +80,9 @@ public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, 
             }
             currentWidth = 0;
         }
-
-
-        final FileOutputStream out = new FileOutputStream(outputFile);
+        final FileOutputStream out = new FileOutputStream(this.outputFile);
         if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) {
-            Log.i("File", outputFile.concat(" is saved"));
+            Log.i("File", this.outputFile.concat(" is saved"));
         }
         return bitmap;
     }

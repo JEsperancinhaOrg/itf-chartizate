@@ -10,8 +10,8 @@ public abstract class ChartizateImageManager<C, F, B> {
 
     abstract int getImageHeight();
 
-    abstract B saveImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
-                         String outputFile, int outputWidth, int outputHeight) throws IOException;
+    abstract B generateBufferedImage(ChartizateCharacterImg<?>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager,
+                                     int outputWidth, int outputHeight) throws IOException;
 
     public C getImageAverageColor() {
         final int width = getImageWidth() - 1;

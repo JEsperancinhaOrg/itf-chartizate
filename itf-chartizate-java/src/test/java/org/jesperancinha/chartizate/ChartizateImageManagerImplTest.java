@@ -65,12 +65,12 @@ public class ChartizateImageManagerImplTest {
     @Test
     public void testSaveImage() throws Exception {
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl();
-        final ChartizateCharacterImg<?>[][] pencelizerBoard = new ChartizateCharacterImg[2][];
-        pencelizerBoard[0] = new ChartizateCharacterImg[]{ //
+        final ChartizateCharacterImg<?>[][] chartizateCharacterImgs = new ChartizateCharacterImg[2][];
+        chartizateCharacterImgs[0] = new ChartizateCharacterImg[]{ //
                 new ChartizateCharacterImg<>(Color.GREEN, Color.BLACK, 10, 'A'), //
                 new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B') //
         };
-        pencelizerBoard[1] = new ChartizateCharacterImg[]{ //
+        chartizateCharacterImgs[1] = new ChartizateCharacterImg[]{ //
                 new ChartizateCharacterImg<>(Color.BLUE, Color.BLACK, 10, 'C'), //
                 new ChartizateCharacterImg<>(Color.YELLOW, Color.BLACK, 10, 'D') //
         };
@@ -79,6 +79,6 @@ public class ChartizateImageManagerImplTest {
         final String outputFile = "/tmp/saveImage.png";
         final int outputWidth = 20;
         final int outputHeight = 20;
-        assertDoesNotThrow(() -> imageManager.saveImage(pencelizerBoard, fontManager, outputFile, outputWidth, outputHeight));
+        assertDoesNotThrow(() -> imageManager.generateBufferedImage(chartizateCharacterImgs, fontManager, outputWidth, outputHeight));
     }
 }

@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 
 import androidx.test.runner.AndroidJUnit4;
 
-import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,7 +20,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static java.lang.Character.UnicodeBlock.ARABIC;
+import static java.lang.Character.UnicodeBlock.HEBREW;
+import static java.lang.Character.UnicodeBlock.LATIN_EXTENDED_A;
+import static java.lang.Character.UnicodeBlock.MANDAIC;
+import static java.lang.Character.UnicodeBlock.SAMARITAN;
+import static java.lang.Character.UnicodeBlock.SYRIAC;
+import static java.lang.Character.UnicodeBlock.THAANA;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear;
 
 @RunWith(AndroidJUnit4.class)
 public class ChartizateManagerImplTest {
@@ -37,223 +44,201 @@ public class ChartizateManagerImplTest {
     }
 
     @Test
+    public void testGenerateConvertedImageStreamCustomColor() throws Exception {
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.chartizatecyanblack);
+        assertThat(imageFullStream).isNotNull();
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(15280682)
+                .densityPercentage(50)
+                .rangePercentage(10)
+                .distributionType(Linear)
+                .fontName("Arial")
+                .fontSize(5)
+                .block(LATIN_EXTENDED_A)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
+
+        manager.generateConvertedImage();
+    }
+
+    @Test
+    public void testGenerateConvertedImageStreamCyanBlack() throws Exception {
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.chartizatecyanblack);
+        assertThat(imageFullStream).isNotNull();
+
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLUE)
+                .densityPercentage(50)
+                .rangePercentage(10)
+                .distributionType(Linear)
+                .fontName("Arial")
+                .fontSize(5)
+                .block(LATIN_EXTENDED_A)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
+
+        manager.generateConvertedImage();
+    }
+
+    @Test
     public void testGenerateConvertedImageCyanBlack() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.chartizatecyanblack);
+        assertThat(imageFullStream).isNotNull();
+
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLACK)
+                .densityPercentage(50)
+                .rangePercentage(10)
+                .distributionType(Linear)
+                .fontName("Arial")
+                .fontSize(5)
+                .block(LATIN_EXTENDED_A)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
+
+        manager.generateConvertedImage();
+    }
+
+    @Test
+    public void testGenerateConvertedImageLatinRealExample2() throws Exception {
+        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
 
         assertThat(imageFullStream).isNotNull();
 
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                50,
-                10,
-                ChartizateDistributionType.Linear,
-                "Arial",
-                5,
-                Character.UnicodeBlock.LATIN_EXTENDED_A,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLACK)
+                .densityPercentage(100)
+                .rangePercentage(100)
+                .distributionType(Linear)
+                .fontName("Times New Roman")
+                .fontSize(5)
+                .block(LATIN_EXTENDED_A)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
+
         manager.generateConvertedImage();
     }
 
     @Test
-    public void testGenerateConvertedImageRealExample1() throws Exception {
-        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample1);
-
-        assertThat(imageFullStream);
-
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.LATIN_EXTENDED_A,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
-        manager.generateConvertedImage();
-    }
-
-    @Test
-    public void testGenerateConvertedImageRealExample1Red() throws Exception {
-        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample1);
-
-        assertThat(imageFullStream);
-
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.RED,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.LATIN_EXTENDED_A,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
-        manager.generateConvertedImage();
-    }
-
-
-    @Test
-    public void testGenerateConvertedImageLatinRealexample2() throws Exception {
+    public void testGenerateConvertedImageArabicRealExample2() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
+        assertThat(imageFullStream).isNotNull();
 
-        assertThat(imageFullStream);
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLACK)
+                .densityPercentage(100)
+                .rangePercentage(100)
+                .distributionType(Linear)
+                .fontName("Times New Roman")
+                .fontSize(5)
+                .block(ARABIC)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
 
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.LATIN_EXTENDED_A,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
         manager.generateConvertedImage();
     }
 
     @Test
-    public void testGenerateConvertedImageArabicRealexample2() throws Exception {
+    public void testGenerateConvertedImageHebrewRealExample2() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
+        assertThat(imageFullStream).isNotNull();
 
-        assertThat(imageFullStream);
-
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.ARABIC,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLACK)
+                .densityPercentage(100)
+                .rangePercentage(100)
+                .distributionType(Linear)
+                .fontName("Times New Roman")
+                .fontSize(20)
+                .block(HEBREW)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
         manager.generateConvertedImage();
     }
 
     @Test
-    public void testGenerateConvertedImageHebrewRealexample2() throws Exception {
+    public void testGenerateConvertedImageSyriacRealExample2() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
+        assertThat(imageFullStream).isNotNull();
 
-        assertThat(imageFullStream);
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLACK)
+                .densityPercentage(100)
+                .rangePercentage(100)
+                .distributionType(Linear)
+                .fontName("Times New Roman")
+                .fontSize(20)
+                .block(SYRIAC)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
 
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.HEBREW,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
         manager.generateConvertedImage();
     }
 
     @Test
-    public void testGenerateConvertedImageSyriacRealexample2() throws Exception {
+    public void testGenerateConvertedImageSamaritanRealExample2() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
+        assertThat(imageFullStream).isNotNull();
 
-        assertThat(imageFullStream);
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLACK)
+                .densityPercentage(100)
+                .rangePercentage(100)
+                .distributionType(Linear)
+                .fontName("Times New Roman")
+                .fontSize(20)
+                .block(SAMARITAN)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
 
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.SYRIAC,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
         manager.generateConvertedImage();
     }
 
     @Test
-    public void testGenerateConvertedImageSamaritanRealexample2() throws Exception {
+    public void testGenerateConvertedImageMandaicRealExample2() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
+        assertThat(imageFullStream).isNotNull();
 
-        assertThat(imageFullStream);
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.BLACK)
+                .densityPercentage(100)
+                .rangePercentage(100)
+                .distributionType(Linear)
+                .fontName("Times New Roman")
+                .fontSize(20)
+                .block(MANDAIC)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
 
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.SAMARITAN,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
         manager.generateConvertedImage();
     }
 
     @Test
-    public void testGenerateConvertedImageMandaicRealexample2() throws Exception {
+    public void testGenerateConvertedImageThaanaRealExample2() throws Exception {
         final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
+        assertThat(imageFullStream).isNotNull();
 
-        assertThat(imageFullStream);
+        final ChartizateManager manager = new ChartizateManagerBuilderImpl()
+                .backgroundColor(Color.RED)
+                .densityPercentage(100)
+                .rangePercentage(100)
+                .distributionType(Linear)
+                .fontName("Times New Roman")
+                .fontSize(20)
+                .block(THAANA)
+                .imageFullStream(imageFullStream)
+                .destinationImagePath(targetFile.getAbsolutePath())
+                .build();
 
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.MANDAIC,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
-        manager.generateConvertedImage();
-    }
-
-    @Test
-    public void testGenerateConvertedImageThaanaRealexample2() throws Exception {
-        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample2);
-
-        assertThat(imageFullStream);
-
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                100,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.THAANA,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
-        manager.generateConvertedImage();
-    }
-
-    @Test
-    public void testGenerateConvertedImageRealExample1DensityFail1() throws Exception {
-        final InputStream imageFullStream = getByteArrayInputStreamFromResource(R.raw.realexample1);
-
-        assertThat(imageFullStream);
-
-        final ChartizateManagerImpl manager = new ChartizateManagerImpl(
-                Color.BLACK,
-                1,
-                100,
-                ChartizateDistributionType.Linear,
-                "Times New Roman",
-                20,
-                Character.UnicodeBlock.LATIN_EXTENDED_A,
-                imageFullStream,
-                targetFile.getAbsolutePath()
-        );
         manager.generateConvertedImage();
     }
 

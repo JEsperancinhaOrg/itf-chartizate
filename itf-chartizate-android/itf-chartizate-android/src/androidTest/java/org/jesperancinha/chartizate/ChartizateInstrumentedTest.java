@@ -22,6 +22,6 @@ public class ChartizateInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("org.jesperancinha.chartizate", appContext.getPackageName());
+        assertEquals("org.jesperancinha.chartizate.test", appContext.getPackageName());
     }
 }

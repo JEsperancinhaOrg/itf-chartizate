@@ -9,7 +9,7 @@ ITF library for android
 ## Gradle
 
 ```text
-implementation 'org.jesperancinha.itf:itf-chartizate-android:4.1.2'
+implementation 'org.jesperancinha.itf:itf-chartizate-android:5.0.0-SNAPSHOT'
 ```
 ## Maven
 
