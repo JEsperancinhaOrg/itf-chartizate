@@ -13,11 +13,10 @@ matrix:
         - export GRADLE_HOME=$PWD/gradle-5.6.2
         - export PATH=$GRADLE_HOME/bin:$PATH
         - gradle -v
-        - brew tap caskroom/versions
-        - brew cask info java11
-        - brew cask info java
-        - brew cask install java11
-        - brew cask install java
+        - sudo add-apt-repository ppa:linuxuprising/java -y
+        - sudo apt-get update
+        - sudo apt-get install oracle-java11-installer-local
+        - sudo apt-get install oracle-java11-set-default-local
       script:
         - mvn clean install -DskipTests
         - cd itf-chartizate-android
