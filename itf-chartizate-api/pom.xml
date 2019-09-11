@@ -32,9 +32,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:https://github.com/jesperancinha/itf-chartizate-api.git</connection>
-        <developerConnection>scm:git:git@github.com:jesperancinha/itf-chartizate-api.git</developerConnection>
-        <url>https://github.com/jesperancinha/itf-chartizate-api</url>
+        <connection>scm:git:https://github.com/jesperancinha/itf-chartizate.git</connection>
+        <developerConnection>scm:git:https://github.com/jesperancinha/itf-chartizate.git</developerConnection>
+        <url>https://github.com/jesperancinha/itf-chartizate/tree/master/itf-chartizate-api</url>
         <tag>${revision}</tag>
     </scm>
     <distributionManagement>
