@@ -25,6 +25,8 @@ From: <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/m
 To:
 <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/itf-chartizate-android/src/main/res/raw/realexample1_expected.png" alt="" data-canonical-src="https://raw.githubushttps://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" width="250" height="250" />
 
+There are more available libraries to use in different environments. Please take a look at the [itf-chartizate-modules](https://github.com/jesperancinha/itf-chartizate-modules) project.
+
 ## Tools
 
 $ git push --delete origin 2.0.0  
