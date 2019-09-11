@@ -9,8 +9,7 @@ import java.io.InputStream;
 
 
 public class ChartizateManagerBuilderImpl
-        extends ChartizateManagerBuilderAbstract<Color, Font, BufferedImage>
-        implements ChartizateManagerBuilder<Color, Font, BufferedImage> {
+        extends ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> {
 
     private int densityPercentage;
     private int rangePercentage;

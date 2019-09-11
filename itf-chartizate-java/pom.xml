@@ -156,10 +156,6 @@
             <artifactId>itf-chartizate-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jesperancinha.itf</groupId>
-            <artifactId>itf-chartizate-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.im4java</groupId>
             <artifactId>im4java</artifactId>
         </dependency>
@@ -171,10 +167,6 @@
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jesperancinha.itf</groupId>
-            <artifactId>itf-chartizate-api</artifactId>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>

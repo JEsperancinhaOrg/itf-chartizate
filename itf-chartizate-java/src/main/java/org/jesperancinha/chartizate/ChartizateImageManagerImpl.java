@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Slf4j
-public class ChartizateImageManagerImpl extends ChartizateImageManagerAbstract<Color, Font, BufferedImage> implements ChartizateImageManager<Color, Font, BufferedImage> {
+public class ChartizateImageManagerImpl extends ChartizateImageManagerAbstract<Color, Font, BufferedImage> {
 
     private final String outputFile;
     private BufferedImage srcImage;
