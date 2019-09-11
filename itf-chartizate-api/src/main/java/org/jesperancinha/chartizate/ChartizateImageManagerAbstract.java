@@ -6,6 +6,29 @@ import java.io.IOException;
 
 public abstract class ChartizateImageManagerAbstract<C, F, B> implements ChartizateImageManager<C, F, B> {
 
+    private static class ColorHelper {
+        double alpha = 0;
+        double red = 0;
+        double green = 0;
+        double blue = 0;
+
+        public void addAlpha(double alpha) {
+            this.alpha += alpha;
+        }
+
+        public void addRed(double red) {
+            this.red += red;
+        }
+
+        public void addGreen(double green) {
+            this.green += green;
+        }
+
+        public void addBlue(double blue) {
+            this.blue += blue;
+        }
+    }
+
     public C getImageAverageColor() {
         final int width = getImageWidth() - 1;
         final int height = getImageHeight() - 1;
@@ -13,27 +36,23 @@ public abstract class ChartizateImageManagerAbstract<C, F, B> implements Chartiz
     }
 
     public C getPartAverageColor(final int x0, final int y0, final int xn, final int yn) {
-        double alpha = 0;
-        double red = 0;
-        double green = 0;
-        double blue = 0;
+
+        final ColorHelper colorHelper = new ColorHelper();
         for (int j = x0; j <= xn && j < getImageWidth(); j++) {
             for (int k = y0; k <= yn && k < getImageHeight(); k++) {
                 int rgbPixel = getImagePixelRGB(j, k);
-                alpha += getAlpha(rgbPixel);
-                red += getRed(rgbPixel);
-                green += getGreen(rgbPixel);
-                blue += getBlue(rgbPixel);
+                colorHelper.addAlpha(getAlpha(rgbPixel));
+                colorHelper.addRed(getRed(rgbPixel));
+                colorHelper.addGreen(getGreen(rgbPixel));
+                colorHelper.addBlue(getBlue(rgbPixel));
             }
         }
-
         int commonDenominator = (xn - x0 + 1) * (yn - y0 + 1);
-        int mediumApha = (int) (alpha / commonDenominator);
-        int mediumRed = (int) (red / commonDenominator);
-        int mediumBlue = (int) (blue / commonDenominator);
-        int mediumGreen = (int) (green / commonDenominator);
-
-        return createColor(mediumApha, mediumRed, mediumGreen, mediumBlue);
+        return createColor(
+                colorHelper.alpha / commonDenominator,
+                colorHelper.red / commonDenominator,
+                colorHelper.green / commonDenominator,
+                colorHelper.blue / commonDenominator);
     }
 
     public abstract int getBlue(int rgbPixel);
@@ -48,7 +67,7 @@ public abstract class ChartizateImageManagerAbstract<C, F, B> implements Chartiz
 
     public abstract int getImagePixelRGB(int j, int k);
 
-    public abstract C createColor(int mediumApha, int mediumRed, int mediumGreen, int mediumBlue);
+    public abstract C createColor(double mediumApha, double mediumRed, double mediumGreen, double mediumBlue);
 
     public abstract int getImageWidth();
 
