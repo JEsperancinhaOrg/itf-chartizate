@@ -1,6 +1,6 @@
 package org.jesperancinha.chartizate;
 
-import org.jesperancinha.chartizate.distributions.ChartizateDistributionAbstract;
+import org.jesperancinha.chartizate.distributions.ChartizateDistribution;
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.jesperancinha.chartizate.distributions.ChartizateLinearDistributionImpl;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
@@ -12,7 +12,7 @@ public abstract class ChartizateManagerBuilderAbstract<C, F, B> implements Chart
     protected ChartizateCharacterImg<C>[][] chartizateBoard;
     protected ChartizateFontManager<F> fontManager;
     protected C background;
-    protected ChartizateDistributionAbstract distribution;
+    protected ChartizateDistribution distribution;
     protected ChartizateEncodingManager<F> encodingManager;
     protected ChartizateImageManager<C, F, B> imageManager;
     protected String destinationImagePath;
@@ -60,23 +60,28 @@ public abstract class ChartizateManagerBuilderAbstract<C, F, B> implements Chart
         return this;
     }
 
-    private ChartizateDistributionAbstract getDistribution(
+    private ChartizateDistribution getDistribution(
             ChartizateDistributionType distributionType,
             int densityPercentage,
             int rangePercentage
     ) {
         switch (distributionType) {
             case Linear:
-                return new ChartizateLinearDistributionImpl(
-                        this.encodingManager.getCharacters(),
-                        densityPercentage,
-                        rangePercentage
-                );
+                return createLinearDistribution(densityPercentage, rangePercentage);
             case Gaussian:
             case Poisson:
             default:
                 return null; //TODO: To be implemented
         }
+    }
+
+    private ChartizateLinearDistributionImpl createLinearDistribution(int densityPercentage, int rangePercentage) {
+        return ChartizateLinearDistributionImpl
+                .builder()
+                .orderedListOfCharacters(this.encodingManager.getCharacters())
+                .densityPercentage(densityPercentage)
+                .rangePercentage(rangePercentage)
+                .build();
     }
 
     public abstract ChartizateManagerBuilder<C, F, B> backgroundColor(C backgroundColor);

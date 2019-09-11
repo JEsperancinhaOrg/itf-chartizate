@@ -1,13 +1,25 @@
 package org.jesperancinha.chartizate.distributions;
 
+import lombok.Builder;
+
 import java.util.Random;
 
-public class ChartizateLinearDistributionImpl extends ChartizateDistributionAbstract {
+@Builder
+public class ChartizateLinearDistributionImpl implements ChartizateDistribution{
 
-    public ChartizateLinearDistributionImpl(Character[] characters, int densityPercentage, int rangePercentage) {
-        super(characters, densityPercentage, rangePercentage);
+    protected final Character[] orderedListOfCharacters;
+
+    protected final int densityPercentage;
+
+    protected final int rangePercentage;
+
+    public int getDeterminedPosition() {
+        return (int) (Math.ceil((double) (densityPercentage * orderedListOfCharacters.length) / 100)) - 1;
     }
 
+    public int getRange() {
+        return (int) (Math.ceil(((double) rangePercentage) / 100 * orderedListOfCharacters.length));
+    }
     public Character getCharacterFromArray() {
         final int determinedPosition = getDeterminedPosition();
         final int range = getRange();
