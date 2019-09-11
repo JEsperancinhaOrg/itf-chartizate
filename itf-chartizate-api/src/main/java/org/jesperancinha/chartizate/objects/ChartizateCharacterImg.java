@@ -1,37 +1,12 @@
 package org.jesperancinha.chartizate.objects;
 
-public class ChartizateCharacterImg<T> {
+public interface ChartizateCharacterImg<T> {
 
-    private T fg;
-    private T bg;
-    private char character;
-    private int width;
+    T getBg();
 
-    public ChartizateCharacterImg(final T fg, final T bg, final int width, final char character) {
-        this.fg = fg;
-        this.bg = bg;
-        this.width = width;
-        this.character = character;
-    }
+    T getFg();
 
-    public T getBg() {
-        return bg;
-    }
+    int getWidth();
 
-    public T getFg() {
-        return fg;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public char getCharacter() {
-        return character;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(character);
-    }
+    char getCharacter();
 }

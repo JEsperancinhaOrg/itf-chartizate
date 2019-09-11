@@ -18,7 +18,7 @@ public class ChartizateEncodingManagerImplTest {
      */
     @Test
     public void testInit_Latin_Visual_Density_Test() {
-        final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+        final ChartizateFontManagerAbstract<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager manager = new ChartizateEncodingManagerImpl(
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 fontManager);
@@ -29,7 +29,7 @@ public class ChartizateEncodingManagerImplTest {
 
     @Test
     public void testGetCharacterFullness_H() {
-        final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+        final ChartizateFontManagerAbstract<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 fontManager) {
@@ -45,7 +45,7 @@ public class ChartizateEncodingManagerImplTest {
 
     @Test
     public void testGetCharacterFullness_Special_Z() {
-        final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+        final ChartizateFontManagerAbstract<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 fontManager) {
@@ -60,7 +60,7 @@ public class ChartizateEncodingManagerImplTest {
 
     @Test
     public void testGetCharacterFullness_Special_L() {
-        final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+        final ChartizateFontManagerAbstract<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 fontManager) {
@@ -75,7 +75,7 @@ public class ChartizateEncodingManagerImplTest {
 
     @Test
     public void testGetCharacterFullness_Special_W() {
-        final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+        final ChartizateFontManagerAbstract<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
         final ChartizateEncodingManager<Font> manager = new ChartizateEncodingManagerImpl(
                 Character.UnicodeBlock.LATIN_EXTENDED_A,
                 fontManager) {

@@ -1,5 +1,7 @@
 package org.jesperancinha.chartizate;
 
+import org.jesperancinha.chartizate.distributions.ChartizateDistribution;
+import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.junit.Test;
 
 import java.awt.*;
@@ -15,7 +17,7 @@ public class ChartizateFontManagerImplTest {
 
     @Test
     public void testGetCharacterWidth() {
-        final ChartizateFontManager<Font> manager = new ChartizateFontManagerImpl("Arial", 10);
+        final ChartizateFontManagerAbstract<Font> manager = new ChartizateFontManagerImpl("Arial", 10);
 
         assertThat(manager.getCharacterWidth('a')).isEqualTo(6);
         assertThat(manager.getCharacterWidth('A')).isEqualTo(7);
@@ -42,7 +44,7 @@ public class ChartizateFontManagerImplTest {
                 "Skellam"
         };
 
-        final List<String> result = ChartizateFontManagerImpl.getAllDistributionTypes();
+        final List<String> result = ChartizateDistributionType.getAllDistributionTypes();
 
         assertArrayEquals(testDistributions, result.toArray());
     }

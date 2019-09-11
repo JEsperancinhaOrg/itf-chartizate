@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class ChartizateFontManagerImpl extends ChartizateFontManager<Font> {
+public class ChartizateFontManagerImpl extends ChartizateFontManagerAbstract<Font> {
 
     private Font font;
 

@@ -2,7 +2,6 @@ package org.jesperancinha.chartizate;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 
 import java.io.IOException;
@@ -90,7 +89,7 @@ public class ChartizateManagerBuilderImpl extends ChartizateManagerBuilderAbstra
         this.withDistribution(this.distributionType, this.densityPercentage, this.rangePercentage);
         this.withImageManager(imageFullStream);
         this.withChartizateBoard();
-        return ChartizateManager.<Integer, Typeface, Bitmap>builder()
+        return ChartizateManagerImpl.<Integer, Typeface, Bitmap>builder()
                 .chartizateBoard(super.chartizateBoard)
                 .fontManager(this.fontManager)
                 .background(this.background)

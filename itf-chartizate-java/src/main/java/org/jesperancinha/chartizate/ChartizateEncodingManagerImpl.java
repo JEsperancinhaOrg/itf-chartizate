@@ -5,8 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.lang.Character.UnicodeBlock;
 
-public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Font> {
-
+public class ChartizateEncodingManagerImpl extends ChartizateEncodingManagerAbstract<Font> {
     ChartizateEncodingManagerImpl(UnicodeBlock block, ChartizateFontManager<Font> fontManager) {
         super(block, fontManager);
     }

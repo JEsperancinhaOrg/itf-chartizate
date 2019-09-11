@@ -6,10 +6,9 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-
 import androidx.test.runner.AndroidJUnit4;
-
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
+import org.jesperancinha.chartizate.objects.ChartizateCharacterImgImpl;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -86,12 +85,12 @@ public class ChartizateImageManagerImplTest {
         final ChartizateImageManager<Integer, Typeface, Bitmap> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
         final ChartizateCharacterImg<Integer>[][] chartizateCharacterImgs = new ChartizateCharacterImg[2][];
         chartizateCharacterImgs[0] = new ChartizateCharacterImg[]{
-                new ChartizateCharacterImg<>(Color.GREEN, Color.RED, 10, 'A'),
-                new ChartizateCharacterImg<>(Color.BLACK, Color.RED, 10, 'B')
+                new ChartizateCharacterImgImpl<>(Color.GREEN, Color.RED, 10, 'A'),
+                new ChartizateCharacterImgImpl<>(Color.BLACK, Color.RED, 10, 'B')
         };
         chartizateCharacterImgs[1] = new ChartizateCharacterImg[]{
-                new ChartizateCharacterImg<>(Color.BLUE, Color.YELLOW, 10, 'C'),
-                new ChartizateCharacterImg<>(Color.YELLOW, Color.GREEN, 10, 'D')
+                new ChartizateCharacterImgImpl<>(Color.BLUE, Color.YELLOW, 10, 'C'),
+                new ChartizateCharacterImgImpl<>(Color.YELLOW, Color.GREEN, 10, 'D')
         };
         final ChartizateFontManager<Typeface> fontManager = new ChartizateFontManagerImpl("Arial", 10);
 

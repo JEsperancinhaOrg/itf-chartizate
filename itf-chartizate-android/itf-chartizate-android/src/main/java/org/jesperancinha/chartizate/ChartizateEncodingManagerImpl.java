@@ -9,7 +9,9 @@ import android.graphics.Typeface;
 /**
  * @author joao
  */
-public class ChartizateEncodingManagerImpl extends ChartizateEncodingManager<Typeface> {
+public class ChartizateEncodingManagerImpl
+        extends ChartizateEncodingManagerAbstract<Typeface>
+        implements ChartizateEncodingManager<Typeface> {
 
     public ChartizateEncodingManagerImpl(Character.UnicodeBlock block, ChartizateFontManager<Typeface> fontManager) {
         super(block, fontManager);

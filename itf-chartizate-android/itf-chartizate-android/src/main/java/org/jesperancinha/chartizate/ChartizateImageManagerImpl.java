@@ -14,13 +14,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
-public class ChartizateImageManagerImpl extends ChartizateImageManager<Integer, Typeface, Bitmap> {
+public class ChartizateImageManagerImpl
+        extends ChartizateImageManagerAbstract<Integer, Typeface, Bitmap>
+        implements ChartizateImageManager<Integer, Typeface, Bitmap> {
 
     private final Bitmap targetBitmap;
     private final Canvas canvas;
     private final Paint paint;
-    private Bitmap bitmap;
     private final String outputFile;
+    private Bitmap bitmap;
 
     public ChartizateImageManagerImpl(final InputStream inputStream, String outputFile) {
         final BitmapFactory.Options options = new BitmapFactory.Options();

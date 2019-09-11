@@ -6,10 +6,9 @@ import android.graphics.Typeface;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author joao Manages the prescribed font
- */
-public class ChartizateFontManagerImpl extends ChartizateFontManager<Typeface> {
+public class ChartizateFontManagerImpl
+        extends ChartizateFontManagerAbstract<Typeface>
+        implements ChartizateFontManager<Typeface> {
 
 
     private final Paint mPaint;

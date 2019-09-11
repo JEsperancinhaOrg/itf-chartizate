@@ -1,6 +1,6 @@
 package org.jesperancinha.chartizate;
 
-public interface ChartizateFontManager<T> {
+public abstract class ChartizateFontManagerAbstract<T> implements ChartizateFontManager<T> {
 
     /**
      * Gets the width of a particular character
@@ -8,7 +8,7 @@ public interface ChartizateFontManager<T> {
      * @param c Character
      * @return Width of character
      */
-    int getCharacterWidth(char c);
+    public abstract int getCharacterWidth(char c);
 
     /**
      * Gets full height of a particular character
@@ -16,9 +16,9 @@ public interface ChartizateFontManager<T> {
      * @param c Character
      * @return Width of character
      */
-    int getCharacterHeight(char c);
+    public abstract int getCharacterHeight(char c);
 
-    T getFont();
+    public abstract T getFont();
 
-    int getFontSize();
+    public abstract int getFontSize();
 }

@@ -168,6 +168,11 @@
                 <version>${revision}</version>
             </dependency>
             <dependency>
+                <groupId>org.jesperancinha.itf</groupId>
+                <artifactId>itf-chartizate-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.fusesource.jansi</groupId>
                 <artifactId>jansi</artifactId>
                 <version>${jansi.version}</version>
@@ -231,7 +236,8 @@
         </dependencies>
     </dependencyManagement>
     <modules>
-        <module>itf-chartizate-java</module>
         <module>itf-chartizate-api</module>
+        <module>itf-chartizate-common</module>
+        <module>itf-chartizate-java</module>
     </modules>
 </project>

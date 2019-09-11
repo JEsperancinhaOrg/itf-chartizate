@@ -7,13 +7,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * @author joao
  */
-public class ChartizateLinearDistributionTest {
+public class ChartizateLinearDistributionImplTest {
 
     @Test
     public void testGetCharacterFromArray() {
         final Character[] characters =
                 new Character[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'};
-        final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(characters, 50, 10);
+        final ChartizateLinearDistributionImpl distribution = new ChartizateLinearDistributionImpl(characters, 50, 10);
 
         char result = distribution.getCharacterFromArray();
 
@@ -23,7 +23,7 @@ public class ChartizateLinearDistributionTest {
     @Test
     public void testGetCharacterFromArrayDensityFail1() {
         final Character[] characters = new Character[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'};
-        final ChartizateLinearDistribution distribution = new ChartizateLinearDistribution(
+        final ChartizateLinearDistributionImpl distribution = new ChartizateLinearDistributionImpl(
                 characters,
                 1,
                 10

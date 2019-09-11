@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Slf4j
-public class ChartizateImageManagerImpl extends ChartizateImageManager<Color, Font, BufferedImage> {
+public class ChartizateImageManagerImpl extends ChartizateImageManagerAbstract<Color, Font, BufferedImage> implements ChartizateImageManager<Color, Font, BufferedImage> {
 
-    private BufferedImage srcImage;
     private final String outputFile;
+    private BufferedImage srcImage;
 
     public ChartizateImageManagerImpl(InputStream io, String outputFile) throws IOException {
         this.srcImage = ImageIO.read(io);

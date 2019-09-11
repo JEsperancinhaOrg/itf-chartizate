@@ -1,6 +1,7 @@
 package org.jesperancinha.chartizate;
 
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
+import org.jesperancinha.chartizate.objects.ChartizateCharacterImgImpl;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -86,14 +87,14 @@ public class ChartizateImageManagerImplTest {
         final ChartizateImageManager<Color, Font, BufferedImage> imageManager = new ChartizateImageManagerImpl(io, targetFile.getAbsolutePath());
         final ChartizateCharacterImg<Color>[][] chartizateCharacterImgs = new ChartizateCharacterImg[2][];
         chartizateCharacterImgs[0] = new ChartizateCharacterImg[]{
-                new ChartizateCharacterImg<>(Color.GREEN, Color.RED, 10, 'A'),
-                new ChartizateCharacterImg<>(Color.RED, Color.BLACK, 10, 'B')
+                new ChartizateCharacterImgImpl<>(Color.GREEN, Color.RED, 10, 'A'),
+                new ChartizateCharacterImgImpl<>(Color.RED, Color.BLACK, 10, 'B')
         };
         chartizateCharacterImgs[1] = new ChartizateCharacterImg[]{
-                new ChartizateCharacterImg<>(Color.BLUE, Color.YELLOW, 10, 'C'),
-                new ChartizateCharacterImg<>(Color.YELLOW, Color.GREEN, 10, 'D')
+                new ChartizateCharacterImgImpl<>(Color.BLUE, Color.YELLOW, 10, 'C'),
+                new ChartizateCharacterImgImpl<>(Color.YELLOW, Color.GREEN, 10, 'D')
         };
-        final ChartizateFontManager<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
+        final ChartizateFontManagerAbstract<Font> fontManager = new ChartizateFontManagerImpl("Arial", 10);
 
         assertDoesNotThrow(() -> {
             final BufferedImage bufferedImage = imageManager.generateBufferedImage(chartizateCharacterImgs, fontManager);

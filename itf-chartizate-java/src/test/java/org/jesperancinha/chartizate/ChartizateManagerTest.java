@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear;
 
 
-public class ChartizateManagerImplTest {
+public class ChartizateManagerTest {
 
     @Test
     public void testGenerateConvertedImageStreamCustomColor() throws Exception {

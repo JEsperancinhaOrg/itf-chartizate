@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class ChartizateManagerBuilderImpl extends ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> {
+public class ChartizateManagerBuilderImpl
+        extends ChartizateManagerBuilderAbstract<Color, Font, BufferedImage>
+        implements ChartizateManagerBuilder<Color, Font, BufferedImage> {
 
     private int densityPercentage;
     private int rangePercentage;
@@ -18,71 +20,71 @@ public class ChartizateManagerBuilderImpl extends ChartizateManagerBuilderAbstra
     private String destinationImagePath;
 
     @Override
-    protected ChartizateImageManagerImpl createImageManager(
+    public ChartizateImageManagerImpl createImageManager(
             final InputStream imageFullStream) throws IOException {
         return new ChartizateImageManagerImpl(imageFullStream, destinationImagePath);
     }
 
     @Override
-    protected ChartizateEncodingManagerImpl createEncodingManager(final Character.UnicodeBlock block) {
+    public ChartizateEncodingManager<Font> createEncodingManager(final Character.UnicodeBlock block) {
         return new ChartizateEncodingManagerImpl(block, fontManager);
     }
 
     @Override
-    protected ChartizateFontManagerImpl createFontManager(final String fontName, final int fontSize) {
+    public ChartizateFontManager<Font> createFontManager(final String fontName, final int fontSize) {
         return new ChartizateFontManagerImpl(fontName, fontSize);
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> backgroundColor(Color backgroundColor) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> backgroundColor(Color backgroundColor) {
         this.withBackground(backgroundColor);
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> densityPercentage(int densityPercentage) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> densityPercentage(int densityPercentage) {
         this.densityPercentage = densityPercentage;
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> rangePercentage(int rangePercentage) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> rangePercentage(int rangePercentage) {
         this.rangePercentage = rangePercentage;
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> distributionType(ChartizateDistributionType distributionType) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> distributionType(ChartizateDistributionType distributionType) {
         this.distributionType = distributionType;
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> fontName(String fontName) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> fontName(String fontName) {
         this.fontName = fontName;
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> fontSize(int fontSize) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> fontSize(int fontSize) {
         this.withFontManager(this.fontName, fontSize);
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> block(Character.UnicodeBlock block) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> block(Character.UnicodeBlock block) {
         this.withEncodingManager(block);
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> imageFullStream(InputStream imageFullStream) throws IOException {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> imageFullStream(InputStream imageFullStream) throws IOException {
         this.withImageManager(imageFullStream);
         return this;
     }
 
     @Override
-    public ChartizateManagerBuilderAbstract<Color, Font, BufferedImage> destinationImagePath(String destinationImagePath) {
+    public ChartizateManagerBuilder<Color, Font, BufferedImage> destinationImagePath(String destinationImagePath) {
         this.destinationImagePath = destinationImagePath;
         return this;
     }
@@ -92,7 +94,7 @@ public class ChartizateManagerBuilderImpl extends ChartizateManagerBuilderAbstra
         this.withDistribution(this.distributionType, this.densityPercentage, this.rangePercentage);
         this.withDestinationPath(destinationImagePath);
         this.withChartizateBoard();
-        return ChartizateManager.<Color, Font, BufferedImage>builder()
+        return ChartizateManagerImpl.<Color, Font, BufferedImage>builder()
                 .chartizateBoard(super.chartizateBoard)
                 .fontManager(this.fontManager)
                 .background(this.background)
