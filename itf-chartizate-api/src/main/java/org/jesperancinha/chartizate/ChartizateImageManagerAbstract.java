@@ -3,56 +3,47 @@ package org.jesperancinha.chartizate;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.IOException;
+import java.util.stream.IntStream;
 
 public abstract class ChartizateImageManagerAbstract<C, F, B> implements ChartizateImageManager<C, F, B> {
 
-    private static class ColorHelper {
+    public class ColorHelper {
         double alpha = 0;
         double red = 0;
         double green = 0;
         double blue = 0;
 
-        public void addAlpha(double alpha) {
-            this.alpha += alpha;
+        public void addPixel(int imagePixelRGB) {
+            this.alpha += getAlpha(imagePixelRGB);
+            this.red += getRed(imagePixelRGB);
+            this.green += getGreen(imagePixelRGB);
+            this.blue += getBlue(imagePixelRGB);
         }
 
-        public void addRed(double red) {
-            this.red += red;
-        }
-
-        public void addGreen(double green) {
-            this.green += green;
-        }
-
-        public void addBlue(double blue) {
-            this.blue += blue;
+        public void divideByDenominator(int commonDenominator) {
+            this.alpha = this.alpha / commonDenominator;
+            this.red = this.red / commonDenominator;
+            this.green = this.green / commonDenominator;
+            this.blue = this.blue / commonDenominator;
         }
     }
 
     public C getImageAverageColor() {
         final int width = getImageWidth() - 1;
         final int height = getImageHeight() - 1;
-        return getPartAverageColor(0, 0, width, height);
+        return getPartAverageColor(IntStream.range(0, width), IntStream.range(0, height));
     }
 
-    public C getPartAverageColor(final int x0, final int y0, final int xn, final int yn) {
-
+    public C getPartAverageColor(IntStream x, IntStream y) {
         final ColorHelper colorHelper = new ColorHelper();
-        for (int j = x0; j <= xn && j < getImageWidth(); j++) {
-            for (int k = y0; k <= yn && k < getImageHeight(); k++) {
-                int rgbPixel = getImagePixelRGB(j, k);
-                colorHelper.addAlpha(getAlpha(rgbPixel));
-                colorHelper.addRed(getRed(rgbPixel));
-                colorHelper.addGreen(getGreen(rgbPixel));
-                colorHelper.addBlue(getBlue(rgbPixel));
-            }
-        }
-        int commonDenominator = (xn - x0 + 1) * (yn - y0 + 1);
-        return createColor(
-                colorHelper.alpha / commonDenominator,
-                colorHelper.red / commonDenominator,
-                colorHelper.green / commonDenominator,
-                colorHelper.blue / commonDenominator);
+        x.boxed()
+                .forEach(j -> y.boxed()
+                        .forEach(k -> colorHelper.addPixel(getImagePixelRGB(j, k))));
+        final int commonDenominator =
+                (x.max().orElse(0) - x.min().orElse(0) + 1) *
+                        (y.max().orElse(0) - y.min().orElse(0) + 1);
+        colorHelper.divideByDenominator(commonDenominator);
+        return createColor(colorHelper);
     }
 
     public abstract int getBlue(int rgbPixel);

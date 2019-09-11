@@ -1,5 +1,6 @@
 package org.jesperancinha.chartizate;
 
+import org.jesperancinha.chartizate.ChartizateImageManagerAbstract.ColorHelper;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public interface ChartizateImageManager<C, F, B> {
 
     int getImagePixelRGB(int j, int k);
 
-    C createColor(int mediumApha, int mediumRed, int mediumGreen, int mediumBlue);
+    C createColor(ColorHelper colorHelper);
 
     int getImageWidth();
 
