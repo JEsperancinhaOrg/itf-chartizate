@@ -9,4 +9,6 @@ public interface ChartizateManager<C, F, B> {
     B generateConvertedImageStream() throws IOException;
 
     B createBufferedImage() throws IOException;
+
+    void saveImage(B bufferedImage) throws IOException;
 }

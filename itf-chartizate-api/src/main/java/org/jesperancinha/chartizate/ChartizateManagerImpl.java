@@ -10,6 +10,7 @@ import org.jesperancinha.chartizate.objects.ChartizateCharacterImgImpl;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Log
 @AllArgsConstructor
@@ -44,10 +45,8 @@ public class ChartizateManagerImpl<C, F, B> implements ChartizateManager<C, F, B
                 final int height = fontManager.getCharacterHeight(character);
                 int currentImageIndexY = rowIndex * height;
                 final C averageC = imageManager.getPartAverageColor(
-                        currentImageIndexX,
-                        currentImageIndexY,
-                        currentImageIndexX + width,
-                        currentImageIndexY + height
+                        IntStream.range(currentImageIndexX, currentImageIndexX + width + 1),
+                        IntStream.range(currentImageIndexY, currentImageIndexY + height + 1)
                 );
                 chartizateRow.add(new ChartizateCharacterImgImpl<>(averageC, this.background,
                         width, character));
@@ -60,5 +59,7 @@ public class ChartizateManagerImpl<C, F, B> implements ChartizateManager<C, F, B
         return imageManager.generateBufferedImage(chartizateBoard, fontManager);
     }
 
-
+    public void saveImage(B bufferedImage) throws IOException {
+        imageManager.saveBitmap(bufferedImage);
+    }
 }

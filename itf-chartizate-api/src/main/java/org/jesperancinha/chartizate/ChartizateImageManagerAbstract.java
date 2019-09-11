@@ -1,49 +1,53 @@
 package org.jesperancinha.chartizate;
 
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
+import org.jesperancinha.chartizate.objects.ColorHelper;
 
 import java.io.IOException;
+import java.util.IntSummaryStatistics;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static java.lang.Math.min;
 
 public abstract class ChartizateImageManagerAbstract<C, F, B> implements ChartizateImageManager<C, F, B> {
 
-    public class ColorHelper {
-        double alpha = 0;
-        double red = 0;
-        double green = 0;
-        double blue = 0;
-
-        public void addPixel(int imagePixelRGB) {
-            this.alpha += getAlpha(imagePixelRGB);
-            this.red += getRed(imagePixelRGB);
-            this.green += getGreen(imagePixelRGB);
-            this.blue += getBlue(imagePixelRGB);
-        }
-
-        public void divideByDenominator(int commonDenominator) {
-            this.alpha = this.alpha / commonDenominator;
-            this.red = this.red / commonDenominator;
-            this.green = this.green / commonDenominator;
-            this.blue = this.blue / commonDenominator;
-        }
+    public void addPixel(ColorHelper colorHelper, int imagePixelRGB) {
+        colorHelper.addAlpha(getAlpha(imagePixelRGB));
+        colorHelper.addRed(getRed(imagePixelRGB));
+        colorHelper.addGreen(getGreen(imagePixelRGB));
+        colorHelper.addBlue(getBlue(imagePixelRGB));
     }
 
     public C getImageAverageColor() {
         final int width = getImageWidth() - 1;
         final int height = getImageHeight() - 1;
-        return getPartAverageColor(IntStream.range(0, width), IntStream.range(0, height));
+        return getPartAverageColor(
+                IntStream.range(0, width + 1),
+                IntStream.range(0, height + 1));
     }
 
     public C getPartAverageColor(IntStream x, IntStream y) {
+        final IntSummaryStatistics statsY = getStats(y);
+        final int y0 = statsY.getMin();
+        final int yn = min(statsY.getMax() + 1, getImageHeight());
+        final IntSummaryStatistics statsX = getStats(x);
+        final int x0 = statsX.getMin();
+        final int xn = min(statsX.getMax() + 1, getImageWidth());
         final ColorHelper colorHelper = new ColorHelper();
-        x.boxed()
-                .forEach(j -> y.boxed()
-                        .forEach(k -> colorHelper.addPixel(getImagePixelRGB(j, k))));
-        final int commonDenominator =
-                (x.max().orElse(0) - x.min().orElse(0) + 1) *
-                        (y.max().orElse(0) - y.min().orElse(0) + 1);
+        IntStream.range(x0, xn).boxed()
+                .forEach(j ->
+                        IntStream.range(y0, yn).boxed()
+                                .forEach(k ->
+                                        addPixel(colorHelper, getImagePixelRGB(j, k))));
+        final int commonDenominator = (xn - x0 + 1) * (yn - y0 + 1);
         colorHelper.divideByDenominator(commonDenominator);
         return createColor(colorHelper);
+    }
+
+    private IntSummaryStatistics getStats(IntStream intStream) {
+        return intStream.boxed()
+                .collect(Collectors.summarizingInt(Integer::intValue));
     }
 
     public abstract int getBlue(int rgbPixel);
@@ -58,11 +62,11 @@ public abstract class ChartizateImageManagerAbstract<C, F, B> implements Chartiz
 
     public abstract int getImagePixelRGB(int j, int k);
 
-    public abstract C createColor(double mediumApha, double mediumRed, double mediumGreen, double mediumBlue);
-
     public abstract int getImageWidth();
 
     public abstract int getImageHeight();
+
+    public abstract C createColor(ColorHelper colorHelper);
 
     public abstract B generateBufferedImage(ChartizateCharacterImg<C>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager) throws IOException;
 }

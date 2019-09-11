@@ -1,6 +1,6 @@
 package org.jesperancinha.chartizate.objects;
 
-public class ChartizateCharacterImgImpl<T> implements ChartizateCharacterImg<T>{
+public class ChartizateCharacterImgImpl<T> implements ChartizateCharacterImg<T> {
 
     private T fg;
     private T bg;

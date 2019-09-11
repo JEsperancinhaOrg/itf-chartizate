@@ -1,15 +1,16 @@
 package org.jesperancinha.chartizate;
 
-import org.jesperancinha.chartizate.ChartizateImageManagerAbstract.ColorHelper;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
+import org.jesperancinha.chartizate.objects.ColorHelper;
 
 import java.io.IOException;
+import java.util.stream.IntStream;
 
 public interface ChartizateImageManager<C, F, B> {
 
     C getImageAverageColor();
 
-    C getPartAverageColor(final int x0, final int y0, final int xn, final int yn);
+    C getPartAverageColor(IntStream x, IntStream y);
 
     int getBlue(int rgbPixel);
 

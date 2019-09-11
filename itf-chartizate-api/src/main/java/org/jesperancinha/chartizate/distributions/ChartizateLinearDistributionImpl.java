@@ -5,7 +5,7 @@ import lombok.Builder;
 import java.util.Random;
 
 @Builder
-public class ChartizateLinearDistributionImpl implements ChartizateDistribution{
+public class ChartizateLinearDistributionImpl implements ChartizateDistribution {
 
     protected final Character[] orderedListOfCharacters;
 
@@ -20,6 +20,7 @@ public class ChartizateLinearDistributionImpl implements ChartizateDistribution{
     public int getRange() {
         return (int) (Math.ceil(((double) rangePercentage) / 100 * orderedListOfCharacters.length));
     }
+
     public Character getCharacterFromArray() {
         final int determinedPosition = getDeterminedPosition();
         final int range = getRange();
