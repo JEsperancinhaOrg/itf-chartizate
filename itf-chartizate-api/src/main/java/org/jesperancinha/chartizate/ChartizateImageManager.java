@@ -1,7 +1,6 @@
 package org.jesperancinha.chartizate;
 
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
-import org.jesperancinha.chartizate.objects.ColorHelper;
 
 import java.io.IOException;
 import java.util.stream.IntStream;
@@ -22,13 +21,7 @@ public interface ChartizateImageManager<C, F, B> {
 
     void saveBitmap(B bufferedImage) throws IOException;
 
-    int getImagePixelRGB(int j, int k);
-
-    C createColor(ColorHelper colorHelper);
-
-    int getImageWidth();
-
-    int getImageHeight();
-
     B generateBufferedImage(ChartizateCharacterImg<C>[][] chartizateCharacterImage, ChartizateFontManager<F> fontManager) throws IOException;
+
+    ChartizateImage<C> getSrcImage();
 }

@@ -50,7 +50,7 @@ public abstract class ChartizateManagerBuilderAbstract<C, F, B> implements Chart
     }
 
     public ChartizateManagerBuilder<C, F, B> withChartizateBoard() {
-        final int imageHeight = imageManager.getImageHeight();
+        final int imageHeight = imageManager.getSrcImage().getImageHeight();
         this.chartizateBoard = new ChartizateCharacterImg[imageHeight / fontManager.getFontSize()][];
         return this;
     }

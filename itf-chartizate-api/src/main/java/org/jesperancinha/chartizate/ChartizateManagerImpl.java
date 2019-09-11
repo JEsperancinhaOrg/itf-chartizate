@@ -34,7 +34,7 @@ public class ChartizateManagerImpl<C, F, B> implements ChartizateManager<C, F, B
     }
 
     public B createBufferedImage() throws IOException {
-        final int imageWidth = imageManager.getImageWidth();
+        final int imageWidth = imageManager.getSrcImage().getImageWidth();
         int currentImageIndexX = 0;
         int rowIndex = 0;
         while (rowIndex < chartizateBoard.length) {
