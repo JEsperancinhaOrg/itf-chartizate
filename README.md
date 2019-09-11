@@ -46,7 +46,7 @@ mvn nexus-staging:release  -Prelease
 <dependency>
   <groupId>org.jesperancinha.itf</groupId>
   <artifactId>itf-chartizate</artifactId>
-  <version>4.1.2</version>
+  <version>5.0.0</version>
   <type>pom</type>
 </dependency>
 ```
