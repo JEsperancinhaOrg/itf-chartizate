@@ -5,6 +5,3 @@ matrix:
         - openjdk11
       script:
         - mvn clean install
-
-
-
