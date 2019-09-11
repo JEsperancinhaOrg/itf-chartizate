@@ -1,9 +1,0 @@
-pom.xml.releaseBackup
-release.properties
-local.properties
-
-gradle
-.gradle
-gradlew
-bin
-target

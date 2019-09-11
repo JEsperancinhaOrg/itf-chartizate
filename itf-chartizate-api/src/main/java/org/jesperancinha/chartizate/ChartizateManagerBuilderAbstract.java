@@ -4,7 +4,6 @@ import org.jesperancinha.chartizate.distributions.ChartizateDistributionAbstract
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType;
 import org.jesperancinha.chartizate.distributions.ChartizateLinearDistributionImpl;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
-import org.jesperancinha.chartizate.objects.ChartizateCharacterImgImpl;
 
 import java.io.IOException;
 import java.io.InputStream;

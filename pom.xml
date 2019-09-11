@@ -237,6 +237,5 @@
     </dependencyManagement>
     <modules>
         <module>itf-chartizate-api</module>
-        <module>itf-chartizate-common</module>
     </modules>
 </project>
