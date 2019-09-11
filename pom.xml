@@ -238,6 +238,5 @@
     <modules>
         <module>itf-chartizate-api</module>
         <module>itf-chartizate-common</module>
-        <module>itf-chartizate-java</module>
     </modules>
 </project>
