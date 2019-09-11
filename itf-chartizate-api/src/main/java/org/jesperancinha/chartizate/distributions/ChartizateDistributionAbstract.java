@@ -1,8 +1,5 @@
 package org.jesperancinha.chartizate.distributions;
 
-/**
- * @author joao
- */
 public abstract class ChartizateDistributionAbstract implements ChartizateDistribution {
 
     protected final Character[] orderedListOfCharacters;
@@ -11,7 +8,8 @@ public abstract class ChartizateDistributionAbstract implements ChartizateDistri
 
     protected final int rangePercentage;
 
-    public ChartizateDistributionAbstract(final Character[] characters, final int densityPercentage,
+    public ChartizateDistributionAbstract(final Character[] characters,
+                                          final int densityPercentage,
                                           final int rangePercentage) {
         this.orderedListOfCharacters = characters;
         this.densityPercentage = densityPercentage;

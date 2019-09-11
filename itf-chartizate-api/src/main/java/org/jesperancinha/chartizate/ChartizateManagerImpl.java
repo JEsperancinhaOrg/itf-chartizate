@@ -3,7 +3,7 @@ package org.jesperancinha.chartizate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.extern.java.Log;
-import org.jesperancinha.chartizate.distributions.ChartizateDistributionAbstract;
+import org.jesperancinha.chartizate.distributions.ChartizateDistribution;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImg;
 import org.jesperancinha.chartizate.objects.ChartizateCharacterImgImpl;
 
@@ -19,7 +19,7 @@ public class ChartizateManagerImpl<C, F, B> implements ChartizateManager<C, F, B
     protected final ChartizateCharacterImg<C>[][] chartizateBoard;
     protected final ChartizateFontManager<F> fontManager;
     private final C background;
-    private final ChartizateDistributionAbstract distribution;
+    private final ChartizateDistribution distribution;
     private final ChartizateEncodingManager<F> encodingManager;
     private final ChartizateImageManager<C, F, B> imageManager;
     private String destinationImagePath;
