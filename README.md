@@ -7,7 +7,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1ccef42562a4e338846f103c7549955)](https://www.codacy.com/app/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/itf-chartizate&amp;utm_campaign=Badge_Grade)
 [![CircleCI](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate.svg?style=svg)](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate)
 [![Build Status](https://travis-ci.org/JEsperancinhaOrg/itf-chartizate.svg?branch=master)](https://travis-ci.org/JEsperancinhaOrg/itf-chartizate)
-[![codebeat badge](https://codebeat.co/badges/38f795d1-c092-4aac-976d-ec193651cd49)](https://codebeat.co/projects/github-com-jesperancinha-itf-chartizate-master)
+[![codebeat badge](https://codebeat.co/badges/960ed15e-a5c4-42f2-8078-c691a5d1833b)](https://codebeat.co/projects/github-com-jesperancinhaorg-itf-chartizate-master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/JEsperancinhaOrg/itf-chartizate?branch=master)](https://bettercodehub.com/)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/JEsperancinhaOrg/itf-chartizate.svg)](#)
