@@ -5,14 +5,14 @@
 [![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/itf-chartizate.svg)](https://github.com/jesperancinha/itf-chartizate/releases)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1ccef42562a4e338846f103c7549955)](https://www.codacy.com/app/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/itf-chartizate&amp;utm_campaign=Badge_Grade)
-[![CircleCI](https://circleci.com/gh/jesperancinha/itf-chartizate.svg?style=svg)](https://circleci.com/gh/jesperancinha/itf-chartizate)
-[![Build Status](https://travis-ci.org/jesperancinha/itf-chartizate.svg?branch=master)](https://travis-ci.org/jesperancinha/itf-chartizate)
+[![CircleCI](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate.svg?style=svg)](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate)
+[![Build Status](https://travis-ci.org/JEsperancinhaOrg/itf-chartizate.svg?branch=master)](https://travis-ci.org/JEsperancinhaOrg/itf-chartizate)
 [![codebeat badge](https://codebeat.co/badges/38f795d1-c092-4aac-976d-ec193651cd49)](https://codebeat.co/projects/github-com-jesperancinha-itf-chartizate-master)
-[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/itf-chartizate?branch=master)](https://bettercodehub.com/)
+[![BCH compliance](https://bettercodehub.com/edge/badge/JEsperancinhaOrg/itf-chartizate?branch=master)](https://bettercodehub.com/)
 
-[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/itf-chartizate.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/itf-chartizate.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/itf-chartizate.svg)](#)
+[![GitHub language count](https://img.shields.io/github/languages/count/JEsperancinhaOrg/itf-chartizate.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/JEsperancinhaOrg/itf-chartizate.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/code-size/JEsperancinhaOrg/itf-chartizate.svg)](#)
 
 ---
 ## Description
@@ -21,11 +21,11 @@ This is an image to char coder, with a spin off to the current available ones
 ITF comes from image train filters and the idea is to use this library in many other projects. However the idea was to create a train of filters where each wagon would transform the image. It should work much like the chain of responsibility pattern.
 
 Example:  
-From: <img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/itf-chartizate-android/src/main/res/raw/realexample1.jpg" alt="" data-canonical-src="https://raw.githubushttps://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" width="250" height="250" /> 
+From: <img src="https://raw.githubusercontent.com/JEsperancinhaOrg/itf-chartizate-android/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/JEsperancinhaOrg/itf-chartizate-android/master/itf-chartizate-android/src/main/res/raw/realexample1.jpg" width="250" height="250" /> 
 To:
-<img src="https://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/itf-chartizate-android/src/main/res/raw/realexample1_expected.png" alt="" data-canonical-src="https://raw.githubushttps://raw.githubusercontent.com/jesperancinha/itf-chartizate/master/itf-chartizate-android/src/main/res/raw/realexample1expected.png" width="250" height="250" />
+<img src="https://raw.githubusercontent.com/JEsperancinhaOrg/itf-chartizate-android/master/itf-chartizate-android/src/main/res/raw/realexample1_expected.png" alt="" data-canonical-src="https://raw.githubusercontent.com/JEsperancinhaOrg/itf-chartizate-android/master/itf-chartizate-android/src/main/res/raw/realexample1_expected.png" width="250" height="250" />
 
-There are more available libraries to use in different environments. Please take a look at the [itf-chartizate-modules](https://github.com/jesperancinha/itf-chartizate-modules) project.
+There are more available libraries to use in different environments. Please take a look at the [itf-chartizate-modules](https://github.com/JEsperancinhaOrg/itf-chartizate-modules) project.
 
 ## Tools
 
