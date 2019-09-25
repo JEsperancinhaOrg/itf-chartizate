@@ -8,9 +8,5 @@ else
 	cd itf-chartizate-api
 	mvn -N versions:set -DnewVersion=$1
 	cd ..
-
-	cd itf-chartizate-java
-	mvn -N versions:set -DnewVersion=$1
-	cd ..
 fi
 
