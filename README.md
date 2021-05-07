@@ -4,10 +4,13 @@
 [![Maven Central](https://img.shields.io/maven-central/v/org.jesperancinha.itf/itf-chartizate)](https://search.maven.org/search?q=itf.itf-chartizate)
 [![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/itf-chartizate.svg)](https://github.com/jesperancinha/itf-chartizate/releases)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/18ca73d1e1354fa584158bb8d498cada)](https://www.codacy.com/manual/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEsperancinhaOrg/itf-chartizate&amp;utm_campaign=Badge_Grade)[![CircleCI](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate.svg?style=svg)](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/18ca73d1e1354fa584158bb8d498cada)](https://www.codacy.com/manual/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEsperancinhaOrg/itf-chartizate&amp;utm_campaign=Badge_Grade)
+[![CircleCI](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate.svg?style=svg)](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate)
 [![Build Status](https://travis-ci.org/JEsperancinhaOrg/itf-chartizate.svg?branch=master)](https://travis-ci.org/JEsperancinhaOrg/itf-chartizate)
 [![codebeat badge](https://codebeat.co/badges/960ed15e-a5c4-42f2-8078-c691a5d1833b)](https://codebeat.co/projects/github-com-jesperancinhaorg-itf-chartizate-master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/JEsperancinhaOrg/itf-chartizate?branch=master)](https://bettercodehub.com/)
+[![Coverage Status](https://coveralls.io/repos/github/JEsperancinhaOrg/itf-chartizate/badge.svg?branch=master)](https://coveralls.io/github/JEsperancinhaOrg/itf-chartizate?branch=master)
+[![codecov](https://codecov.io/gh/jesperancinhaorg/itf-chartizate/branch/master/graph/badge.svg?token=851RSEZJTX)](https://codecov.io/gh/jesperancinhaorg/itf-chartizate)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/JEsperancinhaOrg/itf-chartizate.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/top/JEsperancinhaOrg/itf-chartizate.svg)](#)
