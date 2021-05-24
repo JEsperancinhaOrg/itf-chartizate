@@ -1,6 +1,8 @@
 # ITF Chartizate API
  
 [![Maven Central](https://img.shields.io/maven-central/v/org.jesperancinha.itf/itf-chartizate-api)](https://search.maven.org/search?q=a:itf-chartizate-api)
+[![javadoc](https://javadoc.io/badge2/org.jesperancinha.itf/itf-chartizate-api/javadoc.svg)](https://javadoc.io/doc/org.jesperancinha.itf/itf-chartizate-api)
+[![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Description
 

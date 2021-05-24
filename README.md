@@ -1,14 +1,20 @@
 # ITF Chartizate
+
 ---
+
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=ITF%20Chartizate&color=informational)](https://github.com/jesperancinha/itf-chartizate)
 [![Maven Central](https://img.shields.io/maven-central/v/org.jesperancinha.itf/itf-chartizate)](https://search.maven.org/search?q=itf.itf-chartizate)
 [![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/itf-chartizate.svg)](https://github.com/jesperancinha/itf-chartizate/releases)
+[![javadoc](https://javadoc.io/badge2/org.jesperancinha.itf/itf-chartizate/javadoc.svg)](https://javadoc.io/doc/org.jesperancinha.itf/itf-chartizate)
+[![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/18ca73d1e1354fa584158bb8d498cada)](https://www.codacy.com/manual/jofisaes/itf-chartizate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEsperancinhaOrg/itf-chartizate&amp;utm_campaign=Badge_Grade)
 [![CircleCI](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate.svg?style=svg)](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate)
 [![Build Status](https://travis-ci.com/JEsperancinhaOrg/itf-chartizate.svg?branch=master)](https://travis-ci.com/JEsperancinhaOrg/itf-chartizate)
-[![codebeat badge](https://codebeat.co/badges/960ed15e-a5c4-42f2-8078-c691a5d1833b)](https://codebeat.co/projects/github-com-jesperancinhaorg-itf-chartizate-master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/JEsperancinhaOrg/itf-chartizate?branch=master)](https://bettercodehub.com/)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5f7026624ff244eca9ba1e2dc9c99364)](https://www.codacy.com/gh/JEsperancinhaOrg/itf-chartizate/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEsperancinhaOrg/itf-chartizate&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/960ed15e-a5c4-42f2-8078-c691a5d1833b)](https://codebeat.co/projects/github-com-jesperancinhaorg-itf-chartizate-master)
+
 [![Coverage Status](https://coveralls.io/repos/github/JEsperancinhaOrg/itf-chartizate/badge.svg?branch=master)](https://coveralls.io/github/JEsperancinhaOrg/itf-chartizate?branch=master)
 [![codecov](https://codecov.io/gh/jesperancinhaorg/itf-chartizate/branch/master/graph/badge.svg?token=851RSEZJTX)](https://codecov.io/gh/jesperancinhaorg/itf-chartizate)
 
@@ -17,6 +23,18 @@
 [![GitHub top language](https://img.shields.io/github/languages/code-size/JEsperancinhaOrg/itf-chartizate.svg)](#)
 
 ---
+
+## Technologies used
+
+---
+
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/java-50.png "Java")](https://www.oracle.com/nl/java/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/lombok-50.png "Lombok")](https://projectlombok.org/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/mockito-50.png "Mockito")](https://site.mockito.org/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/assertj-50.png "AssertJ")](https://assertj.github.io/doc/)
+
+---
+
 ## Description
 
 This is an image to char coder, with a spin off to the current available ones
