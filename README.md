@@ -11,6 +11,7 @@
 [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
 [![CircleCI](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate.svg?style=svg)](https://circleci.com/gh/JEsperancinhaOrg/itf-chartizate)
+[![itf-chartizate](https://github.com/JEsperancinhaOrg/itf-chartizate/actions/workflows/itf-chartizate.yml/badge.svg)](https://github.com/JEsperancinhaOrg/itf-chartizate/actions/workflows/itf-chartizate.yml)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5f7026624ff244eca9ba1e2dc9c99364)](https://www.codacy.com/gh/JEsperancinhaOrg/itf-chartizate/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEsperancinhaOrg/itf-chartizate&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/960ed15e-a5c4-42f2-8078-c691a5d1833b)](https://codebeat.co/projects/github-com-jesperancinhaorg-itf-chartizate-master)
