@@ -46,8 +46,8 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven-compiler-plugin.source>${java.version}</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>${java.version}</maven-compiler-plugin.target>
-        <maven-compiler-plugin.source>11</maven-compiler-plugin.source>
-        <maven-compiler-plugin.target>11</maven-compiler-plugin.target>
+        <maven-compiler-plugin.source>${java.version}</maven-compiler-plugin.source>
+        <maven-compiler-plugin.target>${java.version}</maven-compiler-plugin.target>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
         <maven-release-plugin.version>2.4.1</maven-release-plugin.version>
