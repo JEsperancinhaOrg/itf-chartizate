@@ -1,9 +1,20 @@
-name: itf-chartizate
+name: itf-chartizate PR
 
 on:
+  pull_request_target:
+    branches:
+      - '**'
+  create:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
   push:
     branches:
-      - main
+      - '**'
+      - '!main'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,15 +27,8 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - name: Build and Test
+      - name: Build with Maven
         run: make b
 
       - name: Coverage
         run: make coverage
-
-      - name: Report
-        run: make report
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
