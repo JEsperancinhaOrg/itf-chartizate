@@ -1,9 +1,6 @@
 name: itf-chartizate PR
 
 on:
-  pull_request_target:
-    branches:
-      - '**'
   create:
     branches:
       - '**'
