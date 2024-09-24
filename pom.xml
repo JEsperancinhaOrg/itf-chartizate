@@ -56,7 +56,7 @@
         <maven-gpg-plugin.version>3.2.6</maven-gpg-plugin.version>
         <maven-surefire-plugin.version>3.5.0</maven-surefire-plugin.version>
         <junit-jupiter-engine.version>5.11.0</junit-jupiter-engine.version>
-        <guava.version>33.3.0-jre</guava.version>
+        <guava.version>33.3.1-jre</guava.version>
         <truth.version>1.4.4</truth.version>
         <logback-classic.version>1.5.8</logback-classic.version>
         <jansi.version>2.4.1</jansi.version>
